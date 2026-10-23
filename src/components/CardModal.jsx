@@ -2,8 +2,9 @@ import React, { useState } from 'react';
 import confetti from 'canvas-confetti';
 import { soundManager } from '../utils/soundEffects';
 import { getAnimalAvatar } from '../utils/animalAvatars';
+import { resolverInstruccionMinijuego } from '../utils/deckManager';
 
-export default function CardModal({ card, activePlayer, onClose, onTriggerPenalty }) {
+export default function CardModal({ card, activePlayer, currentMode, onClose, onTriggerPenalty }) {
   const [revealedTrivia, setRevealedTrivia] = useState(false);
   const [selectedOption, setSelectedOption] = useState(null);
   const [triviaStatus, setTriviaStatus] = useState(null); // 'correct' | 'wrong' | null
@@ -269,10 +270,10 @@ export default function CardModal({ card, activePlayer, onClose, onTriggerPenalt
             </div>
           )}
 
-          {/* Ayuda visual para minijuegos de grupo */}
-          {card.categoriaJuego.toLowerCase() === 'minijuego' && (
-            <div className="mt-4 p-3 bg-slate-800/60 rounded-xl text-xs text-slate-400 text-center italic">
-              👉 Cuenten hasta 3 y apunten al mismo tiempo. Quien reciba más votos, ¡debe beber o pagar el reto!
+          {/* Ayuda visual e instrucción específica para minijuegos de grupo */}
+          {card.categoriaJuego?.toLowerCase() === 'minijuego' && (
+            <div className="mt-4 p-3.5 bg-amber-500/10 border border-amber-500/30 rounded-2xl text-xs sm:text-sm text-amber-200 text-center font-medium leading-relaxed shadow-sm">
+              👉 {card.instruccionMinijuego || resolverInstruccionMinijuego(card.titulo, currentMode)}
             </div>
           )}
         </div>

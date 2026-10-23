@@ -104,7 +104,7 @@ export default function App() {
   // Detección automática si la tarjeta requiere otro jugador objetivo / víctima
   const detectTargetPlayer = (card, playerInTurn) => {
     if (!players || players.length < 2) return null;
-    const desc = (card.descripcion || card.pregunta || '').toLowerCase();
+    const fullText = `${card.titulo || ''} ${card.descripcion || ''} ${card.pregunta || ''} ${card.instruccionMinijuego || ''}`.toLowerCase();
 
     const triggers = [
       'otro jugador',
@@ -120,13 +120,13 @@ export default function App() {
       'sentadillas en la cara'
     ];
 
-    const needsTarget = triggers.some((t) => desc.includes(t));
+    const needsTarget = triggers.some((t) => fullText.includes(t));
     if (!needsTarget) return null;
 
     const otherPlayers = players.filter((p) => p.id !== playerInTurn.id);
     if (otherPlayers.length === 0) return null;
 
-    if (desc.includes('sexo contrario')) {
+    if (fullText.includes('sexo contrario')) {
       const opposites = otherPlayers.filter((p) => p.gender !== playerInTurn.gender);
       if (opposites.length > 0) {
         return opposites[Math.floor(Math.random() * opposites.length)];
@@ -328,6 +328,7 @@ export default function App() {
         <CardModal
           card={currentCard}
           activePlayer={activePlayer}
+          currentMode={currentMode}
           onClose={handleCloseCard}
           onTriggerPenalty={handleTriggerPenalty}
         />

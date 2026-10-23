@@ -84,6 +84,35 @@ export function resolverTexto(texto, modeId = 'caja') {
   return res;
 }
 
+// Resolver dinámicamente la instrucción según el tipo de minijuego
+export function resolverInstruccionMinijuego(titulo, modeId = 'caja') {
+  if (!titulo) return '¡Sigue la dinámica en grupo!';
+  const normalizado = titulo
+    .toLowerCase()
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/[¿?]/g, '')
+    .trim();
+
+  let template = '';
+  if (normalizado.includes('probable')) {
+    template = 'Cuenten hasta 3 y apunten al mismo tiempo. Quien reciba más votos, ¡debe beber o pagar el reto!';
+  } else if (normalizado.includes('cultura chupistica')) {
+    template = 'Tienes 5 segundos para decir un objeto relacionado con el tema y pasar el teléfono para el lado.';
+  } else if (normalizado.includes('mimica')) {
+    template = 'Debes recrear el tema dado sin decir ninguna palabra, si alguien adivina, tú y esa persona regalan $ sorbos.';
+  } else if (normalizado.includes('nunca')) {
+    template = 'Debes leer el enunciado en voz alta y las personas que hayan realizado ese acto, deben tomar.';
+  } else if (normalizado.includes('versus')) {
+    template = 'Compite con otro jugador, el ganador regala $ sorbos.';
+  } else {
+    template = 'Cuenten hasta 3 y apunten al mismo tiempo. Quien reciba más votos, ¡debe beber o pagar el reto!';
+  }
+
+  const res = resolverTexto(template, modeId);
+  return res.replace(/\b1 sorbos\b/g, '1 sorbo');
+}
+
 class DeckManager {
   constructor() {
     this.decks = {
@@ -124,6 +153,9 @@ class DeckManager {
       categoriaJuego: category,
       descripcionFormateada: resolverTexto(card.descripcion || card.pregunta || '', modeId),
       castigoFormateado: card.castigo ? resolverTexto(card.castigo, modeId) : null,
+      instruccionMinijuego: key === 'minijuego'
+        ? resolverInstruccionMinijuego(card.titulo, modeId)
+        : null,
     };
   }
 

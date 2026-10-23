@@ -273,9 +273,9 @@ export default function App() {
   const isFreeMode = screen === 'freemode';
 
   return (
-    <div className={`min-h-screen flex flex-col justify-between items-center px-4 py-3 ${themeContainerClass} max-w-md mx-auto relative transition-colors duration-200`}>
+    <div className={`h-screen max-h-screen flex flex-col justify-between items-center px-4 py-3 ${themeContainerClass} max-w-md mx-auto relative transition-colors duration-200 overflow-hidden`}>
       {/* Barra superior del Juego */}
-      <header className="w-full flex items-center justify-between py-2 border-b border-slate-800/60">
+      <header className="w-full flex items-center justify-between py-2 border-b border-slate-800/60 shrink-0">
         <button
           onClick={() => setScreen('menu')}
           className="flex items-center gap-1.5 text-xs bg-slate-800/90 hover:bg-slate-700 active:scale-95 text-slate-200 font-bold px-3 py-1.5 rounded-xl border border-slate-700 transition shadow"
@@ -313,7 +313,7 @@ export default function App() {
       </header>
 
       {/* Indicador destacado del Turno del Jugador */}
-      <div className="w-full my-2 flex flex-col items-center animate-in fade-in zoom-in-95 duration-200">
+      <div className="w-full my-2 flex flex-col items-center animate-in fade-in zoom-in-95 duration-200 shrink-0">
         <span className="text-[11px] font-black uppercase tracking-widest text-slate-400">
           ES EL TURNO DE
         </span>
@@ -343,7 +343,7 @@ export default function App() {
       </div>
 
       {/* Centro: Ruleta interactiva O Selector A la Carta */}
-      <main className="w-full flex-1 flex flex-col items-center justify-center my-1 overflow-hidden">
+      <main className={`w-full flex-1 min-h-0 flex flex-col items-center ${isFreeMode ? 'justify-start' : 'justify-center'} my-1 overflow-hidden`}>
         {isFreeMode ? (
           <FreePlaySelector onSelectGameType={handleSelectSpecificGame} />
         ) : (
@@ -394,7 +394,7 @@ export default function App() {
       />
 
       {/* Footer informativo */}
-      <footer className="w-full text-center py-1 text-[11px] text-slate-500">
+      <footer className="w-full text-center py-1 text-[11px] text-slate-500 shrink-0">
         Jugador {currentPlayerIndex + 1} de {players.length} • {isFreeMode ? 'Modo A la Carta' : 'Modo Ruleta'}
       </footer>
     </div>

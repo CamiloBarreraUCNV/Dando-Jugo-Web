@@ -6,24 +6,39 @@
   html, body {
     -webkit-tap-highlight-color: transparent;
     touch-action: manipulation;
-    scrollbar-width: none; /* Firefox */
-    -ms-overflow-style: none; /* IE y Edge */
-  }
-
-  /* Ocultar barras de desplazamiento nativas en todos los navegadores */
-  *::-webkit-scrollbar {
-    display: none;
-    width: 0px;
-    height: 0px;
   }
 }
 
 @layer utilities {
+  /* Ocultar barra solo donde se pida explícitamente */
   .no-scrollbar::-webkit-scrollbar {
     display: none;
+    width: 0px;
+    height: 0px;
   }
   .no-scrollbar {
     -ms-overflow-style: none;
     scrollbar-width: none;
+  }
+
+  /* Barra de navegación vertical visible y elegante con temática ámbar */
+  .custom-scrollbar {
+    scrollbar-width: thin;
+    scrollbar-color: #d97706 #1c1719;
+  }
+  .custom-scrollbar::-webkit-scrollbar {
+    display: block !important;
+    width: 6px !important;
+  }
+  .custom-scrollbar::-webkit-scrollbar-track {
+    background: rgba(22, 18, 20, 0.7);
+    border-radius: 9999px;
+  }
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    background: #d97706;
+    border-radius: 9999px;
+  }
+  .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: #f59e0b;
   }
 }

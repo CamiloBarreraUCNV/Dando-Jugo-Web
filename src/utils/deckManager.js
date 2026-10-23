@@ -41,6 +41,91 @@ export const GAME_MODES = [
   }
 ];
 
+// Catálogo de tipos de juegos disponibles para el Modo a la Carta
+export const GAME_TYPES = [
+  {
+    id: 'trivia',
+    name: 'Trivia',
+    icon: '🧠',
+    color: 'from-blue-600 to-indigo-700',
+    borderColor: 'border-blue-500/50',
+    description: 'Preguntas con alternativas de cultura, geografía, copete e historia.',
+    badge: '100 Preguntas',
+  },
+  {
+    id: 'mimica',
+    name: 'Mímica',
+    icon: '🎭',
+    color: 'from-purple-600 to-violet-700',
+    borderColor: 'border-purple-500/50',
+    description: 'Actúa el concepto sin hablar. Si adivinan, ¡tú y esa persona regalan sorbos!',
+    badge: '30 Tarjetas',
+  },
+  {
+    id: 'chupistica',
+    name: 'Cultura Chupística',
+    icon: '🗣️',
+    color: 'from-amber-600 to-orange-700',
+    borderColor: 'border-amber-500/50',
+    description: '5 segundos por persona para nombrar un objeto del tema y pasar el celular.',
+    badge: '20 Tarjetas',
+  },
+  {
+    id: 'nunca',
+    name: 'Nunca Nunca',
+    icon: '🙈',
+    color: 'from-rose-600 to-pink-700',
+    borderColor: 'border-rose-500/50',
+    description: 'Confesiones grupales: las personas que hayan realizado el acto, ¡beben!',
+    badge: '20 Tarjetas',
+  },
+  {
+    id: 'probable',
+    name: '¿Quién es más Probable?',
+    icon: '👥',
+    color: 'from-cyan-600 to-teal-700',
+    borderColor: 'border-cyan-500/50',
+    description: 'Votación al unísono con el dedo. El que tenga más votos bebe o paga.',
+    badge: '20 Tarjetas',
+  },
+  {
+    id: 'versus',
+    name: 'Versus',
+    icon: '⚔️',
+    color: 'from-red-600 to-orange-700',
+    borderColor: 'border-red-500/50',
+    description: 'Duelo 1 vs 1 contra otro jugador. El ganador regala sorbos.',
+    badge: '10 Tarjetas',
+  },
+  {
+    id: 'reto',
+    name: 'Retos Grupales',
+    icon: '🔥',
+    color: 'from-amber-700 to-red-800',
+    borderColor: 'border-amber-600/50',
+    description: 'Reglas de trago directo, "Toman Todos" y dinámicas con castigo.',
+    badge: '40 Tarjetas',
+  },
+  {
+    id: 'jugo',
+    name: 'Jugo & Retos Personales',
+    icon: '🍹',
+    color: 'from-fuchsia-600 to-purple-800',
+    borderColor: 'border-fuchsia-500/50',
+    description: 'Desafíos individuales de fiesta y personajes jugosos.',
+    badge: '40 Tarjetas',
+  },
+  {
+    id: 'random',
+    name: 'Al Azar (Sorpresa)',
+    icon: '🎲',
+    color: 'from-stone-700 to-stone-900',
+    borderColor: 'border-stone-500/50',
+    description: 'Saca una tarjeta al azar entre todas las categorías sin girar ruleta.',
+    badge: 'Todo el mazo',
+  },
+];
+
 // Algoritmo Fisher-Yates
 function shuffle(array) {
   const arr = [...array];
@@ -63,7 +148,6 @@ export function resolverTexto(texto, modeId = 'caja') {
 
     switch (modeId) {
       case 'vasito':
-        // En vasito, todo vale 1 a menos que sea un reto que considere tiempo
         finalVal = isTimeRelated ? baseVal : 1;
         break;
       case 'caja':
@@ -130,8 +214,26 @@ class DeckManager {
       reto: [],
       competencia: [],
     };
+
+    // Sub-mazos independientes para selección libre / a la carta
+    this.subDecks = {
+      probable: shuffle(minijuegosData.filter((d) => d.titulo === '¿Quién es más Probable?')),
+      chupistica: shuffle(minijuegosData.filter((d) => d.titulo === 'Cultura Chupistica')),
+      mimica: shuffle(minijuegosData.filter((d) => d.titulo === 'Mimica')),
+      nunca: shuffle(minijuegosData.filter((d) => d.titulo === 'Nunca nunca')),
+      versus: shuffle(minijuegosData.filter((d) => d.titulo === 'Versus')),
+    };
+
+    this.subDiscards = {
+      probable: [],
+      chupistica: [],
+      mimica: [],
+      nunca: [],
+      versus: [],
+    };
   }
 
+  // Extracción tradicional por categoría principal (Ruleta)
   drawCard(category, modeId = 'caja') {
     const key = category.toLowerCase();
     if (!this.decks[key]) {
@@ -156,6 +258,47 @@ class DeckManager {
       instruccionMinijuego: key === 'minijuego'
         ? resolverInstruccionMinijuego(card.titulo, modeId)
         : null,
+    };
+  }
+
+  // Extracción específica para el "Modo a la Carta" (Sin ruleta)
+  drawSpecificCard(typeId, modeId = 'caja') {
+    if (typeId === 'trivia') {
+      return this.drawCard('trivia', modeId);
+    }
+    if (typeId === 'reto') {
+      return this.drawCard('reto', modeId);
+    }
+    if (typeId === 'jugo') {
+      return this.drawCard('jugo', modeId);
+    }
+    if (typeId === 'random') {
+      const allTypes = ['trivia', 'reto', 'jugo', 'mimica', 'chupistica', 'nunca', 'probable', 'versus'];
+      const chosen = allTypes[Math.floor(Math.random() * allTypes.length)];
+      return this.drawSpecificCard(chosen, modeId);
+    }
+
+    const subKey = typeId.toLowerCase();
+    if (!this.subDecks[subKey]) {
+      console.warn(`Sub-tipo no reconocido: ${typeId}`);
+      return this.drawCard('minijuego', modeId);
+    }
+
+    if (this.subDecks[subKey].length === 0) {
+      if (this.subDiscards[subKey].length === 0) return null;
+      this.subDecks[subKey] = shuffle(this.subDiscards[subKey]);
+      this.subDiscards[subKey] = [];
+    }
+
+    const card = this.subDecks[subKey].pop();
+    this.subDiscards[subKey].push(card);
+
+    return {
+      ...card,
+      categoriaJuego: 'minijuego',
+      descripcionFormateada: resolverTexto(card.descripcion || card.pregunta || '', modeId),
+      castigoFormateado: card.castigo ? resolverTexto(card.castigo, modeId) : null,
+      instruccionMinijuego: resolverInstruccionMinijuego(card.titulo, modeId),
     };
   }
 

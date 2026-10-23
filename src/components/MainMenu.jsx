@@ -7,6 +7,7 @@ export default function MainMenu({
   players,
   currentMode,
   onPlay,
+  onFreePlay,
   onOptions,
   onChangePlayers,
   onOpenRules,
@@ -15,9 +16,9 @@ export default function MainMenu({
   const activeModeObj = GAME_MODES.find((m) => m.id === currentMode) || GAME_MODES[1];
 
   return (
-    <div className="w-full max-w-md mx-auto p-4 flex flex-col justify-between min-h-screen py-8 animate-in fade-in duration-200">
+    <div className="w-full max-w-md mx-auto p-4 flex flex-col justify-between min-h-screen py-6 animate-in fade-in duration-200">
       {/* Sección Superior: Branding Hero */}
-      <div className="text-center pt-2">
+      <div className="text-center pt-1">
         <div className="relative inline-flex items-center justify-center my-2">
           {/* Capas de Iluminación Destacada (Glow cálido y vibrante) */}
           <div className="absolute -inset-6 bg-gradient-to-tr from-amber-600/45 via-orange-500/40 to-yellow-500/25 rounded-full blur-3xl animate-pulse" />
@@ -27,12 +28,12 @@ export default function MainMenu({
           <img
             src={logoImg}
             alt="Dando Jugo Logo"
-            className="w-36 h-36 sm:w-44 sm:h-44 mx-auto object-contain drop-shadow-[0_12px_28px_rgba(245,158,11,0.45)] relative z-10 transform hover:scale-105 transition-transform"
+            className="w-32 h-32 sm:w-40 sm:h-40 mx-auto object-contain drop-shadow-[0_12px_28px_rgba(245,158,11,0.45)] relative z-10 transform hover:scale-105 transition-transform"
           />
         </div>
 
         {/* Pill del Modo de Juego */}
-        <div className="mt-3 flex justify-center">
+        <div className="mt-2 flex justify-center">
           <button
             onClick={onOpenModeSelector}
             className={`text-xs px-3.5 py-1.5 rounded-full border flex items-center gap-1.5 shadow-md active:scale-95 transition ${activeModeObj.badgeColor}`}
@@ -45,7 +46,7 @@ export default function MainMenu({
       </div>
 
       {/* Sección Central: Resumen de Jugadores Listos */}
-      <div className="my-6 p-4 rounded-3xl bg-[#161214]/90 border border-amber-900/40 shadow-xl">
+      <div className="my-4 p-4 rounded-3xl bg-[#161214]/90 border border-amber-900/40 shadow-xl">
         <div className="flex items-center justify-between mb-2.5">
           <span className="text-xs font-black uppercase tracking-wider text-amber-200/70">
             👥 Jugadores en Mesa ({players.length})
@@ -79,38 +80,49 @@ export default function MainMenu({
       </div>
 
       {/* Sección Inferior: Botones Principales del Menú */}
-      <div className="flex flex-col gap-3">
-        {/* 1. Jugar */}
+      <div className="flex flex-col gap-2.5">
+        {/* 1. Jugar con Ruleta */}
         <button
           onClick={onPlay}
-          className="w-full py-4 px-6 bg-gradient-to-r from-amber-500 via-amber-400 to-amber-600 hover:brightness-110 active:scale-98 text-stone-950 rounded-2xl font-black text-xl shadow-xl shadow-amber-500/25 border border-amber-300 uppercase tracking-wider transition-all flex items-center justify-center gap-2"
+          className="w-full py-3.5 px-6 bg-gradient-to-r from-amber-500 via-amber-400 to-amber-600 hover:brightness-110 active:scale-98 text-stone-950 rounded-2xl font-black text-lg sm:text-xl shadow-xl shadow-amber-500/25 border border-amber-300 uppercase tracking-wider transition-all flex items-center justify-center gap-2"
         >
           <span>🎯</span>
-          <span>¡JUGAR!</span>
+          <span>¡Girar Ruleta!</span>
         </button>
 
-        {/* 2. Opciones */}
+        {/* 2. Modo a la Carta (Elegir Juego sin Ruleta) */}
         <button
-          onClick={onOptions}
-          className="w-full py-3.5 px-6 bg-[#1a1417] hover:bg-[#251d21] active:scale-98 text-amber-100 border border-amber-900/40 rounded-2xl font-bold text-base shadow-md transition-all flex items-center justify-center gap-2"
+          onClick={onFreePlay}
+          className="w-full py-3.5 px-6 bg-gradient-to-r from-purple-700 via-indigo-600 to-purple-800 hover:brightness-110 active:scale-98 text-white rounded-2xl font-black text-base sm:text-lg shadow-xl shadow-purple-900/30 border border-purple-400/40 uppercase tracking-wider transition-all flex items-center justify-center gap-2"
         >
-          <span>⚙️</span>
-          <span>Opciones</span>
+          <span>🎴</span>
+          <span>A la Carta (Elegir Juego)</span>
         </button>
 
-        {/* 3. Cambiar Jugadores */}
-        <button
-          onClick={onChangePlayers}
-          className="w-full py-3.5 px-6 bg-[#1a1417] hover:bg-[#251d21] active:scale-98 text-amber-100 border border-amber-900/40 rounded-2xl font-bold text-base shadow-md transition-all flex items-center justify-center gap-2"
-        >
-          <span>👥</span>
-          <span>Cambiar Jugadores</span>
-        </button>
+        <div className="grid grid-cols-2 gap-2 mt-1">
+          {/* 3. Opciones */}
+          <button
+            onClick={onOptions}
+            className="w-full py-3 px-4 bg-[#1a1417] hover:bg-[#251d21] active:scale-98 text-amber-100 border border-amber-900/40 rounded-2xl font-bold text-sm shadow-md transition-all flex items-center justify-center gap-1.5"
+          >
+            <span>⚙️</span>
+            <span>Opciones</span>
+          </button>
+
+          {/* 4. Cambiar Jugadores */}
+          <button
+            onClick={onChangePlayers}
+            className="w-full py-3 px-4 bg-[#1a1417] hover:bg-[#251d21] active:scale-98 text-amber-100 border border-amber-900/40 rounded-2xl font-bold text-sm shadow-md transition-all flex items-center justify-center gap-1.5"
+          >
+            <span>👥</span>
+            <span>Jugadores</span>
+          </button>
+        </div>
 
         {/* Botón sutil de reglas */}
         <button
           onClick={onOpenRules}
-          className="w-full py-2 text-xs text-stone-500 hover:text-amber-300/80 font-semibold transition"
+          className="w-full py-1.5 text-xs text-stone-500 hover:text-amber-300/80 font-semibold transition"
         >
           ℹ️ Ver Reglas de la Casa
         </button>

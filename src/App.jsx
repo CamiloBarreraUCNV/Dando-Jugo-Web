@@ -6,6 +6,7 @@ import PenaltyWheelModal from './components/PenaltyWheelModal';
 import MainMenu from './components/MainMenu';
 import PlayerSetup from './components/PlayerSetup';
 import SettingsModal from './components/SettingsModal';
+import FreePlaySelector from './components/FreePlaySelector';
 import { deckManager, GAME_MODES } from './utils/deckManager';
 import { soundManager } from './utils/soundEffects';
 import { getAnimalAvatar } from './utils/animalAvatars';
@@ -21,7 +22,7 @@ export default function App() {
     }
   });
 
-  // 2. Pantalla activa: 'players' (si no hay jugadores), 'menu' (menú principal), o 'game' (ruleta)
+  // 2. Pantalla activa: 'players' (si no hay jugadores), 'menu' (menú principal), 'game' (ruleta), o 'freemode' (a la carta)
   const [screen, setScreen] = useState(() => {
     try {
       const saved = localStorage.getItem('dando_jugo_players');
@@ -136,7 +137,7 @@ export default function App() {
     return otherPlayers[Math.floor(Math.random() * otherPlayers.length)];
   };
 
-  // Manejo de giro de ruleta
+  // Manejo de giro de ruleta (Modo Clásico)
   const handleSpinEnd = (selectedCategory) => {
     const card = deckManager.drawCard(selectedCategory.id, currentMode);
     if (card) {
@@ -147,6 +148,20 @@ export default function App() {
       });
     } else {
       alert(`¡Se agotaron las tarjetas de ${selectedCategory.name}!`);
+    }
+  };
+
+  // Manejo de selección directa (Modo a la Carta / Sin Ruleta)
+  const handleSelectSpecificGame = (gameTypeId) => {
+    const card = deckManager.drawSpecificCard(gameTypeId, currentMode);
+    if (card) {
+      const target = detectTargetPlayer(card, activePlayer);
+      setCurrentCard({
+        ...card,
+        targetPlayer: target,
+      });
+    } else {
+      alert('¡Se agotaron las tarjetas de esta categoría!');
     }
   };
 
@@ -199,6 +214,7 @@ export default function App() {
           players={players}
           currentMode={currentMode}
           onPlay={() => setScreen('game')}
+          onFreePlay={() => setScreen('freemode')}
           onOptions={() => setShowSettingsModal(true)}
           onChangePlayers={() => setScreen('players')}
           onOpenRules={() => setShowRules(true)}
@@ -234,7 +250,8 @@ export default function App() {
               </h3>
               <ul className="text-sm text-slate-300 space-y-2 mb-6">
                 <li>✨ <strong>Un solo celular:</strong> Se van pasando el teléfono en cada turno.</li>
-                <li>🎯 <strong>Gira la ruleta:</strong> Cumple el reto o pregunta de la categoría que salga.</li>
+                <li>🎯 <strong>Modo Ruleta:</strong> El azar decide qué categoría juegas.</li>
+                <li>🎴 <strong>Modo a la Carta:</strong> El jugador en turno elige libremente qué dinámica jugar.</li>
                 <li>🎲 <strong>¿No quieres hacerlo?:</strong> Si te rehúsas a responder o hacer el reto, gira la <em>Ruleta del Jugoso</em> para probar tu suerte.</li>
                 <li>🧃 <strong>Modos de juego:</strong> Cambia la intensidad arriba (desde *Vasito 250ml* hasta *Camión 3 Ton*).</li>
                 <li>💧 <strong>Toma con cabeza:</strong> Puedes jugar con cerveza, tragos, agua o jugo. ¡No hay obligación de beber alcohol!</li>
@@ -252,9 +269,11 @@ export default function App() {
     );
   }
 
-  // RENDER 3: Pantalla de Juego con la Ruleta
+  // RENDER 3 & 4: Pantalla de Juego (Ruleta o Modo a la Carta)
+  const isFreeMode = screen === 'freemode';
+
   return (
-    <div className={`min-h-screen flex flex-col justify-between items-center px-4 py-4 ${themeContainerClass} max-w-md mx-auto relative transition-colors duration-200`}>
+    <div className={`min-h-screen flex flex-col justify-between items-center px-4 py-3 ${themeContainerClass} max-w-md mx-auto relative transition-colors duration-200`}>
       {/* Barra superior del Juego */}
       <header className="w-full flex items-center justify-between py-2 border-b border-slate-800/60">
         <button
@@ -263,6 +282,15 @@ export default function App() {
         >
           <span>🏠</span>
           <span>Menú</span>
+        </button>
+
+        {/* Selector de modo Ruleta vs A la Carta */}
+        <button
+          onClick={() => setScreen(isFreeMode ? 'game' : 'freemode')}
+          className="flex items-center gap-1 text-xs bg-stone-900/90 hover:bg-stone-800 active:scale-95 text-amber-300 font-black px-2.5 py-1.5 rounded-xl border border-amber-500/40 transition shadow-sm"
+          title={isFreeMode ? 'Cambiar a modo Ruleta' : 'Cambiar a modo A la Carta'}
+        >
+          <span>{isFreeMode ? '🎯 Ruleta' : '🎴 A la Carta'}</span>
         </button>
 
         {/* Pill del modo activo */}
@@ -285,7 +313,7 @@ export default function App() {
       </header>
 
       {/* Indicador destacado del Turno del Jugador */}
-      <div className="w-full my-3 flex flex-col items-center animate-in fade-in zoom-in-95 duration-200">
+      <div className="w-full my-2 flex flex-col items-center animate-in fade-in zoom-in-95 duration-200">
         <span className="text-[11px] font-black uppercase tracking-widest text-slate-400">
           ES EL TURNO DE
         </span>
@@ -314,13 +342,17 @@ export default function App() {
         </span>
       </div>
 
-      {/* Centro: Ruleta interactiva principal */}
-      <main className="w-full flex-1 flex flex-col items-center justify-center my-2">
-        <Roulette
-          onSpinEnd={handleSpinEnd}
-          isSpinning={isSpinning}
-          setIsSpinning={setIsSpinning}
-        />
+      {/* Centro: Ruleta interactiva O Selector A la Carta */}
+      <main className="w-full flex-1 flex flex-col items-center justify-center my-1 overflow-hidden">
+        {isFreeMode ? (
+          <FreePlaySelector onSelectGameType={handleSelectSpecificGame} />
+        ) : (
+          <Roulette
+            onSpinEnd={handleSpinEnd}
+            isSpinning={isSpinning}
+            setIsSpinning={setIsSpinning}
+          />
+        )}
       </main>
 
       {/* Modal de Tarjeta del Reto */}
@@ -363,7 +395,7 @@ export default function App() {
 
       {/* Footer informativo */}
       <footer className="w-full text-center py-1 text-[11px] text-slate-500">
-        Jugador {currentPlayerIndex + 1} de {players.length} • 100% Offline
+        Jugador {currentPlayerIndex + 1} de {players.length} • {isFreeMode ? 'Modo A la Carta' : 'Modo Ruleta'}
       </footer>
     </div>
   );

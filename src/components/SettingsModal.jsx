@@ -14,8 +14,8 @@ export default function SettingsModal({
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/85 backdrop-blur-sm animate-in fade-in duration-200">
-      <div className="w-full max-w-sm bg-slate-900 border border-slate-700 rounded-3xl p-6 shadow-2xl">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/85 backdrop-blur-sm animate-in fade-in duration-200">
+      <div className="w-full max-w-sm bg-[#161214] border border-amber-900/40 rounded-3xl p-6 shadow-2xl">
         <div className="flex items-center justify-between mb-4">
           <div className="flex items-center gap-2">
             <span className="text-xl">⚙️</span>
@@ -25,7 +25,7 @@ export default function SettingsModal({
           </div>
           <button
             onClick={onClose}
-            className="text-slate-400 hover:text-white text-lg font-bold p-1"
+            className="text-stone-400 hover:text-white text-lg font-bold p-1"
           >
             ✕
           </button>
@@ -33,28 +33,28 @@ export default function SettingsModal({
 
         <div className="space-y-4">
           {/* 1. Tema Visual (Modo Oscuro / Claro) */}
-          <div className="p-3.5 rounded-2xl bg-slate-950/70 border border-slate-800 flex items-center justify-between">
+          <div className="p-3.5 rounded-2xl bg-[#0c0a0b] border border-stone-800 flex items-center justify-between">
             <div>
-              <span className="font-bold text-sm text-slate-200 block">
+              <span className="font-bold text-sm text-amber-50 block">
                 Tema de Pantalla
               </span>
-              <span className="text-xs text-slate-400">
-                {isDarkMode ? 'Modo Oscuro (Fiesta)' : 'Modo Claro'}
+              <span className="text-xs text-stone-400">
+                {isDarkMode ? 'Modo Oscuro (Speakeasy)' : 'Modo Claro'}
               </span>
             </div>
 
             <button
               onClick={onToggleTheme}
-              className="py-1.5 px-3.5 rounded-xl border border-slate-700 bg-slate-800 hover:bg-slate-700 active:scale-95 text-xs font-bold text-slate-100 flex items-center gap-1.5 transition"
+              className="py-1.5 px-3.5 rounded-xl border border-stone-700 bg-[#1c171a] hover:bg-[#251e22] active:scale-95 text-xs font-bold text-amber-200 flex items-center gap-1.5 transition"
             >
               <span>{isDarkMode ? '🌙 Oscuro' : '☀️ Claro'}</span>
             </button>
           </div>
 
           {/* 2. Volumen General */}
-          <div className="p-3.5 rounded-2xl bg-slate-950/70 border border-slate-800">
+          <div className="p-3.5 rounded-2xl bg-[#0c0a0b] border border-stone-800">
             <div className="flex items-center justify-between mb-2">
-              <span className="font-bold text-sm text-slate-200">
+              <span className="font-bold text-sm text-amber-50">
                 Volumen de Audio
               </span>
               <span className="text-xs font-black text-amber-400">
@@ -79,12 +79,12 @@ export default function SettingsModal({
           </div>
 
           {/* 3. Sonido de la Ruleta (Tick) */}
-          <div className="p-3.5 rounded-2xl bg-slate-950/70 border border-slate-800 flex items-center justify-between">
+          <div className="p-3.5 rounded-2xl bg-[#0c0a0b] border border-stone-800 flex items-center justify-between">
             <div>
-              <span className="font-bold text-sm text-slate-200 block">
+              <span className="font-bold text-sm text-amber-50 block">
                 Sonido de la Ruleta
               </span>
-              <span className="text-xs text-slate-400">
+              <span className="text-xs text-stone-400">
                 Efecto de clics mientras gira
               </span>
             </div>
@@ -99,7 +99,7 @@ export default function SettingsModal({
               className={`py-1.5 px-3.5 rounded-xl border text-xs font-bold transition ${
                 wheelSound
                   ? 'bg-emerald-500/20 border-emerald-400 text-emerald-300'
-                  : 'bg-slate-800 border-slate-700 text-slate-400'
+                  : 'bg-stone-800 border-stone-700 text-stone-400'
               }`}
             >
               {wheelSound ? '✅ Activado' : '❌ Silenciado'}
@@ -109,7 +109,7 @@ export default function SettingsModal({
 
         <button
           onClick={onClose}
-          className="mt-6 w-full py-3 bg-amber-500 hover:bg-amber-400 active:scale-98 text-slate-950 rounded-xl font-black text-sm uppercase tracking-wide transition shadow-lg"
+          className="mt-6 w-full py-3 bg-gradient-to-r from-amber-500 via-amber-400 to-amber-600 hover:brightness-110 active:scale-98 text-stone-950 rounded-xl font-black text-sm uppercase tracking-wide transition shadow-lg border border-amber-300"
         >
           Guardar y Volver
         </button>

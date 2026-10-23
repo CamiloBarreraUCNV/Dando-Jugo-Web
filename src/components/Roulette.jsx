@@ -1,11 +1,12 @@
 import React, { useRef, useState, useEffect } from 'react';
 import { soundManager } from '../utils/soundEffects';
 
+// Paleta Opción 3 (Casino & Barra Clandestina)
 export const CATEGORIES = [
-  { id: 'trivia', name: 'Trivia', color: '#6366f1', textColor: '#ffffff' },        // Indigo
-  { id: 'minijuego', name: 'Minijuego', color: '#f59e0b', textColor: '#000000' },   // Ámbar
-  { id: 'jugo', name: 'Jugo', color: '#ec4899', textColor: '#ffffff' },              // Rosa
-  { id: 'reto', name: 'Reto', color: '#ef4444', textColor: '#ffffff' },              // Rojo
+  { id: 'trivia', name: 'Trivia', color: '#1d4ed8', textColor: '#ffffff' },        // Zafiro Casino
+  { id: 'minijuego', name: 'Minijuego', color: '#d97706', textColor: '#ffffff' },   // Cobre / Bronce
+  { id: 'jugo', name: 'Jugo', color: '#9333ea', textColor: '#ffffff' },              // Ciruela Terciopelo
+  { id: 'reto', name: 'Reto', color: '#b91c1c', textColor: '#ffffff' },              // Vino Tinto / Burdeos
 ];
 
 export default function Roulette({ onSpinEnd, isSpinning, setIsSpinning }) {
@@ -26,13 +27,13 @@ export default function Roulette({ onSpinEnd, isSpinning, setIsSpinning }) {
 
     ctx.clearRect(0, 0, size, size);
 
-    // Borde exterior metálico
+    // Borde exterior metálico dorado / latón
     ctx.beginPath();
     ctx.arc(center, center, radius + 8, 0, 2 * Math.PI);
-    ctx.fillStyle = '#1e293b';
+    ctx.fillStyle = '#1c1719';
     ctx.fill();
     ctx.lineWidth = 4;
-    ctx.strokeStyle = '#f59e0b';
+    ctx.strokeStyle = '#d4af37';
     ctx.stroke();
 
     CATEGORIES.forEach((cat, index) => {
@@ -46,8 +47,8 @@ export default function Roulette({ onSpinEnd, isSpinning, setIsSpinning }) {
       ctx.fillStyle = cat.color;
       ctx.fill();
 
-      ctx.lineWidth = 2;
-      ctx.strokeStyle = '#0f172a';
+      ctx.lineWidth = 2.5;
+      ctx.strokeStyle = '#0d0a0c';
       ctx.stroke();
 
       // Texto de la categoría
@@ -55,24 +56,25 @@ export default function Roulette({ onSpinEnd, isSpinning, setIsSpinning }) {
       ctx.translate(center, center);
       ctx.rotate(startAngle + sliceAngle / 2);
       ctx.textAlign = 'right';
+      ctx.textBaseline = 'middle';
       ctx.fillStyle = cat.textColor;
-      ctx.font = 'bold 15px system-ui, -apple-system, sans-serif';
-      ctx.shadowColor = 'rgba(0,0,0,0.4)';
-      ctx.shadowBlur = 4;
-      ctx.fillText(cat.name.toUpperCase(), radius - 20, 5);
+      ctx.font = 'bold 16px system-ui, -apple-system, sans-serif';
+      ctx.shadowColor = 'rgba(0,0,0,0.6)';
+      ctx.shadowBlur = 6;
+      ctx.fillText(cat.name.toUpperCase(), radius - 20, 0);
       ctx.restore();
     });
 
-    // Círculo central
+    // Círculo central con detalles dorados
     ctx.beginPath();
     ctx.arc(center, center, 28, 0, 2 * Math.PI);
-    ctx.fillStyle = '#0f172a';
+    ctx.fillStyle = '#0d0a0c';
     ctx.fill();
     ctx.lineWidth = 3;
-    ctx.strokeStyle = '#f59e0b';
+    ctx.strokeStyle = '#d4af37';
     ctx.stroke();
 
-    ctx.fillStyle = '#f8fafc';
+    ctx.fillStyle = '#fef08a';
     ctx.font = 'bold 11px sans-serif';
     ctx.textAlign = 'center';
     ctx.textBaseline = 'middle';
@@ -84,12 +86,10 @@ export default function Roulette({ onSpinEnd, isSpinning, setIsSpinning }) {
     setIsSpinning(true);
     soundManager.init();
 
-    // Feedback háptico
     if (navigator.vibrate) {
       navigator.vibrate([30, 50, 30]);
     }
 
-    // Programar la desaceleración del sonido de ticks durante los 4 segundos
     let delay = 60;
     let accumulatedTime = 0;
 
@@ -108,7 +108,6 @@ export default function Roulette({ onSpinEnd, isSpinning, setIsSpinning }) {
     };
     scheduleTick();
 
-    // Selección aleatoria
     const selectedIndex = Math.floor(Math.random() * numSlices);
     const selectedCategory = CATEGORIES[selectedIndex];
 
@@ -134,13 +133,13 @@ export default function Roulette({ onSpinEnd, isSpinning, setIsSpinning }) {
 
   return (
     <div className="flex flex-col items-center justify-center relative select-none">
-      {/* Flecha superior */}
+      {/* Flecha superior dorada */}
       <div className="relative z-20 -mb-5 flex flex-col items-center">
-        <div className="w-0 h-0 border-l-[16px] border-l-transparent border-r-[16px] border-r-transparent border-t-[28px] border-t-amber-400 drop-shadow-[0_4px_6px_rgba(0,0,0,0.6)] animate-pulse" />
+        <div className="w-0 h-0 border-l-[16px] border-l-transparent border-r-[16px] border-r-transparent border-t-[28px] border-t-amber-400 drop-shadow-[0_4px_8px_rgba(0,0,0,0.8)] animate-pulse" />
       </div>
 
-      {/* Rueda animada */}
-      <div className="relative p-2 rounded-full bg-slate-900 shadow-[0_0_40px_rgba(245,158,11,0.25)] border-4 border-slate-800">
+      {/* Rueda animada con marco de taberna / bronce */}
+      <div className="relative p-2.5 rounded-full bg-[#161214] shadow-[0_0_50px_rgba(212,175,55,0.2)] border-4 border-[#2d2228]">
         <canvas
           ref={canvasRef}
           width={340}
@@ -154,14 +153,14 @@ export default function Roulette({ onSpinEnd, isSpinning, setIsSpinning }) {
         />
       </div>
 
-      {/* Botón táctil grande para girar */}
+      {/* Botón táctil grande con dorado ámbar */}
       <button
         onClick={spin}
         disabled={isSpinning}
         className={`mt-6 w-full max-w-xs py-4 px-8 rounded-2xl font-black text-xl tracking-wider uppercase shadow-xl transition-all active:scale-95 ${
           isSpinning
-            ? 'bg-slate-700 text-slate-400 cursor-not-allowed'
-            : 'bg-gradient-to-r from-amber-500 via-amber-400 to-amber-500 hover:from-amber-400 hover:to-amber-300 text-slate-950 shadow-amber-500/25 animate-bounce'
+            ? 'bg-stone-800 text-stone-500 cursor-not-allowed border border-stone-700'
+            : 'bg-gradient-to-r from-amber-500 via-amber-400 to-amber-600 hover:brightness-110 text-stone-950 shadow-amber-500/30 border border-amber-300 animate-bounce'
         }`}
       >
         {isSpinning ? '¡Girando...!' : '🎯 ¡Tocar para Girar!'}

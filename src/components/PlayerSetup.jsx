@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { ANIMAL_AVATARS, getAnimalAvatar } from '../utils/animalAvatars';
+import logoImg from '../assets/Logos/DandoJugoLogotransp2 4.png';
 
 const GENDERS = [
   { id: 'hombre', label: 'Hombre', icon: '👨' },
@@ -70,7 +71,7 @@ export default function PlayerSetup({ players, onSavePlayers, onCancel, isFirstT
         {/* Encabezado compacto */}
         <div className="text-center mb-3">
           <img
-            src="./assets/Logos/DandoJugoLogotransp2 4.png"
+            src={logoImg}
             alt="Dando Jugo Logo"
             className="w-12 h-12 mx-auto object-contain drop-shadow mb-1"
           />
@@ -83,10 +84,10 @@ export default function PlayerSetup({ players, onSavePlayers, onCancel, isFirstT
         </div>
 
         {/* Formulario de agregar jugador */}
-        <form onSubmit={handleAddPlayer} className="bg-slate-900/90 border border-slate-800 rounded-3xl p-3.5 shadow-xl mb-3">
+        <form onSubmit={handleAddPlayer} className="bg-[#161214]/90 border border-amber-900/40 rounded-3xl p-3.5 shadow-xl mb-3">
           {/* 1. Nombre */}
           <div className="mb-2.5">
-            <label className="block text-xs font-bold text-slate-300 mb-1 uppercase tracking-wide">
+            <label className="block text-xs font-bold text-amber-200/70 mb-1 uppercase tracking-wide">
               Nombre o Apodo
             </label>
             <input
@@ -98,13 +99,13 @@ export default function PlayerSetup({ players, onSavePlayers, onCancel, isFirstT
               }}
               placeholder="Ej: Diego, Vale, Camila..."
               maxLength={20}
-              className="w-full bg-slate-950 border border-slate-700 rounded-2xl px-3.5 py-2 text-white placeholder-slate-500 font-bold focus:outline-none focus:border-amber-400 focus:ring-1 focus:ring-amber-400 transition text-sm"
+              className="w-full bg-[#0c0a0b] border border-stone-800 rounded-2xl px-3.5 py-2 text-amber-50 placeholder-stone-600 font-bold focus:outline-none focus:border-amber-400 focus:ring-1 focus:ring-amber-400 transition text-sm"
             />
           </div>
 
           {/* 2. Género */}
           <div className="mb-2.5">
-            <label className="block text-xs font-bold text-slate-300 mb-1 uppercase tracking-wide">
+            <label className="block text-xs font-bold text-amber-200/70 mb-1 uppercase tracking-wide">
               Género
             </label>
             <div className="grid grid-cols-3 gap-2">
@@ -116,7 +117,7 @@ export default function PlayerSetup({ players, onSavePlayers, onCancel, isFirstT
                   className={`py-1.5 px-2 rounded-xl border text-xs font-bold flex items-center justify-center gap-1.5 transition ${
                     gender === g.id
                       ? 'bg-amber-500/20 border-amber-400 text-amber-300 ring-1 ring-amber-400/40'
-                      : 'bg-slate-950 border-slate-800 text-slate-400 hover:text-white'
+                      : 'bg-[#0c0a0b] border-stone-800 text-stone-400 hover:text-white'
                   }`}
                 >
                   <span className="text-sm">{g.icon}</span>
@@ -129,15 +130,15 @@ export default function PlayerSetup({ players, onSavePlayers, onCancel, isFirstT
           {/* 3. Selector de Animal Ebrio (Sin barra de desplazamiento, 8 animales en 2 filas de 4) */}
           <div className="mb-3">
             <div className="flex items-center justify-between mb-1.5">
-              <label className="text-xs font-bold text-slate-300 uppercase tracking-wide">
+              <label className="text-xs font-bold text-amber-200/70 uppercase tracking-wide">
                 Tu Animal Ebrio: <span className="text-amber-400 font-black">{currentAnimalObj.name}</span>
               </label>
-              <span className="text-[10px] text-slate-400 italic">
+              <span className="text-[10px] text-stone-400 italic">
                 "{currentAnimalObj.phrase}"
               </span>
             </div>
 
-            <div className="grid grid-cols-4 gap-2 p-2 bg-slate-950 rounded-2xl border border-slate-800">
+            <div className="grid grid-cols-4 gap-2 p-2 bg-[#0c0a0b] rounded-2xl border border-stone-800">
               {ANIMAL_AVATARS.map((animal) => {
                 const isSelected = selectedAnimal === animal.id;
                 const isTaken = list.some((p) => p.animal === animal.id);
@@ -150,8 +151,8 @@ export default function PlayerSetup({ players, onSavePlayers, onCancel, isFirstT
                       isSelected
                         ? 'bg-amber-500/25 border-amber-400 ring-2 ring-amber-400/60 scale-105'
                         : isTaken
-                        ? 'bg-slate-900/40 border-slate-800 opacity-60'
-                        : 'bg-slate-900 border-slate-800 hover:border-slate-600'
+                        ? 'bg-[#161214]/40 border-stone-800 opacity-60'
+                        : 'bg-[#161214] border-stone-800 hover:border-amber-700/60'
                     }`}
                   >
                     <img
@@ -159,11 +160,11 @@ export default function PlayerSetup({ players, onSavePlayers, onCancel, isFirstT
                       alt={animal.name}
                       className="w-11 h-11 object-contain rounded-lg drop-shadow"
                     />
-                    <span className="text-[10px] font-bold mt-1 text-slate-200 truncate w-full text-center">
+                    <span className="text-[10px] font-bold mt-1 text-stone-300 truncate w-full text-center">
                       {animal.name}
                     </span>
                     {isTaken && !isSelected && (
-                      <span className="absolute top-1 right-1 text-[8px] bg-slate-800 text-slate-400 px-1 rounded-full">
+                      <span className="absolute top-1 right-1 text-[8px] bg-stone-800 text-stone-400 px-1 rounded-full">
                         ocupado
                       </span>
                     )}
@@ -181,7 +182,7 @@ export default function PlayerSetup({ players, onSavePlayers, onCancel, isFirstT
 
           <button
             type="submit"
-            className="w-full py-2.5 bg-slate-800 hover:bg-slate-700 active:scale-98 text-amber-400 border border-amber-500/30 rounded-2xl font-black text-sm uppercase tracking-wide transition shadow"
+            className="w-full py-2.5 bg-[#20181d] hover:bg-[#2b1f26] active:scale-98 text-amber-400 border border-amber-500/30 rounded-2xl font-black text-sm uppercase tracking-wide transition shadow"
           >
             ➕ Agregar Jugador
           </button>
@@ -189,7 +190,7 @@ export default function PlayerSetup({ players, onSavePlayers, onCancel, isFirstT
 
         {/* Lista de jugadores agregados (con scroll invisible si excede) */}
         <div className="space-y-2 max-h-[22vh] overflow-y-auto no-scrollbar pr-0.5">
-          <div className="flex items-center justify-between text-xs text-slate-400 font-bold px-1 mb-1">
+          <div className="flex items-center justify-between text-xs text-amber-200/70 font-bold px-1 mb-1">
             <span>JUGADORES ({list.length})</span>
             {list.length < 2 && (
               <span className="text-amber-400 font-normal">Faltan {2 - list.length} más</span>
@@ -197,7 +198,7 @@ export default function PlayerSetup({ players, onSavePlayers, onCancel, isFirstT
           </div>
 
           {list.length === 0 ? (
-            <div className="p-3 rounded-2xl bg-slate-900/40 border border-dashed border-slate-800 text-center text-xs text-slate-500 italic">
+            <div className="p-3 rounded-2xl bg-[#161214]/50 border border-dashed border-stone-800 text-center text-xs text-stone-500 italic">
               Aún no hay jugadores añadidos. Llena los datos y pulsa "Agregar".
             </div>
           ) : (
@@ -207,20 +208,20 @@ export default function PlayerSetup({ players, onSavePlayers, onCancel, isFirstT
               return (
                 <div
                   key={player.id}
-                  className="flex items-center justify-between p-2 rounded-2xl bg-slate-900 border border-slate-800/80 shadow-sm animate-in slide-in-from-bottom-2 duration-150"
+                  className="flex items-center justify-between p-2 rounded-2xl bg-[#161214] border border-amber-900/30 shadow-sm animate-in slide-in-from-bottom-2 duration-150"
                 >
                   <div className="flex items-center gap-2.5">
-                    <span className="w-5 text-center text-xs font-black text-slate-500">
+                    <span className="w-5 text-center text-xs font-black text-stone-500">
                       #{index + 1}
                     </span>
                     <img
                       src={animalObj.image}
                       alt={animalObj.name}
-                      className="w-9 h-9 object-contain rounded-xl bg-slate-950 p-0.5 border border-amber-400/40 drop-shadow"
+                      className="w-9 h-9 object-contain rounded-xl bg-[#0c0a0b] p-0.5 border border-amber-400/40 drop-shadow"
                     />
                     <div>
                       <div className="flex items-center gap-1.5">
-                        <span className="font-bold text-sm text-slate-100">
+                        <span className="font-bold text-sm text-amber-50">
                           {player.name}
                         </span>
                         <span className="text-xs">{genderObj.icon}</span>
@@ -233,7 +234,7 @@ export default function PlayerSetup({ players, onSavePlayers, onCancel, isFirstT
 
                   <button
                     onClick={() => handleRemove(player.id)}
-                    className="text-slate-500 hover:text-rose-400 p-1.5 transition text-base"
+                    className="text-stone-500 hover:text-rose-400 p-1.5 transition text-base"
                     title="Eliminar"
                   >
                     🗑️
@@ -252,8 +253,8 @@ export default function PlayerSetup({ players, onSavePlayers, onCancel, isFirstT
           disabled={list.length < 2}
           className={`w-full py-3.5 px-6 rounded-2xl font-black text-base uppercase tracking-wider transition-all shadow-xl active:scale-98 ${
             list.length >= 2
-              ? 'bg-gradient-to-r from-amber-500 via-amber-400 to-amber-500 text-slate-950 shadow-amber-500/25 hover:brightness-105'
-              : 'bg-slate-800 text-slate-500 cursor-not-allowed border border-slate-700'
+              ? 'bg-gradient-to-r from-amber-500 via-amber-400 to-amber-600 text-stone-950 shadow-amber-500/25 hover:brightness-105 border border-amber-300'
+              : 'bg-stone-900 text-stone-600 cursor-not-allowed border border-stone-800'
           }`}
         >
           {isFirstTime ? '🚀 ¡Listo, Ir al Menú!' : '💾 Guardar y Volver'}
@@ -262,7 +263,7 @@ export default function PlayerSetup({ players, onSavePlayers, onCancel, isFirstT
         {!isFirstTime && onCancel && (
           <button
             onClick={onCancel}
-            className="w-full py-1.5 text-xs text-slate-400 hover:text-white font-bold transition"
+            className="w-full py-1.5 text-xs text-stone-400 hover:text-white font-bold transition"
           >
             Cancelar
           </button>

@@ -1,6 +1,7 @@
 import React from 'react';
 import { GAME_MODES } from '../utils/deckManager';
 import { getAnimalAvatar } from '../utils/animalAvatars';
+import logoImg from '../assets/Logos/DandoJugoLogotransp2 4.png';
 
 export default function MainMenu({
   players,
@@ -20,7 +21,7 @@ export default function MainMenu({
         <div className="relative inline-block mb-3">
           <div className="absolute inset-0 bg-amber-500/20 rounded-full blur-2xl animate-pulse" />
           <img
-            src="./assets/Logos/DandoJugoLogotransp2 4.png"
+            src={logoImg}
             alt="Dando Jugo Logo"
             className="w-28 h-28 mx-auto object-contain drop-shadow-2xl relative z-10 transform hover:scale-105 transition-transform"
           />
@@ -47,9 +48,9 @@ export default function MainMenu({
       </div>
 
       {/* Sección Central: Resumen de Jugadores Listos */}
-      <div className="my-6 p-4 rounded-3xl bg-slate-900/90 border border-slate-800 shadow-xl">
+      <div className="my-6 p-4 rounded-3xl bg-[#161214]/90 border border-amber-900/40 shadow-xl">
         <div className="flex items-center justify-between mb-2.5">
-          <span className="text-xs font-black uppercase tracking-wider text-slate-400">
+          <span className="text-xs font-black uppercase tracking-wider text-amber-200/70">
             👥 Jugadores en Mesa ({players.length})
           </span>
           <button
@@ -66,7 +67,7 @@ export default function MainMenu({
             return (
               <span
                 key={p.id}
-                className="inline-flex items-center gap-1.5 bg-slate-950 border border-slate-800 px-2.5 py-1.5 rounded-xl text-xs font-bold text-slate-200 shadow-sm"
+                className="inline-flex items-center gap-1.5 bg-[#0f0c0e] border border-stone-800 px-2.5 py-1.5 rounded-xl text-xs font-bold text-stone-200 shadow-sm"
               >
                 <img
                   src={animalObj.image}
@@ -85,7 +86,7 @@ export default function MainMenu({
         {/* 1. Jugar */}
         <button
           onClick={onPlay}
-          className="w-full py-4 px-6 bg-gradient-to-r from-amber-500 via-amber-400 to-amber-500 hover:brightness-105 active:scale-98 text-slate-950 rounded-2xl font-black text-xl shadow-xl shadow-amber-500/25 uppercase tracking-wider transition-all flex items-center justify-center gap-2"
+          className="w-full py-4 px-6 bg-gradient-to-r from-amber-500 via-amber-400 to-amber-600 hover:brightness-110 active:scale-98 text-stone-950 rounded-2xl font-black text-xl shadow-xl shadow-amber-500/25 border border-amber-300 uppercase tracking-wider transition-all flex items-center justify-center gap-2"
         >
           <span>🎯</span>
           <span>¡JUGAR!</span>
@@ -94,7 +95,7 @@ export default function MainMenu({
         {/* 2. Opciones */}
         <button
           onClick={onOptions}
-          className="w-full py-3.5 px-6 bg-slate-900 hover:bg-slate-800 active:scale-98 text-slate-200 border border-slate-700/80 rounded-2xl font-bold text-base shadow-md transition-all flex items-center justify-center gap-2"
+          className="w-full py-3.5 px-6 bg-[#1a1417] hover:bg-[#251d21] active:scale-98 text-amber-100 border border-amber-900/40 rounded-2xl font-bold text-base shadow-md transition-all flex items-center justify-center gap-2"
         >
           <span>⚙️</span>
           <span>Opciones</span>
@@ -103,7 +104,7 @@ export default function MainMenu({
         {/* 3. Cambiar Jugadores */}
         <button
           onClick={onChangePlayers}
-          className="w-full py-3.5 px-6 bg-slate-900 hover:bg-slate-800 active:scale-98 text-slate-200 border border-slate-700/80 rounded-2xl font-bold text-base shadow-md transition-all flex items-center justify-center gap-2"
+          className="w-full py-3.5 px-6 bg-[#1a1417] hover:bg-[#251d21] active:scale-98 text-amber-100 border border-amber-900/40 rounded-2xl font-bold text-base shadow-md transition-all flex items-center justify-center gap-2"
         >
           <span>👥</span>
           <span>Cambiar Jugadores</span>
@@ -112,7 +113,7 @@ export default function MainMenu({
         {/* Botón sutil de reglas */}
         <button
           onClick={onOpenRules}
-          className="w-full py-2 text-xs text-slate-500 hover:text-slate-400 font-semibold transition"
+          className="w-full py-2 text-xs text-stone-500 hover:text-amber-300/80 font-semibold transition"
         >
           ℹ️ Ver Reglas de la Casa
         </button>

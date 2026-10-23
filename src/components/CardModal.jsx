@@ -25,10 +25,10 @@ export default function CardModal({ card, activePlayer, onClose, onTriggerPenalt
   };
 
   const categoryThemes = {
-    trivia: { bg: 'border-indigo-500', badge: 'bg-indigo-500 text-white', label: '🧠 TRIVIA' },
-    minijuego: { bg: 'border-amber-500', badge: 'bg-amber-500 text-slate-950', label: '👥 MINIJUEGO DE GRUPO' },
-    jugo: { bg: 'border-pink-500', badge: 'bg-pink-500 text-white', label: '🍹 JUGO & PERSONALIDAD' },
-    reto: { bg: 'border-red-500', badge: 'bg-red-500 text-white', label: '🔥 RETO / TOMAN TODOS' },
+    trivia: { bg: 'border-blue-600', badge: 'bg-blue-600 text-white', label: '🧠 TRIVIA' },
+    minijuego: { bg: 'border-amber-600', badge: 'bg-amber-600 text-white', label: '👥 MINIJUEGO DE GRUPO' },
+    jugo: { bg: 'border-purple-600', badge: 'bg-purple-600 text-white', label: '🍹 JUGO & PERSONALIDAD' },
+    reto: { bg: 'border-red-700', badge: 'bg-red-700 text-white', label: '🔥 RETO / TOMAN TODOS' },
   };
 
   const theme = categoryThemes[card.categoriaJuego.toLowerCase()] || categoryThemes.jugo;
@@ -37,8 +37,8 @@ export default function CardModal({ card, activePlayer, onClose, onTriggerPenalt
   const targetAnimal = card.targetPlayer ? getAnimalAvatar(card.targetPlayer.animal) : null;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/85 backdrop-blur-md animate-in fade-in duration-200">
-      <div className={`w-full max-w-md bg-slate-900 border-2 ${theme.bg} rounded-3xl p-6 shadow-2xl flex flex-col justify-between max-h-[90vh] overflow-y-auto`}>
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/85 backdrop-blur-md animate-in fade-in duration-200">
+      <div className={`w-full max-w-md bg-[#171216] border-2 ${theme.bg} rounded-3xl p-6 shadow-2xl flex flex-col justify-between max-h-[90vh] overflow-y-auto`}>
         <div>
           {/* Barra superior de categoría y dificultad */}
           <div className="flex items-center justify-between mb-3">

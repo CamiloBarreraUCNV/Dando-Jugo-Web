@@ -172,10 +172,10 @@ export default function App() {
     advanceTurn();
   };
 
-  // Estilos según el modo oscuro/claro
+  // Estilos según el modo oscuro/claro (Fondo ahumado cálido para contrastar con el logo)
   const themeContainerClass = isDarkMode
-    ? 'bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950 text-white'
-    : 'bg-gradient-to-b from-amber-50 via-slate-100 to-amber-50 text-slate-900';
+    ? 'bg-gradient-to-b from-[#140f12] via-[#0b080a] to-[#040304] text-stone-100'
+    : 'bg-gradient-to-b from-amber-50 via-stone-100 to-amber-50 text-stone-900';
 
   // RENDER 1: Pantalla de Configuración de Jugadores
   if (screen === 'players') {

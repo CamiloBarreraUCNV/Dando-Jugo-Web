@@ -127,9 +127,6 @@ export default function PenaltyWheelModal({ isOpen, onClose, currentMode }) {
       if (accumulatedTime < 3300) {
         setTimeout(() => {
           soundManager.playTick(500 + Math.random() * 120);
-          if (navigator.vibrate && accumulatedTime > 2200) {
-            navigator.vibrate(12);
-          }
         }, accumulatedTime);
         delay = delay * 1.1;
         accumulatedTime += delay;
@@ -174,7 +171,6 @@ export default function PenaltyWheelModal({ isOpen, onClose, currentMode }) {
         setRetoDetalle(reto);
       } else {
         soundManager.playFanfare();
-        if (navigator.vibrate) navigator.vibrate([150, 100, 200]);
       }
     }, 3500);
   };

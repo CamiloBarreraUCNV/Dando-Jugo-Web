@@ -93,7 +93,7 @@ class SoundManager {
     });
   }
 
-  // Sonido de éxito al cumplir un reto
+  // Sonido de éxito al cumplir un reto o acertar trivia
   playSuccess() {
     if (this.isMuted) return;
     this.init();
@@ -139,6 +139,47 @@ class SoundManager {
 
     osc.start();
     osc.stop(this.ctx.currentTime + 0.15);
+  }
+
+  // Sonido de fallo / respuesta incorrecta (Buzzer de concurso)
+  playFail() {
+    if (this.isMuted) return;
+    this.init();
+    if (!this.ctx) return;
+
+    try {
+      const notes = [
+        { f1: 220, f2: 170, time: 0, duration: 0.18 },
+        { f1: 170, f2: 120, time: 0.2, duration: 0.3 },
+      ];
+
+      notes.forEach((note) => {
+        const osc = this.ctx.createOscillator();
+        const gain = this.ctx.createGain();
+        const filter = this.ctx.createBiquadFilter();
+
+        osc.type = 'sawtooth';
+        osc.frequency.setValueAtTime(note.f1, this.ctx.currentTime + note.time);
+        osc.frequency.exponentialRampToValueAtTime(note.f2, this.ctx.currentTime + note.time + note.duration);
+
+        // Filtro pasa-bajos para redondear el tono y evitar estridencias
+        filter.type = 'lowpass';
+        filter.frequency.setValueAtTime(750, this.ctx.currentTime + note.time);
+
+        const targetGain = 0.22 * this.volume;
+        gain.gain.setValueAtTime(targetGain, this.ctx.currentTime + note.time);
+        gain.gain.exponentialRampToValueAtTime(0.001, this.ctx.currentTime + note.time + note.duration);
+
+        osc.connect(filter);
+        filter.connect(gain);
+        gain.connect(this.ctx.destination);
+
+        osc.start(this.ctx.currentTime + note.time);
+        osc.stop(this.ctx.currentTime + note.time + note.duration);
+      });
+    } catch (e) {
+      console.warn('Audio playFail error:', e);
+    }
   }
 }
 

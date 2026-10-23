@@ -86,10 +86,6 @@ export default function Roulette({ onSpinEnd, isSpinning, setIsSpinning }) {
     setIsSpinning(true);
     soundManager.init();
 
-    if (navigator.vibrate) {
-      navigator.vibrate([30, 50, 30]);
-    }
-
     let delay = 60;
     let accumulatedTime = 0;
 
@@ -97,9 +93,6 @@ export default function Roulette({ onSpinEnd, isSpinning, setIsSpinning }) {
       if (accumulatedTime < 3800) {
         setTimeout(() => {
           soundManager.playTick(600 + Math.random() * 80);
-          if (navigator.vibrate && accumulatedTime > 2500) {
-            navigator.vibrate(10);
-          }
         }, accumulatedTime);
         delay = delay * 1.09;
         accumulatedTime += delay;
@@ -124,9 +117,6 @@ export default function Roulette({ onSpinEnd, isSpinning, setIsSpinning }) {
     setTimeout(() => {
       setIsSpinning(false);
       soundManager.playFanfare();
-      if (navigator.vibrate) {
-        navigator.vibrate([100, 50, 150]);
-      }
       onSpinEnd(selectedCategory);
     }, 4000);
   };

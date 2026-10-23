@@ -5,8 +5,12 @@ import { getAnimalAvatar } from '../utils/animalAvatars';
 
 export default function CardModal({ card, activePlayer, onClose, onTriggerPenalty }) {
   const [revealedTrivia, setRevealedTrivia] = useState(false);
+  const [selectedOption, setSelectedOption] = useState(null);
+  const [triviaStatus, setTriviaStatus] = useState(null); // 'correct' | 'wrong' | null
 
   if (!card) return null;
+
+  const isTrivia = card.categoriaJuego?.toLowerCase() === 'trivia';
 
   const handleComplete = () => {
     soundManager.playSuccess();
@@ -22,6 +26,50 @@ export default function CardModal({ card, activePlayer, onClose, onTriggerPenalt
   const handleRefuse = () => {
     soundManager.playTick(500);
     onTriggerPenalty();
+  };
+
+  // Manejo de respuesta en Trivia
+  const handleSelectTriviaOption = (letter, text) => {
+    if (revealedTrivia) return; // ya revelada
+    setSelectedOption(text);
+    setRevealedTrivia(true);
+
+    const isCorrect = card.correcta && (text === card.correcta || letter === card.correcta);
+
+    if (isCorrect) {
+      setTriviaStatus('correct');
+      soundManager.playSuccess();
+      confetti({
+        particleCount: 50,
+        spread: 70,
+        origin: { y: 0.75 },
+        colors: ['#10b981', '#34d399', '#f59e0b', '#60a5fa']
+      });
+    } else {
+      setTriviaStatus('wrong');
+      soundManager.playFail();
+    }
+  };
+
+  // Revelar verbalmente sin tocar opción previa
+  const handleRevealDirectly = () => {
+    setRevealedTrivia(true);
+    soundManager.playTick(800);
+  };
+
+  const handleMarkVerbalResult = (status) => {
+    setTriviaStatus(status);
+    if (status === 'correct') {
+      soundManager.playSuccess();
+      confetti({
+        particleCount: 45,
+        spread: 60,
+        origin: { y: 0.75 },
+        colors: ['#10b981', '#34d399', '#f59e0b']
+      });
+    } else {
+      soundManager.playFail();
+    }
   };
 
   const categoryThemes = {
@@ -109,37 +157,97 @@ export default function CardModal({ card, activePlayer, onClose, onTriggerPenalt
             {card.descripcionFormateada || card.pregunta}
           </div>
 
-          {/* Renderizado específico para Trivia */}
-          {card.categoriaJuego.toLowerCase() === 'trivia' && (
+          {/* Renderizado específico e interactivo para Trivia */}
+          {isTrivia && (
             <div className="mt-4 space-y-2">
               <div className="grid grid-cols-1 gap-2">
-                {card.opciones && Object.entries(card.opciones).map(([letter, text]) => (
-                  <div
-                    key={letter}
-                    className={`p-3 rounded-xl border text-sm sm:text-base font-semibold transition-all ${
-                      revealedTrivia && card.correcta && (text === card.correcta || letter === card.correcta)
-                        ? 'bg-emerald-500/20 border-emerald-500 text-emerald-300 font-bold'
-                        : 'bg-slate-800/80 border-slate-700 text-slate-200'
-                    }`}
-                  >
-                    <span className="inline-block w-6 font-black text-amber-400">{letter})</span> {text}
-                  </div>
-                ))}
+                {card.opciones && Object.entries(card.opciones).map(([letter, text]) => {
+                  const isCorrect = card.correcta && (text === card.correcta || letter === card.correcta);
+                  const isChosen = selectedOption === text;
+
+                  let optionStyle = 'bg-slate-800/80 border-slate-700 text-slate-200 hover:border-amber-400/50 hover:bg-slate-800 cursor-pointer';
+
+                  if (revealedTrivia) {
+                    if (isCorrect) {
+                      optionStyle = 'bg-emerald-500/25 border-emerald-500 text-emerald-200 font-bold shadow-md shadow-emerald-500/10';
+                    } else if (isChosen) {
+                      optionStyle = 'bg-red-500/25 border-red-500 text-red-200 line-through';
+                    } else {
+                      optionStyle = 'bg-slate-900/60 border-slate-800 text-slate-500 opacity-60';
+                    }
+                  }
+
+                  return (
+                    <button
+                      key={letter}
+                      type="button"
+                      disabled={revealedTrivia}
+                      onClick={() => handleSelectTriviaOption(letter, text)}
+                      className={`w-full text-left p-3 rounded-xl border text-sm sm:text-base font-semibold transition-all flex items-center justify-between ${optionStyle}`}
+                    >
+                      <div>
+                        <span className="inline-block w-6 font-black text-amber-400">{letter})</span> {text}
+                      </div>
+                      {revealedTrivia && isCorrect && <span className="text-base ml-2">✅</span>}
+                      {revealedTrivia && isChosen && !isCorrect && <span className="text-base ml-2">❌</span>}
+                    </button>
+                  );
+                })}
               </div>
 
-              {!revealedTrivia ? (
+              {/* Botón si responden verbalmente sin pulsar opciones */}
+              {!revealedTrivia && (
                 <button
-                  onClick={() => {
-                    soundManager.playTick(800);
-                    setRevealedTrivia(true);
-                  }}
+                  onClick={handleRevealDirectly}
                   className="w-full mt-3 py-2.5 px-4 bg-indigo-600 hover:bg-indigo-500 active:scale-98 text-white rounded-xl font-bold text-sm tracking-wide transition-all shadow-md"
                 >
                   👀 Mostrar Respuesta Correcta
                 </button>
-              ) : (
-                <div className="p-3 bg-emerald-950/60 border border-emerald-500/40 rounded-xl mt-2 text-center text-emerald-300 font-bold text-sm">
-                  ✅ Respuesta: {card.correcta}
+              )}
+
+              {/* Estado cuando se revela la trivia */}
+              {revealedTrivia && (
+                <div className="mt-3 space-y-2.5 animate-in fade-in zoom-in-95 duration-150">
+                  <div className="p-3 bg-slate-900 border border-slate-700 rounded-xl text-center text-sm">
+                    <span className="text-slate-400 font-semibold block text-xs uppercase tracking-wider mb-0.5">Respuesta oficial:</span>
+                    <span className="text-emerald-400 font-black text-base">{card.correcta}</span>
+                  </div>
+
+                  {/* Selector si respondieron verbalmente */}
+                  {triviaStatus === null && (
+                    <div className="p-3 rounded-2xl bg-slate-950/80 border border-slate-800">
+                      <p className="text-xs text-center text-slate-300 font-semibold mb-2">
+                        ¿Acertó {activePlayer?.name} en la mesa?
+                      </p>
+                      <div className="grid grid-cols-2 gap-2">
+                        <button
+                          onClick={() => handleMarkVerbalResult('correct')}
+                          className="py-2 px-3 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs uppercase tracking-wide transition active:scale-95"
+                        >
+                          🎉 ¡Acertó!
+                        </button>
+                        <button
+                          onClick={() => handleMarkVerbalResult('wrong')}
+                          className="py-2 px-3 rounded-xl bg-red-600 hover:bg-red-500 text-white font-bold text-xs uppercase tracking-wide transition active:scale-95"
+                        >
+                          ❌ ¡Falló!
+                        </button>
+                      </div>
+                    </div>
+                  )}
+
+                  {/* Mensajes de resultado */}
+                  {triviaStatus === 'correct' && (
+                    <div className="p-2.5 bg-emerald-950/60 border border-emerald-500/40 rounded-xl text-center text-emerald-300 font-black text-sm">
+                      🎉 ¡Respuesta Correcta! Te salvaste del castigo.
+                    </div>
+                  )}
+
+                  {triviaStatus === 'wrong' && (
+                    <div className="p-2.5 bg-red-950/60 border border-red-500/50 rounded-xl text-center text-red-300 font-black text-sm animate-pulse">
+                      🍺 ¡Respuesta Incorrecta! Paga tu castigo.
+                    </div>
+                  )}
                 </div>
               )}
             </div>
@@ -147,11 +255,15 @@ export default function CardModal({ card, activePlayer, onClose, onTriggerPenalt
 
           {/* Castigo alternativo o castigo por fallar */}
           {card.castigoFormateado && (
-            <div className="mt-4 p-3 bg-red-950/40 border border-red-500/30 rounded-xl text-xs sm:text-sm text-red-300">
+            <div className={`mt-4 p-3 rounded-xl text-xs sm:text-sm border transition-all ${
+              triviaStatus === 'wrong'
+                ? 'bg-red-950/80 border-red-500 text-red-200 font-bold ring-2 ring-red-500/30'
+                : 'bg-red-950/40 border-red-500/30 text-red-300'
+            }`}>
               <span className="font-bold text-red-400">
-                {card.categoriaJuego.toLowerCase() === 'trivia' ? 'Castigo si fallas:' : 'Castigo:'}
+                {isTrivia ? 'Castigo si fallas:' : 'Castigo:'}
               </span>{' '}
-              {card.categoriaJuego.toLowerCase() === 'trivia' && /^\d+$/.test(card.castigoFormateado.trim())
+              {isTrivia && /^\d+$/.test(card.castigoFormateado.trim())
                 ? `Bebe ${card.castigoFormateado} sorbo(s).`
                 : card.castigoFormateado}
             </div>
@@ -168,10 +280,20 @@ export default function CardModal({ card, activePlayer, onClose, onTriggerPenalt
         {/* Botones de acción inferiores */}
         <div className="mt-6 pt-4 border-t border-slate-800 flex flex-col gap-2.5">
           <button
-            onClick={handleComplete}
-            className="w-full py-3.5 px-6 bg-emerald-500 hover:bg-emerald-400 active:scale-98 text-slate-950 rounded-2xl font-black text-lg shadow-lg shadow-emerald-500/20 transition-all uppercase tracking-wider"
+            onClick={triviaStatus === 'wrong' ? onClose : handleComplete}
+            className={`w-full py-3.5 px-6 rounded-2xl font-black text-lg shadow-lg uppercase tracking-wider transition-all active:scale-98 ${
+              triviaStatus === 'wrong'
+                ? 'bg-amber-500 hover:bg-amber-400 text-slate-950 shadow-amber-500/20'
+                : 'bg-emerald-500 hover:bg-emerald-400 text-slate-950 shadow-emerald-500/20'
+            }`}
           >
-            ✅ ¡Cumplido / Siguiente!
+            {isTrivia
+              ? triviaStatus === 'wrong'
+                ? '🍺 Listo, Castigo Pagado / Siguiente'
+                : triviaStatus === 'correct'
+                ? '🎉 ¡Siguiente Turno!'
+                : '✅ Continuar / Siguiente'
+              : '✅ ¡Cumplido / Siguiente!'}
           </button>
 
           {/* Botón para cuando NO quiere responder o hacer el reto */}

@@ -17,25 +17,22 @@ export default function MainMenu({
   return (
     <div className="w-full max-w-md mx-auto p-4 flex flex-col justify-between min-h-screen py-8 animate-in fade-in duration-200">
       {/* Sección Superior: Branding Hero */}
-      <div className="text-center pt-4">
-        <div className="relative inline-block mb-3">
-          <div className="absolute inset-0 bg-amber-500/20 rounded-full blur-2xl animate-pulse" />
+      <div className="text-center pt-2">
+        <div className="relative inline-flex items-center justify-center my-2">
+          {/* Capas de Iluminación Destacada (Glow cálido y vibrante) */}
+          <div className="absolute -inset-6 bg-gradient-to-tr from-amber-600/45 via-orange-500/40 to-yellow-500/25 rounded-full blur-3xl animate-pulse" />
+          <div className="absolute -inset-2 bg-gradient-to-b from-amber-500/35 to-orange-600/30 rounded-full blur-xl" />
+          <div className="absolute inset-2 bg-amber-400/25 rounded-full blur-md" />
+          
           <img
             src={logoImg}
             alt="Dando Jugo Logo"
-            className="w-28 h-28 mx-auto object-contain drop-shadow-2xl relative z-10 transform hover:scale-105 transition-transform"
+            className="w-36 h-36 sm:w-44 sm:h-44 mx-auto object-contain drop-shadow-[0_12px_28px_rgba(245,158,11,0.45)] relative z-10 transform hover:scale-105 transition-transform"
           />
         </div>
 
-        <h1 className="text-3xl font-black tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-amber-200 to-amber-500 drop-shadow">
-          DANDO JUGO
-        </h1>
-        <p className="text-xs uppercase tracking-widest text-slate-400 font-bold mt-1">
-          Drinking Game Web
-        </p>
-
         {/* Pill del Modo de Juego */}
-        <div className="mt-4 flex justify-center">
+        <div className="mt-3 flex justify-center">
           <button
             onClick={onOpenModeSelector}
             className={`text-xs px-3.5 py-1.5 rounded-full border flex items-center gap-1.5 shadow-md active:scale-95 transition ${activeModeObj.badgeColor}`}

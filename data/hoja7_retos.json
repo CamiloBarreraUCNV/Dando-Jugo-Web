@@ -1,0 +1,402 @@
+[
+  {
+    "id": 1,
+    "titulo": "Toman Todos",
+    "descripcion": "Todos toman $ sorbos",
+    "castigo": "Mortal Triple hacia delante",
+    "dificultad": null,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 2,
+    "titulo": "Ser supremo",
+    "descripcion": "Toma # sorbo de cada vaso en la mesa",
+    "castigo": "Vaso al seco",
+    "dificultad": null,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 3,
+    "titulo": "Jack Sparrow",
+    "descripcion": "Canta una canción relacionada a los piratas, si cumples, regalas % sorbos",
+    "castigo": "5 Sorbos",
+    "dificultad": null,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 4,
+    "titulo": "La Familia",
+    "descripcion": "Si hay un familiar tuyo en la fiesta, debe beber % sorbos, sino los bebes tú.",
+    "castigo": "3 Sorbos",
+    "dificultad": null,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 5,
+    "titulo": "Descanso",
+    "descripcion": "Durante # ronda, debes beber solamente agua, por cada incumplimiento debes hacer # sentadilla",
+    "castigo": "Sentadillas",
+    "dificultad": null,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 6,
+    "titulo": "Apostador",
+    "descripcion": "Elige a un jugador y juega Piedra, papel o tijera, el ganador regala & sorbos",
+    "castigo": "5 sorbos",
+    "dificultad": null,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 7,
+    "titulo": "Ultra Sobrio",
+    "descripcion": "Los solteros deben tomar % sorbos",
+    "castigo": "Vaso al seco",
+    "dificultad": null,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 8,
+    "titulo": "Azar Positivo",
+    "descripcion": "Shhh! no digas nada, preguntale por un número del 1 al %, su respuesta lo regalas en sorbos.",
+    "castigo": "Partida de Free Fire",
+    "dificultad": null,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": "el castigo es muy severo"
+  },
+  {
+    "id": 9,
+    "titulo": "Solo Vocales",
+    "descripcion": "Canta una canción usando solo vocales, si otro jugador adivina, puedes regalar & sorbos.",
+    "castigo": "5 sorbos",
+    "dificultad": null,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 10,
+    "titulo": "Seguridad",
+    "descripcion": "Durante # ronda, solo debes responder \"Si\" a todas las preguntas que te hagan",
+    "castigo": "1 Sorbo",
+    "dificultad": null,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 11,
+    "titulo": "Tercera Edad",
+    "descripcion": "El jugador más longevo puede regalar & sorbos",
+    "castigo": "1 Nieto",
+    "dificultad": null,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 12,
+    "titulo": "A tu salud",
+    "descripcion": "Elige un jugador, y cada uno debe beber / sorbos.",
+    "castigo": "Vaso al seco",
+    "dificultad": null,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 13,
+    "titulo": "Azar Negativo",
+    "descripcion": "Shhh! no digas nada, preguntale por un número del 1 al /, su respuesta lo bebes en sorbos.",
+    "castigo": "5 Sorbos",
+    "dificultad": null,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 14,
+    "titulo": "Mitomano",
+    "descripcion": "Elige a un jugador, debes contarle dos verdades y una mentira, si acierta, bebes % sorbos, sino, los regalas.",
+    "castigo": "5 Sorbos",
+    "dificultad": null,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 15,
+    "titulo": "Regalón",
+    "descripcion": "Todos deben tomar # sorbo de tu vaso, los que se nieguen, deben beber & de su vaso.",
+    "castigo": "Medio Vaso",
+    "dificultad": null,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 16,
+    "titulo": "Karaoke",
+    "descripcion": "Eliges una canción, el jugador que la cante regala % sorbos",
+    "castigo": "1 Maluma",
+    "dificultad": null,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 17,
+    "titulo": "Shhh!",
+    "descripcion": "Ya no puedes hablar por # ronda, por cada incumplimiento debes beber # sorbo.",
+    "castigo": "1 Sorbo",
+    "dificultad": null,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 18,
+    "titulo": "Suertudo",
+    "descripcion": "Regalas / Sorbos",
+    "castigo": "Clases de Matematicas",
+    "dificultad": null,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 19,
+    "titulo": "Profesor",
+    "descripcion": "Bloquea una letra por # rondas, cada vez que alguien la diga, debe beber # sorbos",
+    "castigo": "1 Sorbo",
+    "dificultad": null,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 20,
+    "titulo": "Toca Madera",
+    "descripcion": "Puedes poner el pulgar encima de la mesa cuando quieras, el ultimo en imitarte debe beber & sorbos.",
+    "castigo": "5 sorbos",
+    "dificultad": null,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 21,
+    "titulo": "Bufalo",
+    "descripcion": "Durante # rondas, todos los jugadores deben beber solo con la mano izquierda, si alguien se equivoca, debes gritar \"BUFALO!\" y esa persona debe beber # sorbos",
+    "castigo": "Bebe 1 sorbo por cada vez que uses la mano equivocada.",
+    "dificultad": null,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 22,
+    "titulo": "Historia",
+    "descripcion": "Empiezas la historia con una palabra, el jugador siguiente debe decir toda la historia y agregar una palabra para continuar, el jugador que se equivoque debe beber % sorbos",
+    "castigo": "Bebe 3 sorbos si te equivocas al repetir la historia o no logras continuarla.",
+    "dificultad": null,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 23,
+    "titulo": "El Jefe",
+    "descripcion": "Cada persona votará por un jugador, el ganador será el lider y durante # rondas, cada vez que otro jugador beba, el lider podrá elegir si bebe el doble, bebe la cantidad que corresponde o nada.",
+    "castigo": "Da tu discurso de asunción usando una cuchara como micrófono durante 10 segundos.",
+    "dificultad": null,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 24,
+    "titulo": "Borracho Competitivo",
+    "descripcion": "Elige a un jugador, cada vez que esa persona beba, debes beber # sorbo.",
+    "castigo": "Bebe 1 sorbo cada vez que olvides acompañar al jugador elegido.",
+    "dificultad": null,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 25,
+    "titulo": "Juicio publico",
+    "descripcion": "Cada jugador tendra que elegir si regalarte # sorbos o darte una cachetada",
+    "castigo": "Defiéndete ante el jurado con voz de abogado de teleserie durante 10 segundos.",
+    "dificultad": null,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 26,
+    "titulo": "Tortura Linguistica",
+    "descripcion": "Debes responder a todas la preguntas que te hagan, pero no puedes decir ni \"si\" ni \"no\" durante # ronda",
+    "castigo": "Bebe 3 sorbos cada vez que respondas \"sí\" o \"no\" durante la ronda.",
+    "dificultad": null,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 27,
+    "titulo": "I'm a Baby",
+    "descripcion": "Succiona el dedo de otro jugador durante % segundos",
+    "castigo": "Bebe 3 sorbos si no realizas el reto o nadie acepta.",
+    "dificultad": null,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 28,
+    "titulo": "Sin vasos",
+    "descripcion": "Toma un shot desde la mano de otro jugador",
+    "castigo": "Bebe 3 sorbos si no realizas el reto.",
+    "dificultad": null,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 29,
+    "titulo": "El Amigo Raro",
+    "descripcion": "Bebe # sorbo de tu trago desde la nariz",
+    "castigo": "Bebe 1 sorbo de forma normal si no realizas el reto.",
+    "dificultad": null,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 30,
+    "titulo": "Nada de Comedia",
+    "descripcion": "Cada vez que te rias, debes beber # sorbos",
+    "castigo": "Bebe 1 sorbo cada vez que te rías.",
+    "dificultad": null,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 31,
+    "titulo": "Masoquista",
+    "descripcion": "Deja que dos jugadores te pellizquen durante / segundos",
+    "castigo": "Bebe 4 sorbos si no completas el tiempo indicado o nadie acepta participar.",
+    "dificultad": null,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 32,
+    "titulo": "Borracho Deportista",
+    "descripcion": "Debes tomar % sorbos mientras saltas",
+    "castigo": "Bebe 3 sorbos si no completas el reto.",
+    "dificultad": null,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 33,
+    "titulo": "El Torneo",
+    "descripcion": "Juega Piedra, papel o tijera con todos los jugadores, por cada derrota debes beber # sorbo",
+    "castigo": "Bebe 1 sorbo por cada derrota en el torneo.",
+    "dificultad": null,
+    "categoria": null,
+    "aprobado_diego": null,
+    "observacion": null
+  },
+  {
+    "id": 34,
+    "titulo": "Donación Voluntaria",
+    "descripcion": "Cada jugador realiza una donación en sorbos (deben beber) y tu debes beber la totalidad de estas.",
+    "castigo": "Bebe 5 sorbos si decides no aceptar la donación.",
+    "dificultad": null,
+    "categoria": null,
+    "aprobado_diego": null,
+    "observacion": null
+  },
+  {
+    "id": 35,
+    "titulo": "Stand Up",
+    "descripcion": "Cuenta un chiste, si nadie se rie, debes beber / sorbos",
+    "castigo": "Bebe 5 sorbos si nadie se ríe del chiste.",
+    "dificultad": null,
+    "categoria": null,
+    "aprobado_diego": null,
+    "observacion": null
+  },
+  {
+    "id": 36,
+    "titulo": "El sabiondo",
+    "descripcion": "Cada jugador te puede hacer una pregunta, si no sabes una respuesta, puedes chamullarla, si alguien piensa que mientes, pueden buscar en internet, el que este equivocado, debe beber % sorbos.",
+    "castigo": "Bebe 3 sorbos si se demuestra que tu respuesta o tu acusación era incorrecta.",
+    "dificultad": null,
+    "categoria": null,
+    "aprobado_diego": null,
+    "observacion": null
+  },
+  {
+    "id": 37,
+    "titulo": "Sin respeto",
+    "descripcion": "Echale agua en el vaso al jugador que tú elijas",
+    "castigo": "Pide perdón al vaso con voz de villano arrepentido durante 10 segundos.",
+    "dificultad": null,
+    "categoria": null,
+    "aprobado_diego": null,
+    "observacion": null
+  },
+  {
+    "id": 38,
+    "titulo": "Con respeto",
+    "descripcion": "Elige a un jugador, llenale el vaso con una bebida que elijas (Sin alcohol)",
+    "castigo": "Presenta la bebida como sommelier de juguito en caja durante 10 segundos.",
+    "dificultad": null,
+    "categoria": null,
+    "aprobado_diego": null,
+    "observacion": null
+  },
+  {
+    "id": 39,
+    "titulo": "Historia",
+    "descripcion": "Comienza una historia, por cada turno, los jugadores deben contar la historia desde el principio y añadir una palabra.",
+    "castigo": "Bebe 3 sorbos si te equivocas al repetir la historia o no logras continuarla.",
+    "dificultad": null,
+    "categoria": null,
+    "aprobado_diego": null,
+    "observacion": null
+  },
+  {
+    "id": 40,
+    "titulo": "Medio Limon",
+    "descripcion": "Cada jugador elige un número del 1 al 100, debes decir \"(Tu numero) limones, medio limon, (Número de otro jugador) limones\" para pasar tu turno y sería el turno del jugador señalado, el juego termina cuando un jugador se equivoca.",
+    "castigo": "Bebe 3 sorbos si te equivocas con los números o la frase de los limones.",
+    "dificultad": null,
+    "categoria": null,
+    "aprobado_diego": null,
+    "observacion": null
+  }
+]

@@ -1,0 +1,22 @@
+[
+  {
+    "modo": "Vasito de Juguito (250ml)",
+    "descripcion": "Todas las variables valen 1 sorbo",
+    "multiplicador": "x0.5"
+  },
+  {
+    "modo": "Jugo en Caja (1 Lt)",
+    "descripcion": "Dificultad Recomendada por los creadores",
+    "multiplicador": "x1"
+  },
+  {
+    "modo": "Chimbombo de Jugo (5 Lts)",
+    "descripcion": "El doble de sufrimiento",
+    "multiplicador": "x2"
+  },
+  {
+    "modo": "Camión Jugosero (3 Ton)",
+    "descripcion": "Para los expertos en el famoso arte del emborrachamiento",
+    "multiplicador": "x4"
+  }
+]

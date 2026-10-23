@@ -1,0 +1,402 @@
+[
+  {
+    "id": 1,
+    "titulo": "Borracho Limpio",
+    "descripcion": "Busca una escoba y limpia el lugar donde estan jugando.",
+    "castigo": "Bebe # sorbo si no limpias el lugar.",
+    "dificultad": 2,
+    "categoria": null,
+    "aprobado_diego": null,
+    "observacion": null
+  },
+  {
+    "id": 2,
+    "titulo": "TransBorracho",
+    "descripcion": "Finge que eres del sexo contrario durante # ronda",
+    "castigo": "Bebe % sorbos si rechazas el reto; $ sorbos por cada incumplimiento durante la ronda.",
+    "dificultad": 5,
+    "categoria": null,
+    "aprobado_diego": null,
+    "observacion": null
+  },
+  {
+    "id": 3,
+    "titulo": "Borracho Bailarin",
+    "descripcion": "Elige una canción y realiza el baile mas ridiculo que puedas durante % segundos",
+    "castigo": "Bebe $ sorbos si no completas el baile.",
+    "dificultad": 4,
+    "categoria": null,
+    "aprobado_diego": null,
+    "observacion": null
+  },
+  {
+    "id": 4,
+    "titulo": "Borracho Maniquí",
+    "descripcion": "Simula ser un maniquí durante # ronda.",
+    "castigo": "Bebe $ sorbos cada vez que rompas la pose durante la ronda.",
+    "dificultad": 5,
+    "categoria": null,
+    "aprobado_diego": null,
+    "observacion": null
+  },
+  {
+    "id": 5,
+    "titulo": "Borracho Raro I",
+    "descripcion": "Durante # ronda, cada vez que hables debes terminar en \"crotolamo\"",
+    "castigo": "Bebe # sorbo cada vez que olvides terminar la frase en \"crotolamo\".",
+    "dificultad": 3,
+    "categoria": null,
+    "aprobado_diego": null,
+    "observacion": null
+  },
+  {
+    "id": 6,
+    "titulo": "Borracho Raro II",
+    "descripcion": "Durante # rondas, cada vez que hables debes terminar en \"abogado\"",
+    "castigo": "Bebe # sorbo cada vez que olvides terminar la frase en \"abogado\".",
+    "dificultad": 3,
+    "categoria": null,
+    "aprobado_diego": null,
+    "observacion": null
+  },
+  {
+    "id": 7,
+    "titulo": "Borracho Raro III",
+    "descripcion": "Durante # rondas, cada vez que hables debes terminar en \"Más me crece\"",
+    "castigo": "Bebe # sorbo cada vez que olvides terminar la frase en \"Más me crece\".",
+    "dificultad": 4,
+    "categoria": null,
+    "aprobado_diego": null,
+    "observacion": null
+  },
+  {
+    "id": 8,
+    "titulo": "Borracho Mimado",
+    "descripcion": "Durante # rondas, cada vez que hables debes terminar en \"y solo soy un niño\"",
+    "castigo": "Bebe # sorbo cada vez que olvides terminar la frase en \"y solo soy un niño\".",
+    "dificultad": 3,
+    "categoria": null,
+    "aprobado_diego": null,
+    "observacion": null
+  },
+  {
+    "id": 9,
+    "titulo": "Borracho Fanatico",
+    "descripcion": "Durante # rondas, debes pararte y aplaudir cada vez que otro jugador beba.",
+    "castigo": "Bebe # sorbo cada vez que olvides pararte y aplaudir.",
+    "dificultad": 3,
+    "categoria": null,
+    "aprobado_diego": null,
+    "observacion": null
+  },
+  {
+    "id": 10,
+    "titulo": "Borracho Fetichista",
+    "descripcion": "Lame la oreja de otro jugador, si nadie te acepta, sufre en soledad y bebe $ sorbos.",
+    "castigo": "Bebe $ sorbos si no realizas el reto o nadie acepta.",
+    "dificultad": 7,
+    "categoria": null,
+    "aprobado_diego": null,
+    "observacion": null
+  },
+  {
+    "id": 11,
+    "titulo": "Borracho Cantante",
+    "descripcion": "Ponte audifonos, elige una canción que te sepas y tienes que cantarla durante / segundos.",
+    "castigo": "Bebe $ sorbos si no cantas durante todo el tiempo indicado.",
+    "dificultad": 4,
+    "categoria": null,
+    "aprobado_diego": null,
+    "observacion": null
+  },
+  {
+    "id": 12,
+    "titulo": "Borracho Sucio",
+    "descripcion": "Quitate un calcetín y dejalo encima del tablero por # ronda",
+    "castigo": "Bebe # sorbo si no dejas el calcetín o lo retiras antes de terminar la ronda.",
+    "dificultad": 2,
+    "categoria": null,
+    "aprobado_diego": null,
+    "observacion": null
+  },
+  {
+    "id": 13,
+    "titulo": "Borracho Zen",
+    "descripcion": "Realiza la posición de yoga \"Araña\" durante / segundos",
+    "castigo": "Bebe & sorbos si no completas la postura durante el tiempo indicado.",
+    "dificultad": 8,
+    "categoria": null,
+    "aprobado_diego": null,
+    "observacion": null
+  },
+  {
+    "id": 14,
+    "titulo": "Borracho Coqueto",
+    "descripcion": "Sientate en las piernas de otro jugador durante # rondas",
+    "castigo": "Bebe % sorbos si no realizas el reto o nadie acepta.",
+    "dificultad": 6,
+    "categoria": null,
+    "aprobado_diego": null,
+    "observacion": null
+  },
+  {
+    "id": 15,
+    "titulo": "Borracho Gymbro",
+    "descripcion": "Realiza % sentadillas en la cara de otro jugador",
+    "castigo": "Bebe & sorbos si no completas las sentadillas o nadie acepta.",
+    "dificultad": 8,
+    "categoria": null,
+    "aprobado_diego": null,
+    "observacion": null
+  },
+  {
+    "id": 16,
+    "titulo": "Borracho Manco",
+    "descripcion": "No puedes utilizar las manos por # ronda y nadie te puede ayudar",
+    "castigo": "Bebe % sorbos si rechazas el reto; $ sorbos cada vez que uses las manos.",
+    "dificultad": 7,
+    "categoria": null,
+    "aprobado_diego": null,
+    "observacion": null
+  },
+  {
+    "id": 17,
+    "titulo": "Borracho Caliente",
+    "descripcion": "Coloca un hielo en tu entrepierna durante / segundos",
+    "castigo": "Bebe % sorbos si no completas el tiempo indicado.",
+    "dificultad": 6,
+    "categoria": null,
+    "aprobado_diego": null,
+    "observacion": null
+  },
+  {
+    "id": 18,
+    "titulo": "Borracho Artista",
+    "descripcion": "Cada jugador puede dibujar algo en tu cara, puedes lavarte después de # rondas",
+    "castigo": "Bebe & sorbos si rechazas el reto o te lavas antes de terminar.",
+    "dificultad": 7,
+    "categoria": null,
+    "aprobado_diego": null,
+    "observacion": null
+  },
+  {
+    "id": 19,
+    "titulo": "Borracho Streaper",
+    "descripcion": "Debes realizar un baile sensual a los demas jugadores durante / segundos.",
+    "castigo": "Bebe & sorbos si no completas el baile.",
+    "dificultad": 7,
+    "categoria": null,
+    "aprobado_diego": null,
+    "observacion": null
+  },
+  {
+    "id": 20,
+    "titulo": "Borracho Griton",
+    "descripcion": "Debes gritar \"AAAAAAH\" cada vez que termines de hablar durante # ronda.",
+    "castigo": "Bebe $ sorbos cada vez que olvides gritar al terminar de hablar.",
+    "dificultad": 5,
+    "categoria": null,
+    "aprobado_diego": null,
+    "observacion": null
+  },
+  {
+    "id": 21,
+    "titulo": "Borracho Mudo",
+    "descripcion": "No puedes hablar durante # rondas.",
+    "castigo": "Bebe $ sorbos cada vez que hables durante la ronda.",
+    "dificultad": 5,
+    "categoria": null,
+    "aprobado_diego": null,
+    "observacion": null
+  },
+  {
+    "id": 22,
+    "titulo": "Borracho Romantico",
+    "descripcion": "Durante # ronda, antes de hablar con alguien debes abrazarlo.",
+    "castigo": "Bebe $ sorbos cada vez que hables con alguien sin abrazarlo antes.",
+    "dificultad": 4,
+    "categoria": null,
+    "aprobado_diego": null,
+    "observacion": null
+  },
+  {
+    "id": 23,
+    "titulo": "Borracho Familiar",
+    "descripcion": "Envía una foto tuya bebiendo a un familiar, debes mostrar la respuesta.",
+    "castigo": "Bebe % sorbos si no envías la foto o no muestras la respuesta.",
+    "dificultad": 6,
+    "categoria": null,
+    "aprobado_diego": null,
+    "observacion": null
+  },
+  {
+    "id": 24,
+    "titulo": "Borracho Fotografo",
+    "descripcion": "Durante # ronda, debes fotografiar a cada jugador en un momento desprevenido.",
+    "castigo": "Bebe $ sorbos si al terminar la ronda te falta fotografiar a algún jugador.",
+    "dificultad": 4,
+    "categoria": null,
+    "aprobado_diego": null,
+    "observacion": null
+  },
+  {
+    "id": 25,
+    "titulo": "Borracho Posero",
+    "descripcion": "Durante # ronda, tienes que simular que te sacas una selfie cada vez que bebas.",
+    "castigo": "Bebe # sorbo cada vez que bebas sin simular la selfie.",
+    "dificultad": 2,
+    "categoria": null,
+    "aprobado_diego": null,
+    "observacion": null
+  },
+  {
+    "id": 26,
+    "titulo": "Borracho Gamer",
+    "descripcion": "Durante # ronda, tomas el control de la música y debes poner solo música de videojuegos.",
+    "castigo": "Bebe # sorbo si no tomas el control de la música o pones música de otro tipo.",
+    "dificultad": 2,
+    "categoria": null,
+    "aprobado_diego": null,
+    "observacion": null
+  },
+  {
+    "id": 27,
+    "titulo": "Borracho DJ",
+    "descripcion": "Eliges una canción, debes colocarla en loop infinito durante # ronda.",
+    "castigo": "Bebe # sorbo si no mantienes la canción en repetición durante la ronda.",
+    "dificultad": 2,
+    "categoria": null,
+    "aprobado_diego": null,
+    "observacion": null
+  },
+  {
+    "id": 28,
+    "titulo": "Borracho Rapero",
+    "descripcion": "Durante # ronda, tienes que hablar solo con rimas.",
+    "castigo": "Bebe & sorbos si rechazas el reto; $ sorbos cada vez que hables sin rimar.",
+    "dificultad": 8,
+    "categoria": null,
+    "aprobado_diego": null,
+    "observacion": null
+  },
+  {
+    "id": 29,
+    "titulo": "Borracho Timido",
+    "descripcion": "Durante # ronda, no puedes tomar nada, debes esperar que alguien te lo ofrezca.",
+    "castigo": "Bebe $ sorbos cada vez que tomes algo sin que te lo hayan ofrecido.",
+    "dificultad": 4,
+    "categoria": null,
+    "aprobado_diego": null,
+    "observacion": null
+  },
+  {
+    "id": 30,
+    "titulo": "Borracho Tamagoshi",
+    "descripcion": "Eliges a otro jugador, debe darte de comer/beber durante # ronda.",
+    "castigo": "Bebe % sorbos si rechazas el reto o nadie acepta ayudarte; $ sorbos cada vez que comas o bebas por tu cuenta.",
+    "dificultad": 5,
+    "categoria": null,
+    "aprobado_diego": null,
+    "observacion": null
+  },
+  {
+    "id": 31,
+    "titulo": "Borracho Ignorado",
+    "descripcion": "Durante # ronda, nadie te tiene que responder o hablar",
+    "castigo": "Bebe # sorbo cada vez que intentes conseguir una respuesta durante la ronda.",
+    "dificultad": 3,
+    "categoria": null,
+    "aprobado_diego": null,
+    "observacion": null
+  },
+  {
+    "id": 32,
+    "titulo": "Borracho Borrado",
+    "descripcion": "Durante # ronda, debes hablar solo con vocales.",
+    "castigo": "Bebe & sorbos si rechazas el reto; $ sorbos cada vez que uses una consonante.",
+    "dificultad": 8,
+    "categoria": null,
+    "aprobado_diego": null,
+    "observacion": null
+  },
+  {
+    "id": 33,
+    "titulo": "Borracho Miado",
+    "descripcion": "Durante $ rondas, no puedes ir al baño",
+    "castigo": "Bebe % sorbos si decides no realizar el reto o lo interrumpes.",
+    "dificultad": 6,
+    "categoria": null,
+    "aprobado_diego": null,
+    "observacion": null
+  },
+  {
+    "id": 34,
+    "titulo": "Borracho Pirata",
+    "descripcion": "Durante # ronda, debes hablar como pirata",
+    "castigo": "Bebe $ sorbos cada vez que hables sin voz de pirata.",
+    "dificultad": 4,
+    "categoria": null,
+    "aprobado_diego": null,
+    "observacion": null
+  },
+  {
+    "id": 35,
+    "titulo": "Borracho Vomitado",
+    "descripcion": "Durante # ronda, cada vez que hables debes simular que \"casi\" vomitas",
+    "castigo": "Bebe $ sorbos cada vez que olvides simular la arcada al hablar.",
+    "dificultad": 5,
+    "categoria": null,
+    "aprobado_diego": null,
+    "observacion": null
+  },
+  {
+    "id": 36,
+    "titulo": "Borracho Feliz",
+    "descripcion": "Durante # ronda, cada vez que otro jugador hable, debes decir \"Que bueno mi niño\"",
+    "castigo": "Bebe # sorbo cada vez que olvides decir \"Que bueno mi niño\".",
+    "dificultad": 3,
+    "categoria": null,
+    "aprobado_diego": null,
+    "observacion": null
+  },
+  {
+    "id": 37,
+    "titulo": "Borracho Tacaño",
+    "descripcion": "Si hay otros jugadores tomando el mismo licor, independiente de la bebida, debes quitarles el vaso y vaciarlo en el tuyo, si no cae mas, busca otro vaso",
+    "castigo": "Bebe % sorbos si no realizas el reto o no hay otro jugador con el mismo licor.",
+    "dificultad": 6,
+    "categoria": null,
+    "aprobado_diego": null,
+    "observacion": null
+  },
+  {
+    "id": 38,
+    "titulo": "Borracho Cristiano",
+    "descripcion": "Durante # ronda, quita la musica, y pone de fondo un partido de Cristiano Ronaldo, debe estar en loop.",
+    "castigo": "Bebe # sorbo si no mantienes el partido en repetición durante la ronda.",
+    "dificultad": 2,
+    "categoria": null,
+    "aprobado_diego": null,
+    "observacion": null
+  },
+  {
+    "id": 39,
+    "titulo": "Borracho Maestro Pokemon",
+    "descripcion": "Te pueden grabar, debes pararte y decir lo siguiente: \"Oye, ¿sabías que en términos de reproduccion de Pokémon humanos masculinos y femeninos, Vaporeon es el Pokémon más compatible para humanos. Debido a su biología principalmente basada en agua, no tengo ninguna duda de que un Vaporeon excitado estaría increíblemente mojado, tan mojado que fácilmente podrías tener sexo con uno. durante horas sin secarse.\"",
+    "castigo": "Bebe / sorbos si no completas el texto.",
+    "dificultad": 9,
+    "categoria": null,
+    "aprobado_diego": null,
+    "observacion": null
+  },
+  {
+    "id": 40,
+    "titulo": "Borracho Filosofico",
+    "descripcion": "Pon Música clasica (Ej: Beethoven Symphony No.5) y habla como un señor completamente culturizado (o intentalo)",
+    "castigo": "Bebe % sorbos si no pones la música o no realizas la interpretación.",
+    "dificultad": 6,
+    "categoria": null,
+    "aprobado_diego": null,
+    "observacion": null
+  }
+]

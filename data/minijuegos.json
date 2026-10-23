@@ -1,0 +1,1002 @@
+[
+  {
+    "id": 1,
+    "titulo": "¿Quién es más Probable?",
+    "descripcion": "¿Quién es mas probable que renuncie?",
+    "castigo": null,
+    "dificultad": 2,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 2,
+    "titulo": "¿Quién es más Probable?",
+    "descripcion": "¿Quién se mira mas al espejo?",
+    "castigo": null,
+    "dificultad": 1,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 3,
+    "titulo": "¿Quién es más Probable?",
+    "descripcion": "¿Quién es más facíl para seducir?",
+    "castigo": null,
+    "dificultad": 4,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 4,
+    "titulo": "¿Quién es más Probable?",
+    "descripcion": "¿Quién lleva más tiempo soltero?",
+    "castigo": null,
+    "dificultad": 2,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 5,
+    "titulo": "¿Quién es más Probable?",
+    "descripcion": "¿Quién perdió primero su virginidad?",
+    "castigo": null,
+    "dificultad": 6,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 6,
+    "titulo": "¿Quién es más Probable?",
+    "descripcion": "¿Quién aguanta mejor el alcohol?",
+    "castigo": null,
+    "dificultad": 2,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 7,
+    "titulo": "¿Quién es más Probable?",
+    "descripcion": "¿Quién es el más sucio?",
+    "castigo": null,
+    "dificultad": 4,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 8,
+    "titulo": "¿Quién es más Probable?",
+    "descripcion": "¿Quién es el más aburrido?",
+    "castigo": null,
+    "dificultad": 4,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 9,
+    "titulo": "¿Quién es más Probable?",
+    "descripcion": "¿Quién es el más borracho?",
+    "castigo": null,
+    "dificultad": 2,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 10,
+    "titulo": "¿Quién es más Probable?",
+    "descripcion": "¿Quién es el más desubicado?",
+    "castigo": null,
+    "dificultad": 4,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 53,
+    "titulo": "¿Quién es más Probable?",
+    "descripcion": "¿Quién es mas probable que realice una revolución en su trabajo?",
+    "castigo": null,
+    "dificultad": 4,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 56,
+    "titulo": "¿Quién es más Probable?",
+    "descripcion": "¿Quién es el más coqueto?",
+    "castigo": null,
+    "dificultad": 3,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 59,
+    "titulo": "¿Quién es más Probable?",
+    "descripcion": "¿Quién es el más precoz?",
+    "castigo": null,
+    "dificultad": 7,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 62,
+    "titulo": "¿Quién es más Probable?",
+    "descripcion": "¿Quién es mas probable que mate a un familiar?",
+    "castigo": null,
+    "dificultad": 9,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 65,
+    "titulo": "¿Quién es más Probable?",
+    "descripcion": "¿Quién es el más tonto?",
+    "castigo": null,
+    "dificultad": 5,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 68,
+    "titulo": "¿Quién es más Probable?",
+    "descripcion": "¿Quién es más probable que muera primero?",
+    "castigo": null,
+    "dificultad": 7,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 71,
+    "titulo": "¿Quién es más Probable?",
+    "descripcion": "¿Quién es el más tramposo?",
+    "castigo": null,
+    "dificultad": 3,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 74,
+    "titulo": "¿Quién es más Probable?",
+    "descripcion": "¿Quién se va a dormir primero?",
+    "castigo": null,
+    "dificultad": 2,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 77,
+    "titulo": "¿Quién es más Probable?",
+    "descripcion": "¿Quién se masturba más?",
+    "castigo": null,
+    "dificultad": 7,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 80,
+    "titulo": "¿Quién es más Probable?",
+    "descripcion": "¿Quién es más probable que pida monedas en la calle?",
+    "castigo": null,
+    "dificultad": 5,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 41,
+    "titulo": "Cultura Chupistica",
+    "descripcion": "Personajes Franceses (Ficticios o reales)",
+    "castigo": null,
+    "dificultad": 7,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 42,
+    "titulo": "Cultura Chupistica",
+    "descripcion": "Motivos para tomar",
+    "castigo": null,
+    "dificultad": 2,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 43,
+    "titulo": "Cultura Chupistica",
+    "descripcion": "Marcas de Cervezas",
+    "castigo": null,
+    "dificultad": 3,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 44,
+    "titulo": "Cultura Chupistica",
+    "descripcion": "Cosas que le robarías a un mago",
+    "castigo": null,
+    "dificultad": 5,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 45,
+    "titulo": "Cultura Chupistica",
+    "descripcion": "Peliculas que hayan ganado un oscar",
+    "castigo": null,
+    "dificultad": 6,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 46,
+    "titulo": "Cultura Chupistica",
+    "descripcion": "Lugares donde se usa corbata",
+    "castigo": null,
+    "dificultad": 3,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 47,
+    "titulo": "Cultura Chupistica",
+    "descripcion": "Otras formas de decir borracho",
+    "castigo": null,
+    "dificultad": 3,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 48,
+    "titulo": "Cultura Chupistica",
+    "descripcion": "Cosas que tiene un detective",
+    "castigo": null,
+    "dificultad": 4,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 49,
+    "titulo": "Cultura Chupistica",
+    "descripcion": "Dibujos animados de los 90's",
+    "castigo": null,
+    "dificultad": 5,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 50,
+    "titulo": "Cultura Chupistica",
+    "descripcion": "Series de Netflix",
+    "castigo": null,
+    "dificultad": 4,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 52,
+    "titulo": "Cultura Chupistica",
+    "descripcion": "Razones para tener sexo",
+    "castigo": null,
+    "dificultad": 4,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 55,
+    "titulo": "Cultura Chupistica",
+    "descripcion": "Razones para quemar tu casa",
+    "castigo": null,
+    "dificultad": 6,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 58,
+    "titulo": "Cultura Chupistica",
+    "descripcion": "Formas de ganar dinero con tu cuerpo",
+    "castigo": null,
+    "dificultad": 6,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 61,
+    "titulo": "Cultura Chupistica",
+    "descripcion": "Cosas que le robaría a mi abuela con alzheimer",
+    "castigo": null,
+    "dificultad": 7,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 64,
+    "titulo": "Cultura Chupistica",
+    "descripcion": "Cosas que puedes hacer con tu abuela",
+    "castigo": null,
+    "dificultad": 5,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 67,
+    "titulo": "Cultura Chupistica",
+    "descripcion": "Formas de decirle a tu mamá que tendras un hijo",
+    "castigo": null,
+    "dificultad": 5,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 70,
+    "titulo": "Cultura Chupistica",
+    "descripcion": "Excusas para no salir",
+    "castigo": null,
+    "dificultad": 2,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 73,
+    "titulo": "Cultura Chupistica",
+    "descripcion": "Cosas que puedes hacer con un niño",
+    "castigo": null,
+    "dificultad": 5,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 76,
+    "titulo": "Cultura Chupistica",
+    "descripcion": "Excusas para ver una pelicula de Barbie en la primera cita",
+    "castigo": null,
+    "dificultad": 5,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 79,
+    "titulo": "Cultura Chupistica",
+    "descripcion": "Marcas de Tragos",
+    "castigo": null,
+    "dificultad": 4,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 11,
+    "titulo": "Mimica",
+    "descripcion": "Auto Volador",
+    "castigo": null,
+    "dificultad": 4,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 12,
+    "titulo": "Mimica",
+    "descripcion": "Motocicleta",
+    "castigo": null,
+    "dificultad": 2,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 13,
+    "titulo": "Mimica",
+    "descripcion": "Elvis Presley",
+    "castigo": null,
+    "dificultad": 5,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 14,
+    "titulo": "Mimica",
+    "descripcion": "Michael Jackson",
+    "castigo": null,
+    "dificultad": 3,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 15,
+    "titulo": "Mimica",
+    "descripcion": "Alienigena",
+    "castigo": null,
+    "dificultad": 3,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 16,
+    "titulo": "Mimica",
+    "descripcion": "Cactús",
+    "castigo": null,
+    "dificultad": 5,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 17,
+    "titulo": "Mimica",
+    "descripcion": "Bonsai",
+    "castigo": null,
+    "dificultad": 7,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 18,
+    "titulo": "Mimica",
+    "descripcion": "Kung Fu",
+    "castigo": null,
+    "dificultad": 3,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 19,
+    "titulo": "Mimica",
+    "descripcion": "Pluma",
+    "castigo": null,
+    "dificultad": 7,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 20,
+    "titulo": "Mimica",
+    "descripcion": "Avión",
+    "castigo": null,
+    "dificultad": 2,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 81,
+    "titulo": "Mimica",
+    "descripcion": "Bajista",
+    "castigo": null,
+    "dificultad": 6,
+    "categoria": null,
+    "aprobado_diego": null,
+    "observacion": null
+  },
+  {
+    "id": 82,
+    "titulo": "Mimica",
+    "descripcion": "Detective",
+    "castigo": null,
+    "dificultad": 4,
+    "categoria": null,
+    "aprobado_diego": null,
+    "observacion": null
+  },
+  {
+    "id": 83,
+    "titulo": "Mimica",
+    "descripcion": "Tablet",
+    "castigo": null,
+    "dificultad": 5,
+    "categoria": null,
+    "aprobado_diego": null,
+    "observacion": null
+  },
+  {
+    "id": 84,
+    "titulo": "Mimica",
+    "descripcion": "Oso Panda",
+    "castigo": null,
+    "dificultad": 4,
+    "categoria": null,
+    "aprobado_diego": null,
+    "observacion": null
+  },
+  {
+    "id": 85,
+    "titulo": "Mimica",
+    "descripcion": "Silvester Stallone",
+    "castigo": null,
+    "dificultad": 5,
+    "categoria": null,
+    "aprobado_diego": null,
+    "observacion": null
+  },
+  {
+    "id": 86,
+    "titulo": "Mimica",
+    "descripcion": "Pokemón",
+    "castigo": null,
+    "dificultad": 8,
+    "categoria": null,
+    "aprobado_diego": null,
+    "observacion": null
+  },
+  {
+    "id": 31,
+    "titulo": "Nunca nunca",
+    "descripcion": "Nunca nunca me he emborrachado en la calle",
+    "castigo": null,
+    "dificultad": 3,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 32,
+    "titulo": "Nunca nunca",
+    "descripcion": "Nunca nunca me he desmayado por emborracharme",
+    "castigo": null,
+    "dificultad": 5,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 33,
+    "titulo": "Nunca nunca",
+    "descripcion": "Nunca nunca he besado a alguien que se encuentre aquí",
+    "castigo": null,
+    "dificultad": 5,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 34,
+    "titulo": "Nunca nunca",
+    "descripcion": "Nunca nunca he bailado encima de una mesa",
+    "castigo": null,
+    "dificultad": 3,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 35,
+    "titulo": "Nunca nunca",
+    "descripcion": "Nunca nunca he robado comida de un refrigerador ajeno",
+    "castigo": null,
+    "dificultad": 3,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 36,
+    "titulo": "Nunca nunca",
+    "descripcion": "Nunca nunca he recomendado a un amigo y no ha ido",
+    "castigo": null,
+    "dificultad": 2,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 37,
+    "titulo": "Nunca nunca",
+    "descripcion": "Nunca nunca he orinado en publico",
+    "castigo": null,
+    "dificultad": 5,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 38,
+    "titulo": "Nunca nunca",
+    "descripcion": "Nunca nunca he fingido estar enfermo para no salir",
+    "castigo": null,
+    "dificultad": 2,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 39,
+    "titulo": "Nunca nunca",
+    "descripcion": "Nunca nunca he estado mas de cuatro dias sin bañarme",
+    "castigo": null,
+    "dificultad": 5,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 40,
+    "titulo": "Nunca nunca",
+    "descripcion": "Nunca nunca me he reido de un chiste que no entendí",
+    "castigo": null,
+    "dificultad": 2,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 51,
+    "titulo": "Nunca nunca",
+    "descripcion": "Nunca nunca he enviado por error una foto desnudo",
+    "castigo": null,
+    "dificultad": 8,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 54,
+    "titulo": "Nunca nunca",
+    "descripcion": "Nunca nunca he fantasiado con alguien que es minimo 10 años mayor",
+    "castigo": null,
+    "dificultad": 7,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 57,
+    "titulo": "Nunca nunca",
+    "descripcion": "Nunca nunca me han dado dinero después del sexo",
+    "castigo": null,
+    "dificultad": 8,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 60,
+    "titulo": "Nunca nunca",
+    "descripcion": "Nunca nunca he sido infiel",
+    "castigo": null,
+    "dificultad": 8,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 63,
+    "titulo": "Nunca nunca",
+    "descripcion": "Nunca nunca he quebrado una botella de alcohol.",
+    "castigo": null,
+    "dificultad": 3,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 66,
+    "titulo": "Nunca nunca",
+    "descripcion": "Nunca nunca me he besado con alguien que no sé el nombre",
+    "castigo": null,
+    "dificultad": 6,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 69,
+    "titulo": "Nunca nunca",
+    "descripcion": "Nunca nunca he tomado siendo menor de edad",
+    "castigo": null,
+    "dificultad": 6,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 72,
+    "titulo": "Nunca nunca",
+    "descripcion": "Nunca nunca he tenido un remember",
+    "castigo": null,
+    "dificultad": 6,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 75,
+    "titulo": "Nunca nunca",
+    "descripcion": "Nunca nunca me han llevado detenido a la comisaria",
+    "castigo": null,
+    "dificultad": 7,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 78,
+    "titulo": "Nunca nunca",
+    "descripcion": "Nunca nunca me he orinado en los pantalones",
+    "castigo": null,
+    "dificultad": 7,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 21,
+    "titulo": "Versus",
+    "descripcion": "¿Quién bebe agua mas rapido?",
+    "castigo": null,
+    "dificultad": 3,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 22,
+    "titulo": "Versus",
+    "descripcion": "¿Quién gana en una partida de Gallito inglés?",
+    "castigo": null,
+    "dificultad": 4,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 23,
+    "titulo": "Versus",
+    "descripcion": "¿Quién hace más flexiones de brazo en 60 segundos?",
+    "castigo": null,
+    "dificultad": 7,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 24,
+    "titulo": "Versus",
+    "descripcion": "¿Quién hace mas sentadillas en 60 segundos?",
+    "castigo": null,
+    "dificultad": 6,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 25,
+    "titulo": "Versus",
+    "descripcion": "¿Quién gana en Piedra, Papel o Tijera?",
+    "castigo": null,
+    "dificultad": 1,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 26,
+    "titulo": "Versus",
+    "descripcion": "¿Quién es capaz de estar más tiempo recostado en el piso? Pueden continuar el juego.",
+    "castigo": null,
+    "dificultad": 2,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 27,
+    "titulo": "Versus",
+    "descripcion": "¿Quién puede estar más tiempo sin pestañear?",
+    "castigo": null,
+    "dificultad": 4,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 28,
+    "titulo": "Versus",
+    "descripcion": "¿Quién es capaz de aguantar más cachetadas?",
+    "castigo": null,
+    "dificultad": 8,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 29,
+    "titulo": "Versus",
+    "descripcion": "¿Quién aguanta más en una plancha?",
+    "castigo": null,
+    "dificultad": 7,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 30,
+    "titulo": "Versus",
+    "descripcion": "¿Quién puede estar más tiempo sin hablar? Pueden continuar el juego.",
+    "castigo": null,
+    "dificultad": 5,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 87,
+    "titulo": "Mimica",
+    "descripcion": "Buscando a Nemo",
+    "castigo": null,
+    "dificultad": 4,
+    "categoria": null,
+    "aprobado_diego": null,
+    "observacion": null
+  },
+  {
+    "id": 88,
+    "titulo": "Mimica",
+    "descripcion": "El Señor de los anillos",
+    "castigo": null,
+    "dificultad": 6,
+    "categoria": null,
+    "aprobado_diego": null,
+    "observacion": null
+  },
+  {
+    "id": 89,
+    "titulo": "Mimica",
+    "descripcion": "Superman",
+    "castigo": null,
+    "dificultad": 2,
+    "categoria": null,
+    "aprobado_diego": null,
+    "observacion": null
+  },
+  {
+    "id": 90,
+    "titulo": "Mimica",
+    "descripcion": "Spiderman",
+    "castigo": null,
+    "dificultad": 2,
+    "categoria": null,
+    "aprobado_diego": null,
+    "observacion": null
+  },
+  {
+    "id": 91,
+    "titulo": "Mimica",
+    "descripcion": "Piratas del Caribe",
+    "castigo": null,
+    "dificultad": 4,
+    "categoria": null,
+    "aprobado_diego": null,
+    "observacion": null
+  },
+  {
+    "id": 92,
+    "titulo": "Mimica",
+    "descripcion": "Karate",
+    "castigo": null,
+    "dificultad": 3,
+    "categoria": null,
+    "aprobado_diego": null,
+    "observacion": null
+  },
+  {
+    "id": 93,
+    "titulo": "Mimica",
+    "descripcion": "Padel",
+    "castigo": null,
+    "dificultad": 5,
+    "categoria": null,
+    "aprobado_diego": null,
+    "observacion": null
+  },
+  {
+    "id": 94,
+    "titulo": "Mimica",
+    "descripcion": "Voleyball",
+    "castigo": null,
+    "dificultad": 4,
+    "categoria": null,
+    "aprobado_diego": null,
+    "observacion": null
+  },
+  {
+    "id": 95,
+    "titulo": "Mimica",
+    "descripcion": "Beisbol",
+    "castigo": null,
+    "dificultad": 4,
+    "categoria": null,
+    "aprobado_diego": null,
+    "observacion": null
+  },
+  {
+    "id": 96,
+    "titulo": "Mimica",
+    "descripcion": "Golf",
+    "castigo": null,
+    "dificultad": 3,
+    "categoria": null,
+    "aprobado_diego": null,
+    "observacion": null
+  },
+  {
+    "id": 97,
+    "titulo": "Mimica",
+    "descripcion": "Shakira",
+    "castigo": null,
+    "dificultad": 4,
+    "categoria": null,
+    "aprobado_diego": null,
+    "observacion": null
+  },
+  {
+    "id": 98,
+    "titulo": "Mimica",
+    "descripcion": "Harry Potter",
+    "castigo": null,
+    "dificultad": 3,
+    "categoria": null,
+    "aprobado_diego": null,
+    "observacion": null
+  },
+  {
+    "id": 99,
+    "titulo": "Mimica",
+    "descripcion": "Star Wars",
+    "castigo": null,
+    "dificultad": 4,
+    "categoria": null,
+    "aprobado_diego": null,
+    "observacion": null
+  },
+  {
+    "id": 100,
+    "titulo": "Mimica",
+    "descripcion": "Capitan America",
+    "castigo": null,
+    "dificultad": 4,
+    "categoria": null,
+    "aprobado_diego": null,
+    "observacion": null
+  }
+]

@@ -1,0 +1,2332 @@
+{
+  "Trivia": [
+    {
+      "A1": "ID",
+      "B1": "Descripción",
+      "C1": "Castigo",
+      "D1": "Dificultad 1/10",
+      "E1": "Categoria",
+      "F1": "Alt. A",
+      "G1": "Alt. B",
+      "H1": "Alt. C",
+      "I1": "Alt. D",
+      "J1": "Correcta",
+      "K1": "Aprobación Diego",
+      "L1": "Observacion"
+    },
+    {
+      "A2": "1.0",
+      "B2": "¿Qué pais tiene la menor cantidad de habitantes?",
+      "E2": "Geografia",
+      "F2": "Andorra",
+      "G2": "Monaco",
+      "H2": "Tuvalu",
+      "I2": "Vaticano",
+      "J2": "Vaticano",
+      "K2": "SI"
+    },
+    {
+      "A3": "2.0",
+      "B3": "¿Cuál es el alcohol más fuerte del mundo?",
+      "E3": "Alcohol",
+      "F3": "Vodka Spirytus",
+      "G3": "Cocoroco",
+      "H3": "Everclear 190",
+      "I3": "Poitín",
+      "J3": "Vodka Spirytus",
+      "K3": "SI"
+    },
+    {
+      "A4": "3.0",
+      "B4": "¿Quién fue la mujer más poderosa de la historia Bizantina?",
+      "E4": "Historia",
+      "F4": "Reina Isabel II",
+      "G4": "John F. Kennedy",
+      "H4": "Napoleón",
+      "I4": "Emperatriz Teodora",
+      "J4": "Emperatriz Teodora",
+      "K4": "SI"
+    },
+    {
+      "A5": "4.0",
+      "B5": "¿Cuál es la moneda de Japón?",
+      "E5": "Geografia",
+      "F5": "Dólar Japones",
+      "G5": "Euro Asiatico",
+      "H5": "Yen",
+      "I5": "Renminbi",
+      "J5": "Yen",
+      "K5": "SI"
+    },
+    {
+      "A6": "5.0",
+      "B6": "¿Cuál es la ciudad más poblada del mundo?",
+      "E6": "Geografia",
+      "F6": "Tokio",
+      "G6": "New York",
+      "H6": "Nueva Delhi",
+      "I6": "Noida",
+      "J6": "Tokio",
+      "K6": "SI"
+    },
+    {
+      "A7": "6.0",
+      "B7": "¿Cuánto es: 2 x 4 - 1? ",
+      "E7": "Matematicas",
+      "F7": "5.0",
+      "G7": "7.0",
+      "H7": "9.0",
+      "I7": "3.0",
+      "J7": "7.0",
+      "K7": "SI"
+    },
+    {
+      "A8": "7.0",
+      "B8": "¿Qué pesa más?",
+      "E8": "Logica",
+      "F8": "Un kilo de plumas",
+      "G8": "Medio kilo de pan",
+      "H8": "Un cuarto de kilo de Jamonada",
+      "I8": "Un poco de mantequilla",
+      "J8": "Un kilo de plumas",
+      "K8": "SI"
+    },
+    {
+      "A9": "8.0",
+      "B9": "¿Cuántos huesos hay en el cuerpo humano?",
+      "E9": "Ciencia",
+      "F9": "137.0",
+      "G9": "32.0",
+      "H9": "75.0",
+      "I9": "206.0",
+      "J9": "206.0",
+      "K9": "SI"
+    },
+    {
+      "A10": "9.0",
+      "B10": "¿Cuál es el órgano más grande del cuerpo humano?",
+      "E10": "Ciencia",
+      "F10": "Corazón",
+      "G10": "Phallus",
+      "H10": "Torso",
+      "I10": "Piel",
+      "J10": "Piel",
+      "K10": "SI"
+    },
+    {
+      "A11": "10.0",
+      "B11": "¿Cómo se llama el estudio de los Hongos?",
+      "E11": "Ciencia",
+      "F11": "Micología",
+      "G11": "Hongología",
+      "H11": "Neutorología",
+      "I11": "Fungología",
+      "J11": "Micología",
+      "K11": "SI"
+    },
+    {
+      "A12": "11.0",
+      "B12": "¿En qué año se acabó la Segunda Guerra Mundial?",
+      "E12": "Historia",
+      "F12": "1942.0",
+      "G12": "1939.0",
+      "H12": "1914.0",
+      "I12": "1945.0",
+      "J12": "1945.0"
+    },
+    {
+      "A13": "12.0",
+      "B13": "¿Cuál era el apellido de la reina isabel II de Inglaterra?",
+      "E13": "Historia",
+      "F13": "Rainford",
+      "G13": "Wesler",
+      "H13": "Windsor",
+      "I13": "Gonzalez",
+      "J13": "Windsor"
+    },
+    {
+      "A14": "13.0",
+      "B14": "¿En que año murió Freddy Mercury?",
+      "E14": "Historia",
+      "F14": "2001.0",
+      "G14": "1987.0",
+      "H14": "1860.0",
+      "I14": "1991.0",
+      "J14": "1991.0"
+    },
+    {
+      "A15": "14.0",
+      "B15": "¿Quién invento la bombilla?",
+      "E15": "Historia",
+      "F15": "Albert Einstein",
+      "G15": "Un vecino mio",
+      "H15": "Thomas Edison",
+      "I15": "Benjamin Franklin",
+      "J15": "Thomas Edison"
+    },
+    {
+      "A16": "15.0",
+      "B16": "¿En que año empezó la Primera Guerra Mundial?",
+      "E16": "Historia",
+      "F16": "1929.0",
+      "G16": "1907.0",
+      "H16": "1914.0",
+      "I16": "2012.0",
+      "J16": "1914.0"
+    },
+    {
+      "A17": "16.0",
+      "B17": "¿En qué año comenzó la Revolución Francesa?",
+      "E17": "Historia",
+      "F17": "1789.0",
+      "G17": "1640.0",
+      "H17": "1692.0",
+      "I17": "1715.0",
+      "J17": "1789.0"
+    },
+    {
+      "A18": "17.0",
+      "B18": "¿Cuántas veces ha estado el hombre en la luna?",
+      "E18": "Historia",
+      "F18": "15.0",
+      "G18": "6.0",
+      "H18": "3.0",
+      "I18": "9.0",
+      "J18": "6.0"
+    },
+    {
+      "A19": "18.0",
+      "B19": "¿En qué año se hundió el titanic?",
+      "E19": "Historia",
+      "F19": "1902.0",
+      "G19": "1912.0",
+      "H19": "1997.0",
+      "I19": "2015.0",
+      "J19": "1912.0"
+    },
+    {
+      "A20": "19.0",
+      "B20": "¿Quién fue el primer presidente de los Estados Unidos?",
+      "E20": "Historia",
+      "F20": "Tio Sam",
+      "G20": "Benjamin Franklin",
+      "H20": "Abraham Lincoln",
+      "I20": "George Washington",
+      "J20": "George Washington"
+    },
+    {
+      "A21": "20.0",
+      "B21": "¿Quién fue el líder principal de la Revolución Cubana en 1959?",
+      "E21": "Historia",
+      "F21": "Che Guevara",
+      "G21": "Nicolas Maduro",
+      "H21": "Hugo Chavez",
+      "I21": "Fidel Castro",
+      "J21": "Fidel Castro"
+    },
+    {
+      "A22": "21.0",
+      "B22": "¿Qué invento fue una causa principal para la revolución industrial?",
+      "E22": "Historia",
+      "F22": "Bombilla",
+      "G22": "Maquina a Vapor",
+      "H22": "Cronómetro",
+      "I22": "Agua Carbonatada",
+      "J22": "Maquina a Vapor"
+    },
+    {
+      "A23": "22.0",
+      "B23": "¿Cuál fue el primer metal que el hombre empleó?",
+      "E23": "Historia",
+      "F23": "Acero",
+      "G23": "Bronce",
+      "H23": "Hierro",
+      "I23": "Cobre",
+      "J23": "Cobre"
+    },
+    {
+      "A24": "23.0",
+      "B24": "¿Quiénes fundaron Roma según la leyenda?",
+      "E24": "Historia",
+      "F24": "Marie y Pierre",
+      "G24": "Romulo y Remo",
+      "H24": "Romario y Joseph",
+      "I24": "Julio Cesar y Alejandro Magno",
+      "J24": "Romulo y Remo"
+    },
+    {
+      "A25": "24.0",
+      "B25": "¿Donde nació Juana de Arco?",
+      "E25": "Historia",
+      "F25": "Francia",
+      "G25": "Belgica",
+      "H25": "Canada",
+      "I25": "Italia",
+      "J25": "Francia"
+    },
+    {
+      "A26": "25.0",
+      "B26": "¿Cuál es el oceano mas grande el mundo?",
+      "E26": "Geografia",
+      "F26": "Atlantico",
+      "G26": "Pacifico",
+      "H26": "Indigo",
+      "I26": "Equilatero",
+      "J26": "Pacifico"
+    },
+    {
+      "A27": "26.0",
+      "B27": "¿Cuál es el país mas grande del mundo?",
+      "E27": "Geografia",
+      "F27": "India",
+      "G27": "China",
+      "H27": "Brasil",
+      "I27": "Rusia",
+      "J27": "Rusia"
+    },
+    {
+      "A28": "27.0",
+      "B28": "¿Cuál es el país con más habitantes del mundo?",
+      "E28": "Geografia",
+      "F28": "China",
+      "G28": "India",
+      "H28": "Rusia",
+      "I28": "Estados Unidos",
+      "J28": "China"
+    },
+    {
+      "A29": "28.0",
+      "B29": "¿Donde está la casa blanca?",
+      "E29": "Geografia",
+      "F29": "Nueva York",
+      "G29": "Detroit",
+      "H29": "San Francisco",
+      "I29": "Washington D.C.",
+      "J29": "Washington D.C."
+    },
+    {
+      "A30": "29.0",
+      "B30": "¿Qué país produce más vino?",
+      "E30": "Geografia",
+      "F30": "Chile",
+      "G30": "Argentina",
+      "H30": "Francia",
+      "I30": "Italia",
+      "J30": "Italia"
+    },
+    {
+      "A31": "30.0",
+      "B31": "¿Cuantas personas hay en el mundo?",
+      "E31": "Geografia",
+      "F31": "6530 Millones",
+      "G31": "2460 Millones",
+      "H31": "7870 Millones",
+      "I31": "12 Millones",
+      "J31": "7870 Millones"
+    },
+    {
+      "A32": "31.0",
+      "B32": "¿Cuál es el lugar más frío de la tierra?",
+      "E32": "Geografia",
+      "F32": "Artártida",
+      "G32": "Canadá",
+      "H32": "Rusia",
+      "I32": "Hawaii",
+      "J32": "Artártida"
+    },
+    {
+      "A33": "32.0",
+      "B33": "¿Cuál es la montaña más alta del planeta?",
+      "E33": "Geografia",
+      "F33": "Aconcagua",
+      "G33": "Everest",
+      "H33": "Fuji",
+      "I33": "Cervino",
+      "J33": "Everest"
+    },
+    {
+      "A34": "33.0",
+      "B34": "¿Cuál es el río más largo del planeta?",
+      "E34": "Geografia",
+      "F34": "Nilo",
+      "G34": "Amazonas",
+      "H34": "Volga",
+      "I34": "Sena",
+      "J34": "Amazonas"
+    },
+    {
+      "A35": "34.0",
+      "B35": "¿En que país se encuentra el rascacielos más alto del mundo?",
+      "E35": "Geografia",
+      "F35": "Estados Unidos",
+      "G35": "Francia",
+      "H35": "Dubai",
+      "I35": "Qatar",
+      "J35": "Dubai"
+    },
+    {
+      "A36": "35.0",
+      "B36": "¿Cuál es el país más poblado de África?",
+      "E36": "Geografia",
+      "F36": "Nigeria",
+      "G36": "Serbia",
+      "H36": "Egipto",
+      "I36": "Sudán",
+      "J36": "Nigeria"
+    },
+    {
+      "A37": "36.0",
+      "B37": "¿Cuál es el país con mayor turismo del mundo?",
+      "E37": "Geografia",
+      "F37": "Estados Unidos",
+      "G37": "Francia",
+      "H37": "China",
+      "I37": "Corea del Sur",
+      "J37": "Francia"
+    },
+    {
+      "A38": "37.0",
+      "B38": "¿Cuál es la capital de Turquía?",
+      "E38": "Geografia",
+      "F38": "Estambul",
+      "G38": "Ankara",
+      "H38": "Derinkuyu",
+      "I38": "Trebisonda",
+      "J38": "Ankara"
+    },
+    {
+      "A39": "38.0",
+      "B39": "¿Cuál es el idioma oficial de Jamaica?",
+      "E39": "Geografia",
+      "F39": "Criollo",
+      "G39": "Inglés",
+      "H39": "Francés",
+      "I39": "Español",
+      "J39": "Inglés"
+    },
+    {
+      "A40": "39.0",
+      "B40": "¿Cómo se llaman las crías de los conejos?",
+      "E40": "Ciencia",
+      "F40": "Conejo",
+      "G40": "Gazapo",
+      "H40": "Potrillo",
+      "I40": "Liebre",
+      "J40": "Gazapo"
+    },
+    {
+      "A41": "40.0",
+      "B41": "¿Cómo se llama el proceso por el cual las plantas se alimentan?",
+      "E41": "Ciencia",
+      "F41": "Germinación",
+      "G41": "Fotosintesis",
+      "H41": "Digestión",
+      "I41": "Respiración",
+      "J41": "Fotosintesis"
+    },
+    {
+      "A42": "41.0",
+      "B42": "¿Qué planeta se encuentra más cerca del Sol?",
+      "E42": "Ciencia",
+      "F42": "Venus",
+      "G42": "Mercurio",
+      "H42": "Jupiter",
+      "I42": "Andromeda",
+      "J42": "Mercurio"
+    },
+    {
+      "A43": "42.0",
+      "B43": "¿Cuál es el animal más grande de la Tierra?",
+      "E43": "Ciencia",
+      "F43": "Tiburon Blanco",
+      "G43": "Ballena Azul",
+      "H43": "León Amarillo",
+      "I43": "Pantera Rosa",
+      "J43": "Ballena Azul"
+    },
+    {
+      "A44": "43.0",
+      "B44": "¿Cuántos lados tiene un heptadecágono?",
+      "E44": "Ciencia",
+      "F44": "16.0",
+      "G44": "7.0",
+      "H44": "17.0",
+      "I44": "70.0",
+      "J44": "17.0"
+    },
+    {
+      "A45": "44.0",
+      "B45": "¿Qué fruta se utiliza principalmente para elaborar aceite de oliva?",
+      "E45": "Ciencia",
+      "F45": "Uva",
+      "G45": "Aceituna",
+      "H45": "Margarita",
+      "I45": "Trigo",
+      "J45": "Aceituna"
+    },
+    {
+      "A46": "45.0",
+      "B46": "¿Cuál es el único mamífero capaz de volar?",
+      "E46": "Ciencia",
+      "F46": "Halcón",
+      "G46": "Pterosaurio",
+      "H46": "Ardilla Voladora",
+      "I46": "Murcielago",
+      "J46": "Murcielago"
+    },
+    {
+      "A47": "46.0",
+      "B47": "¿Cuál es el animal que provoca más muertes por año?",
+      "E47": "Ciencia",
+      "F47": "Tiburon",
+      "G47": "Araña",
+      "H47": "Mosquito",
+      "I47": "Serpiente",
+      "J47": "Mosquito"
+    },
+    {
+      "A48": "47.0",
+      "B48": "¿Cuál es el animal más rápido del mundo?",
+      "E48": "Ciencia",
+      "F48": "Guepardo",
+      "G48": "Leopardo",
+      "H48": "Pantera",
+      "I48": "Conejo",
+      "J48": "Guepardo"
+    },
+    {
+      "A49": "48.0",
+      "B49": "¿Quién formuló la Teoría de la Relatividad?",
+      "E49": "Ciencia",
+      "F49": "Luis Slimming",
+      "G49": "Niels Bohr",
+      "H49": "Erwin Schrodinger",
+      "I49": "Albert Einstein",
+      "J49": "Albert Einstein"
+    },
+    {
+      "A50": "49.0",
+      "B50": "¿Cuál es el metal que se encuentra en el centro de la tierra?",
+      "E50": "Ciencia",
+      "F50": "Titanio",
+      "G50": "Obsidiana",
+      "H50": "Diamante",
+      "I50": "Hierro",
+      "J50": "Hierro"
+    },
+    {
+      "A51": "50.0",
+      "B51": "En la atmósfera, ¿Qué gas supera a los demas en cantidad?",
+      "E51": "Ciencia",
+      "F51": "Oxigeno",
+      "G51": "Nitrógeno",
+      "H51": "Argón",
+      "I51": "Calcio",
+      "J51": "Nitrógeno"
+    },
+    {
+      "A52": "51.0",
+      "B52": "¿Quién dirigió 'Cuidadano Kane (1945)'?",
+      "E52": "Cine",
+      "F52": "Steven Spielberg",
+      "G52": "Alfred Hitchcock",
+      "H52": "Martin Scorsese",
+      "I52": "Orson Wells",
+      "J52": "Orson Wells"
+    },
+    {
+      "A53": "52.0",
+      "B53": "¿Quién dirigió 'Inception (2010)'?",
+      "E53": "Cine",
+      "F53": "Christopher Nolan",
+      "G53": "Akira Kurosawa",
+      "H53": "Peter Jackson",
+      "I53": "Michael Bay",
+      "J53": "Christopher Nolan"
+    },
+    {
+      "A54": "53.0",
+      "B54": "¿Quién protagonizó la película 'El Pianista (2002)'?",
+      "E54": "Cine",
+      "F54": "Leonardo Dicaprio",
+      "G54": "Ed Stoppard",
+      "H54": "Adrien Brody",
+      "I54": "Adam Sandler",
+      "J54": "Adrien Brody"
+    },
+    {
+      "A55": "54.0",
+      "B55": "¿Cuál fue la primera película de Disney?",
+      "E55": "Cine",
+      "F55": "Pinocho",
+      "G55": "Dumbo",
+      "H55": "Blancanieves y los Siete enanitos",
+      "I55": "Bambi",
+      "J55": "Blancanieves y los Siete enanitos"
+    },
+    {
+      "A56": "55.0",
+      "B56": "¿Cuántas películas de 'Harry Potter' se han hecho?",
+      "E56": "Cine",
+      "F56": "8.0",
+      "G56": "10.0",
+      "H56": "5.0",
+      "I56": "7.0",
+      "J56": "8.0"
+    },
+    {
+      "A57": "56.0",
+      "B57": "¿Quién es el enemigo más famoso de Batman?",
+      "E57": "Cine",
+      "F57": "Robin",
+      "G57": "Pinguino",
+      "H57": "Joker",
+      "I57": "Dos caras",
+      "J57": "Joker"
+    },
+    {
+      "A58": "57.0",
+      "B58": "¿En qué ciudad vive el mago de Oz?",
+      "E58": "Cine",
+      "F58": "Barcelona",
+      "G58": "Ciudad Esmeralda",
+      "H58": "Ciudad Amatista",
+      "I58": "Ciudad Diamante",
+      "J58": "Ciudad Esmeralda"
+    },
+    {
+      "A59": "58.0",
+      "B59": "¿Quién interpretó a Germione Granger en 'Harry Potter'?",
+      "E59": "Cine",
+      "F59": "Zac Effron",
+      "G59": "Megan Fox",
+      "H59": "Emma Watson",
+      "I59": "Jennifer Lawrence",
+      "J59": "Emma Watson"
+    },
+    {
+      "A60": "59.0",
+      "B60": "¿En qué ciudad se ambienta 'Cazafantasmas'?",
+      "E60": "Cine",
+      "F60": "Dubai",
+      "G60": "Nueva York",
+      "H60": "Chicago",
+      "I60": "Amityville",
+      "J60": "Nueva York"
+    },
+    {
+      "A61": "60.0",
+      "B61": "¿A qué saga pertenece el personaje llamado 'Katniss Everdeen'?",
+      "E61": "Cine",
+      "F61": "Crepusculo",
+      "G61": "Los Juegos del Hambre",
+      "H61": "Harry Potter",
+      "I61": "Los Piratas del Hambre",
+      "J61": "Los Juegos del Hambre"
+    },
+    {
+      "A62": "61.0",
+      "B62": "¿Cómo se llama la mujer de Shrek?",
+      "E62": "Cine",
+      "F62": "Rapunzel",
+      "G62": "Fiona",
+      "H62": "Blancanieves",
+      "I62": "Galleta de Jengibre",
+      "J62": "Fiona"
+    },
+    {
+      "A63": "62.0",
+      "B63": "¿Qué animal acompaña a Shrek en su camino para ver a Lord Farquaad?",
+      "E63": "Cine",
+      "F63": "Burro",
+      "G63": "Gato con Botas",
+      "H63": "Dragona",
+      "I63": "Galleta de Jengibre",
+      "J63": "Burro"
+    },
+    {
+      "A64": "63.0",
+      "B64": "¿Quién interpretó al Joven Manos de Tijera?",
+      "E64": "Cine",
+      "F64": "Adam Sandler",
+      "G64": "Leonardo Dicaprio",
+      "H64": "Johnny Deep",
+      "I64": "Brad Pitt",
+      "J64": "Johnny Deep"
+    },
+    {
+      "A65": "64.0",
+      "B65": "¿Qué actor interpreta a Thor en el Universo Cinematográfico de Marvel?",
+      "E65": "Cine",
+      "F65": "Idris Elba",
+      "G65": "Chris Evans",
+      "H65": "Hugo Weaving",
+      "I65": "Chris Hemsworth",
+      "J65": "Chris Hemsworth"
+    },
+    {
+      "A66": "65.0",
+      "B66": "¿Quién es el máximo goleador de la historia del fútbol?",
+      "E66": "Deportes",
+      "F66": "Lionel Messi",
+      "G66": "Pelé",
+      "H66": "Diego Maradona",
+      "I66": "Cristiano Ronaldo",
+      "J66": "Cristiano Ronaldo"
+    },
+    {
+      "A67": "66.0",
+      "B67": "¿Qué selección ha ganado más Copas Mundiales de Fútbol?",
+      "E67": "Deportes",
+      "F67": "Brasil",
+      "G67": "Alemania",
+      "H67": "Francia",
+      "I67": "Argentina",
+      "J67": "Brasil"
+    },
+    {
+      "A68": "67.0",
+      "B68": "¿Quién es el atleta con más medallas olímpicas?",
+      "E68": "Deportes",
+      "F68": "Michael Phelps",
+      "G68": "Paavo Nurmi",
+      "H68": "Larisa Latynina",
+      "I68": "Mark Spitz",
+      "J68": "Michael Phelps"
+    },
+    {
+      "A69": "68.0",
+      "B69": "¿Quién es el futbolista con más balones de oro?",
+      "E69": "Deportes",
+      "F69": "Ronaldinho",
+      "G69": "Lionel Messi",
+      "H69": "Cristiano Ronaldo",
+      "I69": "Diego Maradona",
+      "J69": "Lionel Messi"
+    },
+    {
+      "A70": "69.0",
+      "B70": "¿Cuantos anillos hay en la bandera olímpica?",
+      "E70": "Deportes",
+      "F70": "8.0",
+      "G70": "5.0",
+      "H70": "7.0",
+      "I70": "9.0",
+      "J70": "5.0"
+    },
+    {
+      "A71": "70.0",
+      "B71": "¿Cuál es el deporte más practicado del mundo?",
+      "E71": "Deportes",
+      "F71": "Futbol",
+      "G71": "Rugby",
+      "H71": "Atletismo",
+      "I71": "Natación",
+      "J71": "Natación"
+    },
+    {
+      "A72": "71.0",
+      "B72": "¿Qué atleta tiene el récord mundial de los 100 metros liso?",
+      "E72": "Deportes",
+      "F72": "Usain Bolt",
+      "G72": "Carl Lewis",
+      "H72": "LaShawn Merritt",
+      "I72": "Yohan Blake",
+      "J72": "Usain Bolt"
+    },
+    {
+      "A73": "72.0",
+      "B73": "¿Cuál es el equipo de la NBA con más títulos?",
+      "E73": "Deportes",
+      "F73": "Chicago Bulls",
+      "G73": "Detroit Pistons",
+      "H73": "Boston Celtics",
+      "I73": "Los Angeles Lakers",
+      "J73": "Boston Celtics"
+    },
+    {
+      "A74": "73.0",
+      "B74": "¿Cuántos jugadores hay en un equipo de béisbol?",
+      "E74": "Deportes",
+      "F74": "9.0",
+      "G74": "11.0",
+      "H74": "10.0",
+      "I74": "5.0",
+      "J74": "9.0"
+    },
+    {
+      "A75": "74.0",
+      "B75": "¿En qué deporte tendrías un 'Touchdown'?",
+      "E75": "Deportes",
+      "F75": "Béisbol",
+      "G75": "Rugby",
+      "H75": "Futbol",
+      "I75": "Basquetbol",
+      "J75": "Rugby"
+    },
+    {
+      "A76": "75.0",
+      "B76": "¿En qué deporte tendrías un 'Homerun'?",
+      "E76": "Deportes",
+      "F76": "Béisbol",
+      "G76": "Rugby",
+      "H76": "Futbol",
+      "I76": "Basquetbol",
+      "J76": "Béisbol"
+    },
+    {
+      "A77": "76.0",
+      "B77": "¿En qué equipo jugó Michael Jordan la mayor parte de su carrera?",
+      "E77": "Deportes",
+      "F77": "Chicago Bulls",
+      "G77": "Detroit Pistons",
+      "H77": "Boston Celtics",
+      "I77": "Los Angeles Lakers",
+      "J77": "Chicago Bulls"
+    },
+    {
+      "A78": "77.0",
+      "B78": "¿Cómo se llama el lugar donde se realizan las carreras de caballos?",
+      "E78": "Deportes",
+      "F78": "Hipódromo",
+      "G78": "Equinodromo",
+      "H78": "Equidromo",
+      "I78": "Hipicodromo",
+      "J78": "Hipódromo"
+    },
+    {
+      "A79": "78.0",
+      "B79": "¿Cuál es el deporte más popular de India?",
+      "E79": "Deportes",
+      "F79": "Criquet",
+      "G79": "Buzkashi",
+      "H79": "Kendo",
+      "I79": "Sumo",
+      "J79": "Criquet"
+    },
+    {
+      "A80": "79.0",
+      "B80": "¿Cuál es el deporte nacional de Japón?",
+      "E80": "Deportes",
+      "F80": "Criquet",
+      "G80": "Buzkashi",
+      "H80": "Kendo",
+      "I80": "Sumo",
+      "J80": "Sumo"
+    },
+    {
+      "A81": "80.0",
+      "B81": "¿Cuál es el récord mundial de Usain Bolt en 100 metros lisos?",
+      "E81": "Deportes",
+      "F81": "9,69 Segundos",
+      "G81": "8,89 Segundos",
+      "H81": "9,58 Segundos",
+      "I81": "9,32 Segundos",
+      "J81": "9,58 Segundos"
+    },
+    {
+      "A82": "81.0",
+      "B82": "¿Cuánto dura un partido de Rugby?",
+      "E82": "Deportes",
+      "F82": "60 minutos",
+      "G82": "80 minutos",
+      "H82": "90 minutos",
+      "I82": "24 segundos",
+      "J82": "80 minutos"
+    },
+    {
+      "A83": "82.0",
+      "B83": "¿Quién fue el vocalista de Queen?",
+      "E83": "Musica",
+      "F83": "John Lennon",
+      "G83": "Prince",
+      "H83": "Freddy Mercury",
+      "I83": "Axel Rose",
+      "J83": "Freddy Mercury"
+    },
+    {
+      "A84": "83.0",
+      "B84": "¿Cómo se llama realmente The Weeknd?",
+      "E84": "Musica",
+      "F84": "Peter Gene",
+      "G84": "Leonardo Wilhelm",
+      "H84": "Marshall Mathers",
+      "I84": "Abel Tesfaye",
+      "J84": "Abel Tesfaye"
+    },
+    {
+      "A85": "84.0",
+      "B85": "¿Cuál es el disco más vendido de la historia?",
+      "E85": "Musica",
+      "F85": "The Dark Side of the Moon, Pink Floyd",
+      "G85": "Thriller, Michael Jackson",
+      "H85": "Grease, OST",
+      "I85": "Back in Black, AC/DC",
+      "J85": "Thriller, Michael Jackson"
+    },
+    {
+      "A86": "85.0",
+      "B86": "¿Qué cantante americana tiene un Óscar?",
+      "E86": "Musica",
+      "F86": "Jennifer Lopez",
+      "G86": "Ariana Grande",
+      "H86": "Rihanna",
+      "I86": "Lady Gaga",
+      "J86": "Lady Gaga"
+    },
+    {
+      "A87": "86.0",
+      "B87": "¿Cuántas cuerdas tiene un violín?",
+      "E87": "Musica",
+      "F87": "5.0",
+      "G87": "4.0",
+      "H87": "8.0",
+      "I87": "2.0",
+      "J87": "4.0"
+    },
+    {
+      "A88": "87.0",
+      "B88": "¿Cuál es el nombre real de Eminem?",
+      "E88": "Musica",
+      "F88": "Peter Gene",
+      "G88": "Leonardo Wilhelm",
+      "H88": "Marshall Mathers",
+      "I88": "Abel Tesfaye",
+      "J88": "Marshall Mathers"
+    },
+    {
+      "A89": "88.0",
+      "B89": "¿En qué año murió Elvis Presley?",
+      "E89": "Musica",
+      "F89": "1990.0",
+      "G89": "1985.0",
+      "H89": "1977.0",
+      "I89": "1969.0",
+      "J89": "1977.0"
+    },
+    {
+      "A90": "89.0",
+      "B90": "¿Cuántos agujeros tiene una flauta dulce?",
+      "E90": "Musica",
+      "F90": "10.0",
+      "G90": "5.0",
+      "H90": "8.0",
+      "I90": "11.0",
+      "J90": "8.0"
+    },
+    {
+      "A91": "90.0",
+      "B91": "¿Cuál es el nombre artístico de Robyn Fenty?",
+      "E91": "Musica",
+      "F91": "Katy Perry",
+      "G91": "Bob Dylan",
+      "H91": "Rihanna",
+      "I91": "Cindy Lauper",
+      "J91": "Rihanna"
+    },
+    {
+      "A92": "91.0",
+      "B92": "¿Quién canta 'I Kissed a Girl'?",
+      "E92": "Musica",
+      "F92": "Katy Perry",
+      "G92": "Bob Dylan",
+      "H92": "Rihanna",
+      "I92": "Cindy Lauper",
+      "J92": "Katy Perry"
+    },
+    {
+      "A93": "92.0",
+      "B93": "¿Quién compuso la canción 'Knocking on heavens door'?",
+      "E93": "Musica",
+      "F93": "Katy Perry",
+      "G93": "Bob Dylan",
+      "H93": "Rihanna",
+      "I93": "Cindy Lauper",
+      "J93": "Bob Dylan"
+    },
+    {
+      "A94": "93.0",
+      "B94": "¿Quién cantaba 'Hey Jude'?",
+      "E94": "Musica",
+      "F94": "The Beatles",
+      "G94": "The Rolling Stones",
+      "H94": "Led Zeppelin",
+      "I94": "Pïnk Floyd",
+      "J94": "The Beatles"
+    },
+    {
+      "A95": "94.0",
+      "B95": "¿Quién cantaba 'Love me Tender'?",
+      "E95": "Musica",
+      "F95": "Elvis Presley",
+      "G95": "The Beatles",
+      "H95": "Pink Floyd",
+      "I95": "The Rolling Stones",
+      "J95": "Elvis Presley"
+    },
+    {
+      "A96": "95.0",
+      "B96": "¿Quién canta 'Girls Just Wanna Have Fun'?",
+      "E96": "Musica",
+      "F96": "Katy Perry",
+      "G96": "Bob Dylan",
+      "H96": "Rihanna",
+      "I96": "Cindy Lauper",
+      "J96": "Cindy Lauper"
+    },
+    {
+      "A97": "96.0",
+      "B97": "¿Quién canta 'Barbie Girl'?",
+      "E97": "Musica",
+      "F97": "Katy Perry",
+      "G97": "Cindy Lauper",
+      "H97": "Aqua",
+      "I97": "Rihanna",
+      "J97": "Aqua"
+    },
+    {
+      "A98": "97.0",
+      "B98": "¿Qué película musical protagonizó Zac Efron?",
+      "E98": "Musica",
+      "F98": "Camp Rock",
+      "G98": "High School Musical",
+      "H98": "BKN",
+      "I98": "Amango",
+      "J98": "High School Musical"
+    },
+    {
+      "A99": "98.0",
+      "B99": "¿Quién era el cantante de Linkin Park?",
+      "E99": "Musica",
+      "F99": "Michael Jackson",
+      "G99": "Chester Bennington",
+      "H99": "Chris Cornell",
+      "I99": "Abel Tesfaye",
+      "J99": "Chester Bennington"
+    },
+    {
+      "A100": "99.0",
+      "B100": "¿Cómo se llamaba el primer single de Britney Spears?",
+      "E100": "Musica",
+      "F100": "Baby One More Time",
+      "G100": "Gimme More",
+      "H100": "Toxic Pony",
+      "I100": "Circus",
+      "J100": "Baby One More Time"
+    },
+    {
+      "A101": "100.0",
+      "B101": "¿Quién canta 'Gasolina'?",
+      "E101": "Musica",
+      "F101": "Don Omar",
+      "G101": "Romeo Santos",
+      "H101": "Daddy Yankee",
+      "I101": "Wisin",
+      "J101": "Daddy Yankee"
+    }
+  ],
+  "Minijuegos": [
+    {
+      "A1": "ID",
+      "B1": "Titulo",
+      "C1": "Descripción",
+      "D1": "Castigo",
+      "E1": "Dificultad 1/10",
+      "F1": "Categoria",
+      "G1": "Aprobación Diego",
+      "H1": "Observacion"
+    },
+    {
+      "A2": "1.0",
+      "B2": "¿Quién es más Probable?",
+      "C2": "¿Quién es mas probable que renuncie?",
+      "G2": "SI"
+    },
+    {
+      "A3": "2.0",
+      "B3": "¿Quién es más Probable?",
+      "C3": "¿Quién se mira mas al espejo?",
+      "G3": "SI"
+    },
+    {
+      "A4": "3.0",
+      "B4": "¿Quién es más Probable?",
+      "C4": "¿Quién es más facíl para seducir?",
+      "G4": "SI"
+    },
+    {
+      "A5": "4.0",
+      "B5": "¿Quién es más Probable?",
+      "C5": "¿Quién lleva más tiempo soltero?",
+      "G5": "SI"
+    },
+    {
+      "A6": "5.0",
+      "B6": "¿Quién es más Probable?",
+      "C6": "¿Quién perdió primero su virginidad?",
+      "G6": "SI"
+    },
+    {
+      "A7": "6.0",
+      "B7": "¿Quién es más Probable?",
+      "C7": "¿Quién aguanta mejor el alcohol?",
+      "G7": "SI"
+    },
+    {
+      "A8": "7.0",
+      "B8": "¿Quién es más Probable?",
+      "C8": "¿Quién es el más sucio?",
+      "G8": "SI"
+    },
+    {
+      "A9": "8.0",
+      "B9": "¿Quién es más Probable?",
+      "C9": "¿Quién es el más aburrido?",
+      "G9": "SI"
+    },
+    {
+      "A10": "9.0",
+      "B10": "¿Quién es más Probable?",
+      "C10": "¿Quién es el más borracho?",
+      "G10": "SI"
+    },
+    {
+      "A11": "10.0",
+      "B11": "¿Quién es más Probable?",
+      "C11": "¿Quién es el más desubicado?",
+      "G11": "SI"
+    },
+    {
+      "A12": "53.0",
+      "B12": "¿Quién es más Probable?",
+      "C12": "¿Quién es mas probable que realice una revolución en su trabajo?",
+      "G12": "SI"
+    },
+    {
+      "A13": "56.0",
+      "B13": "¿Quién es más Probable?",
+      "C13": "¿Quién es el más coqueto?",
+      "G13": "SI"
+    },
+    {
+      "A14": "59.0",
+      "B14": "¿Quién es más Probable?",
+      "C14": "¿Quién es el más precoz?",
+      "G14": "SI"
+    },
+    {
+      "A15": "62.0",
+      "B15": "¿Quién es más Probable?",
+      "C15": "¿Quién es mas probable que mate a un familiar?",
+      "G15": "SI"
+    },
+    {
+      "A16": "65.0",
+      "B16": "¿Quién es más Probable?",
+      "C16": "¿Quién es el más tonto?",
+      "G16": "SI"
+    },
+    {
+      "A17": "68.0",
+      "B17": "¿Quién es más Probable?",
+      "C17": "¿Quién es más probable que muera primero?",
+      "G17": "SI"
+    },
+    {
+      "A18": "71.0",
+      "B18": "¿Quién es más Probable?",
+      "C18": "¿Quién es el más tramposo?",
+      "G18": "SI"
+    },
+    {
+      "A19": "74.0",
+      "B19": "¿Quién es más Probable?",
+      "C19": "¿Quién se va a dormir primero?",
+      "G19": "SI"
+    },
+    {
+      "A20": "77.0",
+      "B20": "¿Quién es más Probable?",
+      "C20": "¿Quién se masturba más?",
+      "G20": "SI"
+    },
+    {
+      "A21": "80.0",
+      "B21": "¿Quién es más Probable?",
+      "C21": "¿Quién es más probable que pida monedas en la calle?",
+      "G21": "SI"
+    },
+    {
+      "A22": "41.0",
+      "B22": "Cultura Chupistica",
+      "C22": "Personajes Franceses (Ficticios o reales)",
+      "G22": "SI"
+    },
+    {
+      "A23": "42.0",
+      "B23": "Cultura Chupistica",
+      "C23": "Motivos para tomar",
+      "G23": "SI"
+    },
+    {
+      "A24": "43.0",
+      "B24": "Cultura Chupistica",
+      "C24": "Marcas de Cervezas",
+      "G24": "SI"
+    },
+    {
+      "A25": "44.0",
+      "B25": "Cultura Chupistica",
+      "C25": "Cosas que le robarías a un mago",
+      "G25": "SI"
+    },
+    {
+      "A26": "45.0",
+      "B26": "Cultura Chupistica",
+      "C26": "Peliculas que hayan ganado un oscar",
+      "G26": "SI"
+    },
+    {
+      "A27": "46.0",
+      "B27": "Cultura Chupistica",
+      "C27": "Lugares donde se usa corbata",
+      "G27": "SI"
+    },
+    {
+      "A28": "47.0",
+      "B28": "Cultura Chupistica",
+      "C28": "Otras formas de decir borracho",
+      "G28": "SI"
+    },
+    {
+      "A29": "48.0",
+      "B29": "Cultura Chupistica",
+      "C29": "Cosas que tiene un detective",
+      "G29": "SI"
+    },
+    {
+      "A30": "49.0",
+      "B30": "Cultura Chupistica",
+      "C30": "Dibujos animados de los 90's",
+      "G30": "SI"
+    },
+    {
+      "A31": "50.0",
+      "B31": "Cultura Chupistica",
+      "C31": "Series de Netflix",
+      "G31": "SI"
+    },
+    {
+      "A32": "52.0",
+      "B32": "Cultura Chupistica",
+      "C32": "Razones para tener sexo",
+      "G32": "SI"
+    },
+    {
+      "A33": "55.0",
+      "B33": "Cultura Chupistica",
+      "C33": "Razones para quemar tu casa",
+      "G33": "SI"
+    },
+    {
+      "A34": "58.0",
+      "B34": "Cultura Chupistica",
+      "C34": "Formas de ganar dinero con tu cuerpo",
+      "G34": "SI"
+    },
+    {
+      "A35": "61.0",
+      "B35": "Cultura Chupistica",
+      "C35": "Cosas que le robaría a mi abuela con alzheimer",
+      "G35": "SI"
+    },
+    {
+      "A36": "64.0",
+      "B36": "Cultura Chupistica",
+      "C36": "Cosas que puedes hacer con tu abuela",
+      "G36": "SI"
+    },
+    {
+      "A37": "67.0",
+      "B37": "Cultura Chupistica",
+      "C37": "Formas de decirle a tu mamá que tendras un hijo",
+      "G37": "SI"
+    },
+    {
+      "A38": "70.0",
+      "B38": "Cultura Chupistica",
+      "C38": "Excusas para no salir",
+      "G38": "SI"
+    },
+    {
+      "A39": "73.0",
+      "B39": "Cultura Chupistica",
+      "C39": "Cosas que puedes hacer con un niño",
+      "G39": "SI"
+    },
+    {
+      "A40": "76.0",
+      "B40": "Cultura Chupistica",
+      "C40": "Excusas para ver una pelicula de Barbie en la primera cita",
+      "G40": "SI"
+    },
+    {
+      "A41": "79.0",
+      "B41": "Cultura Chupistica",
+      "C41": "Marcas de Tragos",
+      "G41": "SI"
+    },
+    {
+      "A42": "11.0",
+      "B42": "Mimica",
+      "C42": "Auto Volador",
+      "G42": "SI"
+    },
+    {
+      "A43": "12.0",
+      "B43": "Mimica",
+      "C43": "Motocicleta",
+      "G43": "SI"
+    },
+    {
+      "A44": "13.0",
+      "B44": "Mimica",
+      "C44": "Elvis Presley",
+      "G44": "SI"
+    },
+    {
+      "A45": "14.0",
+      "B45": "Mimica",
+      "C45": "Michael Jackson",
+      "G45": "SI"
+    },
+    {
+      "A46": "15.0",
+      "B46": "Mimica",
+      "C46": "Alienigena",
+      "G46": "SI"
+    },
+    {
+      "A47": "16.0",
+      "B47": "Mimica",
+      "C47": "Cactús",
+      "G47": "SI"
+    },
+    {
+      "A48": "17.0",
+      "B48": "Mimica",
+      "C48": "Bonsai",
+      "G48": "SI"
+    },
+    {
+      "A49": "18.0",
+      "B49": "Mimica",
+      "C49": "Kung Fu",
+      "G49": "SI"
+    },
+    {
+      "A50": "19.0",
+      "B50": "Mimica",
+      "C50": "Pluma",
+      "G50": "SI"
+    },
+    {
+      "A51": "20.0",
+      "B51": "Mimica",
+      "C51": "Avión",
+      "G51": "SI"
+    },
+    {
+      "A52": "81.0",
+      "B52": "Mimica",
+      "C52": "Bajista"
+    },
+    {
+      "A53": "82.0",
+      "B53": "Mimica",
+      "C53": "Detective"
+    },
+    {
+      "A54": "83.0",
+      "B54": "Mimica",
+      "C54": "Tablet"
+    },
+    {
+      "A55": "84.0",
+      "B55": "Mimica",
+      "C55": "Oso Panda"
+    },
+    {
+      "A56": "85.0",
+      "B56": "Mimica"
+    },
+    {
+      "A57": "86.0",
+      "B57": "Mimica"
+    },
+    {
+      "A58": "31.0",
+      "B58": "Nunca nunca",
+      "C58": "Nunca nunca me he emborrachado en la calle",
+      "G58": "SI"
+    },
+    {
+      "A59": "32.0",
+      "B59": "Nunca nunca",
+      "C59": "Nunca nunca me he desmayado por emborracharme",
+      "G59": "SI"
+    },
+    {
+      "A60": "33.0",
+      "B60": "Nunca nunca",
+      "C60": "Nunca nunca he besado a alguien que se encuentre aquí",
+      "G60": "SI"
+    },
+    {
+      "A61": "34.0",
+      "B61": "Nunca nunca",
+      "C61": "Nunca nunca he bailado encima de una mesa",
+      "G61": "SI"
+    },
+    {
+      "A62": "35.0",
+      "B62": "Nunca nunca",
+      "C62": "Nunca nunca he robado comida de un refrigerador ajeno",
+      "G62": "SI"
+    },
+    {
+      "A63": "36.0",
+      "B63": "Nunca nunca",
+      "C63": "Nunca nunca he recomendado a un amigo y no ha ido",
+      "G63": "SI"
+    },
+    {
+      "A64": "37.0",
+      "B64": "Nunca nunca",
+      "C64": "Nunca nunca he orinado en publico",
+      "G64": "SI"
+    },
+    {
+      "A65": "38.0",
+      "B65": "Nunca nunca",
+      "C65": "Nunca nunca he fingido estar enfermo para no salir",
+      "G65": "SI"
+    },
+    {
+      "A66": "39.0",
+      "B66": "Nunca nunca",
+      "C66": "Nunca nunca he estado mas de cuatro dias sin bañarme",
+      "G66": "SI"
+    },
+    {
+      "A67": "40.0",
+      "B67": "Nunca nunca",
+      "C67": "Nunca nunca me he reido de un chiste que no entendí",
+      "G67": "SI"
+    },
+    {
+      "A68": "51.0",
+      "B68": "Nunca nunca",
+      "C68": "Nunca nunca he enviado por error una foto desnudo",
+      "G68": "SI"
+    },
+    {
+      "A69": "54.0",
+      "B69": "Nunca nunca",
+      "C69": "Nunca nunca he fantasiado con alguien que es minimo 10 años mayor",
+      "G69": "SI"
+    },
+    {
+      "A70": "57.0",
+      "B70": "Nunca nunca",
+      "C70": "Nunca nunca me han dado dinero después del sexo",
+      "G70": "SI"
+    },
+    {
+      "A71": "60.0",
+      "B71": "Nunca nunca",
+      "C71": "Nunca nunca he sido infiel",
+      "G71": "SI"
+    },
+    {
+      "A72": "63.0",
+      "B72": "Nunca nunca",
+      "C72": "Nunca nunca he quebrado una botella de alcohol.",
+      "G72": "SI"
+    },
+    {
+      "A73": "66.0",
+      "B73": "Nunca nunca",
+      "C73": "Nunca nunca me he besado con alguien que no sé el nombre",
+      "G73": "SI"
+    },
+    {
+      "A74": "69.0",
+      "B74": "Nunca nunca",
+      "C74": "Nunca nunca he tomado siendo menor de edad",
+      "G74": "SI"
+    },
+    {
+      "A75": "72.0",
+      "B75": "Nunca nunca",
+      "C75": "Nunca nunca he tenido un remember",
+      "G75": "SI"
+    },
+    {
+      "A76": "75.0",
+      "B76": "Nunca nunca",
+      "C76": "Nunca nunca me han llevado detenido a la comisaria",
+      "G76": "SI"
+    },
+    {
+      "A77": "78.0",
+      "B77": "Nunca nunca",
+      "C77": "Nunca nunca me he orinado en los pantalones",
+      "G77": "SI"
+    },
+    {
+      "A78": "21.0",
+      "B78": "Versus",
+      "C78": "¿Quién bebe agua mas rapido?",
+      "G78": "SI"
+    },
+    {
+      "A79": "22.0",
+      "B79": "Versus",
+      "C79": "¿Quién gana en una partida de Gallito inglés?",
+      "G79": "SI"
+    },
+    {
+      "A80": "23.0",
+      "B80": "Versus",
+      "C80": "¿Quién hace más flexiones de brazo en 60 segundos?",
+      "G80": "SI"
+    },
+    {
+      "A81": "24.0",
+      "B81": "Versus",
+      "C81": "¿Quién hace mas sentadillas en 60 segundos?",
+      "G81": "SI"
+    },
+    {
+      "A82": "25.0",
+      "B82": "Versus",
+      "C82": "¿Quién gana en Piedra, Papel o Tijera?",
+      "G82": "SI"
+    },
+    {
+      "A83": "26.0",
+      "B83": "Versus",
+      "C83": "¿Quién es capaz de estar más tiempo recostado en el piso? Pueden continuar el juego.",
+      "G83": "SI"
+    },
+    {
+      "A84": "27.0",
+      "B84": "Versus",
+      "C84": "¿Quién puede estar más tiempo sin pestañear?",
+      "G84": "SI"
+    },
+    {
+      "A85": "28.0",
+      "B85": "Versus",
+      "C85": "¿Quién es capaz de aguantar más cachetadas?",
+      "G85": "SI"
+    },
+    {
+      "A86": "29.0",
+      "B86": "Versus",
+      "C86": "¿Quién aguanta más en una plancha?",
+      "G86": "SI"
+    },
+    {
+      "A87": "30.0",
+      "B87": "Versus",
+      "C87": "¿Quién puede estar más tiempo sin hablar? Pueden continuar el juego.",
+      "G87": "SI"
+    },
+    {
+      "A88": "87.0",
+      "B88": "Mimica",
+      "C88": "Buscando a Nemo"
+    },
+    {
+      "A89": "88.0",
+      "B89": "Mimica",
+      "C89": "El Señor de los anillos"
+    },
+    {
+      "A90": "89.0",
+      "B90": "Mimica",
+      "C90": "Superman"
+    },
+    {
+      "A91": "90.0",
+      "B91": "Mimica",
+      "C91": "Spiderman"
+    },
+    {
+      "A92": "91.0",
+      "B92": "Mimica",
+      "C92": "Piratas del Caribe"
+    },
+    {
+      "A93": "92.0",
+      "B93": "Mimica",
+      "C93": "Karate"
+    },
+    {
+      "A94": "93.0",
+      "B94": "Mimica",
+      "C94": "Padel"
+    },
+    {
+      "A95": "94.0",
+      "B95": "Mimica",
+      "C95": "Voleyball"
+    },
+    {
+      "A96": "95.0",
+      "B96": "Mimica",
+      "C96": "Beisbol"
+    },
+    {
+      "A97": "96.0",
+      "B97": "Mimica",
+      "C97": "Golf"
+    },
+    {
+      "A98": "97.0",
+      "B98": "Mimica",
+      "C98": "Shakira"
+    },
+    {
+      "A99": "98.0",
+      "B99": "Mimica",
+      "C99": "Harry Potter"
+    },
+    {
+      "A100": "99.0",
+      "B100": "Mimica",
+      "C100": "Star Wars"
+    },
+    {
+      "A101": "100.0",
+      "B101": "Mimica",
+      "C101": "Capitan America"
+    }
+  ],
+  "Jugo": [
+    {
+      "A1": "ID",
+      "B1": "Titulo",
+      "C1": "Descripción",
+      "D1": "Castigo",
+      "E1": "Dificultad 1/10",
+      "F1": "Categoria",
+      "G1": "Aprobación Diego",
+      "H1": "Observacion"
+    },
+    {
+      "A2": "1.0",
+      "B2": "Borracho Limpio",
+      "C2": "Busca una escoba y limpia el lugar donde estan jugando."
+    },
+    {
+      "A3": "2.0",
+      "B3": "TransBorracho",
+      "C3": "Finge que eres del sexo contrario durante # ronda"
+    },
+    {
+      "A4": "3.0",
+      "B4": "Borracho Bailarin",
+      "C4": "Elige una canción y realiza el baile mas ridiculo que puedas durante % segundos"
+    },
+    {
+      "A5": "4.0",
+      "B5": "Borracho Maniquí",
+      "C5": "Simula ser un maniquí durante # ronda."
+    },
+    {
+      "A6": "5.0",
+      "B6": "Borracho Raro I",
+      "C6": "Durante # ronda, cada vez que hables debes terminar en \"crotolamo\""
+    },
+    {
+      "A7": "6.0",
+      "B7": "Borracho Raro II",
+      "C7": "Durante # rondas, cada vez que hables debes terminar en \"abogado\""
+    },
+    {
+      "A8": "7.0",
+      "B8": "Borracho Raro III",
+      "C8": "Durante # rondas, cada vez que hables debes terminar en \"Más me crece\""
+    },
+    {
+      "A9": "8.0",
+      "B9": "Borracho Mimado",
+      "C9": "Durante # rondas, cada vez que hables debes terminar en \"y solo soy un niño\""
+    },
+    {
+      "A10": "9.0",
+      "B10": "Borracho Fanatico",
+      "C10": "Durante # rondas, debes pararte y aplaudir cada vez que otro jugador beba."
+    },
+    {
+      "A11": "10.0",
+      "B11": "Borracho Fetichista",
+      "C11": "Lame la oreja de otro jugador, si nadie te acepta, sufre en soledad y bebe $ sorbos."
+    },
+    {
+      "A12": "11.0",
+      "B12": "Borracho Cantante",
+      "C12": "Ponte audifonos, elige una canción que te sepas y tienes que cantarla durante / segundos."
+    },
+    {
+      "A13": "12.0",
+      "B13": "Borracho Sucio",
+      "C13": "Quitate un calcetín y dejalo encima del tablero por # ronda"
+    },
+    {
+      "A14": "13.0",
+      "B14": "Borracho Zen",
+      "C14": "Realiza la posición de yoga \"Araña\" durante / segundos"
+    },
+    {
+      "A15": "14.0",
+      "B15": "Borracho Coqueto",
+      "C15": "Sientate en las piernas de otro jugador durante # rondas"
+    },
+    {
+      "A16": "15.0",
+      "B16": "Borracho Gymbro",
+      "C16": "Realiza % sentadillas en la cara de otro jugador"
+    },
+    {
+      "A17": "16.0",
+      "B17": "Borracho Manco",
+      "C17": "No puedes utilizar las manos por # ronda y nadie te puede ayudar"
+    },
+    {
+      "A18": "17.0",
+      "B18": "Borracho Caliente",
+      "C18": "Coloca un hielo en tu entrepierna durante / segundos"
+    },
+    {
+      "A19": "18.0",
+      "B19": "Borracho Artista",
+      "C19": "Cada jugador puede dibujar algo en tu cara, puedes lavarte después de # rondas"
+    },
+    {
+      "A20": "19.0",
+      "B20": "Borracho Streaper",
+      "C20": "Debes realizar un baile sensual a los demas jugadores durante / segundos."
+    },
+    {
+      "A21": "20.0",
+      "B21": "Borracho Griton",
+      "C21": "Debes gritar \"AAAAAAH\" cada vez que termines de hablar durante # ronda."
+    },
+    {
+      "A22": "21.0",
+      "B22": "Borracho Mudo",
+      "C22": "No puedes hablar durante # rondas."
+    },
+    {
+      "A23": "22.0",
+      "B23": "Borracho Romantico",
+      "C23": "Durante # ronda, antes de hablar con alguien debes abrazarlo."
+    },
+    {
+      "A24": "23.0",
+      "B24": "Borracho Familiar",
+      "C24": "Envía una foto tuya bebiendo a un familiar, debes mostrar la respuesta."
+    },
+    {
+      "A25": "24.0",
+      "B25": "Borracho Fotografo",
+      "C25": "Durante # ronda, debes fotografiar a cada jugador en un momento desprevenido."
+    },
+    {
+      "A26": "25.0",
+      "B26": "Borracho Posero",
+      "C26": "Durante # ronda, tienes que simular que te sacas una selfie cada vez que bebas."
+    },
+    {
+      "A27": "26.0",
+      "B27": "Borracho Gamer",
+      "C27": "Durante # ronda, tomas el control de la música y debes poner solo música de videojuegos."
+    },
+    {
+      "A28": "27.0",
+      "B28": "Borracho DJ",
+      "C28": "Eliges una canción, debes colocarla en loop infinito durante # ronda."
+    },
+    {
+      "A29": "28.0",
+      "B29": "Borracho Rapero",
+      "C29": "Durante # ronda, tienes que hablar solo con rimas."
+    },
+    {
+      "A30": "29.0",
+      "B30": "Borracho Timido",
+      "C30": "Durante # ronda, no puedes tomar nada, debes esperar que alguien te lo ofrezca."
+    },
+    {
+      "A31": "30.0",
+      "B31": "Borracho Tamagoshi",
+      "C31": "Eliges a otro jugador, debe darte de comer/beber durante # ronda."
+    },
+    {
+      "A32": "31.0",
+      "B32": "Borracho Ignorado",
+      "C32": "Durante # ronda, nadie te tiene que responder o hablar"
+    },
+    {
+      "A33": "32.0",
+      "B33": "Borracho Borrado",
+      "C33": "Durante # ronda, debes hablar solo con vocales."
+    },
+    {
+      "A34": "33.0",
+      "B34": "Borracho Miado",
+      "C34": "Durante $ rondas, no puedes ir al baño"
+    },
+    {
+      "A35": "34.0",
+      "B35": "Borracho Pirata",
+      "C35": "Durante # ronda, debes hablar como pirata"
+    },
+    {
+      "A36": "35.0",
+      "B36": "Borracho Vomitado",
+      "C36": "Durante # ronda, cada vez que hables debes simular que \"casi\" vomitas"
+    },
+    {
+      "A37": "36.0",
+      "B37": "Borracho Feliz",
+      "C37": "Durante # ronda, cada vez que otro jugador hable, debes decir \"Que bueno mi niño\""
+    },
+    {
+      "A38": "37.0",
+      "B38": "Borracho Tacaño",
+      "C38": "Si hay otros jugadores tomando el mismo licor, independiente de la bebida, debes quitarles el vaso y vaciarlo en el tuyo, si no cae mas, busca otro vaso"
+    },
+    {
+      "A39": "38.0",
+      "B39": "Borracho Cristiano",
+      "C39": "Durante # ronda, quita la musica, y pone de fondo un partido de Cristiano Ronaldo, debe estar en loop."
+    },
+    {
+      "A40": "39.0",
+      "B40": "Borracho Maestro Pokemon",
+      "C40": "Te pueden grabar, debes pararte y decir lo siguiente: \"Oye, ¿sabías que en términos de reproduccion de Pokémon humanos masculinos y femeninos, Vaporeon es el Pokémon más compatible para humanos. Debido a su biología principalmente basada en agua, no tengo ninguna duda de que un Vaporeon excitado estaría increíblemente mojado, tan mojado que fácilmente podrías tener sexo con uno. durante horas sin secarse.\""
+    },
+    {
+      "A41": "40.0",
+      "B41": "Borracho Filosofico",
+      "C41": "Pon Música clasica (Ej: Beethoven Symphony No.5) y habla como un señor completamente culturizado (o intentalo)"
+    },
+    {
+      "A42": "41.0"
+    },
+    {
+      "A43": "42.0"
+    },
+    {
+      "A44": "43.0"
+    },
+    {
+      "A45": "44.0"
+    },
+    {
+      "A46": "45.0"
+    },
+    {
+      "A47": "46.0"
+    },
+    {
+      "A48": "47.0"
+    },
+    {
+      "A49": "48.0"
+    },
+    {
+      "A50": "49.0"
+    },
+    {
+      "A51": "50.0"
+    }
+  ],
+  "Hoja 7": [
+    {
+      "A1": "ID",
+      "B1": "Titulo",
+      "C1": "Descripción",
+      "D1": "Castigo",
+      "E1": "Dificultad 1/10",
+      "F1": "Categoria",
+      "G1": "Aprobación Diego",
+      "H1": "Observacion"
+    },
+    {
+      "A2": "1.0",
+      "B2": "Toman Todos",
+      "C2": "Todos toman $ sorbos",
+      "D2": "Mortal Triple hacia delante",
+      "G2": "SI"
+    },
+    {
+      "A3": "2.0",
+      "B3": "Ser supremo",
+      "C3": "Toma # sorbo de cada vaso en la mesa",
+      "D3": "Vaso al seco",
+      "G3": "SI"
+    },
+    {
+      "A4": "3.0",
+      "B4": "Jack Sparrow",
+      "C4": "Canta una canción relacionada a los piratas, si cumples, regalas % sorbos",
+      "D4": "5 Sorbos",
+      "G4": "SI"
+    },
+    {
+      "A5": "4.0",
+      "B5": "La Familia",
+      "C5": "Si hay un familiar tuyo en la fiesta, debe beber % sorbos, sino los bebes tú.",
+      "D5": "3 Sorbos",
+      "G5": "SI"
+    },
+    {
+      "A6": "5.0",
+      "B6": "Descanso",
+      "C6": "Durante # ronda, debes beber solamente agua, por cada incumplimiento debes hacer # sentadilla",
+      "D6": "Sentadillas",
+      "G6": "SI"
+    },
+    {
+      "A7": "6.0",
+      "B7": "Apostador",
+      "C7": "Elige a un jugador y juega Piedra, papel o tijera, el ganador regala & sorbos",
+      "D7": "5 sorbos",
+      "G7": "SI"
+    },
+    {
+      "A8": "7.0",
+      "B8": "Ultra Sobrio",
+      "C8": "Los solteros deben tomar % sorbos",
+      "D8": "Vaso al seco",
+      "G8": "SI"
+    },
+    {
+      "A9": "8.0",
+      "B9": "Azar Positivo",
+      "C9": "Shhh! no digas nada, preguntale por un número del 1 al %, su respuesta lo regalas en sorbos.",
+      "D9": "Partida de Free Fire",
+      "G9": "SI",
+      "H9": "el castigo es muy severo"
+    },
+    {
+      "A10": "9.0",
+      "B10": "Solo Vocales",
+      "C10": "Canta una canción usando solo vocales, si otro jugador adivina, puedes regalar & sorbos.",
+      "D10": "5 sorbos",
+      "G10": "SI"
+    },
+    {
+      "A11": "10.0",
+      "B11": "Seguridad",
+      "C11": "Durante # ronda, solo debes responder \"Si\" a todas las preguntas que te hagan",
+      "D11": "1 Sorbo",
+      "G11": "SI"
+    },
+    {
+      "A12": "11.0",
+      "B12": "Tercera Edad",
+      "C12": "El jugador más longevo puede regalar & sorbos",
+      "D12": "1 Nieto",
+      "G12": "SI"
+    },
+    {
+      "A13": "12.0",
+      "B13": "A tu salud",
+      "C13": "Elige un jugador, y cada uno debe beber / sorbos.",
+      "D13": "Vaso al seco",
+      "G13": "SI"
+    },
+    {
+      "A14": "13.0",
+      "B14": "Azar Negativo",
+      "C14": "Shhh! no digas nada, preguntale por un número del 1 al /, su respuesta lo bebes en sorbos.",
+      "D14": "5 Sorbos",
+      "G14": "SI"
+    },
+    {
+      "A15": "14.0",
+      "B15": "Mitomano",
+      "C15": "Elige a un jugador, debes contarle dos verdades y una mentira, si acierta, bebes % sorbos, sino, los regalas.",
+      "D15": "5 Sorbos",
+      "G15": "SI"
+    },
+    {
+      "A16": "15.0",
+      "B16": "Regalón",
+      "C16": "Todos deben tomar # sorbo de tu vaso, los que se nieguen, deben beber & de su vaso.",
+      "D16": "Medio Vaso",
+      "G16": "SI"
+    },
+    {
+      "A17": "16.0",
+      "B17": "Karaoke",
+      "C17": "Eliges una canción, el jugador que la cante regala % sorbos",
+      "D17": "1 Maluma",
+      "G17": "SI"
+    },
+    {
+      "A18": "17.0",
+      "B18": "Shhh!",
+      "C18": "Ya no puedes hablar por # ronda, por cada incumplimiento debes beber # sorbo.",
+      "D18": "1 Sorbo",
+      "G18": "SI"
+    },
+    {
+      "A19": "18.0",
+      "B19": "Suertudo",
+      "C19": "Regalas / Sorbos",
+      "D19": "Clases de Matematicas",
+      "G19": "SI"
+    },
+    {
+      "A20": "19.0",
+      "B20": "Profesor",
+      "C20": "Bloquea una letra por # rondas, cada vez que alguien la diga, debe beber # sorbos",
+      "D20": "1 Sorbo",
+      "G20": "SI"
+    },
+    {
+      "A21": "20.0",
+      "B21": "Toca Madera",
+      "C21": "Puedes poner el pulgar encima de la mesa cuando quieras, el ultimo en imitarte debe beber & sorbos.",
+      "D21": "5 sorbos",
+      "G21": "SI"
+    },
+    {
+      "A22": "21.0",
+      "B22": "Bufalo",
+      "C22": "Durante # rondas, todos los jugadores deben beber solo con la mano izquierda, si alguien se equivoca, debes gritar \"BUFALO!\" y esa persona debe beber # sorbos",
+      "G22": "SI"
+    },
+    {
+      "A23": "22.0",
+      "B23": "Historia",
+      "C23": "Empiezas la historia con una palabra, el jugador siguiente debe decir toda la historia y agregar una palabra para continuar, el jugador que se equivoque debe beber % sorbos",
+      "G23": "SI"
+    },
+    {
+      "A24": "23.0",
+      "B24": "El Jefe",
+      "C24": "Cada persona votará por un jugador, el ganador será el lider y durante # rondas, cada vez que otro jugador beba, el lider podrá elegir si bebe el doble, bebe la cantidad que corresponde o nada.",
+      "G24": "SI"
+    },
+    {
+      "A25": "24.0",
+      "B25": "Borracho Competitivo",
+      "C25": "Elige a un jugador, cada vez que esa persona beba, debes beber # sorbo.",
+      "G25": "SI"
+    },
+    {
+      "A26": "25.0",
+      "B26": "Juicio publico",
+      "C26": "Cada jugador tendra que elegir si regalarte # sorbos o darte una cachetada",
+      "G26": "SI"
+    },
+    {
+      "A27": "26.0",
+      "B27": "Tortura Linguistica",
+      "C27": "Debes responder a todas la preguntas que te hagan, pero no puedes decir ni \"si\" ni \"no\" durante # ronda",
+      "G27": "SI"
+    },
+    {
+      "A28": "27.0",
+      "B28": "I'm a Baby",
+      "C28": "Succiona el dedo de otro jugador durante % segundos",
+      "G28": "SI"
+    },
+    {
+      "A29": "28.0",
+      "B29": "Sin vasos",
+      "C29": "Toma un shot desde la mano de otro jugador",
+      "G29": "SI"
+    },
+    {
+      "A30": "29.0",
+      "B30": "El Amigo Raro",
+      "C30": "Bebe # sorbo de tu trago desde la nariz",
+      "G30": "SI"
+    },
+    {
+      "A31": "30.0",
+      "B31": "Nada de Comedia",
+      "C31": "Cada vez que te rias, debes beber # sorbos",
+      "G31": "SI"
+    },
+    {
+      "A32": "31.0",
+      "B32": "Masoquista",
+      "C32": "Deja que dos jugadores te pellizquen durante / segundos",
+      "G32": "SI"
+    },
+    {
+      "A33": "32.0",
+      "B33": "Borracho Deportista",
+      "C33": "Debes tomar % sorbos mientras saltas",
+      "G33": "SI"
+    },
+    {
+      "A34": "33.0",
+      "B34": "El Torneo",
+      "C34": "Juega Piedra, papel o tijera con todos los jugadores, por cada derrota debes beber # sorbo"
+    },
+    {
+      "A35": "34.0",
+      "B35": "Donación Voluntaria",
+      "C35": "Cada jugador realiza una donación en sorbos (deben beber) y tu debes beber la totalidad de estas."
+    },
+    {
+      "A36": "35.0",
+      "B36": "Stand Up",
+      "C36": "Cuenta un chiste, si nadie se rie, debes beber / sorbos"
+    },
+    {
+      "A37": "36.0",
+      "B37": "El sabiondo",
+      "C37": "Cada jugador te puede hacer una pregunta, si no sabes una respuesta, puedes chamullarla, si alguien piensa que mientes, pueden buscar en internet, el que este equivocado, debe beber % sorbos."
+    },
+    {
+      "A38": "37.0",
+      "B38": "Sin respeto",
+      "C38": "Echale agua en el vaso al jugador que tú elijas"
+    },
+    {
+      "A39": "38.0",
+      "B39": "Con respeto",
+      "C39": "Elige a un jugador, llenale el vaso con una bebida que elijas (Sin alcohol)"
+    },
+    {
+      "A40": "39.0",
+      "B40": "Historia",
+      "C40": "Comienza una historia, por cada turno, los jugadores deben contar la historia desde el principio y añadir una palabra."
+    },
+    {
+      "A41": "40.0",
+      "B41": "Medio Limon",
+      "C41": "Cada jugador elige un número del 1 al 100, debes decir \"(Tu numero) limones, medio limon, (Número de otro jugador) limones\" para pasar tu turno y sería el turno del jugador señalado, el juego termina cuando un jugador se equivoca."
+    }
+  ],
+  "Variables": [
+    {
+      "A1": "Variable",
+      "B1": "Valor"
+    },
+    {
+      "A2": "#",
+      "B2": "1.0"
+    },
+    {
+      "A3": "$",
+      "B3": "2.0"
+    },
+    {
+      "A4": "%",
+      "B4": "3.0"
+    },
+    {
+      "A5": "&",
+      "B5": "4.0"
+    },
+    {
+      "A6": "/",
+      "B6": "5.0"
+    }
+  ],
+  "Dando Jugo MiniJuegos": [
+    {
+      "A1": "Juegos",
+      "B1": "Descripcion",
+      "C1": "Min. Jugadores",
+      "D1": "Max. Jugadores",
+      "E1": "Voto Kamilo",
+      "F1": "Voto Diego",
+      "G1": "Observaciones"
+    },
+    {
+      "A2": "Concurso",
+      "B2": "Solamente trivias, si aciertas regalas 1, si fallas bebes 1, por cada ronda aumentan los sorbos, despues de 7 rondas, el que tenga mas puntos regala un vaso al seco",
+      "C2": "2.0",
+      "E2": "SI",
+      "F2": "Sí",
+      "G2": "Cambiar Nombre"
+    },
+    {
+      "A3": "Cuarto Rey",
+      "B3": "Necesita un vaso. Cada carta tiene un tipo de minijuego distinto, excepto el Kaiser, cuando sale un Kaiser, se debe llenar un tercio del vaso con el contenido que desees. El jugador que tenga el cuarto kaiser, debe beber el contenido del vaso.",
+      "C3": "2.0",
+      "E3": "SI",
+      "F3": "Sí",
+      "G3": "Elaborar listado de juegos"
+    },
+    {
+      "A4": "El juego de los Caballos",
+      "B4": "Jaja caballitos",
+      "C4": "2.0",
+      "E4": "SI",
+      "F4": "Sí"
+    },
+    {
+      "A5": "Juego de las Apuestas",
+      "B5": "Apuestas si la siguiente carta es mayor o menor, cada 10 cartas, aumenta en 1 la cantidad de sorbos en juego",
+      "C5": "2.0",
+      "E5": "SI",
+      "F5": "Sí"
+    },
+    {
+      "A6": "Piramide",
+      "B6": "Cada jugador tiene 2 cartas, por cada vez que salga la carta en la mano, debe realizar la acción de ese nivel (Tomar o regalar)",
+      "C6": "2.0",
+      "E6": "Veremos",
+      "F6": "Veremos",
+      "G6": "Depende de encontrar una forma viable y limpia de mostrar el tablero"
+    },
+    {
+      "A7": "Verdad o Reto",
+      "B7": "Verdad o reto comun y corriente",
+      "C7": "2.0",
+      "E7": "SI",
+      "F7": "Sí"
+    },
+    {
+      "A8": "Reloj",
+      "B8": "No se como explicarlo, pero el reloj",
+      "C8": "2.0",
+      "E8": "NO",
+      "F8": "No",
+      "G8": "Eliminado por convivencia"
+    },
+    {
+      "A9": "Trivia Bomba",
+      "B9": "Solamente Trivias, pero cada ronda tiene entre 1 a 2 min antes que explote la bomba, si explota en tu turno, debes tomar la cantidad de preguntas respondidas en sorbos.",
+      "C9": "2.0",
+      "E9": "Si",
+      "F9": "Sí",
+      "G9": "Cambiar nombre"
+    },
+    {
+      "A10": "American Top Juice",
+      "B10": "Mimica, Karaoke, Descripción (Un hunt sin alternativas) (Se me ocurrio ahora). Sin equipos, con 2 jurado rotatorio y es el jurado quien adivina",
+      "C10": "3.0",
+      "E10": "NO",
+      "F10": "No sé",
+      "G10": "Cambiado por charada"
+    },
+    {
+      "A11": "Juego de la moneda",
+      "E11": "Si",
+      "F11": "Sí"
+    },
+    {
+      "A12": "Charada",
+      "E12": "Si",
+      "F12": "Si"
+    }
+  ],
+  "Dando Jugo": [
+    {
+      "A1": "Juegos",
+      "B1": "Descripcion",
+      "C1": "Min. Jugadores",
+      "D1": "Max. Jugadores",
+      "E1": "Voto Kamilo",
+      "F1": "Voto Diego"
+    },
+    {
+      "A2": "Juguito 250 ml",
+      "B2": "Juegos mas piolas que van desde tomar 1 sorbo a 1 vaso al seco",
+      "C2": "2.0",
+      "D2": "8.0"
+    },
+    {
+      "A3": "Jugo 2 lt",
+      "B3": "Juegos mas brigidos que van desde 5 sorbos a Cascada",
+      "C3": "2.0",
+      "D3": "8.0"
+    },
+    {
+      "A4": "Jugo Caliente",
+      "B4": "Juegos coquetos",
+      "C4": "2.0",
+      "D4": "8.0"
+    },
+    {
+      "A5": "Jugo Gamer",
+      "B5": "Mismo juego, pero tematica gamer",
+      "C5": "2.0",
+      "D5": "8.0"
+    },
+    {
+      "A6": "Juguito en Guerra",
+      "B6": "2 Equipos, desarrollar juegos en ello",
+      "C6": "4.0",
+      "D6": "16.0"
+    },
+    {
+      "A7": "Jugo Otaku",
+      "B7": "Mismo juego, pero tematica anime",
+      "C7": "2.0",
+      "D7": "8.0"
+    }
+  ],
+  "Ideas que serian un juego apart": [
+    {
+      "A1": "Nombre",
+      "B1": "Descripcion"
+    },
+    {
+      "A2": "Werejuice",
+      "B2": "El celular se va pasando jugador a jugador, mostrando que personaje es, puede ser Jugoso (Gana si lo echan), Mejor amigo (Gana junto con el Jugoso), Borracho (Gana si lo echan), Piola (Gana si echan al Jugoso), Bailarin (Gana si echan al jugoso), DJ (Gana si echan al Jugoso)"
+    },
+    {
+      "A3": "Personaje",
+      "B3": "Habilidad",
+      "C3": "Valor Hab.",
+      "D3": "Cant. Jugadores"
+    },
+    {
+      "A4": "Jugoso",
+      "B4": "Debe indicar si en su turno, beberá o no.",
+      "D4": "1.0"
+    },
+    {
+      "A5": "Mejor Amigo",
+      "B5": "Sin habilidad: Selecciona a un jugador, para cuando utilice su habilidad, no deba beber.",
+      "C5": "4.0",
+      "D5": "1.0"
+    },
+    {
+      "A6": "Borracho",
+      "B6": "Pista Falsa: La siguiente pista sera relacionada al Borracho y no al Jugoso",
+      "C6": "2.0",
+      "D6": "1.0"
+    },
+    {
+      "A7": "Piola",
+      "B7": "Pista: Puede pedir una pista relacionada al Jugoso (Ej: Letra del nombre o si ha bebido o no)",
+      "C7": "2.0",
+      "D7": "45383.0"
+    },
+    {
+      "A8": "Bailarin",
+      "B8": "Cancelar Habilidad: Si usas esta habilidad, Seleccionas a un jugador para que cuando use su habilidad, le indicará que fue cancelado",
+      "C8": "2.0",
+      "D8": "45352.0"
+    }
+  ]
+}

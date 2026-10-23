@@ -1,0 +1,1602 @@
+[
+  {
+    "id": 1,
+    "pregunta": "¿Qué pais tiene la menor cantidad de habitantes?",
+    "castigo": "#",
+    "dificultad": 4,
+    "categoria": "Geografia",
+    "opciones": {
+      "A": "Andorra",
+      "B": "Monaco",
+      "C": "Tuvalu",
+      "D": "Vaticano"
+    },
+    "correcta": "Vaticano",
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 2,
+    "pregunta": "¿Cuál es el alcohol más fuerte del mundo?",
+    "castigo": "#",
+    "dificultad": 8,
+    "categoria": "Alcohol",
+    "opciones": {
+      "A": "Vodka Spirytus",
+      "B": "Cocoroco",
+      "C": "Everclear 190",
+      "D": "Poitín"
+    },
+    "correcta": "Vodka Spirytus",
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 3,
+    "pregunta": "¿Quién fue la mujer más poderosa de la historia Bizantina?",
+    "castigo": "#",
+    "dificultad": 9,
+    "categoria": "Historia",
+    "opciones": {
+      "A": "Reina Isabel II",
+      "B": "John F. Kennedy",
+      "C": "Napoleón",
+      "D": "Emperatriz Teodora"
+    },
+    "correcta": "Emperatriz Teodora",
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 4,
+    "pregunta": "¿Cuál es la moneda de Japón?",
+    "castigo": "#",
+    "dificultad": 2,
+    "categoria": "Geografia",
+    "opciones": {
+      "A": "Dólar Japones",
+      "B": "Euro Asiatico",
+      "C": "Yen",
+      "D": "Renminbi"
+    },
+    "correcta": "Yen",
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 5,
+    "pregunta": "¿Cuál es la ciudad más poblada del mundo?",
+    "castigo": "#",
+    "dificultad": 4,
+    "categoria": "Geografia",
+    "opciones": {
+      "A": "Tokio",
+      "B": "New York",
+      "C": "Nueva Delhi",
+      "D": "Noida"
+    },
+    "correcta": "Tokio",
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 6,
+    "pregunta": "¿Cuánto es: 2 x 4 - 1?",
+    "castigo": "#",
+    "dificultad": 1,
+    "categoria": "Matematicas",
+    "opciones": {
+      "A": "5",
+      "B": "7",
+      "C": "9",
+      "D": "3"
+    },
+    "correcta": "7",
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 7,
+    "pregunta": "¿Qué pesa más?",
+    "castigo": "#",
+    "dificultad": 2,
+    "categoria": "Logica",
+    "opciones": {
+      "A": "Un kilo de plumas",
+      "B": "Medio kilo de pan",
+      "C": "Un cuarto de kilo de Jamonada",
+      "D": "Un poco de mantequilla"
+    },
+    "correcta": "Un kilo de plumas",
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 8,
+    "pregunta": "¿Cuántos huesos hay en el cuerpo humano?",
+    "castigo": "#",
+    "dificultad": 4,
+    "categoria": "Ciencia",
+    "opciones": {
+      "A": "137",
+      "B": "32",
+      "C": "75",
+      "D": "206"
+    },
+    "correcta": "206",
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 9,
+    "pregunta": "¿Cuál es el órgano más grande del cuerpo humano?",
+    "castigo": "#",
+    "dificultad": 3,
+    "categoria": "Ciencia",
+    "opciones": {
+      "A": "Corazón",
+      "B": "Phallus",
+      "C": "Torso",
+      "D": "Piel"
+    },
+    "correcta": "Piel",
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 10,
+    "pregunta": "¿Cómo se llama el estudio de los Hongos?",
+    "castigo": "#",
+    "dificultad": 6,
+    "categoria": "Ciencia",
+    "opciones": {
+      "A": "Micología",
+      "B": "Hongología",
+      "C": "Neutorología",
+      "D": "Fungología"
+    },
+    "correcta": "Micología",
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 11,
+    "pregunta": "¿En qué año se acabó la Segunda Guerra Mundial?",
+    "castigo": "#",
+    "dificultad": 3,
+    "categoria": "Historia",
+    "opciones": {
+      "A": "1942",
+      "B": "1939",
+      "C": "1914",
+      "D": "1945"
+    },
+    "correcta": "1945",
+    "aprobado_diego": null,
+    "observacion": null
+  },
+  {
+    "id": 12,
+    "pregunta": "¿Cuál era el apellido de la reina isabel II de Inglaterra?",
+    "castigo": "#",
+    "dificultad": 6,
+    "categoria": "Historia",
+    "opciones": {
+      "A": "Rainford",
+      "B": "Wesler",
+      "C": "Windsor",
+      "D": "Gonzalez"
+    },
+    "correcta": "Windsor",
+    "aprobado_diego": null,
+    "observacion": null
+  },
+  {
+    "id": 13,
+    "pregunta": "¿En que año murió Freddy Mercury?",
+    "castigo": "#",
+    "dificultad": 6,
+    "categoria": "Historia",
+    "opciones": {
+      "A": "2001",
+      "B": "1987",
+      "C": "1860",
+      "D": "1991"
+    },
+    "correcta": "1991",
+    "aprobado_diego": null,
+    "observacion": null
+  },
+  {
+    "id": 14,
+    "pregunta": "¿Quién invento la bombilla?",
+    "castigo": "#",
+    "dificultad": 2,
+    "categoria": "Historia",
+    "opciones": {
+      "A": "Albert Einstein",
+      "B": "Un vecino mio",
+      "C": "Thomas Edison",
+      "D": "Benjamin Franklin"
+    },
+    "correcta": "Thomas Edison",
+    "aprobado_diego": null,
+    "observacion": null
+  },
+  {
+    "id": 15,
+    "pregunta": "¿En que año empezó la Primera Guerra Mundial?",
+    "castigo": "#",
+    "dificultad": 4,
+    "categoria": "Historia",
+    "opciones": {
+      "A": "1929",
+      "B": "1907",
+      "C": "1914",
+      "D": "2012"
+    },
+    "correcta": "1914",
+    "aprobado_diego": null,
+    "observacion": null
+  },
+  {
+    "id": 16,
+    "pregunta": "¿En qué año comenzó la Revolución Francesa?",
+    "castigo": "#",
+    "dificultad": 5,
+    "categoria": "Historia",
+    "opciones": {
+      "A": "1789",
+      "B": "1640",
+      "C": "1692",
+      "D": "1715"
+    },
+    "correcta": "1789",
+    "aprobado_diego": null,
+    "observacion": null
+  },
+  {
+    "id": 17,
+    "pregunta": "¿Cuántas veces ha estado el hombre en la luna?",
+    "castigo": "#",
+    "dificultad": 7,
+    "categoria": "Historia",
+    "opciones": {
+      "A": "15",
+      "B": "6",
+      "C": "3",
+      "D": "9"
+    },
+    "correcta": "6",
+    "aprobado_diego": null,
+    "observacion": null
+  },
+  {
+    "id": 18,
+    "pregunta": "¿En qué año se hundió el titanic?",
+    "castigo": "#",
+    "dificultad": 4,
+    "categoria": "Historia",
+    "opciones": {
+      "A": "1902",
+      "B": "1912",
+      "C": "1997",
+      "D": "2015"
+    },
+    "correcta": "1912",
+    "aprobado_diego": null,
+    "observacion": null
+  },
+  {
+    "id": 19,
+    "pregunta": "¿Quién fue el primer presidente de los Estados Unidos?",
+    "castigo": "#",
+    "dificultad": 3,
+    "categoria": "Historia",
+    "opciones": {
+      "A": "Tio Sam",
+      "B": "Benjamin Franklin",
+      "C": "Abraham Lincoln",
+      "D": "George Washington"
+    },
+    "correcta": "George Washington",
+    "aprobado_diego": null,
+    "observacion": null
+  },
+  {
+    "id": 20,
+    "pregunta": "¿Quién fue el líder principal de la Revolución Cubana en 1959?",
+    "castigo": "#",
+    "dificultad": 4,
+    "categoria": "Historia",
+    "opciones": {
+      "A": "Che Guevara",
+      "B": "Nicolas Maduro",
+      "C": "Hugo Chavez",
+      "D": "Fidel Castro"
+    },
+    "correcta": "Fidel Castro",
+    "aprobado_diego": null,
+    "observacion": null
+  },
+  {
+    "id": 21,
+    "pregunta": "¿Qué invento fue una causa principal para la revolución industrial?",
+    "castigo": "#",
+    "dificultad": 4,
+    "categoria": "Historia",
+    "opciones": {
+      "A": "Bombilla",
+      "B": "Maquina a Vapor",
+      "C": "Cronómetro",
+      "D": "Agua Carbonatada"
+    },
+    "correcta": "Maquina a Vapor",
+    "aprobado_diego": null,
+    "observacion": null
+  },
+  {
+    "id": 22,
+    "pregunta": "¿Cuál fue el primer metal que el hombre empleó?",
+    "castigo": "#",
+    "dificultad": 6,
+    "categoria": "Historia",
+    "opciones": {
+      "A": "Acero",
+      "B": "Bronce",
+      "C": "Hierro",
+      "D": "Cobre"
+    },
+    "correcta": "Cobre",
+    "aprobado_diego": null,
+    "observacion": null
+  },
+  {
+    "id": 23,
+    "pregunta": "¿Quiénes fundaron Roma según la leyenda?",
+    "castigo": "#",
+    "dificultad": 4,
+    "categoria": "Historia",
+    "opciones": {
+      "A": "Marie y Pierre",
+      "B": "Romulo y Remo",
+      "C": "Romario y Joseph",
+      "D": "Julio Cesar y Alejandro Magno"
+    },
+    "correcta": "Romulo y Remo",
+    "aprobado_diego": null,
+    "observacion": null
+  },
+  {
+    "id": 24,
+    "pregunta": "¿Donde nació Juana de Arco?",
+    "castigo": "#",
+    "dificultad": 6,
+    "categoria": "Historia",
+    "opciones": {
+      "A": "Francia",
+      "B": "Belgica",
+      "C": "Canada",
+      "D": "Italia"
+    },
+    "correcta": "Francia",
+    "aprobado_diego": null,
+    "observacion": null
+  },
+  {
+    "id": 25,
+    "pregunta": "¿Cuál es el oceano mas grande el mundo?",
+    "castigo": "#",
+    "dificultad": 2,
+    "categoria": "Geografia",
+    "opciones": {
+      "A": "Atlantico",
+      "B": "Pacifico",
+      "C": "Indigo",
+      "D": "Equilatero"
+    },
+    "correcta": "Pacifico",
+    "aprobado_diego": null,
+    "observacion": null
+  },
+  {
+    "id": 26,
+    "pregunta": "¿Cuál es el país mas grande del mundo?",
+    "castigo": "#",
+    "dificultad": 2,
+    "categoria": "Geografia",
+    "opciones": {
+      "A": "India",
+      "B": "China",
+      "C": "Brasil",
+      "D": "Rusia"
+    },
+    "correcta": "Rusia",
+    "aprobado_diego": null,
+    "observacion": null
+  },
+  {
+    "id": 27,
+    "pregunta": "¿Cuál es el país con más habitantes del mundo?",
+    "castigo": "#",
+    "dificultad": 3,
+    "categoria": "Geografia",
+    "opciones": {
+      "A": "China",
+      "B": "India",
+      "C": "Rusia",
+      "D": "Estados Unidos"
+    },
+    "correcta": "China",
+    "aprobado_diego": null,
+    "observacion": null
+  },
+  {
+    "id": 28,
+    "pregunta": "¿Donde está la casa blanca?",
+    "castigo": "#",
+    "dificultad": 2,
+    "categoria": "Geografia",
+    "opciones": {
+      "A": "Nueva York",
+      "B": "Detroit",
+      "C": "San Francisco",
+      "D": "Washington D.C."
+    },
+    "correcta": "Washington D.C.",
+    "aprobado_diego": null,
+    "observacion": null
+  },
+  {
+    "id": 29,
+    "pregunta": "¿Qué país produce más vino?",
+    "castigo": "#",
+    "dificultad": 6,
+    "categoria": "Geografia",
+    "opciones": {
+      "A": "Chile",
+      "B": "Argentina",
+      "C": "Francia",
+      "D": "Italia"
+    },
+    "correcta": "Italia",
+    "aprobado_diego": null,
+    "observacion": null
+  },
+  {
+    "id": 30,
+    "pregunta": "¿Cuantas personas hay en el mundo?",
+    "castigo": "#",
+    "dificultad": 5,
+    "categoria": "Geografia",
+    "opciones": {
+      "A": "6530 Millones",
+      "B": "2460 Millones",
+      "C": "7870 Millones",
+      "D": "12 Millones"
+    },
+    "correcta": "7870 Millones",
+    "aprobado_diego": null,
+    "observacion": null
+  },
+  {
+    "id": 31,
+    "pregunta": "¿Cuál es el lugar más frío de la tierra?",
+    "castigo": "#",
+    "dificultad": 2,
+    "categoria": "Geografia",
+    "opciones": {
+      "A": "Artártida",
+      "B": "Canadá",
+      "C": "Rusia",
+      "D": "Hawaii"
+    },
+    "correcta": "Artártida",
+    "aprobado_diego": null,
+    "observacion": null
+  },
+  {
+    "id": 32,
+    "pregunta": "¿Cuál es la montaña más alta del planeta?",
+    "castigo": "#",
+    "dificultad": 2,
+    "categoria": "Geografia",
+    "opciones": {
+      "A": "Aconcagua",
+      "B": "Everest",
+      "C": "Fuji",
+      "D": "Cervino"
+    },
+    "correcta": "Everest",
+    "aprobado_diego": null,
+    "observacion": null
+  },
+  {
+    "id": 33,
+    "pregunta": "¿Cuál es el río más largo del planeta?",
+    "castigo": "#",
+    "dificultad": 5,
+    "categoria": "Geografia",
+    "opciones": {
+      "A": "Nilo",
+      "B": "Amazonas",
+      "C": "Volga",
+      "D": "Sena"
+    },
+    "correcta": "Amazonas",
+    "aprobado_diego": null,
+    "observacion": null
+  },
+  {
+    "id": 34,
+    "pregunta": "¿En que país se encuentra el rascacielos más alto del mundo?",
+    "castigo": "#",
+    "dificultad": 4,
+    "categoria": "Geografia",
+    "opciones": {
+      "A": "Estados Unidos",
+      "B": "Francia",
+      "C": "Dubai",
+      "D": "Qatar"
+    },
+    "correcta": "Dubai",
+    "aprobado_diego": null,
+    "observacion": null
+  },
+  {
+    "id": 35,
+    "pregunta": "¿Cuál es el país más poblado de África?",
+    "castigo": "#",
+    "dificultad": 6,
+    "categoria": "Geografia",
+    "opciones": {
+      "A": "Nigeria",
+      "B": "Serbia",
+      "C": "Egipto",
+      "D": "Sudán"
+    },
+    "correcta": "Nigeria",
+    "aprobado_diego": null,
+    "observacion": null
+  },
+  {
+    "id": 36,
+    "pregunta": "¿Cuál es el país con mayor turismo del mundo?",
+    "castigo": "#",
+    "dificultad": 4,
+    "categoria": "Geografia",
+    "opciones": {
+      "A": "Estados Unidos",
+      "B": "Francia",
+      "C": "China",
+      "D": "Corea del Sur"
+    },
+    "correcta": "Francia",
+    "aprobado_diego": null,
+    "observacion": null
+  },
+  {
+    "id": 37,
+    "pregunta": "¿Cuál es la capital de Turquía?",
+    "castigo": "#",
+    "dificultad": 6,
+    "categoria": "Geografia",
+    "opciones": {
+      "A": "Estambul",
+      "B": "Ankara",
+      "C": "Derinkuyu",
+      "D": "Trebisonda"
+    },
+    "correcta": "Ankara",
+    "aprobado_diego": null,
+    "observacion": null
+  },
+  {
+    "id": 38,
+    "pregunta": "¿Cuál es el idioma oficial de Jamaica?",
+    "castigo": "#",
+    "dificultad": 6,
+    "categoria": "Geografia",
+    "opciones": {
+      "A": "Criollo",
+      "B": "Inglés",
+      "C": "Francés",
+      "D": "Español"
+    },
+    "correcta": "Inglés",
+    "aprobado_diego": null,
+    "observacion": null
+  },
+  {
+    "id": 39,
+    "pregunta": "¿Cómo se llaman las crías de los conejos?",
+    "castigo": "#",
+    "dificultad": 7,
+    "categoria": "Ciencia",
+    "opciones": {
+      "A": "Conejo",
+      "B": "Gazapo",
+      "C": "Potrillo",
+      "D": "Liebre"
+    },
+    "correcta": "Gazapo",
+    "aprobado_diego": null,
+    "observacion": null
+  },
+  {
+    "id": 40,
+    "pregunta": "¿Cómo se llama el proceso por el cual las plantas se alimentan?",
+    "castigo": "#",
+    "dificultad": 2,
+    "categoria": "Ciencia",
+    "opciones": {
+      "A": "Germinación",
+      "B": "Fotosintesis",
+      "C": "Digestión",
+      "D": "Respiración"
+    },
+    "correcta": "Fotosintesis",
+    "aprobado_diego": null,
+    "observacion": null
+  },
+  {
+    "id": 41,
+    "pregunta": "¿Qué planeta se encuentra más cerca del Sol?",
+    "castigo": "#",
+    "dificultad": 3,
+    "categoria": "Ciencia",
+    "opciones": {
+      "A": "Venus",
+      "B": "Mercurio",
+      "C": "Jupiter",
+      "D": "Andromeda"
+    },
+    "correcta": "Mercurio",
+    "aprobado_diego": null,
+    "observacion": null
+  },
+  {
+    "id": 42,
+    "pregunta": "¿Cuál es el animal más grande de la Tierra?",
+    "castigo": "#",
+    "dificultad": 2,
+    "categoria": "Ciencia",
+    "opciones": {
+      "A": "Tiburon Blanco",
+      "B": "Ballena Azul",
+      "C": "León Amarillo",
+      "D": "Pantera Rosa"
+    },
+    "correcta": "Ballena Azul",
+    "aprobado_diego": null,
+    "observacion": null
+  },
+  {
+    "id": 43,
+    "pregunta": "¿Cuántos lados tiene un heptadecágono?",
+    "castigo": "#",
+    "dificultad": 6,
+    "categoria": "Ciencia",
+    "opciones": {
+      "A": "16",
+      "B": "7",
+      "C": "17",
+      "D": "70"
+    },
+    "correcta": "17",
+    "aprobado_diego": null,
+    "observacion": null
+  },
+  {
+    "id": 44,
+    "pregunta": "¿Qué fruta se utiliza principalmente para elaborar aceite de oliva?",
+    "castigo": "#",
+    "dificultad": 1,
+    "categoria": "Ciencia",
+    "opciones": {
+      "A": "Uva",
+      "B": "Aceituna",
+      "C": "Margarita",
+      "D": "Trigo"
+    },
+    "correcta": "Aceituna",
+    "aprobado_diego": null,
+    "observacion": null
+  },
+  {
+    "id": 45,
+    "pregunta": "¿Cuál es el único mamífero capaz de volar?",
+    "castigo": "#",
+    "dificultad": 3,
+    "categoria": "Ciencia",
+    "opciones": {
+      "A": "Halcón",
+      "B": "Pterosaurio",
+      "C": "Ardilla Voladora",
+      "D": "Murcielago"
+    },
+    "correcta": "Murcielago",
+    "aprobado_diego": null,
+    "observacion": null
+  },
+  {
+    "id": 46,
+    "pregunta": "¿Cuál es el animal que provoca más muertes por año?",
+    "castigo": "#",
+    "dificultad": 5,
+    "categoria": "Ciencia",
+    "opciones": {
+      "A": "Tiburon",
+      "B": "Araña",
+      "C": "Mosquito",
+      "D": "Serpiente"
+    },
+    "correcta": "Mosquito",
+    "aprobado_diego": null,
+    "observacion": null
+  },
+  {
+    "id": 47,
+    "pregunta": "¿Cuál es el animal más rápido del mundo?",
+    "castigo": "#",
+    "dificultad": 2,
+    "categoria": "Ciencia",
+    "opciones": {
+      "A": "Guepardo",
+      "B": "Leopardo",
+      "C": "Pantera",
+      "D": "Conejo"
+    },
+    "correcta": "Guepardo",
+    "aprobado_diego": null,
+    "observacion": null
+  },
+  {
+    "id": 48,
+    "pregunta": "¿Quién formuló la Teoría de la Relatividad?",
+    "castigo": "#",
+    "dificultad": 2,
+    "categoria": "Ciencia",
+    "opciones": {
+      "A": "Luis Slimming",
+      "B": "Niels Bohr",
+      "C": "Erwin Schrodinger",
+      "D": "Albert Einstein"
+    },
+    "correcta": "Albert Einstein",
+    "aprobado_diego": null,
+    "observacion": null
+  },
+  {
+    "id": 49,
+    "pregunta": "¿Cuál es el metal que se encuentra en el centro de la tierra?",
+    "castigo": "#",
+    "dificultad": 4,
+    "categoria": "Ciencia",
+    "opciones": {
+      "A": "Titanio",
+      "B": "Obsidiana",
+      "C": "Diamante",
+      "D": "Hierro"
+    },
+    "correcta": "Hierro",
+    "aprobado_diego": null,
+    "observacion": null
+  },
+  {
+    "id": 50,
+    "pregunta": "En la atmósfera, ¿Qué gas supera a los demas en cantidad?",
+    "castigo": "#",
+    "dificultad": 5,
+    "categoria": "Ciencia",
+    "opciones": {
+      "A": "Oxigeno",
+      "B": "Nitrógeno",
+      "C": "Argón",
+      "D": "Calcio"
+    },
+    "correcta": "Nitrógeno",
+    "aprobado_diego": null,
+    "observacion": null
+  },
+  {
+    "id": 51,
+    "pregunta": "¿Quién dirigió 'Cuidadano Kane (1945)'?",
+    "castigo": "#",
+    "dificultad": 8,
+    "categoria": "Cine",
+    "opciones": {
+      "A": "Steven Spielberg",
+      "B": "Alfred Hitchcock",
+      "C": "Martin Scorsese",
+      "D": "Orson Wells"
+    },
+    "correcta": "Orson Wells",
+    "aprobado_diego": null,
+    "observacion": null
+  },
+  {
+    "id": 52,
+    "pregunta": "¿Quién dirigió 'Inception (2010)'?",
+    "castigo": "#",
+    "dificultad": 5,
+    "categoria": "Cine",
+    "opciones": {
+      "A": "Christopher Nolan",
+      "B": "Akira Kurosawa",
+      "C": "Peter Jackson",
+      "D": "Michael Bay"
+    },
+    "correcta": "Christopher Nolan",
+    "aprobado_diego": null,
+    "observacion": null
+  },
+  {
+    "id": 53,
+    "pregunta": "¿Quién protagonizó la película 'El Pianista (2002)'?",
+    "castigo": "#",
+    "dificultad": 7,
+    "categoria": "Cine",
+    "opciones": {
+      "A": "Leonardo Dicaprio",
+      "B": "Ed Stoppard",
+      "C": "Adrien Brody",
+      "D": "Adam Sandler"
+    },
+    "correcta": "Adrien Brody",
+    "aprobado_diego": null,
+    "observacion": null
+  },
+  {
+    "id": 54,
+    "pregunta": "¿Cuál fue la primera película de Disney?",
+    "castigo": "#",
+    "dificultad": 4,
+    "categoria": "Cine",
+    "opciones": {
+      "A": "Pinocho",
+      "B": "Dumbo",
+      "C": "Blancanieves y los Siete enanitos",
+      "D": "Bambi"
+    },
+    "correcta": "Blancanieves y los Siete enanitos",
+    "aprobado_diego": null,
+    "observacion": null
+  },
+  {
+    "id": 55,
+    "pregunta": "¿Cuántas películas de 'Harry Potter' se han hecho?",
+    "castigo": "#",
+    "dificultad": 3,
+    "categoria": "Cine",
+    "opciones": {
+      "A": "8",
+      "B": "10",
+      "C": "5",
+      "D": "7"
+    },
+    "correcta": "8",
+    "aprobado_diego": null,
+    "observacion": null
+  },
+  {
+    "id": 56,
+    "pregunta": "¿Quién es el enemigo más famoso de Batman?",
+    "castigo": "#",
+    "dificultad": 1,
+    "categoria": "Cine",
+    "opciones": {
+      "A": "Robin",
+      "B": "Pinguino",
+      "C": "Joker",
+      "D": "Dos caras"
+    },
+    "correcta": "Joker",
+    "aprobado_diego": null,
+    "observacion": null
+  },
+  {
+    "id": 57,
+    "pregunta": "¿En qué ciudad vive el mago de Oz?",
+    "castigo": "#",
+    "dificultad": 5,
+    "categoria": "Cine",
+    "opciones": {
+      "A": "Barcelona",
+      "B": "Ciudad Esmeralda",
+      "C": "Ciudad Amatista",
+      "D": "Ciudad Diamante"
+    },
+    "correcta": "Ciudad Esmeralda",
+    "aprobado_diego": null,
+    "observacion": null
+  },
+  {
+    "id": 58,
+    "pregunta": "¿Quién interpretó a Germione Granger en 'Harry Potter'?",
+    "castigo": "#",
+    "dificultad": 2,
+    "categoria": "Cine",
+    "opciones": {
+      "A": "Zac Effron",
+      "B": "Megan Fox",
+      "C": "Emma Watson",
+      "D": "Jennifer Lawrence"
+    },
+    "correcta": "Emma Watson",
+    "aprobado_diego": null,
+    "observacion": null
+  },
+  {
+    "id": 59,
+    "pregunta": "¿En qué ciudad se ambienta 'Cazafantasmas'?",
+    "castigo": "#",
+    "dificultad": 4,
+    "categoria": "Cine",
+    "opciones": {
+      "A": "Dubai",
+      "B": "Nueva York",
+      "C": "Chicago",
+      "D": "Amityville"
+    },
+    "correcta": "Nueva York",
+    "aprobado_diego": null,
+    "observacion": null
+  },
+  {
+    "id": 60,
+    "pregunta": "¿A qué saga pertenece el personaje llamado 'Katniss Everdeen'?",
+    "castigo": "#",
+    "dificultad": 3,
+    "categoria": "Cine",
+    "opciones": {
+      "A": "Crepusculo",
+      "B": "Los Juegos del Hambre",
+      "C": "Harry Potter",
+      "D": "Los Piratas del Hambre"
+    },
+    "correcta": "Los Juegos del Hambre",
+    "aprobado_diego": null,
+    "observacion": null
+  },
+  {
+    "id": 61,
+    "pregunta": "¿Cómo se llama la mujer de Shrek?",
+    "castigo": "#",
+    "dificultad": 1,
+    "categoria": "Cine",
+    "opciones": {
+      "A": "Rapunzel",
+      "B": "Fiona",
+      "C": "Blancanieves",
+      "D": "Galleta de Jengibre"
+    },
+    "correcta": "Fiona",
+    "aprobado_diego": null,
+    "observacion": null
+  },
+  {
+    "id": 62,
+    "pregunta": "¿Qué animal acompaña a Shrek en su camino para ver a Lord Farquaad?",
+    "castigo": "#",
+    "dificultad": 1,
+    "categoria": "Cine",
+    "opciones": {
+      "A": "Burro",
+      "B": "Gato con Botas",
+      "C": "Dragona",
+      "D": "Galleta de Jengibre"
+    },
+    "correcta": "Burro",
+    "aprobado_diego": null,
+    "observacion": null
+  },
+  {
+    "id": 63,
+    "pregunta": "¿Quién interpretó al Joven Manos de Tijera?",
+    "castigo": "#",
+    "dificultad": 3,
+    "categoria": "Cine",
+    "opciones": {
+      "A": "Adam Sandler",
+      "B": "Leonardo Dicaprio",
+      "C": "Johnny Deep",
+      "D": "Brad Pitt"
+    },
+    "correcta": "Johnny Deep",
+    "aprobado_diego": null,
+    "observacion": null
+  },
+  {
+    "id": 64,
+    "pregunta": "¿Qué actor interpreta a Thor en el Universo Cinematográfico de Marvel?",
+    "castigo": "#",
+    "dificultad": 3,
+    "categoria": "Cine",
+    "opciones": {
+      "A": "Idris Elba",
+      "B": "Chris Evans",
+      "C": "Hugo Weaving",
+      "D": "Chris Hemsworth"
+    },
+    "correcta": "Chris Hemsworth",
+    "aprobado_diego": null,
+    "observacion": null
+  },
+  {
+    "id": 65,
+    "pregunta": "¿Quién es el máximo goleador de la historia del fútbol?",
+    "castigo": "#",
+    "dificultad": 2,
+    "categoria": "Deportes",
+    "opciones": {
+      "A": "Lionel Messi",
+      "B": "Pelé",
+      "C": "Diego Maradona",
+      "D": "Cristiano Ronaldo"
+    },
+    "correcta": "Cristiano Ronaldo",
+    "aprobado_diego": null,
+    "observacion": null
+  },
+  {
+    "id": 66,
+    "pregunta": "¿Qué selección ha ganado más Copas Mundiales de Fútbol?",
+    "castigo": "#",
+    "dificultad": 2,
+    "categoria": "Deportes",
+    "opciones": {
+      "A": "Brasil",
+      "B": "Alemania",
+      "C": "Francia",
+      "D": "Argentina"
+    },
+    "correcta": "Brasil",
+    "aprobado_diego": null,
+    "observacion": null
+  },
+  {
+    "id": 67,
+    "pregunta": "¿Quién es el atleta con más medallas olímpicas?",
+    "castigo": "#",
+    "dificultad": 4,
+    "categoria": "Deportes",
+    "opciones": {
+      "A": "Michael Phelps",
+      "B": "Paavo Nurmi",
+      "C": "Larisa Latynina",
+      "D": "Mark Spitz"
+    },
+    "correcta": "Michael Phelps",
+    "aprobado_diego": null,
+    "observacion": null
+  },
+  {
+    "id": 68,
+    "pregunta": "¿Quién es el futbolista con más balones de oro?",
+    "castigo": "#",
+    "dificultad": 2,
+    "categoria": "Deportes",
+    "opciones": {
+      "A": "Ronaldinho",
+      "B": "Lionel Messi",
+      "C": "Cristiano Ronaldo",
+      "D": "Diego Maradona"
+    },
+    "correcta": "Lionel Messi",
+    "aprobado_diego": null,
+    "observacion": null
+  },
+  {
+    "id": 69,
+    "pregunta": "¿Cuantos anillos hay en la bandera olímpica?",
+    "castigo": "#",
+    "dificultad": 2,
+    "categoria": "Deportes",
+    "opciones": {
+      "A": "8",
+      "B": "5",
+      "C": "7",
+      "D": "9"
+    },
+    "correcta": "5",
+    "aprobado_diego": null,
+    "observacion": null
+  },
+  {
+    "id": 70,
+    "pregunta": "¿Cuál es el deporte más practicado del mundo?",
+    "castigo": "#",
+    "dificultad": 4,
+    "categoria": "Deportes",
+    "opciones": {
+      "A": "Futbol",
+      "B": "Rugby",
+      "C": "Atletismo",
+      "D": "Natación"
+    },
+    "correcta": "Natación",
+    "aprobado_diego": null,
+    "observacion": null
+  },
+  {
+    "id": 71,
+    "pregunta": "¿Qué atleta tiene el récord mundial de los 100 metros liso?",
+    "castigo": "#",
+    "dificultad": 2,
+    "categoria": "Deportes",
+    "opciones": {
+      "A": "Usain Bolt",
+      "B": "Carl Lewis",
+      "C": "LaShawn Merritt",
+      "D": "Yohan Blake"
+    },
+    "correcta": "Usain Bolt",
+    "aprobado_diego": null,
+    "observacion": null
+  },
+  {
+    "id": 72,
+    "pregunta": "¿Cuál es el equipo de la NBA con más títulos?",
+    "castigo": "#",
+    "dificultad": 5,
+    "categoria": "Deportes",
+    "opciones": {
+      "A": "Chicago Bulls",
+      "B": "Detroit Pistons",
+      "C": "Boston Celtics",
+      "D": "Los Angeles Lakers"
+    },
+    "correcta": "Boston Celtics",
+    "aprobado_diego": null,
+    "observacion": null
+  },
+  {
+    "id": 73,
+    "pregunta": "¿Cuántos jugadores hay en un equipo de béisbol?",
+    "castigo": "#",
+    "dificultad": 5,
+    "categoria": "Deportes",
+    "opciones": {
+      "A": "9",
+      "B": "11",
+      "C": "10",
+      "D": "5"
+    },
+    "correcta": "9",
+    "aprobado_diego": null,
+    "observacion": null
+  },
+  {
+    "id": 74,
+    "pregunta": "¿En qué deporte tendrías un 'Touchdown'?",
+    "castigo": "#",
+    "dificultad": 4,
+    "categoria": "Deportes",
+    "opciones": {
+      "A": "Béisbol",
+      "B": "Rugby",
+      "C": "Futbol",
+      "D": "Basquetbol"
+    },
+    "correcta": "Rugby",
+    "aprobado_diego": null,
+    "observacion": null
+  },
+  {
+    "id": 75,
+    "pregunta": "¿En qué deporte tendrías un 'Homerun'?",
+    "castigo": "#",
+    "dificultad": 3,
+    "categoria": "Deportes",
+    "opciones": {
+      "A": "Béisbol",
+      "B": "Rugby",
+      "C": "Futbol",
+      "D": "Basquetbol"
+    },
+    "correcta": "Béisbol",
+    "aprobado_diego": null,
+    "observacion": null
+  },
+  {
+    "id": 76,
+    "pregunta": "¿En qué equipo jugó Michael Jordan la mayor parte de su carrera?",
+    "castigo": "#",
+    "dificultad": 3,
+    "categoria": "Deportes",
+    "opciones": {
+      "A": "Chicago Bulls",
+      "B": "Detroit Pistons",
+      "C": "Boston Celtics",
+      "D": "Los Angeles Lakers"
+    },
+    "correcta": "Chicago Bulls",
+    "aprobado_diego": null,
+    "observacion": null
+  },
+  {
+    "id": 77,
+    "pregunta": "¿Cómo se llama el lugar donde se realizan las carreras de caballos?",
+    "castigo": "#",
+    "dificultad": 4,
+    "categoria": "Deportes",
+    "opciones": {
+      "A": "Hipódromo",
+      "B": "Equinodromo",
+      "C": "Equidromo",
+      "D": "Hipicodromo"
+    },
+    "correcta": "Hipódromo",
+    "aprobado_diego": null,
+    "observacion": null
+  },
+  {
+    "id": 78,
+    "pregunta": "¿Cuál es el deporte más popular de India?",
+    "castigo": "#",
+    "dificultad": 6,
+    "categoria": "Deportes",
+    "opciones": {
+      "A": "Criquet",
+      "B": "Buzkashi",
+      "C": "Kendo",
+      "D": "Sumo"
+    },
+    "correcta": "Criquet",
+    "aprobado_diego": null,
+    "observacion": null
+  },
+  {
+    "id": 79,
+    "pregunta": "¿Cuál es el deporte nacional de Japón?",
+    "castigo": "#",
+    "dificultad": 5,
+    "categoria": "Deportes",
+    "opciones": {
+      "A": "Criquet",
+      "B": "Buzkashi",
+      "C": "Kendo",
+      "D": "Sumo"
+    },
+    "correcta": "Sumo",
+    "aprobado_diego": null,
+    "observacion": null
+  },
+  {
+    "id": 80,
+    "pregunta": "¿Cuál es el récord mundial de Usain Bolt en 100 metros lisos?",
+    "castigo": "#",
+    "dificultad": 5,
+    "categoria": "Deportes",
+    "opciones": {
+      "A": "9,69 Segundos",
+      "B": "8,89 Segundos",
+      "C": "9,58 Segundos",
+      "D": "9,32 Segundos"
+    },
+    "correcta": "9,58 Segundos",
+    "aprobado_diego": null,
+    "observacion": null
+  },
+  {
+    "id": 81,
+    "pregunta": "¿Cuánto dura un partido de Rugby?",
+    "castigo": "#",
+    "dificultad": 7,
+    "categoria": "Deportes",
+    "opciones": {
+      "A": "60 minutos",
+      "B": "80 minutos",
+      "C": "90 minutos",
+      "D": "24 segundos"
+    },
+    "correcta": "80 minutos",
+    "aprobado_diego": null,
+    "observacion": null
+  },
+  {
+    "id": 82,
+    "pregunta": "¿Quién fue el vocalista de Queen?",
+    "castigo": "#",
+    "dificultad": 2,
+    "categoria": "Musica",
+    "opciones": {
+      "A": "John Lennon",
+      "B": "Prince",
+      "C": "Freddy Mercury",
+      "D": "Axel Rose"
+    },
+    "correcta": "Freddy Mercury",
+    "aprobado_diego": null,
+    "observacion": null
+  },
+  {
+    "id": 83,
+    "pregunta": "¿Cómo se llama realmente The Weeknd?",
+    "castigo": "#",
+    "dificultad": 7,
+    "categoria": "Musica",
+    "opciones": {
+      "A": "Peter Gene",
+      "B": "Leonardo Wilhelm",
+      "C": "Marshall Mathers",
+      "D": "Abel Tesfaye"
+    },
+    "correcta": "Abel Tesfaye",
+    "aprobado_diego": null,
+    "observacion": null
+  },
+  {
+    "id": 84,
+    "pregunta": "¿Cuál es el disco más vendido de la historia?",
+    "castigo": "#",
+    "dificultad": 4,
+    "categoria": "Musica",
+    "opciones": {
+      "A": "The Dark Side of the Moon, Pink Floyd",
+      "B": "Thriller, Michael Jackson",
+      "C": "Grease, OST",
+      "D": "Back in Black, AC/DC"
+    },
+    "correcta": "Thriller, Michael Jackson",
+    "aprobado_diego": null,
+    "observacion": null
+  },
+  {
+    "id": 85,
+    "pregunta": "¿Qué cantante americana tiene un Óscar?",
+    "castigo": "#",
+    "dificultad": 5,
+    "categoria": "Musica",
+    "opciones": {
+      "A": "Jennifer Lopez",
+      "B": "Ariana Grande",
+      "C": "Rihanna",
+      "D": "Lady Gaga"
+    },
+    "correcta": "Lady Gaga",
+    "aprobado_diego": null,
+    "observacion": null
+  },
+  {
+    "id": 86,
+    "pregunta": "¿Cuántas cuerdas tiene un violín?",
+    "castigo": "#",
+    "dificultad": 4,
+    "categoria": "Musica",
+    "opciones": {
+      "A": "5",
+      "B": "4",
+      "C": "8",
+      "D": "2"
+    },
+    "correcta": "4",
+    "aprobado_diego": null,
+    "observacion": null
+  },
+  {
+    "id": 87,
+    "pregunta": "¿Cuál es el nombre real de Eminem?",
+    "castigo": "#",
+    "dificultad": 6,
+    "categoria": "Musica",
+    "opciones": {
+      "A": "Peter Gene",
+      "B": "Leonardo Wilhelm",
+      "C": "Marshall Mathers",
+      "D": "Abel Tesfaye"
+    },
+    "correcta": "Marshall Mathers",
+    "aprobado_diego": null,
+    "observacion": null
+  },
+  {
+    "id": 88,
+    "pregunta": "¿En qué año murió Elvis Presley?",
+    "castigo": "#",
+    "dificultad": 6,
+    "categoria": "Musica",
+    "opciones": {
+      "A": "1990",
+      "B": "1985",
+      "C": "1977",
+      "D": "1969"
+    },
+    "correcta": "1977",
+    "aprobado_diego": null,
+    "observacion": null
+  },
+  {
+    "id": 89,
+    "pregunta": "¿Cuántos agujeros tiene una flauta dulce?",
+    "castigo": "#",
+    "dificultad": 6,
+    "categoria": "Musica",
+    "opciones": {
+      "A": "10",
+      "B": "5",
+      "C": "8",
+      "D": "11"
+    },
+    "correcta": "8",
+    "aprobado_diego": null,
+    "observacion": null
+  },
+  {
+    "id": 90,
+    "pregunta": "¿Cuál es el nombre artístico de Robyn Fenty?",
+    "castigo": "#",
+    "dificultad": 6,
+    "categoria": "Musica",
+    "opciones": {
+      "A": "Katy Perry",
+      "B": "Bob Dylan",
+      "C": "Rihanna",
+      "D": "Cindy Lauper"
+    },
+    "correcta": "Rihanna",
+    "aprobado_diego": null,
+    "observacion": null
+  },
+  {
+    "id": 91,
+    "pregunta": "¿Quién canta 'I Kissed a Girl'?",
+    "castigo": "#",
+    "dificultad": 4,
+    "categoria": "Musica",
+    "opciones": {
+      "A": "Katy Perry",
+      "B": "Bob Dylan",
+      "C": "Rihanna",
+      "D": "Cindy Lauper"
+    },
+    "correcta": "Katy Perry",
+    "aprobado_diego": null,
+    "observacion": null
+  },
+  {
+    "id": 92,
+    "pregunta": "¿Quién compuso la canción 'Knocking on heavens door'?",
+    "castigo": "#",
+    "dificultad": 6,
+    "categoria": "Musica",
+    "opciones": {
+      "A": "Katy Perry",
+      "B": "Bob Dylan",
+      "C": "Rihanna",
+      "D": "Cindy Lauper"
+    },
+    "correcta": "Bob Dylan",
+    "aprobado_diego": null,
+    "observacion": null
+  },
+  {
+    "id": 93,
+    "pregunta": "¿Quién cantaba 'Hey Jude'?",
+    "castigo": "#",
+    "dificultad": 2,
+    "categoria": "Musica",
+    "opciones": {
+      "A": "The Beatles",
+      "B": "The Rolling Stones",
+      "C": "Led Zeppelin",
+      "D": "Pïnk Floyd"
+    },
+    "correcta": "The Beatles",
+    "aprobado_diego": null,
+    "observacion": null
+  },
+  {
+    "id": 94,
+    "pregunta": "¿Quién cantaba 'Love me Tender'?",
+    "castigo": "#",
+    "dificultad": 4,
+    "categoria": "Musica",
+    "opciones": {
+      "A": "Elvis Presley",
+      "B": "The Beatles",
+      "C": "Pink Floyd",
+      "D": "The Rolling Stones"
+    },
+    "correcta": "Elvis Presley",
+    "aprobado_diego": null,
+    "observacion": null
+  },
+  {
+    "id": 95,
+    "pregunta": "¿Quién canta 'Girls Just Wanna Have Fun'?",
+    "castigo": "#",
+    "dificultad": 5,
+    "categoria": "Musica",
+    "opciones": {
+      "A": "Katy Perry",
+      "B": "Bob Dylan",
+      "C": "Rihanna",
+      "D": "Cindy Lauper"
+    },
+    "correcta": "Cindy Lauper",
+    "aprobado_diego": null,
+    "observacion": null
+  },
+  {
+    "id": 96,
+    "pregunta": "¿Quién canta 'Barbie Girl'?",
+    "castigo": "#",
+    "dificultad": 5,
+    "categoria": "Musica",
+    "opciones": {
+      "A": "Katy Perry",
+      "B": "Cindy Lauper",
+      "C": "Aqua",
+      "D": "Rihanna"
+    },
+    "correcta": "Aqua",
+    "aprobado_diego": null,
+    "observacion": null
+  },
+  {
+    "id": 97,
+    "pregunta": "¿Qué película musical protagonizó Zac Efron?",
+    "castigo": "#",
+    "dificultad": 2,
+    "categoria": "Musica",
+    "opciones": {
+      "A": "Camp Rock",
+      "B": "High School Musical",
+      "C": "BKN",
+      "D": "Amango"
+    },
+    "correcta": "High School Musical",
+    "aprobado_diego": null,
+    "observacion": null
+  },
+  {
+    "id": 98,
+    "pregunta": "¿Quién era el cantante de Linkin Park?",
+    "castigo": "#",
+    "dificultad": 4,
+    "categoria": "Musica",
+    "opciones": {
+      "A": "Michael Jackson",
+      "B": "Chester Bennington",
+      "C": "Chris Cornell",
+      "D": "Abel Tesfaye"
+    },
+    "correcta": "Chester Bennington",
+    "aprobado_diego": null,
+    "observacion": null
+  },
+  {
+    "id": 99,
+    "pregunta": "¿Cómo se llamaba el primer single de Britney Spears?",
+    "castigo": "#",
+    "dificultad": 7,
+    "categoria": "Musica",
+    "opciones": {
+      "A": "Baby One More Time",
+      "B": "Gimme More",
+      "C": "Toxic Pony",
+      "D": "Circus"
+    },
+    "correcta": "Baby One More Time",
+    "aprobado_diego": null,
+    "observacion": null
+  },
+  {
+    "id": 100,
+    "pregunta": "¿Quién canta 'Gasolina'?",
+    "castigo": "#",
+    "dificultad": 2,
+    "categoria": "Musica",
+    "opciones": {
+      "A": "Don Omar",
+      "B": "Romeo Santos",
+      "C": "Daddy Yankee",
+      "D": "Wisin"
+    },
+    "correcta": "Daddy Yankee",
+    "aprobado_diego": null,
+    "observacion": null
+  }
+]

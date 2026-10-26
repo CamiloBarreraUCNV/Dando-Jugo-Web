@@ -285,6 +285,72 @@ class SoundManager {
       console.warn('Audio playTimerBuzzer error:', e);
     }
   }
+
+  // Sonido realista de naipe deslizándose / volteo de carta
+  playCardFlip() {
+    if (this.isMuted) return;
+    this.init();
+    if (!this.ctx) return;
+
+    try {
+      const osc = this.ctx.createOscillator();
+      const gain = this.ctx.createGain();
+      const filter = this.ctx.createBiquadFilter();
+
+      osc.type = 'triangle';
+      osc.frequency.setValueAtTime(850, this.ctx.currentTime);
+      osc.frequency.exponentialRampToValueAtTime(160, this.ctx.currentTime + 0.08);
+
+      filter.type = 'bandpass';
+      filter.frequency.setValueAtTime(1400, this.ctx.currentTime);
+      filter.Q.setValueAtTime(2.5, this.ctx.currentTime);
+
+      const targetGain = 0.28 * this.volume;
+      gain.gain.setValueAtTime(targetGain, this.ctx.currentTime);
+      gain.gain.exponentialRampToValueAtTime(0.001, this.ctx.currentTime + 0.09);
+
+      osc.connect(filter);
+      filter.connect(gain);
+      gain.connect(this.ctx.destination);
+
+      osc.start();
+      osc.stop(this.ctx.currentTime + 0.09);
+    } catch (e) {
+      console.warn('Audio playCardFlip error:', e);
+    }
+  }
+
+  // Sonido de líquido vertiéndose y burbujas al salir un Rey en Cuarto Rey
+  playPourDrink() {
+    if (this.isMuted) return;
+    this.init();
+    if (!this.ctx) return;
+
+    try {
+      const bubbleFreqs = [240, 320, 420, 560, 720];
+      bubbleFreqs.forEach((freq, idx) => {
+        const timeOffset = idx * 0.055;
+        const osc = this.ctx.createOscillator();
+        const gain = this.ctx.createGain();
+
+        osc.type = 'sine';
+        osc.frequency.setValueAtTime(freq, this.ctx.currentTime + timeOffset);
+        osc.frequency.exponentialRampToValueAtTime(freq * 1.45, this.ctx.currentTime + timeOffset + 0.06);
+
+        const targetGain = 0.22 * this.volume;
+        gain.gain.setValueAtTime(targetGain, this.ctx.currentTime + timeOffset);
+        gain.gain.exponentialRampToValueAtTime(0.001, this.ctx.currentTime + timeOffset + 0.07);
+
+        osc.connect(gain);
+        gain.connect(this.ctx.destination);
+
+        osc.start(this.ctx.currentTime + timeOffset);
+        osc.stop(this.ctx.currentTime + timeOffset + 0.07);
+      });
+    } catch (e) {
+      console.warn('Audio playPourDrink error:', e);
+    }
+  }
 }
 
 export const soundManager = new SoundManager();

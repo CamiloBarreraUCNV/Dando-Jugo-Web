@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { CuartoReyDeckManager, CARD_RULES } from '../utils/cuartoReyDeck';
 import { getAnimalAvatar } from '../utils/animalAvatars';
 import { soundManager } from '../utils/soundEffects';
@@ -8,7 +8,6 @@ import logoImg from '../assets/Logos/DandoJugoLogotransp2 4.png';
  * Componente Visual de la Copa del Káiser con nivel de líquido progresivo y burbujas
  */
 function KingCupVisual({ kingsDrawn, cupLevel, isGameOver }) {
-  // Gradiente de líquido dinámico según cantidad de reyes
   const liquidGradient =
     kingsDrawn === 0
       ? 'from-transparent via-amber-500/10 to-transparent'
@@ -114,8 +113,10 @@ function KingCupVisual({ kingsDrawn, cupLevel, isGameOver }) {
 function CardDeckStack({ cardsRemaining, onDraw, isDrawing, disabled }) {
   return (
     <div className="relative flex flex-col items-center justify-center my-2">
-      {/* Capas decorativas de cartas para dar efecto 3D de baraja apilada */}
-      <div className="relative group cursor-pointer" onClick={!disabled && !isDrawing ? onDraw : undefined}>
+      <div
+        className="relative group cursor-pointer"
+        onClick={!disabled && !isDrawing ? onDraw : undefined}
+      >
         {cardsRemaining > 3 && (
           <div className="absolute -inset-1 translate-x-2 translate-y-2 bg-[#120e10] border border-amber-900/40 rounded-2xl shadow-md rotate-3" />
         )}
@@ -134,13 +135,11 @@ function CardDeckStack({ cardsRemaining, onDraw, isDrawing, disabled }) {
               : 'hover:scale-105 active:scale-95 hover:border-amber-400 shadow-amber-500/15'
           }`}
         >
-          {/* Esquinas decoradas con diseño de baraja */}
           <div className="w-full flex items-center justify-between text-amber-500/60 text-xs font-serif font-black">
             <span>♠ ♥</span>
             <span>♦ ♣</span>
           </div>
 
-          {/* Logo Central de Dando Jugo */}
           <div className="flex flex-col items-center justify-center text-center">
             <img
               src={logoImg}
@@ -151,11 +150,10 @@ function CardDeckStack({ cardsRemaining, onDraw, isDrawing, disabled }) {
               Cuarto Rey
             </span>
             <span className="text-[10px] text-amber-200/60 font-sans mt-0.5">
-              ¡Toca para sacar!
+              ¡Toca para destapar!
             </span>
           </div>
 
-          {/* Contador inferior */}
           <div className="w-full text-center border-t border-amber-900/50 pt-1.5">
             <span className="text-[11px] font-bold text-amber-300/80">
               🃏 {cardsRemaining} cartas restantes
@@ -168,7 +166,198 @@ function CardDeckStack({ cardsRemaining, onDraw, isDrawing, disabled }) {
 }
 
 /**
- * Componente Principal del Juego Cuarto Rey (Paso 2)
+ * Modal de Revelación con Animación de Volteo 3D (Paso 3)
+ */
+function CardRevealModal({ card, activePlayer, onClose }) {
+  const [isFlipped, setIsFlipped] = useState(false);
+
+  useEffect(() => {
+    // Inicia el giro 3D apenas monta el modal
+    const flipTimer = setTimeout(() => {
+      setIsFlipped(true);
+    }, 50);
+
+    // Si es un Rey, reproducir el efecto de vertido de líquido al revelarse
+    if (card?.isKing) {
+      const pourTimer = setTimeout(() => {
+        soundManager.playPourDrink();
+      }, 350);
+      return () => {
+        clearTimeout(flipTimer);
+        clearTimeout(pourTimer);
+      };
+    }
+
+    return () => clearTimeout(flipTimer);
+  }, [card]);
+
+  // Cerrar con Escape
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.key === 'Escape') onClose();
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [onClose]);
+
+  if (!card) return null;
+
+  const isRed = card.suit.color === 'red';
+  const suitSymbol = card.suit.symbol;
+  const avatar = getAnimalAvatar(activePlayer?.animal);
+
+  return (
+    <div
+      role="dialog"
+      aria-modal="true"
+      className="fixed inset-0 z-50 bg-black/85 backdrop-blur-md flex items-center justify-center p-4 animate-in fade-in duration-200"
+      onClick={onClose}
+    >
+      <div
+        className="w-full max-w-sm flex flex-col items-center gap-4"
+        onClick={(e) => e.stopPropagation()}
+      >
+        {/* Contenedor con Perspectiva 3D */}
+        <div
+          className="relative w-64 sm:w-72 h-96 sm:h-[420px]"
+          style={{ perspective: '1200px' }}
+        >
+          {/* Tarjeta con transformación 3D */}
+          <div
+            className="w-full h-full relative transition-transform duration-700 ease-out"
+            style={{
+              transformStyle: 'preserve-3d',
+              transform: isFlipped ? 'rotateY(180deg)' : 'rotateY(0deg)',
+            }}
+          >
+            {/* CARA TRASERA (Dando Jugo Logo Speakeasy) */}
+            <div
+              className="absolute inset-0 w-full h-full rounded-3xl p-4 border-2 border-amber-500/70 bg-gradient-to-br from-amber-950 via-[#191216] to-stone-950 shadow-2xl flex flex-col items-center justify-between"
+              style={{
+                backfaceVisibility: 'hidden',
+                WebkitBackfaceVisibility: 'hidden',
+              }}
+            >
+              <div className="w-full flex justify-between text-amber-500/60 text-xs font-serif font-black">
+                <span>♠ ♥</span>
+                <span>♦ ♣</span>
+              </div>
+              <div className="flex flex-col items-center text-center">
+                <img
+                  src={logoImg}
+                  alt="Dando Jugo"
+                  className="w-20 h-20 object-contain drop-shadow-lg mb-2"
+                />
+                <span className="font-display font-black text-sm text-amber-400 tracking-widest uppercase">
+                  Cuarto Rey
+                </span>
+                <span className="text-xs text-amber-200/60 mt-1">¡Revelando carta...!</span>
+              </div>
+              <div className="w-full text-center border-t border-amber-900/50 pt-2 text-[10px] text-amber-300/70 font-bold uppercase tracking-wider">
+                Dando Jugo Oficial
+              </div>
+            </div>
+
+            {/* CARA DELANTERA (Naipe Revelado rotado 180deg) */}
+            <div
+              className="absolute inset-0 w-full h-full rounded-3xl p-4 sm:p-5 border-2 border-amber-400/80 bg-gradient-to-b from-[#1b1518] via-[#120d10] to-[#0a0709] shadow-2xl shadow-amber-500/20 flex flex-col justify-between text-stone-100"
+              style={{
+                backfaceVisibility: 'hidden',
+                WebkitBackfaceVisibility: 'hidden',
+                transform: 'rotateY(180deg)',
+              }}
+            >
+              {/* Esquina Superior Izquierda: Valor y Palo */}
+              <div className="w-full flex items-center justify-between">
+                <div
+                  className={`flex flex-col items-center leading-none ${
+                    isRed ? 'text-red-500' : 'text-amber-400'
+                  }`}
+                >
+                  <span className="font-display font-black text-2xl sm:text-3xl tracking-tight">
+                    {card.value}
+                  </span>
+                  <span className="text-xl sm:text-2xl mt-0.5">{suitSymbol}</span>
+                </div>
+
+                <span className="text-[10px] font-black uppercase tracking-wider px-2.5 py-1 rounded-full border bg-amber-400/15 text-amber-300 border-amber-400/40">
+                  {card.rule.badge}
+                </span>
+              </div>
+
+              {/* Centro de la Carta: Icono, Título y Dinámica */}
+              <div className="flex flex-col items-center text-center my-auto py-2">
+                <span className="text-4xl sm:text-5xl mb-2 drop-shadow-md">
+                  {card.rule.icon}
+                </span>
+                <h3 className="font-display font-black text-lg sm:text-xl text-white tracking-wide uppercase drop-shadow mb-1.5">
+                  {card.rule.title}
+                </h3>
+                <p className="text-xs sm:text-sm text-stone-300 leading-relaxed max-w-[240px]">
+                  {card.rule.description}
+                </p>
+
+                {/* Si es un Rey (1 al 3): Banner especial de advertencia */}
+                {card.isKing && !card.isFourthKing && (
+                  <div className="mt-3 px-3 py-1.5 rounded-xl bg-amber-500/20 border border-amber-400/50 text-[11px] font-bold text-amber-300 animate-pulse flex items-center gap-1.5">
+                    <span>👑</span>
+                    <span>¡Rey #{card.kingNumber} de 4 en la copa!</span>
+                  </div>
+                )}
+              </div>
+
+              {/* Esquina Inferior Derecha: Valor y Palo invertidos */}
+              <div className="w-full flex items-end justify-between border-t border-stone-800/80 pt-2">
+                <div className="flex items-center gap-1.5 text-stone-400 text-[10px]">
+                  <span>Palo:</span>
+                  <strong className={isRed ? 'text-red-400' : 'text-amber-300'}>
+                    {card.suit.name} {suitSymbol}
+                  </strong>
+                </div>
+
+                <div
+                  className={`flex flex-col items-center leading-none rotate-180 ${
+                    isRed ? 'text-red-500' : 'text-amber-400'
+                  }`}
+                >
+                  <span className="font-display font-black text-xl tracking-tight">
+                    {card.value}
+                  </span>
+                  <span className="text-lg mt-0.5">{suitSymbol}</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Ficha del Jugador que sacó la carta y Botón de Continuar */}
+        <div className="w-full flex flex-col items-center gap-2">
+          <div className="flex items-center gap-2 text-xs text-stone-300 bg-stone-900/80 px-3 py-1 rounded-full border border-stone-800">
+            <img
+              src={avatar.image}
+              alt={avatar.name}
+              className="w-4 h-4 rounded object-contain border border-amber-400/60"
+            />
+            <span>
+              Carta sacada por <strong className="text-amber-300">{activePlayer.name}</strong>
+            </span>
+          </div>
+
+          <button
+            onClick={onClose}
+            className="w-full py-3 px-6 rounded-2xl bg-gradient-to-r from-amber-500 via-amber-400 to-amber-600 hover:brightness-110 active:scale-95 text-stone-950 font-display font-black text-sm sm:text-base uppercase tracking-wider shadow-xl shadow-amber-500/25 border border-amber-300 transition-all flex items-center justify-center gap-2 cursor-pointer"
+          >
+            <span>Siguiente Jugador</span>
+            <span>→</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+/**
+ * Componente Principal del Juego Cuarto Rey
  */
 export default function CuartoReyGame({
   players = [],
@@ -180,7 +369,7 @@ export default function CuartoReyGame({
   const [currentPlayerIndex, setCurrentPlayerIndex] = useState(0);
   const [showCheatSheet, setShowCheatSheet] = useState(false);
   const [isDrawing, setIsDrawing] = useState(false);
-  const [lastDrawnCard, setLastDrawnCard] = useState(null);
+  const [revealedCard, setRevealedCard] = useState(null);
 
   // Jugador activo
   const activePlayer =
@@ -193,21 +382,27 @@ export default function CuartoReyGame({
       : null;
   const avatar = getAnimalAvatar(activePlayer.animal);
 
-  // Extraer carta
+  // Extraer carta y activar animación 3D de volteo (Paso 3)
   const handleDrawCard = () => {
     if (isDrawing || stats.isGameOver) return;
     setIsDrawing(true);
-    soundManager.playTick(800);
+    soundManager.playCardFlip();
 
     const card = deckManager.drawCard();
     if (card) {
-      setLastDrawnCard(card);
+      setRevealedCard(card);
       setStats(deckManager.getStats());
-      if (players.length > 0) {
-        setCurrentPlayerIndex((prev) => (prev + 1) % players.length);
-      }
     }
     setIsDrawing(false);
+  };
+
+  // Cerrar la carta revelada y avanzar el turno al siguiente jugador
+  const handleCloseCard = () => {
+    soundManager.playTick(600);
+    setRevealedCard(null);
+    if (players.length > 0) {
+      setCurrentPlayerIndex((prev) => (prev + 1) % players.length);
+    }
   };
 
   // Reiniciar partida
@@ -216,7 +411,7 @@ export default function CuartoReyGame({
       soundManager.playTick(500);
       deckManager.reset();
       setStats(deckManager.getStats());
-      setLastDrawnCard(null);
+      setRevealedCard(null);
       setCurrentPlayerIndex(0);
     }
   };
@@ -332,6 +527,15 @@ export default function CuartoReyGame({
         </button>
       </footer>
 
+      {/* Modal de Revelación de Carta con Giro 3D (Paso 3) */}
+      {revealedCard && (
+        <CardRevealModal
+          card={revealedCard}
+          activePlayer={activePlayer}
+          onClose={handleCloseCard}
+        />
+      )}
+
       {/* Modal de Tabla de Reglas (Cheat Sheet de Cartas) */}
       {showCheatSheet && (
         <div
@@ -353,7 +557,7 @@ export default function CuartoReyGame({
               </div>
               <button
                 onClick={() => setShowCheatSheet(false)}
-                className="text-stone-400 hover:text-white font-bold p-1 rounded-lg"
+                className="text-stone-400 hover:text-white font-bold p-1 rounded-lg cursor-pointer"
               >
                 ✕
               </button>
@@ -385,7 +589,7 @@ export default function CuartoReyGame({
 
             <button
               onClick={() => setShowCheatSheet(false)}
-              className="mt-4 w-full py-2.5 bg-amber-500 hover:bg-amber-400 text-stone-950 font-black rounded-xl text-xs uppercase tracking-wider transition"
+              className="mt-4 w-full py-2.5 bg-amber-500 hover:bg-amber-400 text-stone-950 font-black rounded-xl text-xs uppercase tracking-wider transition cursor-pointer"
             >
               Cerrar y Continuar Jugando
             </button>

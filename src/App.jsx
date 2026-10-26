@@ -9,6 +9,7 @@ import SettingsModal from './components/SettingsModal';
 import FreePlaySelector from './components/FreePlaySelector';
 import CategoryDeckView from './components/CategoryDeckView';
 import OtherGamesScreen from './components/OtherGamesScreen';
+import CuartoReyGame from './components/CuartoReyGame';
 import { deckManager, GAME_MODES, GAME_TYPES } from './utils/deckManager';
 import { soundManager } from './utils/soundEffects';
 import { getAnimalAvatar } from './utils/animalAvatars';
@@ -276,6 +277,16 @@ export default function App() {
       {screen === 'other_games' && (
         <OtherGamesScreen
           onBack={() => setScreen('menu')}
+          onOpenSettings={() => setShowSettingsModal(true)}
+          onPlayCuartoRey={() => setScreen('cuarto_rey')}
+        />
+      )}
+
+      {/* 2.6 Pantalla de Cuarto Rey (Demo Pasos 1 y 2) */}
+      {screen === 'cuarto_rey' && (
+        <CuartoReyGame
+          players={players}
+          onBack={() => setScreen('other_games')}
           onOpenSettings={() => setShowSettingsModal(true)}
         />
       )}

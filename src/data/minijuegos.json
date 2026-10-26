@@ -612,7 +612,7 @@
   {
     "id": 36,
     "titulo": "Nunca nunca",
-    "descripcion": "Nunca nunca he recomendado a un amigo y no ha ido",
+    "descripcion": "Nunca nunca he dejado plantado a un amigo en un panorama a última hora",
     "castigo": null,
     "dificultad": 2,
     "categoria": null,
@@ -1295,6 +1295,306 @@
     "descripcion": "Cosas que juras que vas a empezar el lunes pero nunca haces",
     "castigo": null,
     "dificultad": 2,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 131,
+    "titulo": "Nunca nunca",
+    "descripcion": "Nunca nunca le he hablado o mandado audios a mi ex estando con copete encima",
+    "castigo": null,
+    "dificultad": 6,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 132,
+    "titulo": "Nunca nunca",
+    "descripcion": "Nunca nunca me he despertado en una casa desconocida sin saber cómo llegué ahí",
+    "castigo": null,
+    "dificultad": 7,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 133,
+    "titulo": "Nunca nunca",
+    "descripcion": "Nunca nunca he vomitado en un Uber, taxi o en el auto de un amigo",
+    "castigo": null,
+    "dificultad": 7,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 134,
+    "titulo": "Nunca nunca",
+    "descripcion": "Nunca nunca he dicho \"esta es la última y nos vamos\" y he terminado carreteando hasta que amaneció",
+    "castigo": null,
+    "dificultad": 3,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 135,
+    "titulo": "Nunca nunca",
+    "descripcion": "Nunca nunca he mezclado tres o más tipos de alcohol distintos en el mismo vaso",
+    "castigo": null,
+    "dificultad": 4,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 136,
+    "titulo": "Nunca nunca",
+    "descripcion": "Nunca nunca he prometido \"nunca más vuelvo a tomar\" y he vuelto a tomar al día siguiente",
+    "castigo": null,
+    "dificultad": 2,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 137,
+    "titulo": "Nunca nunca",
+    "descripcion": "Nunca nunca me he quedado dormido en la taza del baño de una fiesta",
+    "castigo": null,
+    "dificultad": 6,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 138,
+    "titulo": "Nunca nunca",
+    "descripcion": "Nunca nunca he dicho \"yo no bailo\" y al tercer trago estaba dándolo todo en el centro de la pista",
+    "castigo": null,
+    "dificultad": 3,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 139,
+    "titulo": "Nunca nunca",
+    "descripcion": "Nunca nunca me he hecho el dormido en el transporte público para no darle el asiento a nadie",
+    "castigo": null,
+    "dificultad": 4,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 140,
+    "titulo": "Nunca nunca",
+    "descripcion": "Nunca nunca he pedido plata prestada en un carrete y se me ha \"olvidado\" devolverla después",
+    "castigo": null,
+    "dificultad": 5,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 141,
+    "titulo": "Nunca nunca",
+    "descripcion": "Nunca nunca he cantado con toda la pasión una canción en inglés inventando la letra por completo",
+    "castigo": null,
+    "dificultad": 2,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 142,
+    "titulo": "Nunca nunca",
+    "descripcion": "Nunca nunca he botado el copete de otra persona y me he hecho el desentendido mirando para el lado",
+    "castigo": null,
+    "dificultad": 4,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 143,
+    "titulo": "Nunca nunca",
+    "descripcion": "Nunca nunca he fingido saber mucho sobre un tema solo para no quedar como ignorante en una conversación",
+    "castigo": null,
+    "dificultad": 3,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 144,
+    "titulo": "Nunca nunca",
+    "descripcion": "Nunca nunca me he aprendido la vida entera de alguien por stalkeo pero en persona finjo no saber nada",
+    "castigo": null,
+    "dificultad": 5,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 145,
+    "titulo": "Nunca nunca",
+    "descripcion": "Nunca nunca me he comido algo que se cayó al suelo aplicando la \"regla de los 5 segundos\"",
+    "castigo": null,
+    "dificultad": 3,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 146,
+    "titulo": "Nunca nunca",
+    "descripcion": "Nunca nunca se me ha escapado un like en una foto de hace años mientras stalkeaba a alguien",
+    "castigo": null,
+    "dificultad": 5,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 147,
+    "titulo": "Nunca nunca",
+    "descripcion": "Nunca nunca le he sacado pantallazo a una conversación íntima para mandársela a mis amigos",
+    "castigo": null,
+    "dificultad": 4,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 148,
+    "titulo": "Nunca nunca",
+    "descripcion": "Nunca nunca he usado una cuenta falsa o secundaria para espiar a alguien en redes sociales",
+    "castigo": null,
+    "dificultad": 6,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 149,
+    "titulo": "Nunca nunca",
+    "descripcion": "Nunca nunca he borrado mensajes o un chat entero antes de que mi pareja viera mi celular",
+    "castigo": null,
+    "dificultad": 8,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 150,
+    "titulo": "Nunca nunca",
+    "descripcion": "Nunca nunca he subido una historia a \"Mejores Amigos\" en Instagram dirigida solo a una persona específica",
+    "castigo": null,
+    "dificultad": 4,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 151,
+    "titulo": "Nunca nunca",
+    "descripcion": "Nunca nunca he olido una polera o ropa sucia del suelo para ver si pasaba piola para usarla de nuevo",
+    "castigo": null,
+    "dificultad": 3,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 152,
+    "titulo": "Nunca nunca",
+    "descripcion": "Nunca nunca he faltado al trabajo o a la universidad acusando \"intoxicación\" cuando en verdad era caña mortal",
+    "castigo": null,
+    "dificultad": 5,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 153,
+    "titulo": "Nunca nunca",
+    "descripcion": "Nunca nunca se me ha salido un gas sonoro en un lugar silencioso o en una cita",
+    "castigo": null,
+    "dificultad": 5,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 154,
+    "titulo": "Nunca nunca",
+    "descripcion": "Nunca nunca me he metido a bañar a una piscina, tina o playa completamente en pelotas",
+    "castigo": null,
+    "dificultad": 5,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 155,
+    "titulo": "Nunca nunca",
+    "descripcion": "Nunca nunca he fingido hablar por teléfono en la calle para evitar saludar a alguien conocido",
+    "castigo": null,
+    "dificultad": 3,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 156,
+    "titulo": "Nunca nunca",
+    "descripcion": "Nunca nunca me he ido de un lugar o fiesta a la francesa (sin despedirme de nadie)",
+    "castigo": null,
+    "dificultad": 3,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 157,
+    "titulo": "Nunca nunca",
+    "descripcion": "Nunca nunca he probado comida en el supermercado y no la he pagado",
+    "castigo": null,
+    "dificultad": 4,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 158,
+    "titulo": "Nunca nunca",
+    "descripcion": "Nunca nunca le he echado la culpa a una mascota o a otra persona por algo vergonzoso que hice yo",
+    "castigo": null,
+    "dificultad": 4,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 159,
+    "titulo": "Nunca nunca",
+    "descripcion": "Nunca nunca he regalado algo que a mí me habían regalado y no me gustó",
+    "castigo": null,
+    "dificultad": 4,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 160,
+    "titulo": "Nunca nunca",
+    "descripcion": "Nunca nunca he espiado las conversaciones de WhatsApp del celular de otra persona que lo dejó descuidado",
+    "castigo": null,
+    "dificultad": 7,
     "categoria": null,
     "aprobado_diego": "SI",
     "observacion": null

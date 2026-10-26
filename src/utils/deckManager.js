@@ -77,7 +77,7 @@ export const GAME_TYPES = [
     color: 'from-rose-600 to-pink-700',
     borderColor: 'border-rose-500/50',
     description: 'Confesiones grupales: las personas que hayan realizado el acto, ¡beben!',
-    badge: '20 Tarjetas',
+    badge: '50 Tarjetas',
   },
   {
     id: 'probable',

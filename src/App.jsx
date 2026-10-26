@@ -326,7 +326,7 @@ export default function App() {
           />
           <div>
             <div className="flex items-center gap-1.5">
-              <span className="text-xl font-black text-amber-400 tracking-wide">
+              <span className="text-xl font-display font-black text-amber-400 tracking-wide">
                 {activePlayer.name}
               </span>
               <span className="text-xs">
@@ -375,7 +375,7 @@ export default function App() {
                   />
                   <div>
                     <div className="flex items-center gap-1.5">
-                      <span className="text-2xl font-black text-amber-400 tracking-wide">
+                      <span className="text-2xl font-display font-black text-amber-400 tracking-wide">
                         {activePlayer.name}
                       </span>
                       <span className="text-sm">

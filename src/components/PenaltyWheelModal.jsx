@@ -100,7 +100,7 @@ export default function PenaltyWheelModal({ isOpen, onClose, currentMode }) {
       ctx.textAlign = 'right';
       ctx.textBaseline = 'middle';
       ctx.fillStyle = slice.textColor;
-      ctx.font = slice.prob >= 25 ? 'bold 13px system-ui, sans-serif' : 'bold 10px system-ui, sans-serif';
+      ctx.font = slice.prob >= 25 ? '800 13px Outfit, sans-serif' : '800 10px Outfit, sans-serif';
       ctx.fillText(slice.label, radius - 14, 0);
       ctx.restore();
 
@@ -117,7 +117,7 @@ export default function PenaltyWheelModal({ isOpen, onClose, currentMode }) {
     ctx.stroke();
 
     ctx.fillStyle = '#fef08a';
-    ctx.font = 'bold 9px sans-serif';
+    ctx.font = '900 9px Outfit, sans-serif';
     ctx.textAlign = 'center';
     ctx.textBaseline = 'middle';
     ctx.fillText('CASTIGO', center, center);

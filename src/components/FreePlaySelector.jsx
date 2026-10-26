@@ -11,7 +11,7 @@ export default function FreePlaySelector({ onSelectGameType }) {
   return (
     <div className="w-full max-w-md md:max-w-4xl mx-auto flex-1 min-h-0 flex flex-col py-1 animate-in fade-in duration-200">
       <div className="text-center mb-2 shrink-0">
-        <h3 className="text-lg md:text-xl font-black text-amber-400 tracking-wide uppercase">
+        <h3 className="text-lg md:text-xl font-display font-black text-amber-400 tracking-wide uppercase">
           🎴 Modo a la Carta
         </h3>
         <p className="text-xs md:text-sm text-stone-400">
@@ -38,7 +38,7 @@ export default function FreePlaySelector({ onSelectGameType }) {
 
               <div className="flex-1 min-w-0">
                 <div className="flex items-center justify-between gap-2 mb-1.5 flex-wrap">
-                  <h4 className="font-black text-base sm:text-lg text-white tracking-wide">
+                  <h4 className="font-display font-black text-base sm:text-lg text-white tracking-wide">
                     {game.name}
                   </h4>
                   <span className="text-[10px] font-black uppercase px-2.5 py-0.5 rounded-full bg-black/60 text-amber-300 border border-amber-400/30 shrink-0 shadow-sm">

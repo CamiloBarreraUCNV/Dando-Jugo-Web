@@ -68,7 +68,7 @@ export default function Roulette({ onSpinEnd, isSpinning, setIsSpinning }) {
       ctx.textAlign = 'right';
       ctx.textBaseline = 'middle';
       ctx.fillStyle = cat.textColor;
-      ctx.font = 'bold 16px system-ui, -apple-system, sans-serif';
+      ctx.font = '800 15px Outfit, system-ui, sans-serif';
       ctx.shadowColor = 'rgba(0,0,0,0.6)';
       ctx.shadowBlur = 6;
       ctx.fillText(cat.name.toUpperCase(), radius - 20, 0);
@@ -85,7 +85,7 @@ export default function Roulette({ onSpinEnd, isSpinning, setIsSpinning }) {
     ctx.stroke();
 
     ctx.fillStyle = '#fef08a';
-    ctx.font = 'bold 11px sans-serif';
+    ctx.font = '900 11px Outfit, sans-serif';
     ctx.textAlign = 'center';
     ctx.textBaseline = 'middle';
     ctx.fillText('JUGO', center, center);
@@ -155,7 +155,7 @@ export default function Roulette({ onSpinEnd, isSpinning, setIsSpinning }) {
       <button
         onClick={spin}
         disabled={isSpinning}
-        className={`mt-4 sm:mt-6 w-full max-w-xs md:max-w-sm py-3.5 sm:py-4 px-6 sm:px-8 rounded-2xl font-black text-lg sm:text-xl md:text-2xl tracking-wider uppercase shadow-xl transition-all active:scale-95 ${
+        className={`mt-4 sm:mt-6 w-full max-w-xs md:max-w-sm py-3.5 sm:py-4 px-6 sm:px-8 rounded-2xl font-display font-black text-lg sm:text-xl md:text-2xl tracking-wider uppercase shadow-xl transition-all active:scale-95 ${
           isSpinning
             ? 'bg-stone-800 text-stone-500 cursor-not-allowed border border-stone-700'
             : 'bg-gradient-to-r from-amber-500 via-amber-400 to-amber-600 hover:brightness-110 text-stone-950 shadow-amber-500/30 border border-amber-300 animate-bounce'

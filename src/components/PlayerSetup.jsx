@@ -75,7 +75,7 @@ export default function PlayerSetup({ players, onSavePlayers, onCancel, isFirstT
             alt="Dando Jugo Logo"
             className="w-12 h-12 md:w-16 md:h-16 mx-auto object-contain drop-shadow mb-1"
           />
-          <h2 className="text-xl sm:text-2xl md:text-3xl font-black text-amber-400">
+          <h2 className="text-xl sm:text-2xl md:text-3xl font-display font-black text-amber-400">
             {isFirstTime ? '¿QUIÉNES DAN JUGO?' : 'CONFIGURAR JUGADORES'}
           </h2>
           <p className="text-xs sm:text-sm text-slate-400">
@@ -256,7 +256,7 @@ export default function PlayerSetup({ players, onSavePlayers, onCancel, isFirstT
         <button
           onClick={handleFinish}
           disabled={list.length < 2}
-          className={`w-full py-3.5 px-6 rounded-2xl font-black text-base uppercase tracking-wider transition-all shadow-xl active:scale-98 ${
+          className={`w-full py-3.5 px-6 rounded-2xl font-display font-black text-base uppercase tracking-wider transition-all shadow-xl active:scale-98 ${
             list.length >= 2
               ? 'bg-gradient-to-r from-amber-500 via-amber-400 to-amber-600 text-stone-950 shadow-amber-500/25 hover:brightness-105 border border-amber-300'
               : 'bg-stone-900 text-stone-600 cursor-not-allowed border border-stone-800'

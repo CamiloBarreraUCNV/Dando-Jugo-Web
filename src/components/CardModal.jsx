@@ -91,7 +91,7 @@ export default function CardModal({ card, activePlayer, currentMode, onClose, on
         <div>
           {/* Barra superior de categoría y dificultad */}
           <div className="flex items-center justify-between mb-3">
-            <span className={`px-3 py-1 rounded-full text-xs md:text-sm font-black uppercase tracking-wider ${theme.badge}`}>
+            <span className={`px-3 py-1 rounded-full text-xs md:text-sm font-display font-black uppercase tracking-wider ${theme.badge}`}>
               {theme.label}
             </span>
             <div className="flex items-center gap-1.5">
@@ -148,7 +148,7 @@ export default function CardModal({ card, activePlayer, currentMode, onClose, on
 
           {/* Título de la tarjeta */}
           {(card.titulo || card.juego) && (
-            <h3 className="text-xl sm:text-2xl md:text-3xl font-black text-amber-400 mb-2 leading-tight">
+            <h3 className="text-xl sm:text-2xl md:text-3xl font-display font-black text-amber-400 mb-2 leading-tight">
               {card.titulo || card.juego}
             </h3>
           )}
@@ -282,7 +282,7 @@ export default function CardModal({ card, activePlayer, currentMode, onClose, on
         <div className="mt-6 pt-4 border-t border-slate-800 flex flex-col sm:flex-row gap-2.5">
           <button
             onClick={triviaStatus === 'wrong' ? onClose : handleComplete}
-            className={`w-full py-3.5 px-6 rounded-2xl font-black text-base sm:text-lg shadow-lg uppercase tracking-wider transition-all active:scale-98 flex-1 ${
+            className={`w-full py-3.5 px-6 rounded-2xl font-display font-black text-base sm:text-lg shadow-lg uppercase tracking-wider transition-all active:scale-98 flex-1 ${
               triviaStatus === 'wrong'
                 ? 'bg-amber-500 hover:bg-amber-400 text-slate-950 shadow-amber-500/20'
                 : 'bg-emerald-500 hover:bg-emerald-400 text-slate-950 shadow-emerald-500/20'

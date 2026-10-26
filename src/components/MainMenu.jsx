@@ -86,7 +86,7 @@ export default function MainMenu({
           {/* 1. Jugar con Ruleta */}
           <button
             onClick={onPlay}
-            className="w-full py-3.5 px-6 bg-gradient-to-r from-amber-500 via-amber-400 to-amber-600 hover:brightness-110 active:scale-98 text-stone-950 rounded-2xl font-black text-lg sm:text-xl shadow-xl shadow-amber-500/25 border border-amber-300 uppercase tracking-wider transition-all flex items-center justify-center gap-2"
+            className="w-full py-3.5 px-6 bg-gradient-to-r from-amber-500 via-amber-400 to-amber-600 hover:brightness-110 active:scale-98 text-stone-950 rounded-2xl font-display font-black text-lg sm:text-xl shadow-xl shadow-amber-500/25 border border-amber-300 uppercase tracking-wider transition-all flex items-center justify-center gap-2"
           >
             <span>🎯</span>
             <span>¡Girar Ruleta!</span>
@@ -95,7 +95,7 @@ export default function MainMenu({
           {/* 2. Modo a la Carta */}
           <button
             onClick={onFreePlay}
-            className="w-full py-3.5 px-6 bg-gradient-to-r from-purple-700 via-indigo-600 to-purple-800 hover:brightness-110 active:scale-98 text-white rounded-2xl font-black text-base sm:text-lg shadow-xl shadow-purple-900/30 border border-purple-400/40 uppercase tracking-wider transition-all flex items-center justify-center gap-2"
+            className="w-full py-3.5 px-6 bg-gradient-to-r from-purple-700 via-indigo-600 to-purple-800 hover:brightness-110 active:scale-98 text-white rounded-2xl font-display font-black text-base sm:text-lg shadow-xl shadow-purple-900/30 border border-purple-400/40 uppercase tracking-wider transition-all flex items-center justify-center gap-2"
           >
             <span>🎴</span>
             <span>A la Carta</span>

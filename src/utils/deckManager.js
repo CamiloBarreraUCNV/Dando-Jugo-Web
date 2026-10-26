@@ -168,20 +168,26 @@ export function resolverTexto(texto, modeId = 'caja') {
   return res;
 }
 
-// Resolver dinámicamente la instrucción según el tipo de minijuego
-export function resolverInstruccionMinijuego(titulo, modeId = 'caja') {
-  if (!titulo) return '¡Sigue la dinámica en grupo!';
-  const normalizado = titulo
+// Normalizar títulos y términos de búsqueda (sin tildes, minúsculas, sin signos)
+export function normalizeTitle(text) {
+  if (!text || typeof text !== 'string') return '';
+  return text
     .toLowerCase()
     .normalize('NFD')
     .replace(/[\u0300-\u036f]/g, '')
-    .replace(/[¿?]/g, '')
+    .replace(/[¿?¡!]/g, '')
     .trim();
+}
+
+// Resolver dinámicamente la instrucción según el tipo de minijuego
+export function resolverInstruccionMinijuego(titulo, modeId = 'caja') {
+  if (!titulo) return '¡Sigue la dinámica en grupo!';
+  const normalizado = normalizeTitle(titulo);
 
   let template = '';
   if (normalizado.includes('probable')) {
     template = 'Cuenten hasta 3 y apunten al mismo tiempo. Quien reciba más votos, ¡debe beber o pagar el reto!';
-  } else if (normalizado.includes('cultura chupistica')) {
+  } else if (normalizado.includes('chupistica')) {
     template = 'Tienes 5 segundos para decir un objeto relacionado con el tema y pasar el teléfono para el lado.';
   } else if (normalizado.includes('mimica')) {
     template = 'Debes recrear el tema dado sin decir ninguna palabra, si alguien adivina, tú y esa persona regalan $ sorbos.';
@@ -215,13 +221,13 @@ class DeckManager {
       competencia: [],
     };
 
-    // Sub-mazos independientes para selección libre / a la carta
+    // Sub-mazos independientes para selección libre / a la carta (filtrado normalizado tolerante a tildes y variantes)
     this.subDecks = {
-      probable: shuffle(minijuegosData.filter((d) => d.titulo === '¿Quién es más Probable?')),
-      chupistica: shuffle(minijuegosData.filter((d) => d.titulo === 'Cultura Chupistica')),
-      mimica: shuffle(minijuegosData.filter((d) => (d.titulo || '').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').includes('mimica'))),
-      nunca: shuffle(minijuegosData.filter((d) => d.titulo === 'Nunca nunca')),
-      versus: shuffle(minijuegosData.filter((d) => d.titulo === 'Versus')),
+      probable: shuffle(minijuegosData.filter((d) => normalizeTitle(d.titulo).includes('probable'))),
+      chupistica: shuffle(minijuegosData.filter((d) => normalizeTitle(d.titulo).includes('chupistica'))),
+      mimica: shuffle(minijuegosData.filter((d) => normalizeTitle(d.titulo).includes('mimica'))),
+      nunca: shuffle(minijuegosData.filter((d) => normalizeTitle(d.titulo).includes('nunca'))),
+      versus: shuffle(minijuegosData.filter((d) => normalizeTitle(d.titulo).includes('versus'))),
     };
 
     this.subDiscards = {

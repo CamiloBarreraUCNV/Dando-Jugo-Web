@@ -2,14 +2,14 @@ import React, { useState, useEffect } from 'react';
 import confetti from 'canvas-confetti';
 import { soundManager } from '../utils/soundEffects';
 import { getAnimalAvatar } from '../utils/animalAvatars';
-import { resolverInstruccionMinijuego } from '../utils/deckManager';
+import { resolverInstruccionMinijuego, normalizeTitle } from '../utils/deckManager';
 
 // Detección automática de tiempo en la tarjeta (segundos o minutos)
 export function detectCardTimeSeconds(card) {
   if (!card) return null;
-  const normTitle = (card.titulo || '').toLowerCase();
+  const normTitle = normalizeTitle(card.titulo);
   const cat = (card.categoriaJuego || '').toLowerCase();
-  const desc = (card.descripcion || '').toLowerCase();
+  const desc = normalizeTitle(card.descripcion);
 
   // En Trivia y Nunca Nunca evitamos activar el cronómetro
   if (cat === 'trivia' || cat === 'nunca' || normTitle.includes('trivia') || normTitle.includes('nunca') || desc.startsWith('nunca nunca')) {
@@ -44,7 +44,7 @@ export function detectCardTimeSeconds(card) {
   }
 
   // Minijuego Cultura Chupística (5 segundos por turno por persona)
-  if (normTitle.includes('chupistica') || normTitle.includes('chupística')) {
+  if (normTitle.includes('chupistica')) {
     return 5;
   }
 
@@ -58,9 +58,9 @@ export default function CardModal({ card, activePlayer, currentMode, onClose, on
 
   // Identificación de tipo de tarjeta
   const isTrivia = card?.categoriaJuego?.toLowerCase() === 'trivia';
-  const isNunca = (card?.titulo || '').toLowerCase().includes('nunca') ||
+  const isNunca = normalizeTitle(card?.titulo).includes('nunca') ||
                   (card?.categoriaJuego || '').toLowerCase() === 'nunca' ||
-                  (card?.descripcion || '').toLowerCase().startsWith('nunca nunca');
+                  normalizeTitle(card?.descripcion).startsWith('nunca nunca');
   const allowTimer = !isTrivia && !isNunca;
 
   // Estado del Cronómetro interactivo
@@ -76,9 +76,9 @@ export default function CardModal({ card, activePlayer, currentMode, onClose, on
   useEffect(() => {
     const time = detectCardTimeSeconds(card);
     const secs = time || 30;
-    const cardIsNunca = (card?.titulo || '').toLowerCase().includes('nunca') ||
+    const cardIsNunca = normalizeTitle(card?.titulo).includes('nunca') ||
                         (card?.categoriaJuego || '').toLowerCase() === 'nunca' ||
-                        (card?.descripcion || '').toLowerCase().startsWith('nunca nunca');
+                        normalizeTitle(card?.descripcion).startsWith('nunca nunca');
     const cardIsTrivia = card?.categoriaJuego?.toLowerCase() === 'trivia';
     const canTime = !cardIsTrivia && !cardIsNunca;
 

@@ -86,7 +86,7 @@ export const GAME_TYPES = [
     color: 'from-cyan-600 to-teal-700',
     borderColor: 'border-cyan-500/50',
     description: 'Votación al unísono con el dedo. El que tenga más votos bebe o paga.',
-    badge: '20 Tarjetas',
+    badge: '50 Tarjetas',
   },
   {
     id: 'versus',

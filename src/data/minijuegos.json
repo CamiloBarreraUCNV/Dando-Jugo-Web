@@ -1598,5 +1598,305 @@
     "categoria": null,
     "aprobado_diego": "SI",
     "observacion": null
+  },
+  {
+    "id": 161,
+    "titulo": "¿Quién es más Probable?",
+    "descripcion": "¿Quién es más probable que termine vomitando o abrazado al váter esta noche?",
+    "castigo": null,
+    "dificultad": 3,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 162,
+    "titulo": "¿Quién es más Probable?",
+    "descripcion": "¿Quién es más probable que se ponga a llorar o se ponga sentimental después de tres tragos?",
+    "castigo": null,
+    "dificultad": 3,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 163,
+    "titulo": "¿Quién es más Probable?",
+    "descripcion": "¿Quién es más probable que pierda el celular, la billetera o las llaves en pleno carrete?",
+    "castigo": null,
+    "dificultad": 2,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 164,
+    "titulo": "¿Quién es más Probable?",
+    "descripcion": "¿Quién es más probable que desaparezca de la fiesta a la francesa sin despedirse de nadie?",
+    "castigo": null,
+    "dificultad": 2,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 165,
+    "titulo": "¿Quién es más Probable?",
+    "descripcion": "¿Quién es más probable que le hable o le mande un audio a su ex a las 4 de la mañana?",
+    "castigo": null,
+    "dificultad": 4,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 166,
+    "titulo": "¿Quién es más Probable?",
+    "descripcion": "¿Quién es más probable que se ponga a discutir con los guardias de la discoteca?",
+    "castigo": null,
+    "dificultad": 5,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 167,
+    "titulo": "¿Quién es más Probable?",
+    "descripcion": "¿Quién es más probable que vuelva con su ex por quinta vez jurando que \"ahora sí cambió\"?",
+    "castigo": null,
+    "dificultad": 3,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 168,
+    "titulo": "¿Quién es más Probable?",
+    "descripcion": "¿Quién es más probable que se enamore intensamente de alguien en una sola noche?",
+    "castigo": null,
+    "dificultad": 2,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 169,
+    "titulo": "¿Quién es más Probable?",
+    "descripcion": "¿Quién es más probable que le revise el celular y las conversaciones a su pareja mientras duerme?",
+    "castigo": null,
+    "dificultad": 5,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 170,
+    "titulo": "¿Quién es más Probable?",
+    "descripcion": "¿Quién es más probable que gaste la mitad de su sueldo solo para impresionar a su cita?",
+    "castigo": null,
+    "dificultad": 3,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 171,
+    "titulo": "¿Quién es más Probable?",
+    "descripcion": "¿Quién es más probable que tenga un \"casi algo\" que dure más de un año sin formalizar?",
+    "castigo": null,
+    "dificultad": 4,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 172,
+    "titulo": "¿Quién es más Probable?",
+    "descripcion": "¿Quién es más probable que se case primero y sea el primero en divorciarse?",
+    "castigo": null,
+    "dificultad": 5,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 173,
+    "titulo": "¿Quién es más Probable?",
+    "descripcion": "¿Quién es más probable que se gaste todo el sueldo en los primeros tres días del mes?",
+    "castigo": null,
+    "dificultad": 3,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 174,
+    "titulo": "¿Quién es más Probable?",
+    "descripcion": "¿Quién es más probable que caiga en una estafa piramidal o compre criptomonedas falsas?",
+    "castigo": null,
+    "dificultad": 4,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 175,
+    "titulo": "¿Quién es más Probable?",
+    "descripcion": "¿Quién es más probable que llegue con caña mortal a trabajar o a una reunión importante?",
+    "castigo": null,
+    "dificultad": 4,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 176,
+    "titulo": "¿Quién es más Probable?",
+    "descripcion": "¿Quién es más probable que se haga millonario de la noche a la mañana por pura suerte?",
+    "castigo": null,
+    "dificultad": 3,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 177,
+    "titulo": "¿Quién es más Probable?",
+    "descripcion": "¿Quién es más probable que finja una enfermedad grave para no ir a trabajar o a clases?",
+    "castigo": null,
+    "dificultad": 3,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 178,
+    "titulo": "¿Quién es más Probable?",
+    "descripcion": "¿Quién es más probable que siga viviendo con sus papás a los 40 años?",
+    "castigo": null,
+    "dificultad": 4,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 179,
+    "titulo": "¿Quién es más Probable?",
+    "descripcion": "¿Quién es más probable que intente hacerse famoso o influencer en TikTok?",
+    "castigo": null,
+    "dificultad": 2,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 180,
+    "titulo": "¿Quién es más Probable?",
+    "descripcion": "¿Quién es más probable que se demore 40 minutos en elegir una foto y ponerle filtros antes de subirla?",
+    "castigo": null,
+    "dificultad": 2,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 181,
+    "titulo": "¿Quién es más Probable?",
+    "descripcion": "¿Quién es más probable que tenga una cuenta secundaria secreta para espiar a sus conocidos?",
+    "castigo": null,
+    "dificultad": 4,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 182,
+    "titulo": "¿Quién es más Probable?",
+    "descripcion": "¿Quién es más probable que invente una historia completamente falsa solo para llamar la atención en un grupo?",
+    "castigo": null,
+    "dificultad": 5,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 183,
+    "titulo": "¿Quién es más Probable?",
+    "descripcion": "¿Quién es más probable que se una a una secta o a un culto misterioso sin darse cuenta?",
+    "castigo": null,
+    "dificultad": 5,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 184,
+    "titulo": "¿Quién es más Probable?",
+    "descripcion": "¿Quién es más probable que le dé \"me gusta\" a una foto de hace 5 años mientras stalkea a alguien?",
+    "castigo": null,
+    "dificultad": 3,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 185,
+    "titulo": "¿Quién es más Probable?",
+    "descripcion": "¿Quién es más probable que termine detenido en la comisaría por una estupidez ridícula?",
+    "castigo": null,
+    "dificultad": 5,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 186,
+    "titulo": "¿Quién es más Probable?",
+    "descripcion": "¿Quién es más probable que muera primero en un apocalipsis zombie por torpe?",
+    "castigo": null,
+    "dificultad": 3,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 187,
+    "titulo": "¿Quién es más Probable?",
+    "descripcion": "¿Quién es más probable que le choque el auto a alguien estacionando y se dé a la fuga mirando hacia adelante?",
+    "castigo": null,
+    "dificultad": 5,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 188,
+    "titulo": "¿Quién es más Probable?",
+    "descripcion": "¿Quién es más probable que se coma algo descompuesto del refrigerador por flojera de cocinar?",
+    "castigo": null,
+    "dificultad": 3,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 189,
+    "titulo": "¿Quién es más Probable?",
+    "descripcion": "¿Quién es más probable que arme un escándalo público en un restaurante porque su comida vino fría?",
+    "castigo": null,
+    "dificultad": 4,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 190,
+    "titulo": "¿Quién es más Probable?",
+    "descripcion": "¿Quién es más probable que sobreviva a un carrete extremo en un país desconocido sin hablar el idioma?",
+    "castigo": null,
+    "dificultad": 4,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
   }
 ]

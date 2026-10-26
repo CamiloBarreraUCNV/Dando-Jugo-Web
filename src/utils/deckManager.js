@@ -219,7 +219,7 @@ class DeckManager {
     this.subDecks = {
       probable: shuffle(minijuegosData.filter((d) => d.titulo === '¿Quién es más Probable?')),
       chupistica: shuffle(minijuegosData.filter((d) => d.titulo === 'Cultura Chupistica')),
-      mimica: shuffle(minijuegosData.filter((d) => d.titulo === 'Mimica')),
+      mimica: shuffle(minijuegosData.filter((d) => (d.titulo || '').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').includes('mimica'))),
       nunca: shuffle(minijuegosData.filter((d) => d.titulo === 'Nunca nunca')),
       versus: shuffle(minijuegosData.filter((d) => d.titulo === 'Versus')),
     };

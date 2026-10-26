@@ -7,8 +7,14 @@ import { resolverInstruccionMinijuego } from '../utils/deckManager';
 // Detección automática de tiempo en la tarjeta (segundos o minutos)
 export function detectCardTimeSeconds(card) {
   if (!card) return null;
-  // En trivia evitamos falsos positivos de opciones numéricas
-  if (card.categoriaJuego?.toLowerCase() === 'trivia') return null;
+  const normTitle = (card.titulo || '').toLowerCase();
+  const cat = (card.categoriaJuego || '').toLowerCase();
+  const desc = (card.descripcion || '').toLowerCase();
+
+  // En Trivia y Nunca Nunca evitamos activar el cronómetro
+  if (cat === 'trivia' || cat === 'nunca' || normTitle.includes('trivia') || normTitle.includes('nunca') || desc.startsWith('nunca nunca')) {
+    return null;
+  }
 
   const sources = [
     card.descripcionFormateada || card.descripcion || card.pregunta || '',
@@ -38,7 +44,6 @@ export function detectCardTimeSeconds(card) {
   }
 
   // Minijuego Cultura Chupística (5 segundos por turno por persona)
-  const normTitle = (card.titulo || '').toLowerCase();
   if (normTitle.includes('chupistica') || normTitle.includes('chupística')) {
     return 5;
   }
@@ -51,10 +56,17 @@ export default function CardModal({ card, activePlayer, currentMode, onClose, on
   const [selectedOption, setSelectedOption] = useState(null);
   const [triviaStatus, setTriviaStatus] = useState(null); // 'correct' | 'wrong' | null
 
+  // Identificación de tipo de tarjeta
+  const isTrivia = card?.categoriaJuego?.toLowerCase() === 'trivia';
+  const isNunca = (card?.titulo || '').toLowerCase().includes('nunca') ||
+                  (card?.categoriaJuego || '').toLowerCase() === 'nunca' ||
+                  (card?.descripcion || '').toLowerCase().startsWith('nunca nunca');
+  const allowTimer = !isTrivia && !isNunca;
+
   // Estado del Cronómetro interactivo
   const detectedTime = detectCardTimeSeconds(card);
   const initialTime = detectedTime || 30;
-  const [showTimer, setShowTimer] = useState(Boolean(detectedTime));
+  const [showTimer, setShowTimer] = useState(Boolean(detectedTime) && allowTimer);
   const [timerSeconds, setTimerSeconds] = useState(initialTime);
   const [totalDuration, setTotalDuration] = useState(initialTime);
   const [isTimerRunning, setIsTimerRunning] = useState(false);
@@ -64,7 +76,13 @@ export default function CardModal({ card, activePlayer, currentMode, onClose, on
   useEffect(() => {
     const time = detectCardTimeSeconds(card);
     const secs = time || 30;
-    setShowTimer(Boolean(time));
+    const cardIsNunca = (card?.titulo || '').toLowerCase().includes('nunca') ||
+                        (card?.categoriaJuego || '').toLowerCase() === 'nunca' ||
+                        (card?.descripcion || '').toLowerCase().startsWith('nunca nunca');
+    const cardIsTrivia = card?.categoriaJuego?.toLowerCase() === 'trivia';
+    const canTime = !cardIsTrivia && !cardIsNunca;
+
+    setShowTimer(Boolean(time) && canTime);
     setTimerSeconds(secs);
     setTotalDuration(secs);
     setIsTimerRunning(false);
@@ -97,9 +115,8 @@ export default function CardModal({ card, activePlayer, currentMode, onClose, on
 
   if (!card) return null;
 
-  const isTrivia = card.categoriaJuego?.toLowerCase() === 'trivia';
-
   const handleStartTimer = () => {
+    if (!allowTimer) return;
     if (timerSeconds === 0) {
       setTimerSeconds(totalDuration);
     }
@@ -281,8 +298,8 @@ export default function CardModal({ card, activePlayer, currentMode, onClose, on
             {card.descripcionFormateada || card.pregunta}
           </div>
 
-          {/* Renderizado interactivo del Cronómetro de Cuenta Regresiva */}
-          {!isTrivia && (
+          {/* Renderizado interactivo del Cronómetro (Deshabilitado en Trivia y Nunca Nunca) */}
+          {allowTimer && (
             <div className="mt-3">
               {!showTimer ? (
                 <div className="flex justify-center">

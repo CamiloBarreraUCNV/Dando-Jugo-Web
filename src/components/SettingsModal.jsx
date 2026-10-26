@@ -10,6 +10,8 @@ export default function SettingsModal({
   onChangeVolume,
   wheelSound,
   onToggleWheelSound,
+  keepScreenOn,
+  onToggleKeepScreenOn,
 }) {
   if (!isOpen) return null;
 
@@ -19,7 +21,7 @@ export default function SettingsModal({
         <div className="flex items-center justify-between mb-4">
           <div className="flex items-center gap-2">
             <span className="text-xl">⚙️</span>
-            <h3 className="text-xl font-black text-amber-400">
+            <h3 className="text-xl font-display font-black text-amber-400">
               Opciones
             </h3>
           </div>
@@ -32,8 +34,35 @@ export default function SettingsModal({
           </button>
         </div>
 
-        <div className="space-y-4">
-          {/* 1. Tema Visual (Modo Oscuro / Claro) */}
+        <div className="space-y-3.5">
+          {/* 1. Mantener Pantalla Encendida (Wake Lock) */}
+          <div className="p-3.5 rounded-2xl bg-[#0c0a0b] border border-stone-800 flex items-center justify-between">
+            <div>
+              <span className="font-bold text-sm text-amber-50 block">
+                Pantalla Siempre On
+              </span>
+              <span className="text-xs text-stone-400">
+                Evita que el celular se apague o bloquee
+              </span>
+            </div>
+
+            <button
+              onClick={() => {
+                const next = !keepScreenOn;
+                onToggleKeepScreenOn(next);
+                soundManager.playTick(next ? 800 : 500);
+              }}
+              className={`py-1.5 px-3 rounded-xl border text-xs font-bold transition flex items-center gap-1.5 active:scale-95 ${
+                keepScreenOn
+                  ? 'bg-amber-500/20 border-amber-400 text-amber-300 ring-1 ring-amber-400/40'
+                  : 'bg-stone-800 border-stone-700 text-stone-400'
+              }`}
+            >
+              <span>{keepScreenOn ? '🔆 Activa' : '💤 Normal'}</span>
+            </button>
+          </div>
+
+          {/* 2. Tema Visual (Modo Oscuro / Claro) */}
           <div className="p-3.5 rounded-2xl bg-[#0c0a0b] border border-stone-800 flex items-center justify-between">
             <div>
               <span className="font-bold text-sm text-amber-50 block">
@@ -52,13 +81,13 @@ export default function SettingsModal({
             </button>
           </div>
 
-          {/* 2. Volumen General */}
+          {/* 3. Volumen General */}
           <div className="p-3.5 rounded-2xl bg-[#0c0a0b] border border-stone-800">
             <div className="flex items-center justify-between mb-2">
               <span className="font-bold text-sm text-amber-50">
                 Volumen de Audio
               </span>
-              <span className="text-xs font-black text-amber-400">
+              <span className="text-xs font-black text-amber-400 font-display">
                 {Math.round(volume * 100)}%
               </span>
             </div>
@@ -79,7 +108,7 @@ export default function SettingsModal({
             />
           </div>
 
-          {/* 3. Sonido de la Ruleta (Tick) */}
+          {/* 4. Sonido de la Ruleta (Tick) */}
           <div className="p-3.5 rounded-2xl bg-[#0c0a0b] border border-stone-800 flex items-center justify-between">
             <div>
               <span className="font-bold text-sm text-amber-50 block">
@@ -110,7 +139,7 @@ export default function SettingsModal({
 
         <button
           onClick={onClose}
-          className="mt-6 w-full py-3 bg-gradient-to-r from-amber-500 via-amber-400 to-amber-600 hover:brightness-110 active:scale-98 text-stone-950 rounded-xl font-black text-sm uppercase tracking-wide transition shadow-lg border border-amber-300"
+          className="mt-6 w-full py-3 bg-gradient-to-r from-amber-500 via-amber-400 to-amber-600 hover:brightness-110 active:scale-98 text-stone-950 rounded-xl font-display font-black text-sm uppercase tracking-wide transition shadow-lg border border-amber-300"
         >
           Guardar y Volver
         </button>

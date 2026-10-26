@@ -10,6 +10,7 @@ import FreePlaySelector from './components/FreePlaySelector';
 import { deckManager, GAME_MODES } from './utils/deckManager';
 import { soundManager } from './utils/soundEffects';
 import { getAnimalAvatar } from './utils/animalAvatars';
+import { wakeLockManager } from './utils/wakeLockManager';
 
 export default function App() {
   // 1. Estado de Jugadores (recuperado de localStorage)
@@ -36,7 +37,7 @@ export default function App() {
   // 3. Índice del jugador actual en turno
   const [currentPlayerIndex, setCurrentPlayerIndex] = useState(0);
 
-  // 4. Configuración de Opciones (Tema y Audio)
+  // 4. Configuración de Opciones (Tema, Audio y Wake Lock)
   const [isDarkMode, setIsDarkMode] = useState(() => {
     return localStorage.getItem('dando_jugo_theme') !== 'light';
   });
@@ -46,6 +47,9 @@ export default function App() {
   });
   const [wheelSound, setWheelSound] = useState(() => {
     return localStorage.getItem('dando_jugo_wheelsound') !== 'false';
+  });
+  const [keepScreenOn, setKeepScreenOn] = useState(() => {
+    return localStorage.getItem('dando_jugo_wakelock') !== 'false';
   });
 
   // 5. Modo de juego actual
@@ -66,6 +70,11 @@ export default function App() {
     soundManager.setVolume(volume);
     soundManager.setWheelSound(wheelSound);
   }, []);
+
+  // Sincronizar Wake Lock (Mantener pantalla encendida durante el juego)
+  useEffect(() => {
+    wakeLockManager.setEnabled(keepScreenOn);
+  }, [keepScreenOn]);
 
   const activeModeObj = GAME_MODES.find((m) => m.id === currentMode) || GAME_MODES[1];
   const activePlayer = players[currentPlayerIndex % (players.length || 1)] || { name: 'Jugador 1', gender: 'hombre' };
@@ -101,6 +110,11 @@ export default function App() {
   const handleToggleWheelSound = (val) => {
     setWheelSound(val);
     localStorage.setItem('dando_jugo_wheelsound', val ? 'true' : 'false');
+  };
+
+  const handleToggleKeepScreenOn = (val) => {
+    setKeepScreenOn(val);
+    localStorage.setItem('dando_jugo_wakelock', val ? 'true' : 'false');
   };
 
   // Detección automática si la tarjeta requiere otro jugador objetivo / víctima
@@ -232,6 +246,8 @@ export default function App() {
           onChangeVolume={handleChangeVolume}
           wheelSound={wheelSound}
           onToggleWheelSound={handleToggleWheelSound}
+          keepScreenOn={keepScreenOn}
+          onToggleKeepScreenOn={handleToggleKeepScreenOn}
         />
 
         {/* Modal de Selección de Modos */}
@@ -246,7 +262,7 @@ export default function App() {
         {showRules && (
           <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/85 backdrop-blur-sm animate-in fade-in duration-150">
             <div className="w-full max-w-sm sm:max-w-md bg-[#161214] border border-amber-900/40 rounded-3xl p-6 shadow-2xl text-stone-100">
-              <h3 className="text-xl font-black text-amber-400 mb-3">
+              <h3 className="text-xl font-display font-black text-amber-400 mb-3">
                 🍹 Reglas de la Casa
               </h3>
               <ul className="text-sm text-stone-300 space-y-2 mb-6">
@@ -259,7 +275,7 @@ export default function App() {
               </ul>
               <button
                 onClick={() => setShowRules(false)}
-                className="w-full py-3 bg-gradient-to-r from-amber-500 via-amber-400 to-amber-600 hover:brightness-110 active:scale-98 text-stone-950 rounded-xl font-black text-sm uppercase tracking-wide transition border border-amber-300 shadow-lg"
+                className="w-full py-3 bg-gradient-to-r from-amber-500 via-amber-400 to-amber-600 hover:brightness-110 active:scale-98 text-stone-950 rounded-xl font-display font-black text-sm uppercase tracking-wide transition border border-amber-300 shadow-lg"
               >
                 ¡Entendido, a Jugar!
               </button>
@@ -303,14 +319,27 @@ export default function App() {
           <span className="font-bold">{activeModeObj.name}</span>
         </button>
 
-        {/* Botón rápido de Opciones */}
-        <button
-          onClick={() => setShowSettingsModal(true)}
-          className="text-sm bg-slate-800/90 hover:bg-slate-700 active:scale-95 text-slate-300 font-bold p-1.5 rounded-xl border border-slate-700 transition"
-          title="Opciones"
-        >
-          ⚙️
-        </button>
+        {/* Acciones de Opciones y Estado Wake Lock */}
+        <div className="flex items-center gap-1.5">
+          {keepScreenOn && (
+            <button
+              onClick={() => setShowSettingsModal(true)}
+              className="text-xs bg-amber-500/10 hover:bg-amber-500/20 text-amber-300 font-bold px-2 py-1 rounded-xl border border-amber-500/30 transition flex items-center gap-1 active:scale-95"
+              title="Pantalla siempre encendida: Activa"
+            >
+              <span>🔆</span>
+              <span className="hidden sm:inline text-[10px]">On</span>
+            </button>
+          )}
+
+          <button
+            onClick={() => setShowSettingsModal(true)}
+            className="text-sm bg-slate-800/90 hover:bg-slate-700 active:scale-95 text-slate-300 font-bold p-1.5 rounded-xl border border-slate-700 transition"
+            title="Opciones"
+          >
+            ⚙️
+          </button>
+        </div>
       </header>
 
       {/* Indicador destacado del Turno del Jugador (Visible solo en Móvil, en Tablet/TV se integra a la derecha) */}
@@ -491,6 +520,8 @@ export default function App() {
         onChangeVolume={handleChangeVolume}
         wheelSound={wheelSound}
         onToggleWheelSound={handleToggleWheelSound}
+        keepScreenOn={keepScreenOn}
+        onToggleKeepScreenOn={handleToggleKeepScreenOn}
       />
 
       {/* Footer informativo */}

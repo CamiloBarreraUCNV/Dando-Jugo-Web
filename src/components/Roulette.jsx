@@ -16,16 +16,26 @@ export default function Roulette({ onSpinEnd, isSpinning, setIsSpinning }) {
   const numSlices = CATEGORIES.length;
   const sliceAngle = (2 * Math.PI) / numSlices;
 
-  // Dibujar la ruleta en el Canvas
+  // Dibujar la ruleta en el Canvas con renderizado Retina HD
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
     const ctx = canvas.getContext('2d');
-    const size = canvas.width;
-    const center = size / 2;
+    
+    // Soporte para pantallas Retina / HiDPI (iPhone, Android moderno, iPad)
+    const logicalSize = 340;
+    const dpr = Math.max(window.devicePixelRatio || 1, 2);
+    
+    canvas.width = logicalSize * dpr;
+    canvas.height = logicalSize * dpr;
+    
+    // Escalar el contexto para dibujar en alta definición sin alterar las coordenadas lógicas
+    ctx.scale(dpr, dpr);
+
+    const center = logicalSize / 2;
     const radius = center - 12;
 
-    ctx.clearRect(0, 0, size, size);
+    ctx.clearRect(0, 0, logicalSize, logicalSize);
 
     // Borde exterior metálico dorado / latón
     ctx.beginPath();
@@ -129,16 +139,14 @@ export default function Roulette({ onSpinEnd, isSpinning, setIsSpinning }) {
       </div>
 
       {/* Rueda animada con marco de taberna / bronce */}
-      <div className="relative p-2.5 rounded-full bg-[#161214] shadow-[0_0_50px_rgba(212,175,55,0.2)] border-4 border-[#2d2228]">
+      <div className="relative p-2 sm:p-2.5 rounded-full bg-[#161214] shadow-[0_0_50px_rgba(212,175,55,0.2)] border-4 border-[#2d2228]">
         <canvas
           ref={canvasRef}
-          width={340}
-          height={340}
           style={{
             transform: `rotate(${currentRotation}deg)`,
             transition: isSpinning ? 'transform 4s cubic-bezier(0.12, 0.8, 0.15, 1)' : 'none',
           }}
-          className="rounded-full cursor-pointer max-w-[85vw] max-h-[85vw]"
+          className="rounded-full cursor-pointer w-[min(320px,76vw)] h-[min(320px,76vw)] sm:w-[340px] sm:h-[340px] aspect-square block"
           onClick={spin}
         />
       </div>

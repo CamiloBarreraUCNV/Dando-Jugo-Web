@@ -66,7 +66,7 @@ export default function PlayerSetup({ players, onSavePlayers, onCancel, isFirstT
   const currentAnimalObj = getAnimalAvatar(selectedAnimal);
 
   return (
-    <div className="w-full max-w-md mx-auto px-4 py-3 flex flex-col justify-between min-h-screen animate-in fade-in duration-200">
+    <div className="w-full max-w-md mx-auto px-4 py-3 pt-safe pb-safe flex flex-col justify-between min-h-dvh animate-in fade-in duration-200">
       <div>
         {/* Encabezado compacto */}
         <div className="text-center mb-3">

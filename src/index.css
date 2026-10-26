@@ -3,9 +3,19 @@
 @tailwind utilities;
 
 @layer base {
+  :root {
+    --sat: env(safe-area-inset-top, 0px);
+    --sab: env(safe-area-inset-bottom, 0px);
+    --sal: env(safe-area-inset-left, 0px);
+    --sar: env(safe-area-inset-right, 0px);
+  }
+
   html, body {
     -webkit-tap-highlight-color: transparent;
     touch-action: manipulation;
+    min-height: 100vh;
+    min-height: 100dvh;
+    min-height: -webkit-fill-available;
   }
 }
 
@@ -40,5 +50,29 @@
   }
   .custom-scrollbar::-webkit-scrollbar-thumb:hover {
     background: #f59e0b;
+  }
+
+  /* Utilidades para Safe Areas móviles (Notches e indicador Home de iOS / Android) */
+  .pb-safe {
+    padding-bottom: max(1rem, env(safe-area-inset-bottom, 0px));
+  }
+  .pt-safe {
+    padding-top: max(0.75rem, env(safe-area-inset-top, 0px));
+  }
+  .pl-safe {
+    padding-left: max(1rem, env(safe-area-inset-left, 0px));
+  }
+  .pr-safe {
+    padding-right: max(1rem, env(safe-area-inset-right, 0px));
+  }
+
+  /* Alturas dinámicas para navegadores móviles con barras colapsables */
+  .min-h-dvh {
+    min-height: 100vh;
+    min-height: 100dvh;
+  }
+  .h-dvh {
+    height: 100vh;
+    height: 100dvh;
   }
 }

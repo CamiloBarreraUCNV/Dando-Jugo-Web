@@ -195,7 +195,7 @@ export default function App() {
   // RENDER 1: Pantalla de Configuración de Jugadores
   if (screen === 'players') {
     return (
-      <div className={`min-h-screen ${themeContainerClass} transition-colors duration-200`}>
+      <div className={`min-h-dvh ${themeContainerClass} transition-colors duration-200`}>
         <PlayerSetup
           players={players}
           onSavePlayers={handleSavePlayers}
@@ -209,7 +209,7 @@ export default function App() {
   // RENDER 2: Menú Principal
   if (screen === 'menu') {
     return (
-      <div className={`min-h-screen ${themeContainerClass} transition-colors duration-200 relative`}>
+      <div className={`min-h-dvh ${themeContainerClass} transition-colors duration-200 relative`}>
         <MainMenu
           players={players}
           currentMode={currentMode}
@@ -273,7 +273,7 @@ export default function App() {
   const isFreeMode = screen === 'freemode';
 
   return (
-    <div className={`h-screen max-h-screen flex flex-col justify-between items-center px-4 py-3 ${themeContainerClass} max-w-md mx-auto relative transition-colors duration-200 overflow-hidden`}>
+<div className={`h-dvh max-h-dvh flex flex-col justify-between items-center px-4 pt-safe pb-safe ${themeContainerClass} max-w-md mx-auto relative transition-colors duration-200 overflow-hidden`}>
       {/* Barra superior del Juego */}
       <header className="w-full flex items-center justify-between py-2 border-b border-slate-800/60 shrink-0">
         <button

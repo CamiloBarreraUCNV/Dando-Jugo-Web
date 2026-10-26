@@ -87,7 +87,7 @@ export default function CardModal({ card, activePlayer, currentMode, onClose, on
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/85 backdrop-blur-md animate-in fade-in duration-200">
-      <div className={`w-full max-w-md bg-[#171216] border-2 ${theme.bg} rounded-3xl p-6 shadow-2xl flex flex-col justify-between max-h-[90vh] overflow-y-auto`}>
+      <div className={`w-full max-w-md bg-[#171216] border-2 ${theme.bg} rounded-3xl p-6 shadow-2xl flex flex-col justify-between max-h-[88dvh] overflow-y-auto no-scrollbar`}>
         <div>
           {/* Barra superior de categoría y dificultad */}
           <div className="flex items-center justify-between mb-3">

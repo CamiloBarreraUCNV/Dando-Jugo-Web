@@ -13,7 +13,8 @@ export default function ModeSelectorModal({ isOpen, onClose, currentMode, onSele
           </h3>
           <button
             onClick={onClose}
-            className="text-slate-400 hover:text-white text-lg font-bold p-1"
+            className="w-9 h-9 flex items-center justify-center rounded-xl bg-slate-800 hover:bg-slate-700 active:scale-95 text-slate-300 hover:text-white text-base font-bold transition"
+            aria-label="Cerrar modal"
           >
             ✕
           </button>

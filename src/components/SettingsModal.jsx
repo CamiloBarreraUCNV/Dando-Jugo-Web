@@ -25,7 +25,8 @@ export default function SettingsModal({
           </div>
           <button
             onClick={onClose}
-            className="text-stone-400 hover:text-white text-lg font-bold p-1"
+            className="w-9 h-9 flex items-center justify-center rounded-xl bg-stone-800/60 hover:bg-stone-700 active:scale-95 text-stone-300 hover:text-white text-base font-bold transition"
+            aria-label="Cerrar opciones"
           >
             ✕
           </button>

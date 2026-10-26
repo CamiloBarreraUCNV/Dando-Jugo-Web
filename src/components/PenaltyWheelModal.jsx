@@ -53,11 +53,20 @@ export default function PenaltyWheelModal({ isOpen, onClose, currentMode }) {
     const canvas = canvasRef.current;
     if (!canvas) return;
     const ctx = canvas.getContext('2d');
-    const size = canvas.width;
-    const center = size / 2;
+    
+    // Soporte para pantallas Retina / HiDPI
+    const logicalSize = 280;
+    const dpr = Math.max(window.devicePixelRatio || 1, 2);
+    
+    canvas.width = logicalSize * dpr;
+    canvas.height = logicalSize * dpr;
+    
+    ctx.scale(dpr, dpr);
+
+    const center = logicalSize / 2;
     const radius = center - 10;
 
-    ctx.clearRect(0, 0, size, size);
+    ctx.clearRect(0, 0, logicalSize, logicalSize);
 
     // Borde exterior en tono bronce y burdeos
     ctx.beginPath();
@@ -200,13 +209,11 @@ export default function PenaltyWheelModal({ isOpen, onClose, currentMode }) {
         <div className="relative p-2 rounded-full bg-[#0d0a0c] border-4 border-[#2d2228] shadow-lg">
           <canvas
             ref={canvasRef}
-            width={280}
-            height={280}
             style={{
               transform: `rotate(${currentRotation}deg)`,
               transition: isSpinning ? 'transform 3.5s cubic-bezier(0.12, 0.8, 0.15, 1)' : 'none',
             }}
-            className="rounded-full max-w-[70vw] max-h-[70vw]"
+            className="rounded-full w-[min(260px,65vw)] h-[min(260px,65vw)] aspect-square block"
           />
         </div>
 

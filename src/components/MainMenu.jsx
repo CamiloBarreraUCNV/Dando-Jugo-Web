@@ -16,7 +16,7 @@ export default function MainMenu({
   const activeModeObj = GAME_MODES.find((m) => m.id === currentMode) || GAME_MODES[1];
 
   return (
-    <div className="w-full max-w-md mx-auto p-4 flex flex-col justify-between min-h-screen py-6 animate-in fade-in duration-200">
+    <div className="w-full max-w-md mx-auto px-4 pt-safe pb-safe flex flex-col justify-between min-h-dvh animate-in fade-in duration-200">
       {/* Sección Superior: Branding Hero */}
       <div className="text-center pt-1">
         <div className="relative inline-flex items-center justify-center my-2">

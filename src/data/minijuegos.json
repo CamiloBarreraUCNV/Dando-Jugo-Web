@@ -202,9 +202,9 @@
   {
     "id": 41,
     "titulo": "Cultura Chupistica",
-    "descripcion": "Personajes Franceses (Ficticios o reales)",
+    "descripcion": "Personajes de ficción que serían pésimos amigos de carrete",
     "castigo": null,
-    "dificultad": 7,
+    "dificultad": 4,
     "categoria": null,
     "aprobado_diego": "SI",
     "observacion": null
@@ -342,9 +342,9 @@
   {
     "id": 64,
     "titulo": "Cultura Chupistica",
-    "descripcion": "Cosas que puedes hacer con tu abuela",
+    "descripcion": "Cosas vergonzosas que haces cuando estás completamente solo en casa",
     "castigo": null,
-    "dificultad": 5,
+    "dificultad": 4,
     "categoria": null,
     "aprobado_diego": "SI",
     "observacion": null
@@ -372,9 +372,9 @@
   {
     "id": 73,
     "titulo": "Cultura Chupistica",
-    "descripcion": "Cosas que puedes hacer con un niño",
+    "descripcion": "Cosas que hacías cuando eras niño jurando que te veías genial",
     "castigo": null,
-    "dificultad": 5,
+    "dificultad": 3,
     "categoria": null,
     "aprobado_diego": "SI",
     "observacion": null
@@ -382,9 +382,9 @@
   {
     "id": 76,
     "titulo": "Cultura Chupistica",
-    "descripcion": "Excusas para ver una pelicula de Barbie en la primera cita",
+    "descripcion": "Películas que arruinarían por completo una primera cita",
     "castigo": null,
-    "dificultad": 5,
+    "dificultad": 4,
     "categoria": null,
     "aprobado_diego": "SI",
     "observacion": null
@@ -997,6 +997,106 @@
     "dificultad": 4,
     "categoria": null,
     "aprobado_diego": null,
+    "observacion": null
+  },
+  {
+    "id": 101,
+    "titulo": "Cultura Chupistica",
+    "descripcion": "Red flags en una primera cita",
+    "castigo": null,
+    "dificultad": 3,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 102,
+    "titulo": "Cultura Chupistica",
+    "descripcion": "Mentiras típicas que le dices a tus papás cuando sales de fiesta",
+    "castigo": null,
+    "dificultad": 3,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 103,
+    "titulo": "Cultura Chupistica",
+    "descripcion": "Remedios caseros o mitos para quitarse la caña (resaca)",
+    "castigo": null,
+    "dificultad": 4,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 104,
+    "titulo": "Cultura Chupistica",
+    "descripcion": "Frases que dices cuando estás curado pero juras que estás sobrio",
+    "castigo": null,
+    "dificultad": 2,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 105,
+    "titulo": "Cultura Chupistica",
+    "descripcion": "Lugares pésimos para que te den ganas de ir al baño del 2",
+    "castigo": null,
+    "dificultad": 4,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 106,
+    "titulo": "Cultura Chupistica",
+    "descripcion": "Excusas para terminar una relación o ghostear a alguien",
+    "castigo": null,
+    "dificultad": 4,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 107,
+    "titulo": "Cultura Chupistica",
+    "descripcion": "Cosas que jamás deberías mandar al grupo de WhatsApp del trabajo o de la familia",
+    "castigo": null,
+    "dificultad": 5,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 108,
+    "titulo": "Cultura Chupistica",
+    "descripcion": "Cagazos típicos que pueden arruinar un carrete",
+    "castigo": null,
+    "dificultad": 3,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 109,
+    "titulo": "Cultura Chupistica",
+    "descripcion": "Canciones que cuando suenan en la fiesta todo el mundo las canta a gritos",
+    "castigo": null,
+    "dificultad": 3,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 110,
+    "titulo": "Cultura Chupistica",
+    "descripcion": "Cosas vergonzosas que has hecho por amor o por alguien que te gustaba",
+    "castigo": null,
+    "dificultad": 5,
+    "categoria": null,
+    "aprobado_diego": "SI",
     "observacion": null
   }
 ]

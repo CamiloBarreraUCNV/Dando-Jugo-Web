@@ -68,7 +68,7 @@ export const GAME_TYPES = [
     color: 'from-amber-600 to-orange-700',
     borderColor: 'border-amber-500/50',
     description: '5 segundos por persona para nombrar un objeto del tema y pasar el celular.',
-    badge: '20 Tarjetas',
+    badge: '30 Tarjetas',
   },
   {
     id: 'nunca',

@@ -398,5 +398,515 @@
     "categoria": null,
     "aprobado_diego": null,
     "observacion": null
+  },
+  {
+    "id": 41,
+    "titulo": "La Cascada",
+    "descripcion": "Empiezas a beber de tu vaso; la persona a tu derecha empieza inmediatamente y así sucesivamente en ronda. Nadie puede parar de beber hasta que la persona a su izquierda se detenga.",
+    "castigo": "Bebe 4 sorbos si cortas la cascada antes de tiempo.",
+    "dificultad": null,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 42,
+    "titulo": "El Piso es Lava",
+    "descripcion": "Durante # rondas, nadie puede tocar el suelo con los pies descalzos o despegados de la silla. Quien toque el piso bebe $ sorbos.",
+    "castigo": "Bebe 2 sorbos si tocas el suelo.",
+    "dificultad": null,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 43,
+    "titulo": "El Muñeco de Cera",
+    "descripcion": "Cuando tú quieras durante la partida, quédate congelado como estatua. Todos deben imitarte al instante; el último en congelarse bebe % sorbos.",
+    "castigo": "Bebe 3 sorbos si te ríes antes que los demás.",
+    "dificultad": null,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 44,
+    "titulo": "Voz de Helio",
+    "descripcion": "Durante # ronda, cada vez que hables debes hacerlo con voz aguda como si hubieras aspirado helio. Si hablas normal, bebes # sorbo.",
+    "castigo": "Bebe 1 sorbo cada vez que se te olvide.",
+    "dificultad": null,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 45,
+    "titulo": "Apodo Obligatorio",
+    "descripcion": "Asígnale un apodo ridículo a cada persona en la mesa. Durante # rondas, quien llame a alguien por su nombre real bebe $ sorbos.",
+    "castigo": "Bebe 2 sorbos si olvidas los apodos que tú mismo creaste.",
+    "dificultad": null,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 46,
+    "titulo": "Brazos de Dinosaurio",
+    "descripcion": "Durante # ronda, todos deben beber sosteniendo su vaso con los codos pegados a las costillas como un T-Rex. Quien separe los codos bebe $ sorbos.",
+    "castigo": "Haz sonidos de dinosaurio durante 10 segundos.",
+    "dificultad": null,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 47,
+    "titulo": "El Guardaespaldas",
+    "descripcion": "Elige a un jugador. Durante # rondas eres su guardaespaldas: cada vez que esa persona reciba sorbos de castigo, tú debes beber la mitad por él.",
+    "castigo": "Bebe 3 sorbos si dejas desprotegido a tu cliente.",
+    "dificultad": null,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 48,
+    "titulo": "Prohibido Señalar",
+    "descripcion": "Durante # rondas, nadie en la mesa puede apuntar con el dedo a otra persona. Quien señale con el dedo bebe $ sorbos.",
+    "castigo": "Bebe 2 sorbos cada vez que apuntes a alguien.",
+    "dificultad": null,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 49,
+    "titulo": "Cámara Lenta",
+    "descripcion": "Durante # ronda, cada vez que alguien tome de su vaso, debe hacerlo en cámara lenta dramática durante 10 segundos. Quien beba rápido bebe el doble.",
+    "castigo": "Bebe 3 sorbos de forma acelerada.",
+    "dificultad": null,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 50,
+    "titulo": "El Eco",
+    "descripcion": "Durante # ronda, el jugador a tu derecha debe repetir la última palabra de cada frase que alguien diga en la mesa. Si se le olvida, bebe # sorbo.",
+    "castigo": "Bebe 2 sorbos si no repites la palabra.",
+    "dificultad": null,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 51,
+    "titulo": "Toman los Ex",
+    "descripcion": "Todas las personas en la mesa que todavía tengan el número de su ex guardado en el teléfono beben % sorbos.",
+    "castigo": "Muestra tu lista de chats archivados o bebe 4 sorbos.",
+    "dificultad": null,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 52,
+    "titulo": "Guerra de Alturas",
+    "descripcion": "La persona más alta de la mesa y la persona más baja deben pararse, brindar y beber $ sorbos juntas.",
+    "castigo": "Ambos beben 3 sorbos si se niegan a comparar estaturas.",
+    "dificultad": null,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 53,
+    "titulo": "Zapatos de Fiesta",
+    "descripcion": "Todos los que estén usando zapatillas blancas o zapatos oscuros beben $ sorbos.",
+    "castigo": "Bebe 1 sorbo extra si tienes las zapatillas sucias.",
+    "dificultad": null,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 54,
+    "titulo": "Batería Crítica",
+    "descripcion": "Todos los jugadores que tengan menos del 25% de batería en su celular beben % sorbos para recargar energía.",
+    "castigo": "Quien tenga más del 80% regala 2 sorbos.",
+    "dificultad": null,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 55,
+    "titulo": "Hijos Únicos vs Hermanos",
+    "descripcion": "Quienes sean hijos únicos regalan $ sorbos; quienes tengan hermanos beben # sorbo por cada hermano que tengan.",
+    "castigo": "Bebe 2 sorbos si no sabes la edad exacta de tus hermanos.",
+    "dificultad": null,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 56,
+    "titulo": "Tatuados al Frente",
+    "descripcion": "Quienes tengan al menos un tatuaje beben $ sorbos; quienes no tengan ninguno regalan % sorbos a los tatuados.",
+    "castigo": "Muestra tu tatuaje más vergonzoso o bebe 3 sorbos.",
+    "dificultad": null,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 57,
+    "titulo": "Los Madrugadores",
+    "descripcion": "Quien se haya despertado más temprano hoy bebe % sorbos; el que se despertó más tarde regala $ sorbos.",
+    "castigo": "Cuenta qué estabas haciendo tan temprano o bebe 2 sorbos.",
+    "dificultad": null,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 58,
+    "titulo": "Mismo Signo Zodiacal",
+    "descripcion": "Todos los jugadores que pertenezcan al mismo elemento zodiacal (fuego, agua, tierra o aire) brindan y beben $ sorbos.",
+    "castigo": "Si no te sabes tu signo, bebes 3 sorbos por despistado.",
+    "dificultad": null,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 59,
+    "titulo": "Solteros vs En Pareja",
+    "descripcion": "Los solteros beben % sorbos si la están pasando bien; los que están en pareja regalan $ sorbos si su pareja no vino a la fiesta.",
+    "castigo": "Brindis general de 2 sorbos.",
+    "dificultad": null,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 60,
+    "titulo": "La Caña Legendaria",
+    "descripcion": "Quien haya tenido la peor resaca en el último mes debe contar el cagazo en 30 segundos o beber / sorbos.",
+    "castigo": "Bebe 4 sorbos si inventas la historia.",
+    "dificultad": null,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 61,
+    "titulo": "La Pose del Avión",
+    "descripcion": "Mantén la pose del avión (en un solo pie, brazos abiertos y cuerpo inclinado) durante 20 segundos sin caerte.",
+    "castigo": "Bebe 3 sorbos si tocas el suelo antes de que termine el tiempo.",
+    "dificultad": null,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 62,
+    "titulo": "El Baile del Robot",
+    "descripcion": "Baila como un robot descompuesto durante 20 segundos. Si el grupo aprueba tu coreografía, regalas & sorbos.",
+    "castigo": "Bebe 3 sorbos si tu baile parece más epilepsia que robot.",
+    "dificultad": null,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 63,
+    "titulo": "Adivina el Objeto a Ciegas",
+    "descripcion": "Con los ojos vendados durante 20 segundos, la mesa te pasa un objeto para que lo adivines solo palpándolo con las manos.",
+    "castigo": "Bebe 3 sorbos si no logras adivinar qué era.",
+    "dificultad": null,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 64,
+    "titulo": "Relator de Fútbol Poseído",
+    "descripcion": "Relata un gol ficticio a máxima velocidad durante 15 segundos como relator de radio. Si dudas, bebes $ sorbos.",
+    "castigo": "Bebe 2 sorbos si te trabas con el micrófono imaginario.",
+    "dificultad": null,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 65,
+    "titulo": "El Vendedor de Infomerciales",
+    "descripcion": "Tienes 30 segundos para venderle a la mesa un objeto cualquiera como si fuera el invento del milenio.",
+    "castigo": "Bebe 3 sorbos si nadie te compra el producto.",
+    "dificultad": null,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 66,
+    "titulo": "El Abecedario de Tragos",
+    "descripcion": "En ronda, cada jugador dice un licor o marca de copete siguiendo el abecedario (A, B, C...). Quien se trabe más de 3 segundos bebe $ sorbos.",
+    "castigo": "Bebe 2 sorbos si repites una marca dicha.",
+    "dificultad": null,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 67,
+    "titulo": "El Juego del Ritmo",
+    "descripcion": "Todos marcan el ritmo con las palmas (dos en las piernas, dos aplausos). Por turnos nombran países sin repetir. Quien pierda el compás bebe % sorbos.",
+    "castigo": "Bebe 3 sorbos si te quedas en blanco.",
+    "dificultad": null,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 68,
+    "titulo": "La Palabra Maldita",
+    "descripcion": "Elige una palabra común (ej: \"salud\", \"copa\", \"oye\" o \"sí\"). Durante # rondas, quien la pronuncie en la mesa debe beber # sorbo.",
+    "castigo": "Bebe 2 sorbos si tú mismo caes en tu propia trampa.",
+    "dificultad": null,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 69,
+    "titulo": "La Última Sílaba",
+    "descripcion": "Dices una palabra y el siguiente debe decir otra que comience con la última sílaba en menos de 3 segundos. Quien se demore bebe % sorbos.",
+    "castigo": "Bebe 3 sorbos si no respondes a tiempo.",
+    "dificultad": null,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 70,
+    "titulo": "La Ley del No",
+    "descripcion": "Durante # ronda, nadie en la mesa puede decir la palabra \"NO\". Quien diga \"no\" bebe # sorbo en el acto.",
+    "castigo": "Bebe 1 sorbo cada vez que respondas negativamente.",
+    "dificultad": null,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 71,
+    "titulo": "Simón Dice Carretero",
+    "descripcion": "Eres Simón durante 30 segundos. Si alguien de la mesa hace una acción sin que hayas dicho \"Simón dice\", esa persona bebe $ sorbos.",
+    "castigo": "Si nadie cae en tus trampas, bebes tú 2 sorbos.",
+    "dificultad": null,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 72,
+    "titulo": "Memoria Visual a Ciegas",
+    "descripcion": "Cierra los ojos y adivina de qué color es la polera o prenda de dos personas de la mesa. Por cada fallo bebes $ sorbos.",
+    "castigo": "Bebe 2 sorbos por cada color inventado.",
+    "dificultad": null,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 73,
+    "titulo": "Lectura de Pensamiento",
+    "descripcion": "Elige a otro jugador. Cuenten hasta 3 y digan un número del 1 al 5 al mismo tiempo. Si coinciden regalan & sorbos; si no, ambos beben $ sorbos.",
+    "castigo": "Ambos beben 2 sorbos por falta de telepatía.",
+    "dificultad": null,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 74,
+    "titulo": "Sesión de Paparazzi",
+    "descripcion": "Posa como modelo de revista durante 10 segundos mientras los demás jugadores te sacan fotos ridículas con sus celulares.",
+    "castigo": "Bebe 2 sorbos si parpadeas o pierdes el glamour.",
+    "dificultad": null,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 75,
+    "titulo": "Doblaje de Telenovela",
+    "descripcion": "Dos jugadores se ponen frente a frente: uno gesticula sin hablar y el otro hace su voz exagerada improvisando un drama durante 20 segundos.",
+    "castigo": "Ambos beben 2 sorbos si rompen el personaje.",
+    "dificultad": null,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 76,
+    "titulo": "El Brindis Poético",
+    "descripcion": "Ponte de pie y realiza un brindis solemne donde todas las frases rimen durante 20 segundos. Si no rima, bebes $ sorbos.",
+    "castigo": "Bebe 2 sorbos por cada verso sin rima.",
+    "dificultad": null,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 77,
+    "titulo": "El Espía Encubierto",
+    "descripcion": "Durante # ronda, no puedes mirar a los ojos a nadie; debes hablar mirando al techo o al suelo. Si miras a alguien a los ojos, bebes # sorbo.",
+    "castigo": "Bebe 1 sorbo cada vez que hagas contacto visual.",
+    "dificultad": null,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 78,
+    "titulo": "Efecto de Sonido Colectivo",
+    "descripcion": "Durante # ronda, cada vez que bebas de tu vaso, todos en la mesa deben hacer un sonido de trago en coro (\"Gulp gulp gulp\"). Quien no lo haga bebe $ sorbos.",
+    "castigo": "Bebe 2 sorbos si tomas sin avisarle al coro.",
+    "dificultad": null,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 79,
+    "titulo": "Sommelier de Copete Barato",
+    "descripcion": "Prueba el vaso de la persona a tu derecha y descríbelo con palabras de catador gourmet durante 20 segundos sin reírte.",
+    "castigo": "Bebe 2 sorbos si te ríes de tu propia cata.",
+    "dificultad": null,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 80,
+    "titulo": "Foto Familiar Ochentera",
+    "descripcion": "Toda la mesa debe posar con caras completamente serias y tiesas para una foto familiar durante 10 segundos sin reírse. Quien sonría bebe % sorbos.",
+    "castigo": "Bebe 3 sorbos si muestras los dientes.",
+    "dificultad": null,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 81,
+    "titulo": "Teléfono Descompuesto Etílico",
+    "descripcion": "Susúrrale una frase absurda al oído al de tu derecha; la frase viaja en ronda. Si la frase que dice el último no se parece en nada, beben todos $ sorbos.",
+    "castigo": "Todos beben 2 sorbos por mala audición.",
+    "dificultad": null,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 82,
+    "titulo": "El Mejor Look de la Noche",
+    "descripcion": "La mesa vota quién vino mejor vestido al carrete; el ganador regala & sorbos a quien quiera.",
+    "castigo": "El peor vestido bebe 2 sorbos de consolación.",
+    "dificultad": null,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 83,
+    "titulo": "Puntualidad Extrema",
+    "descripcion": "Quien haya llegado primero a la junta regala % sorbos; quien llegó más tarde bebe % sorbos por retrasar el brindis.",
+    "castigo": "Bebe 2 sorbos si no te acuerdas a qué hora llegaste.",
+    "dificultad": null,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 84,
+    "titulo": "El Confesionario de Barra",
+    "descripcion": "El grupo te hace una pregunta incómoda. Si respondes con la verdad te salvas; si te niegas a contestar, bebes / sorbos.",
+    "castigo": "Bebe 5 sorbos si prefieres guardar el secreto.",
+    "dificultad": null,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 85,
+    "titulo": "Pacto de Hermanos de Sangre",
+    "descripcion": "Elige a un compañero de trago. Durante # rondas, cada vez que uno de ustedes beba, el otro debe acompañarlo con la misma cantidad de sorbos.",
+    "castigo": "Ambos beben 2 sorbos si rompen el pacto.",
+    "dificultad": null,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 86,
+    "titulo": "Tributo al Anfitrión",
+    "descripcion": "Todos en la mesa levantan sus vasos y beben $ sorbos en honor al dueño de casa o anfitrión del carrete.",
+    "castigo": "Quien no brinde por el anfitrión bebe el doble.",
+    "dificultad": null,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 87,
+    "titulo": "La Subasta de Sorbos",
+    "descripcion": "Subastas % sorbos de regalo al jugador de la mesa que esté dispuesto a hacer el reto más ridículo que tú propongas.",
+    "castigo": "Si nadie acepta la subasta, te bebes los sorbos tú.",
+    "dificultad": null,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 88,
+    "titulo": "El Trato a Ciegas",
+    "descripcion": "Elige a otro jugador para que mezcle un sorbo sorpresa en tu vaso. Debes bebértelo sin quejarte o pagar / sorbos de castigo.",
+    "castigo": "Bebe 5 sorbos si arrugas ante la mezcla misteriosa.",
+    "dificultad": null,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 89,
+    "titulo": "El Espejo Viviente",
+    "descripcion": "Elige a un jugador. Durante # ronda, debes imitar exactamente cada movimiento físico que haga. Si te descoordinas, bebes $ sorbos.",
+    "castigo": "Bebe 2 sorbos si te quedas quieto.",
+    "dificultad": null,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 90,
+    "titulo": "Cambio de Asientos Express",
+    "descripcion": "A la cuenta de 3, todos los jugadores deben levantarse y cambiarse de asiento. Las dos últimas personas en sentarse beben $ sorbos cada una.",
+    "castigo": "Quienes se queden parados beben 3 sorbos.",
+    "dificultad": null,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 91,
+    "titulo": "El Brindis de los Veteranos",
+    "descripcion": "Elige a otro jugador; ambos se miran solemnemente a los ojos, chocan sus vasos y beben $ sorbos en silencio como camaradas de guerra.",
+    "castigo": "Ambos beben 2 sorbos si se ríen antes de chocar los vasos.",
+    "dificultad": null,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
   }
 ]

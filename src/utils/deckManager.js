@@ -104,7 +104,7 @@ export const GAME_TYPES = [
     color: 'from-amber-700 to-red-800',
     borderColor: 'border-amber-600/50',
     description: 'Reglas de trago directo, "Toman Todos" y dinámicas con castigo.',
-    badge: '40 Tarjetas',
+    badge: '91 Tarjetas',
   },
   {
     id: 'jugo',

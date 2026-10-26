@@ -1898,5 +1898,255 @@
     "categoria": null,
     "aprobado_diego": "SI",
     "observacion": null
+  },
+  {
+    "id": 191,
+    "titulo": "Versus",
+    "descripcion": "¿Quién gana una Guerra de Pulgares al mejor de 3 rounds?",
+    "castigo": null,
+    "dificultad": 2,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 192,
+    "titulo": "Versus",
+    "descripcion": "¿Quién gana en Piedra, Papel o Tijera al mejor de 5 partidas?",
+    "castigo": null,
+    "dificultad": 1,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 193,
+    "titulo": "Versus",
+    "descripcion": "¿Quién gana un Gallito de brazos (pulseada) usando la mano izquierda o la no dominante?",
+    "castigo": null,
+    "dificultad": 4,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 194,
+    "titulo": "Versus",
+    "descripcion": "¿Quién aguanta más tiempo sin pestañear mirándose fijamente?",
+    "castigo": null,
+    "dificultad": 3,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 195,
+    "titulo": "Versus",
+    "descripcion": "¿Quién gana en el juego de reflejos de palmear las manos?",
+    "castigo": null,
+    "dificultad": 4,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 196,
+    "titulo": "Versus",
+    "descripcion": "¿Quién gana una pulseada de dedos índices sobre la mesa?",
+    "castigo": null,
+    "dificultad": 3,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 197,
+    "titulo": "Versus",
+    "descripcion": "¿Quién desliza una moneda más cerca del borde de la mesa sin que se caiga al vacío?",
+    "castigo": null,
+    "dificultad": 3,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 198,
+    "titulo": "Versus",
+    "descripcion": "¿Quién hace girar una moneda en la mesa como un trompo por más tiempo?",
+    "castigo": null,
+    "dificultad": 3,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 199,
+    "titulo": "Versus",
+    "descripcion": "¿Quién dice el abecedario al revés (de la Z a la A) más rápido y sin equivocarse?",
+    "castigo": null,
+    "dificultad": 5,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 200,
+    "titulo": "Versus",
+    "descripcion": "¿Quién nombra más países que empiecen con la letra \"C\" en 20 segundos?",
+    "castigo": null,
+    "dificultad": 4,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 201,
+    "titulo": "Versus",
+    "descripcion": "¿Quién nombra 5 marcas de automóviles en menos de 5 segundos sin frenar?",
+    "castigo": null,
+    "dificultad": 3,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 202,
+    "titulo": "Versus",
+    "descripcion": "¿Quién deletrea la palabra \"OTORRINOLARINGÓLOGO\" al revés más rápido?",
+    "castigo": null,
+    "dificultad": 6,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 203,
+    "titulo": "Versus",
+    "descripcion": "¿Quién aguanta más turnos jugando al \"Pum\" prohibiendo los múltiplos de 3?",
+    "castigo": null,
+    "dificultad": 4,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 204,
+    "titulo": "Versus",
+    "descripcion": "¿Quién aguanta más tiempo parado sobre un solo pie y con los ojos cerrados?",
+    "castigo": null,
+    "dificultad": 4,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 205,
+    "titulo": "Versus",
+    "descripcion": "¿Quién aguanta más tiempo en sentadilla contra la pared (Wall Sit) a 90 grados?",
+    "castigo": null,
+    "dificultad": 6,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 206,
+    "titulo": "Versus",
+    "descripcion": "¿Quién se toma un vaso lleno de agua más rápido sin derramar?",
+    "castigo": null,
+    "dificultad": 2,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 207,
+    "titulo": "Versus",
+    "descripcion": "¿Quién aguanta más tiempo con los brazos extendidos en cruz sin bajarlos ni un milímetro?",
+    "castigo": null,
+    "dificultad": 5,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 208,
+    "titulo": "Versus",
+    "descripcion": "¿Quién aguanta la risa mirando fijamente al rival mientras este le hace caras ridículas?",
+    "castigo": null,
+    "dificultad": 3,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 209,
+    "titulo": "Versus",
+    "descripcion": "¿Quién improvisa el mejor piropo ridículo o cómico hacia el rival? (Vota la mesa)",
+    "castigo": null,
+    "dificultad": 3,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 210,
+    "titulo": "Versus",
+    "descripcion": "¿Quién imita mejor a un animal durante 15 segundos sin decir palabras? (Vota la mesa)",
+    "castigo": null,
+    "dificultad": 3,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 211,
+    "titulo": "Versus",
+    "descripcion": "¿Quién imita mejor a otro jugador de esta misma mesa? (Vota la mesa)",
+    "castigo": null,
+    "dificultad": 4,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 212,
+    "titulo": "Versus",
+    "descripcion": "¿Quién canta una estrofa de reggaetón con voz de cantante de ópera dramática más creíble?",
+    "castigo": null,
+    "dificultad": 4,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 213,
+    "titulo": "Versus",
+    "descripcion": "¿Quién aguanta una mirada seductora exagerada a 10 cm de distancia sin reírse?",
+    "castigo": null,
+    "dificultad": 4,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 214,
+    "titulo": "Versus",
+    "descripcion": "¿Quién improvisa el discurso de aceptación de un premio Oscar más dramático en 30 segundos?",
+    "castigo": null,
+    "dificultad": 4,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 215,
+    "titulo": "Versus",
+    "descripcion": "¿Quién inventa la excusa más absurda y creativa de por qué llegó tarde al carrete?",
+    "castigo": null,
+    "dificultad": 3,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
   }
 ]

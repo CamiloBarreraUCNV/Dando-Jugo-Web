@@ -95,7 +95,7 @@ export const GAME_TYPES = [
     color: 'from-red-600 to-orange-700',
     borderColor: 'border-red-500/50',
     description: 'Duelo 1 vs 1 contra otro jugador. El ganador regala sorbos.',
-    badge: '10 Tarjetas',
+    badge: '35 Tarjetas',
   },
   {
     id: 'reto',

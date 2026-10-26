@@ -1,0 +1,336 @@
+import React, { useState } from 'react';
+import { soundManager } from '../utils/soundEffects';
+
+const OTHER_GAMES_CATALOG = [
+  {
+    id: 'cuarto-rey',
+    name: 'Cuarto Rey (Copa del Kaiser)',
+    icon: '👑',
+    category: 'Cartas',
+    players: '2+ Jugadores',
+    badge: 'Clásico de Bar',
+    badgeColor: 'bg-amber-500/20 text-amber-300 border-amber-500/40',
+    borderColor: 'border-amber-500/40 hover:border-amber-400',
+    color: 'from-amber-950/60 via-stone-900/90 to-amber-950/60',
+    description:
+      'Se coloca un vaso grande al centro. Cada carta de la baraja tiene una regla o dinámica. Cuando sale un Rey (Kaiser), debes verter un tercio de tu vaso al centro. ¡Quien saque el 4to Rey debe tomarse el vaso completo!',
+    materials: '1 baraja inglesa y 1 vaso grande al centro de la mesa.',
+    rules: [
+      'As: Cascada (todos beben en orden hasta que el de su izquierda pare).',
+      '2 al 6: Reglas de sorbos numéricos (repartes o tomas según el número).',
+      '7: Cultura Chupística exprés sobre la marcha.',
+      '8: Compañero de trago (cada vez que tú tomes, tu compañero toma).',
+      '9: Rima instantánea (el que repita o se quede en blanco, toma).',
+      '10: Yo Nunca Nunca con los dedos de la mano.',
+      'Jota (J): Nueva regla para toda la mesa (ej: no señalar con el dedo).',
+      'Reina (Q): Preguntón (a quien le respondas una pregunta, bebe).',
+      'Rey (K): Kaiser. Llena 1/3 del vaso central. El 4to Rey se lo toma al seco.',
+    ],
+    status: 'Jugable con baraja física',
+  },
+  {
+    id: 'trivia-bomba',
+    name: 'Trivia Bomba',
+    icon: '💣',
+    category: 'Competitivo',
+    players: '2+ Jugadores',
+    badge: 'A Contrarreloj',
+    badgeColor: 'bg-red-500/20 text-red-300 border-red-500/40',
+    borderColor: 'border-red-500/40 hover:border-red-400',
+    color: 'from-red-950/60 via-stone-900/90 to-red-950/60',
+    description:
+      'Preguntas de conocimiento y rapidez mental. La bomba tiene un temporizador invisible aleatorio entre 45 y 90 segundos. Quien tenga el teléfono en la mano cuando explote, ¡bebe la cantidad total de preguntas respondidas en sorbos!',
+    materials: 'Solo la app móvil.',
+    rules: [
+      'El jugador en turno lee la trivia en voz alta.',
+      'Si acierta, pasa inmediatamente el teléfono al jugador de la derecha.',
+      'Si falla, debe responder otra pregunta antes de poder pasar el turno.',
+      'El tic-tac acelera aleatoriamente.',
+      '¡Quien tenga el teléfono al sonar la explosión se bebe el acumulado!',
+    ],
+    status: 'Próximamente en la app',
+  },
+  {
+    id: 'caballos',
+    name: 'Carrera de Caballos',
+    icon: '🏇',
+    category: 'Apuestas',
+    players: '2+ Jugadores',
+    badge: 'Apuestas de Bar',
+    badgeColor: 'bg-emerald-500/20 text-emerald-300 border-emerald-500/40',
+    borderColor: 'border-emerald-500/40 hover:border-emerald-400',
+    color: 'from-emerald-950/60 via-stone-900/90 to-emerald-950/60',
+    description:
+      'Los 4 ases representan a los caballos competidores (Corazones, Diamantes, Picas y Tréboles). Cada jugador apuesta sorbos a su favorito antes de comenzar. Se destapan cartas del mazo y el caballo de ese palo avanza.',
+    materials: '1 baraja inglesa completa.',
+    rules: [
+      'Se alinean los 4 Ases en la línea de partida.',
+      'Se colocan 6 a 8 cartas boca abajo al costado como vallas o metas.',
+      'Cada jugador apuesta (ej: "Apuesto 4 sorbos a Picas").',
+      'El relator destapa cartas una a una: el palo que sale avanza 1 paso.',
+      'Cuando todos los caballos superan una valla, se voltea la carta lateral: ese palo retrocede 1 paso.',
+      'El caballo que cruce la meta final gana: quienes apostaron por él reparten el doble de sorbos; los demás beben lo que apostaron.',
+    ],
+    status: 'Jugable con baraja física',
+  },
+  {
+    id: 'apuestas-mayor-menor',
+    name: 'Juego de las Apuestas (Mayor o Menor)',
+    icon: '📈',
+    category: 'Cartas',
+    players: '2+ Jugadores',
+    badge: 'Rápido & Brutal',
+    badgeColor: 'bg-cyan-500/20 text-cyan-300 border-cyan-500/40',
+    borderColor: 'border-cyan-500/40 hover:border-cyan-400',
+    color: 'from-cyan-950/60 via-stone-900/90 to-cyan-950/60',
+    description:
+      'Un juego de adrenalina pura. Tienes una carta visible y debes predecir si la siguiente será mayor o menor. Por cada acierto el pozo de sorbos crece; si fallas, ¡te bebes todo lo acumulado!',
+    materials: '1 baraja inglesa.',
+    rules: [
+      'El pozo comienza en 1 sorbo.',
+      'El jugador dice en voz alta "Mayor", "Menor" o "Mismo número".',
+      'Si acierta, el pozo suma 1 sorbo y puede pasar la baraja al siguiente o arriesgarse otra vez.',
+      'Si falla, debe tomar todos los sorbos del pozo acumulado.',
+      'Cada 10 cartas jugadas, la dificultad y los multiplicadores se duplican.',
+    ],
+    status: 'Jugable con baraja física',
+  },
+  {
+    id: 'werejuice',
+    name: 'Werejuice (Hombre Lobo Jugoso)',
+    icon: '🐺',
+    category: 'Roles Ocultos',
+    players: '4 a 10 Jugadores',
+    badge: 'Deducción & Caos',
+    badgeColor: 'bg-purple-500/20 text-purple-300 border-purple-500/40',
+    borderColor: 'border-purple-500/40 hover:border-purple-400',
+    color: 'from-purple-950/60 via-stone-900/90 to-purple-950/60',
+    description:
+      'El teléfono asigna un rol secreto a cada participante: el Jugoso (gana si lo eliminan o culpan), el Mejor Amigo (lo defiende), el Borracho (da pistas falsas) y los Piolas (deben descubrir al impostor).',
+    materials: 'Solo la app móvil.',
+    rules: [
+      'Pásense el teléfono en silencio para ver su rol asignado.',
+      'Fase de Preguntas: Todos conversan y debaten sobre quién está actuando sospechoso.',
+      'Habilidades especiales: El Piola puede pedir una pista; el Bailarín puede cancelar una habilidad ajena.',
+      'Votación: A la cuenta de 3, todos apuntan al que creen que es el Jugoso.',
+      'Si expulsan al Jugoso, ¡él y su Mejor Amigo ganan y el resto toma fondo blanco!',
+    ],
+    status: 'En desarrollo para la app',
+  },
+  {
+    id: 'verdad-reto',
+    name: 'Verdad o Reto (La Mesa Caliente)',
+    icon: '🌶️',
+    category: 'Grupal',
+    players: '2+ Jugadores',
+    badge: 'Picante & Social',
+    badgeColor: 'bg-rose-500/20 text-rose-300 border-rose-500/40',
+    borderColor: 'border-rose-500/40 hover:border-rose-400',
+    color: 'from-rose-950/60 via-stone-900/90 to-rose-950/60',
+    description:
+      'El clásico juego de fiesta llevado al extremo. Elige entre confesar tus secretos más íntimos o realizar penitencias grupales y pruebas de valor con castigo de tragos.',
+    materials: 'La app o creatividad de la mesa.',
+    rules: [
+      'El jugador en turno debe elegir obligatoriamente "Verdad" o "Reto".',
+      'No se puede elegir "Verdad" más de dos veces seguidas por jugador.',
+      'Si te niegas a responder o a realizar el reto, debes pagar el castigo doble acordado por la mesa.',
+    ],
+    status: 'Disponible en dinámicas de la app',
+  },
+  {
+    id: 'piramide',
+    name: 'Pirámide de Cartas',
+    icon: '🔺',
+    category: 'Cartas',
+    players: '2+ Jugadores',
+    badge: 'Memoria & Farol',
+    badgeColor: 'bg-amber-600/20 text-amber-300 border-amber-600/40',
+    borderColor: 'border-amber-600/40 hover:border-amber-500',
+    color: 'from-stone-950/80 via-stone-900/90 to-amber-950/50',
+    description:
+      'Se arma una pirámide boca abajo (5 cartas en la base, hasta 1 en la cima). Cada jugador recibe cartas en su mano. Al voltear cartas de la pirámide, regalas o bebes sorbos dependiendo del piso.',
+    materials: '1 baraja inglesa.',
+    rules: [
+      'Piso 1 (base): Vale 1 sorbo.',
+      'Piso 2: Vale 2 sorbos.',
+      'Piso 3: Vale 3 sorbos.',
+      'Piso 4: Vale 4 sorbos.',
+      'Cima: Vale 5 sorbos o medio vaso.',
+      'Si dices que tienes una carta pero estás mintiendo y te pillan, ¡tomas el doble!',
+    ],
+    status: 'Jugable con baraja física',
+  },
+];
+
+const CATEGORIES = ['Todos', 'Cartas', 'Competitivo', 'Roles Ocultos', 'Grupal', 'Apuestas'];
+
+export default function OtherGamesScreen({ onBack, onOpenSettings }) {
+  const [selectedCategory, setSelectedCategory] = useState('Todos');
+  const [expandedGameId, setExpandedGameId] = useState(null);
+
+  const filteredGames =
+    selectedCategory === 'Todos'
+      ? OTHER_GAMES_CATALOG
+      : OTHER_GAMES_CATALOG.filter((g) => g.category === selectedCategory);
+
+  const handleToggleExpand = (gameId) => {
+    soundManager.playTick(600);
+    setExpandedGameId((prev) => (prev === gameId ? null : gameId));
+  };
+
+  return (
+    <div className="h-dvh max-h-dvh flex flex-col justify-between items-center px-4 pt-safe pb-safe max-w-md md:max-w-4xl lg:max-w-5xl mx-auto relative overflow-hidden w-full animate-in fade-in duration-200">
+      {/* 1. Header Superior */}
+      <header className="w-full flex items-center justify-between py-2 border-b border-stone-800/80 shrink-0 gap-2">
+        <button
+          onClick={onBack}
+          className="flex items-center gap-1 text-xs bg-stone-900/90 hover:bg-stone-800 active:scale-95 text-stone-200 font-bold px-3 py-1.5 rounded-xl border border-stone-700/80 transition shadow cursor-pointer"
+          title="Volver al Menú Principal"
+        >
+          <span>←</span>
+          <span>Menú</span>
+        </button>
+
+        <div className="text-center min-w-0">
+          <h2 className="font-display font-black text-sm sm:text-base text-amber-400 tracking-wide flex items-center justify-center gap-1.5 truncate">
+            <span>🎮</span>
+            <span>Otros Juegos de Carrete</span>
+          </h2>
+          <p className="text-[10px] sm:text-xs text-stone-400 truncate">
+            Modos clásicos, apuestas y dinámicas alternativas para tu mesa
+          </p>
+        </div>
+
+        {onOpenSettings && (
+          <button
+            onClick={onOpenSettings}
+            className="text-sm bg-stone-900/90 hover:bg-stone-800 active:scale-95 text-stone-300 font-bold p-1.5 rounded-xl border border-stone-700/80 transition cursor-pointer"
+            title="Opciones y Ajustes"
+          >
+            ⚙️
+          </button>
+        )}
+      </header>
+
+      {/* 2. Filtros de Categorías */}
+      <div className="w-full py-2 shrink-0 flex items-center gap-1.5 overflow-x-auto custom-scrollbar">
+        {CATEGORIES.map((cat) => {
+          const isActive = selectedCategory === cat;
+          return (
+            <button
+              key={cat}
+              onClick={() => {
+                soundManager.playTick(750);
+                setSelectedCategory(cat);
+              }}
+              className={`text-xs px-3 py-1 rounded-xl font-bold whitespace-nowrap transition cursor-pointer active:scale-95 border ${
+                isActive
+                  ? 'bg-amber-400 text-stone-950 border-amber-300 shadow-md shadow-amber-500/20 font-black'
+                  : 'bg-[#161214] text-stone-400 border-stone-800 hover:text-stone-200 hover:border-stone-700'
+              }`}
+            >
+              {cat}
+            </button>
+          );
+        })}
+      </div>
+
+      {/* 3. Listado de Juegos (Grid interactivo con scroll) */}
+      <main className="w-full flex-1 min-h-0 overflow-y-auto custom-scrollbar my-1 pr-1 space-y-3">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+          {filteredGames.map((game) => {
+            const isExpanded = expandedGameId === game.id;
+            return (
+              <div
+                key={game.id}
+                className={`bg-[#161214]/95 border-2 ${game.borderColor} rounded-2xl p-4 shadow-xl transition-all duration-200 flex flex-col justify-between`}
+              >
+                <div>
+                  {/* Encabezado del Juego */}
+                  <div className="flex items-start justify-between gap-2 mb-2">
+                    <div className="flex items-center gap-2.5 min-w-0">
+                      <span className="text-3xl p-2 bg-black/50 rounded-xl border border-white/10 shrink-0">
+                        {game.icon}
+                      </span>
+                      <div className="min-w-0">
+                        <h3 className="font-display font-black text-base text-white tracking-wide truncate">
+                          {game.name}
+                        </h3>
+                        <div className="flex items-center gap-1.5 flex-wrap mt-0.5">
+                          <span
+                            className={`text-[10px] font-bold px-2 py-0.5 rounded-full border ${game.badgeColor}`}
+                          >
+                            {game.badge}
+                          </span>
+                          <span className="text-[10px] text-stone-400 font-medium">
+                            👥 {game.players}
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Descripción General */}
+                  <p className="text-xs text-stone-300 leading-relaxed mb-3">
+                    {game.description}
+                  </p>
+
+                  {/* Detalle Desplegable (Reglas & Materiales) */}
+                  {isExpanded && (
+                    <div className="mt-3 pt-3 border-t border-stone-800/80 animate-in fade-in slide-in-from-top-2 duration-200 space-y-2.5">
+                      <div className="bg-black/40 rounded-xl p-2.5 border border-stone-800 text-xs">
+                        <strong className="text-amber-300 block mb-1">
+                          📦 Lo que necesitas:
+                        </strong>
+                        <span className="text-stone-300">{game.materials}</span>
+                      </div>
+
+                      <div className="bg-black/40 rounded-xl p-2.5 border border-stone-800 text-xs">
+                        <strong className="text-amber-300 block mb-1.5">
+                          📜 Reglas e Instrucciones:
+                        </strong>
+                        <ul className="space-y-1 text-stone-300 list-disc list-inside">
+                          {game.rules.map((rule, idx) => (
+                            <li key={idx} className="leading-snug">
+                              {rule}
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    </div>
+                  )}
+                </div>
+
+                {/* Footer de la tarjeta con botón de expansión */}
+                <div className="mt-3 pt-2.5 border-t border-stone-800/60 flex items-center justify-between gap-2">
+                  <span className="text-[11px] text-stone-400 font-medium flex items-center gap-1">
+                    <span className="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse" />
+                    <span>{game.status}</span>
+                  </span>
+
+                  <button
+                    onClick={() => handleToggleExpand(game.id)}
+                    className="text-xs font-bold px-3 py-1.5 rounded-xl bg-amber-500/10 hover:bg-amber-500/20 text-amber-300 border border-amber-500/30 transition active:scale-95 cursor-pointer flex items-center gap-1"
+                  >
+                    <span>{isExpanded ? 'Cerrar Reglas ✕' : 'Ver Reglas 📖'}</span>
+                  </button>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      </main>
+
+      {/* 4. Footer con acción rápida */}
+      <footer className="w-full py-2 flex items-center justify-between border-t border-stone-800/80 shrink-0 text-xs text-stone-400">
+        <span>Mostrando <strong>{filteredGames.length}</strong> juegos</span>
+        <button
+          onClick={onBack}
+          className="text-amber-400 hover:text-amber-300 font-bold underline cursor-pointer"
+        >
+          Volver al Menú Principal
+        </button>
+      </footer>
+    </div>
+  );
+}

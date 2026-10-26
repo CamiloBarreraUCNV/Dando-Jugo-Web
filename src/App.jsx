@@ -8,6 +8,7 @@ import PlayerSetup from './components/PlayerSetup';
 import SettingsModal from './components/SettingsModal';
 import FreePlaySelector from './components/FreePlaySelector';
 import CategoryDeckView from './components/CategoryDeckView';
+import OtherGamesScreen from './components/OtherGamesScreen';
 import { deckManager, GAME_MODES, GAME_TYPES } from './utils/deckManager';
 import { soundManager } from './utils/soundEffects';
 import { getAnimalAvatar } from './utils/animalAvatars';
@@ -263,10 +264,19 @@ export default function App() {
             setSelectedFreePlayType(null);
             setScreen('freemode');
           }}
+          onOtherGames={() => setScreen('other_games')}
           onOptions={() => setShowSettingsModal(true)}
           onChangePlayers={() => setScreen('players')}
           onOpenRules={() => setShowRules(true)}
           onOpenModeSelector={() => setShowModeModal(true)}
+        />
+      )}
+
+      {/* 2.5 Pantalla de Otros Juegos */}
+      {screen === 'other_games' && (
+        <OtherGamesScreen
+          onBack={() => setScreen('menu')}
+          onOpenSettings={() => setShowSettingsModal(true)}
         />
       )}
 

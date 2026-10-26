@@ -8,6 +8,7 @@ export default function MainMenu({
   currentMode,
   onPlay,
   onFreePlay,
+  onOtherGames,
   onOptions,
   onChangePlayers,
   onOpenRules,
@@ -86,7 +87,7 @@ export default function MainMenu({
           {/* 1. Jugar con Ruleta */}
           <button
             onClick={onPlay}
-            className="w-full py-3.5 px-6 bg-gradient-to-r from-amber-500 via-amber-400 to-amber-600 hover:brightness-110 active:scale-98 text-stone-950 rounded-2xl font-display font-black text-lg sm:text-xl shadow-xl shadow-amber-500/25 border border-amber-300 uppercase tracking-wider transition-all flex items-center justify-center gap-2"
+            className="w-full py-3.5 px-6 bg-gradient-to-r from-amber-500 via-amber-400 to-amber-600 hover:brightness-110 active:scale-98 text-stone-950 rounded-2xl font-display font-black text-lg sm:text-xl shadow-xl shadow-amber-500/25 border border-amber-300 uppercase tracking-wider transition-all flex items-center justify-center gap-2 cursor-pointer"
           >
             <span>🎯</span>
             <span>¡Girar Ruleta!</span>
@@ -95,12 +96,24 @@ export default function MainMenu({
           {/* 2. Modo a la Carta */}
           <button
             onClick={onFreePlay}
-            className="w-full py-3.5 px-6 bg-gradient-to-r from-purple-700 via-indigo-600 to-purple-800 hover:brightness-110 active:scale-98 text-white rounded-2xl font-display font-black text-base sm:text-lg shadow-xl shadow-purple-900/30 border border-purple-400/40 uppercase tracking-wider transition-all flex items-center justify-center gap-2"
+            className="w-full py-3.5 px-6 bg-gradient-to-r from-purple-700 via-indigo-600 to-purple-800 hover:brightness-110 active:scale-98 text-white rounded-2xl font-display font-black text-base sm:text-lg shadow-xl shadow-purple-900/30 border border-purple-400/40 uppercase tracking-wider transition-all flex items-center justify-center gap-2 cursor-pointer"
           >
             <span>🎴</span>
             <span>A la Carta</span>
           </button>
         </div>
+
+        {/* 3. Botón Destacado: Otros Juegos */}
+        <button
+          onClick={onOtherGames}
+          className="w-full py-3 px-6 bg-gradient-to-r from-emerald-950 via-teal-900/85 to-emerald-950 hover:from-emerald-900 hover:via-teal-800 hover:to-emerald-900 active:scale-98 text-white rounded-2xl font-display font-black text-base sm:text-lg shadow-xl shadow-emerald-950/40 border-2 border-emerald-500/50 hover:border-emerald-400 uppercase tracking-wider transition-all flex items-center justify-center gap-2.5 group cursor-pointer"
+        >
+          <span className="text-xl group-hover:scale-125 transition-transform">🎮</span>
+          <span className="drop-shadow">Otros Juegos</span>
+          <span className="text-[10px] font-sans font-bold px-2 py-0.5 rounded-full bg-emerald-400/20 text-emerald-300 border border-emerald-400/30 uppercase tracking-normal">
+            Nuevos Modos
+          </span>
+        </button>
 
         <div className="grid grid-cols-2 gap-2 mt-0.5">
           {/* 3. Opciones */}

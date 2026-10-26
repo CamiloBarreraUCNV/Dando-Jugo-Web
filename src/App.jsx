@@ -7,7 +7,8 @@ import MainMenu from './components/MainMenu';
 import PlayerSetup from './components/PlayerSetup';
 import SettingsModal from './components/SettingsModal';
 import FreePlaySelector from './components/FreePlaySelector';
-import { deckManager, GAME_MODES } from './utils/deckManager';
+import CategoryDeckView from './components/CategoryDeckView';
+import { deckManager, GAME_MODES, GAME_TYPES } from './utils/deckManager';
 import { soundManager } from './utils/soundEffects';
 import { getAnimalAvatar } from './utils/animalAvatars';
 import { wakeLockManager } from './utils/wakeLockManager';
@@ -59,6 +60,7 @@ export default function App() {
 
   // 6. Estados de modales y juego
   const [currentCard, setCurrentCard] = useState(null);
+  const [selectedFreePlayType, setSelectedFreePlayType] = useState(null);
   const [isSpinning, setIsSpinning] = useState(false);
   const [showRules, setShowRules] = useState(false);
   const [showModeModal, setShowModeModal] = useState(false);
@@ -103,6 +105,7 @@ export default function App() {
   const activeModeObj = GAME_MODES.find((m) => m.id === currentMode) || GAME_MODES[1];
   const activePlayer = players[currentPlayerIndex % (players.length || 1)] || { name: 'Jugador 1', gender: 'hombre' };
   const nextPlayer = players.length > 1 ? players[(currentPlayerIndex + 1) % players.length] : null;
+  const selectedGameTypeObj = GAME_TYPES.find((g) => g.id === selectedFreePlayType) || (selectedFreePlayType === 'random' ? { name: 'Al Azar' } : null);
 
   // Guardar jugadores
   const handleSavePlayers = (newPlayers) => {
@@ -192,6 +195,7 @@ export default function App() {
 
   // Manejo de selección directa (Modo a la Carta / Sin Ruleta)
   const handleSelectSpecificGame = (gameTypeId) => {
+    setSelectedFreePlayType(gameTypeId);
     const card = deckManager.drawSpecificCard(gameTypeId, currentMode);
     if (card) {
       const target = detectTargetPlayer(card, activePlayer);
@@ -251,8 +255,14 @@ export default function App() {
         <MainMenu
           players={players}
           currentMode={currentMode}
-          onPlay={() => setScreen('game')}
-          onFreePlay={() => setScreen('freemode')}
+          onPlay={() => {
+            setSelectedFreePlayType(null);
+            setScreen('game');
+          }}
+          onFreePlay={() => {
+            setSelectedFreePlayType(null);
+            setScreen('freemode');
+          }}
           onOptions={() => setShowSettingsModal(true)}
           onChangePlayers={() => setScreen('players')}
           onOpenRules={() => setShowRules(true)}
@@ -268,7 +278,10 @@ export default function App() {
         {/* Zona Izquierda: Navegación y Switch de Modo */}
         <div className="flex items-center gap-1.5">
           <button
-            onClick={() => setScreen('menu')}
+            onClick={() => {
+              setSelectedFreePlayType(null);
+              setScreen('menu');
+            }}
             className="flex items-center gap-1 text-xs bg-stone-900/90 hover:bg-stone-800 active:scale-95 text-stone-200 font-bold px-2.5 py-1.5 rounded-xl border border-stone-700/80 transition shadow"
             title="Volver al Menú Principal"
           >
@@ -356,7 +369,20 @@ export default function App() {
       {/* Centro: Ruleta interactiva O Selector A la Carta */}
       <main className={`w-full flex-1 min-h-0 flex flex-col ${isFreeMode ? 'justify-start' : 'justify-center'} my-1 overflow-hidden`}>
         {isFreeMode ? (
-          <FreePlaySelector onSelectGameType={handleSelectSpecificGame} activePlayer={activePlayer} />
+          selectedFreePlayType ? (
+            <CategoryDeckView
+              gameTypeId={selectedFreePlayType}
+              activePlayer={activePlayer}
+              nextPlayer={nextPlayer}
+              onDrawCard={() => handleSelectSpecificGame(selectedFreePlayType)}
+              onChangeCategory={() => setSelectedFreePlayType(null)}
+            />
+          ) : (
+            <FreePlaySelector
+              onSelectGameType={handleSelectSpecificGame}
+              activePlayer={activePlayer}
+            />
+          )
         ) : (
           <div className="w-full h-full flex flex-col md:grid md:grid-cols-12 md:gap-8 items-center justify-center">
             
@@ -459,7 +485,13 @@ export default function App() {
           <span className="inline-block w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
           <span>Jugador <strong>{currentPlayerIndex + 1}</strong> de <strong>{players.length}</strong></span>
           <span className="text-stone-600">•</span>
-          <span className="text-amber-400/90 font-semibold">{isFreeMode ? 'Modo A la Carta' : 'Modo Ruleta'}</span>
+          <span className="text-amber-400/90 font-semibold">
+            {isFreeMode
+              ? selectedGameTypeObj
+                ? `A la Carta • ${selectedGameTypeObj.name}`
+                : 'Modo A la Carta'
+              : 'Modo Ruleta'}
+          </span>
         </div>
       </footer>
         </div>

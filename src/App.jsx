@@ -244,12 +244,12 @@ export default function App() {
 
         {/* Modal de Reglas */}
         {showRules && (
-          <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-sm animate-in fade-in duration-150">
-            <div className="w-full max-w-sm bg-slate-900 border border-slate-700 rounded-3xl p-6 shadow-2xl text-white">
+          <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/85 backdrop-blur-sm animate-in fade-in duration-150">
+            <div className="w-full max-w-sm sm:max-w-md bg-[#161214] border border-amber-900/40 rounded-3xl p-6 shadow-2xl text-stone-100">
               <h3 className="text-xl font-black text-amber-400 mb-3">
                 🍹 Reglas de la Casa
               </h3>
-              <ul className="text-sm text-slate-300 space-y-2 mb-6">
+              <ul className="text-sm text-stone-300 space-y-2 mb-6">
                 <li>✨ <strong>Un solo celular:</strong> Se van pasando el teléfono en cada turno.</li>
                 <li>🎯 <strong>Modo Ruleta:</strong> El azar decide qué categoría juegas.</li>
                 <li>🎴 <strong>Modo a la Carta:</strong> El jugador en turno elige libremente qué dinámica jugar.</li>
@@ -259,7 +259,7 @@ export default function App() {
               </ul>
               <button
                 onClick={() => setShowRules(false)}
-                className="w-full py-3 bg-amber-500 hover:bg-amber-400 active:scale-98 text-slate-950 rounded-xl font-black text-sm uppercase tracking-wide transition"
+                className="w-full py-3 bg-gradient-to-r from-amber-500 via-amber-400 to-amber-600 hover:brightness-110 active:scale-98 text-stone-950 rounded-xl font-black text-sm uppercase tracking-wide transition border border-amber-300 shadow-lg"
               >
                 ¡Entendido, a Jugar!
               </button>

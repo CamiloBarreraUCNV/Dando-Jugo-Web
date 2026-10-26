@@ -1,11 +1,11 @@
-import cocodriloImg from '../assets/animales-ebrios/cocodrilo.png';
-import focaImg from '../assets/animales-ebrios/foca.png';
-import gatoImg from '../assets/animales-ebrios/gato.png';
-import gaviotaImg from '../assets/animales-ebrios/gaviota.png';
-import osoImg from '../assets/animales-ebrios/oso.png';
-import perroImg from '../assets/animales-ebrios/perro.png';
-import pezImg from '../assets/animales-ebrios/pez.png';
-import tiburonImg from '../assets/animales-ebrios/tiburon.png';
+import cocodriloImg from '../assets/animales-ebrios/cocodrilo.webp';
+import focaImg from '../assets/animales-ebrios/foca.webp';
+import gatoImg from '../assets/animales-ebrios/gato.webp';
+import gaviotaImg from '../assets/animales-ebrios/gaviota.webp';
+import osoImg from '../assets/animales-ebrios/oso.webp';
+import perroImg from '../assets/animales-ebrios/perro.webp';
+import pezImg from '../assets/animales-ebrios/pez.webp';
+import tiburonImg from '../assets/animales-ebrios/tiburon.webp';
 
 export const ANIMAL_AVATARS = [
   { id: 'perro', name: 'Perro', image: perroImg, phrase: 'El fiel chupa-gratis' },

@@ -90,6 +90,16 @@ export default function App() {
     wakeLockManager.setEnabled(keepScreenOn);
   }, [keepScreenOn]);
 
+  // Soporte de tecla Escape para cerrar modal de Reglas
+  useEffect(() => {
+    if (!showRules) return;
+    const handleKeyDown = (e) => {
+      if (e.key === 'Escape') setShowRules(false);
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [showRules]);
+
   const activeModeObj = GAME_MODES.find((m) => m.id === currentMode) || GAME_MODES[1];
   const activePlayer = players[currentPlayerIndex % (players.length || 1)] || { name: 'Jugador 1', gender: 'hombre' };
   const nextPlayer = players.length > 1 ? players[(currentPlayerIndex + 1) % players.length] : null;

@@ -41,6 +41,16 @@ export default function PenaltyWheelModal({ isOpen, onClose, currentMode }) {
   const [retoDetalle, setRetoDetalle] = useState(null);
 
   const activeModeObj = GAME_MODES.find((m) => m.id === currentMode) || GAME_MODES[1];
+
+  useEffect(() => {
+    if (!isOpen) return;
+    const handleKeyDown = (e) => {
+      if (e.key === 'Escape' && !isSpinning) onClose();
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [isOpen, isSpinning, onClose]);
+
   const slices = PENALTY_CONFIGS[currentMode] || PENALTY_CONFIGS.caja;
 
   useEffect(() => {

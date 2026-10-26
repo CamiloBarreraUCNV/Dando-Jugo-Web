@@ -2,7 +2,6 @@ import triviaData from '../data/trivia.json';
 import minijuegosData from '../data/minijuegos.json';
 import jugoData from '../data/jugo.json';
 import hoja7Data from '../data/hoja7_retos.json';
-import catalogoMinijuegosData from '../data/catalogo_minijuegos.json';
 import variablesData from '../data/variables.json';
 
 // Definición de Modos de Juego y sus multiplicadores/reglas
@@ -210,7 +209,6 @@ class DeckManager {
       minijuego: shuffle(minijuegosData),
       jugo: shuffle(jugoData),
       reto: shuffle(hoja7Data),
-      competencia: shuffle(catalogoMinijuegosData),
     };
 
     this.discards = {
@@ -218,7 +216,6 @@ class DeckManager {
       minijuego: [],
       jugo: [],
       reto: [],
-      competencia: [],
     };
 
     // Sub-mazos independientes para selección libre / a la carta (filtrado normalizado tolerante a tildes y variantes)

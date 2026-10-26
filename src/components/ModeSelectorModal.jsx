@@ -1,16 +1,25 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { GAME_MODES } from '../utils/deckManager';
 
 export default function ModeSelectorModal({ isOpen, onClose, currentMode, onSelectMode }) {
+  useEffect(() => {
+    if (!isOpen) return;
+    const handleKeyDown = (e) => {
+      if (e.key === 'Escape') onClose();
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [isOpen, onClose]);
+
   if (!isOpen) return null;
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/85 backdrop-blur-sm animate-in fade-in duration-200">
-      <div className="w-full max-w-sm sm:max-w-md bg-[#161214] border border-amber-900/40 rounded-3xl p-6 shadow-2xl">
+      <div role="dialog" aria-modal="true" aria-labelledby="mode-title" className="w-full max-w-sm sm:max-w-md bg-[#161214] border border-amber-900/40 rounded-3xl p-6 shadow-2xl">
         <div className="flex items-center justify-between mb-4">
           <div className="flex items-center gap-2">
             <span className="text-xl">🧃</span>
-            <h3 className="text-xl font-black text-amber-400">
+            <h3 id="mode-title" className="text-xl font-black text-amber-400">
               Modo de Juego
             </h3>
           </div>

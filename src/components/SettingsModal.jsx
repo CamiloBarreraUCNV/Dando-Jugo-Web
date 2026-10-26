@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { soundManager } from '../utils/soundEffects';
 
 export default function SettingsModal({
@@ -13,15 +13,24 @@ export default function SettingsModal({
   keepScreenOn,
   onToggleKeepScreenOn,
 }) {
+  useEffect(() => {
+    if (!isOpen) return;
+    const handleKeyDown = (e) => {
+      if (e.key === 'Escape') onClose();
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [isOpen, onClose]);
+
   if (!isOpen) return null;
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/85 backdrop-blur-sm animate-in fade-in duration-200">
-      <div className="w-full max-w-sm bg-[#161214] border border-amber-900/40 rounded-3xl p-6 shadow-2xl">
+      <div role="dialog" aria-modal="true" aria-labelledby="settings-title" className="w-full max-w-sm bg-[#161214] border border-amber-900/40 rounded-3xl p-6 shadow-2xl">
         <div className="flex items-center justify-between mb-4">
           <div className="flex items-center gap-2">
             <span className="text-xl">⚙️</span>
-            <h3 className="text-xl font-display font-black text-amber-400">
+            <h3 id="settings-title" className="text-xl font-display font-black text-amber-400">
               Opciones
             </h3>
           </div>

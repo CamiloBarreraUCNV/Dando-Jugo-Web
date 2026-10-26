@@ -92,6 +92,22 @@ export default function CardModal({ card, activePlayer, currentMode, onClose, on
     setTriviaStatus(null);
   }, [card]);
 
+  // Soporte de tecla Escape para cerrar o pausar el modal
+  useEffect(() => {
+    if (!card) return;
+    const handleKeyDown = (e) => {
+      if (e.key === 'Escape') {
+        if (isTimerRunning) {
+          setIsTimerRunning(false);
+        } else {
+          onClose();
+        }
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [card, isTimerRunning, onClose]);
+
   // Manejo del intervalo del cronómetro
   useEffect(() => {
     if (!isTimerRunning) return;
@@ -288,7 +304,7 @@ export default function CardModal({ card, activePlayer, currentMode, onClose, on
 
           {/* Título de la tarjeta */}
           {(card.titulo || card.juego) && (
-            <h3 className="text-xl sm:text-2xl md:text-3xl font-display font-black text-amber-400 mb-2 leading-tight">
+            <h3 id="card-title" className="text-xl sm:text-2xl md:text-3xl font-display font-black text-amber-400 mb-2 leading-tight">
               {card.titulo || card.juego}
             </h3>
           )}

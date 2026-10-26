@@ -59,7 +59,7 @@ export const GAME_TYPES = [
     color: 'from-purple-900/60 to-violet-950/80',
     borderColor: 'border-purple-500/40 hover:border-purple-400/80',
     description: 'Actúa el concepto sin hablar. Si adivinan, ¡tú y esa persona regalan sorbos!',
-    badge: '30 Tarjetas',
+    badge: '50 Tarjetas',
   },
   {
     id: 'chupistica',

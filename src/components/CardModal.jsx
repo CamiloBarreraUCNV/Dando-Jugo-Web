@@ -1,19 +1,130 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import confetti from 'canvas-confetti';
 import { soundManager } from '../utils/soundEffects';
 import { getAnimalAvatar } from '../utils/animalAvatars';
 import { resolverInstruccionMinijuego } from '../utils/deckManager';
+
+// Detección automática de tiempo en la tarjeta (segundos o minutos)
+export function detectCardTimeSeconds(card) {
+  if (!card) return null;
+  // En trivia evitamos falsos positivos de opciones numéricas
+  if (card.categoriaJuego?.toLowerCase() === 'trivia') return null;
+
+  const sources = [
+    card.descripcionFormateada || card.descripcion || card.pregunta || '',
+    card.castigoFormateado || card.castigo || '',
+  ];
+
+  for (const text of sources) {
+    if (!text || typeof text !== 'string') continue;
+
+    // Patrón 1: Minutos (e.g. "1 minuto", "2 minutos", "1 min")
+    const minMatch = text.match(/(\d+)\s*(?:minuto|minutos|min\b)/i);
+    if (minMatch) {
+      const mins = parseInt(minMatch[1], 10);
+      if (mins > 0 && mins <= 10) {
+        return mins * 60;
+      }
+    }
+
+    // Patrón 2: Segundos (e.g. "30 segundos", "15 seg", "10 s", "durante 20 segundos", "en 60 segundos")
+    const secMatch = text.match(/(\d+)\s*(?:segundo|segundos|seg\b|s\b)/i);
+    if (secMatch) {
+      const secs = parseInt(secMatch[1], 10);
+      if (secs >= 3 && secs <= 300) {
+        return secs;
+      }
+    }
+  }
+
+  // Minijuego Cultura Chupística (5 segundos por turno por persona)
+  const normTitle = (card.titulo || '').toLowerCase();
+  if (normTitle.includes('chupistica') || normTitle.includes('chupística')) {
+    return 5;
+  }
+
+  return null;
+}
 
 export default function CardModal({ card, activePlayer, currentMode, onClose, onTriggerPenalty }) {
   const [revealedTrivia, setRevealedTrivia] = useState(false);
   const [selectedOption, setSelectedOption] = useState(null);
   const [triviaStatus, setTriviaStatus] = useState(null); // 'correct' | 'wrong' | null
 
+  // Estado del Cronómetro interactivo
+  const detectedTime = detectCardTimeSeconds(card);
+  const initialTime = detectedTime || 30;
+  const [showTimer, setShowTimer] = useState(Boolean(detectedTime));
+  const [timerSeconds, setTimerSeconds] = useState(initialTime);
+  const [totalDuration, setTotalDuration] = useState(initialTime);
+  const [isTimerRunning, setIsTimerRunning] = useState(false);
+  const [isTimerFinished, setIsTimerFinished] = useState(false);
+
+  // Reiniciar estado si cambia la tarjeta
+  useEffect(() => {
+    const time = detectCardTimeSeconds(card);
+    const secs = time || 30;
+    setShowTimer(Boolean(time));
+    setTimerSeconds(secs);
+    setTotalDuration(secs);
+    setIsTimerRunning(false);
+    setIsTimerFinished(false);
+    setRevealedTrivia(false);
+    setSelectedOption(null);
+    setTriviaStatus(null);
+  }, [card]);
+
+  // Manejo del intervalo del cronómetro
+  useEffect(() => {
+    if (!isTimerRunning) return;
+
+    const interval = setInterval(() => {
+      setTimerSeconds((prev) => {
+        if (prev <= 1) {
+          setIsTimerRunning(false);
+          setIsTimerFinished(true);
+          soundManager.playTimerBuzzer();
+          return 0;
+        }
+        const next = prev - 1;
+        soundManager.playTimerTick(next <= 5);
+        return next;
+      });
+    }, 1000);
+
+    return () => clearInterval(interval);
+  }, [isTimerRunning]);
+
   if (!card) return null;
 
   const isTrivia = card.categoriaJuego?.toLowerCase() === 'trivia';
 
+  const handleStartTimer = () => {
+    if (timerSeconds === 0) {
+      setTimerSeconds(totalDuration);
+    }
+    setIsTimerFinished(false);
+    soundManager.playTimerStart();
+    setIsTimerRunning(true);
+  };
+
+  const handlePauseTimer = () => {
+    setIsTimerRunning(false);
+  };
+
+  const handleResetTimer = (newDuration = totalDuration) => {
+    setIsTimerRunning(false);
+    setIsTimerFinished(false);
+    setTimerSeconds(newDuration);
+    setTotalDuration(newDuration);
+  };
+
+  const handlePresetSelect = (secs) => {
+    handleResetTimer(secs);
+  };
+
   const handleComplete = () => {
+    setIsTimerRunning(false);
     soundManager.playSuccess();
     confetti({
       particleCount: 40,
@@ -25,6 +136,7 @@ export default function CardModal({ card, activePlayer, currentMode, onClose, on
   };
 
   const handleRefuse = () => {
+    setIsTimerRunning(false);
     soundManager.playTick(500);
     onTriggerPenalty();
   };
@@ -84,6 +196,17 @@ export default function CardModal({ card, activePlayer, currentMode, onClose, on
 
   const activeAnimal = getAnimalAvatar(activePlayer?.animal);
   const targetAnimal = card.targetPlayer ? getAnimalAvatar(card.targetPlayer.animal) : null;
+
+  // Formato digital MM:SS o 00:SS
+  const formatTimerDigits = (secs) => {
+    const m = Math.floor(secs / 60);
+    const s = secs % 60;
+    return `${m < 10 ? '0' : ''}${m}:${s < 10 ? '0' : ''}${s}`;
+  };
+
+  // Porcentaje y color de la barra de progreso
+  const progressPercent = totalDuration > 0 ? (timerSeconds / totalDuration) * 100 : 0;
+  const isUrgent = isTimerRunning && timerSeconds <= 5;
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-black/85 backdrop-blur-md animate-in fade-in duration-200">
@@ -157,6 +280,156 @@ export default function CardModal({ card, activePlayer, currentMode, onClose, on
           <div className="my-3 text-slate-100 text-base sm:text-lg md:text-xl font-medium leading-relaxed">
             {card.descripcionFormateada || card.pregunta}
           </div>
+
+          {/* Renderizado interactivo del Cronómetro de Cuenta Regresiva */}
+          {!isTrivia && (
+            <div className="mt-3">
+              {!showTimer ? (
+                <div className="flex justify-center">
+                  <button
+                    type="button"
+                    onClick={() => setShowTimer(true)}
+                    className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-xl bg-slate-900/90 hover:bg-slate-800 border border-slate-700/80 hover:border-amber-400/50 text-xs sm:text-sm text-slate-300 hover:text-amber-300 font-bold transition-all active:scale-95 shadow-sm"
+                  >
+                    <span>⏱️</span>
+                    <span>Activar Cronómetro</span>
+                  </button>
+                </div>
+              ) : (
+                <div className={`p-3.5 sm:p-4 rounded-2xl border transition-all duration-300 ${
+                  isUrgent
+                    ? 'bg-red-950/40 border-red-500/80 shadow-lg shadow-red-500/10'
+                    : isTimerFinished
+                    ? 'bg-red-950/60 border-red-500'
+                    : 'bg-slate-950/80 border-slate-800'
+                }`}>
+                  {/* Encabezado del Cronómetro y Selección de Presets */}
+                  <div className="flex items-center justify-between gap-2 mb-2.5">
+                    <div className="flex items-center gap-1.5">
+                      <span className="text-sm">⏱️</span>
+                      <span className="text-xs font-display font-black uppercase tracking-wider text-slate-300">
+                        {detectedTime ? 'Tiempo del Reto' : 'Cronómetro'}
+                      </span>
+                      {detectedTime && (
+                        <span className="text-[10px] bg-amber-400/20 text-amber-300 border border-amber-400/40 px-1.5 py-0.2 rounded font-bold">
+                          Auto
+                        </span>
+                      )}
+                    </div>
+
+                    {/* Presets rápidos */}
+                    <div className="flex items-center gap-1">
+                      {[15, 30, 60].map((presetSecs) => (
+                        <button
+                          key={presetSecs}
+                          type="button"
+                          onClick={() => handlePresetSelect(presetSecs)}
+                          className={`px-2 py-0.5 rounded-lg text-[11px] font-bold transition-all ${
+                            totalDuration === presetSecs && !isTimerRunning
+                              ? 'bg-amber-400 text-slate-950 font-black shadow'
+                              : 'bg-slate-800/80 text-slate-400 hover:text-slate-200 border border-slate-700/60'
+                          }`}
+                        >
+                          {presetSecs}s
+                        </button>
+                      ))}
+
+                      {/* Botón ocultar si fue abierto manualmente */}
+                      {!detectedTime && (
+                        <button
+                          type="button"
+                          onClick={() => {
+                            setIsTimerRunning(false);
+                            setShowTimer(false);
+                          }}
+                          className="ml-1 text-slate-500 hover:text-slate-300 text-xs p-1"
+                          title="Cerrar cronómetro"
+                        >
+                          ✕
+                        </button>
+                      )}
+                    </div>
+                  </div>
+
+                  {/* Display Central de Tiempo y Botones de Acción */}
+                  <div className="flex items-center justify-between gap-4 py-1">
+                    {/* Dígitos del temporizador */}
+                    <div className="flex flex-col">
+                      <div className={`font-display font-black text-3xl sm:text-4xl tracking-wider transition-all ${
+                        isUrgent
+                          ? 'text-red-400 animate-pulse scale-105 origin-left'
+                          : isTimerFinished
+                          ? 'text-red-500 font-black'
+                          : 'text-amber-400'
+                      }`}>
+                        {formatTimerDigits(timerSeconds)}
+                      </div>
+                      <span className="text-[10px] text-slate-400 font-medium">
+                        {isTimerFinished ? '¡Tiempo concluido!' : isTimerRunning ? 'Cuenta regresiva activa' : 'Listo para iniciar'}
+                      </span>
+                    </div>
+
+                    {/* Controles: Iniciar / Pausar y Reiniciar */}
+                    <div className="flex items-center gap-2">
+                      {!isTimerRunning ? (
+                        <button
+                          type="button"
+                          onClick={handleStartTimer}
+                          className="py-2 px-4 rounded-xl bg-emerald-500 hover:bg-emerald-400 active:scale-95 text-slate-950 font-display font-black text-xs sm:text-sm uppercase tracking-wide transition-all shadow-md shadow-emerald-500/20 flex items-center gap-1.5"
+                        >
+                          <span>▶</span>
+                          <span>{timerSeconds === 0 ? 'Repetir' : timerSeconds < totalDuration ? 'Seguir' : 'Iniciar'}</span>
+                        </button>
+                      ) : (
+                        <button
+                          type="button"
+                          onClick={handlePauseTimer}
+                          className="py-2 px-4 rounded-xl bg-amber-500 hover:bg-amber-400 active:scale-95 text-slate-950 font-display font-black text-xs sm:text-sm uppercase tracking-wide transition-all shadow-md shadow-amber-500/20 flex items-center gap-1.5"
+                        >
+                          <span>⏸</span>
+                          <span>Pausar</span>
+                        </button>
+                      )}
+
+                      <button
+                        type="button"
+                        onClick={() => handleResetTimer(totalDuration)}
+                        className="py-2 px-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 active:scale-95 text-slate-300 hover:text-white border border-slate-700 font-bold text-xs transition-all"
+                        title="Reiniciar tiempo"
+                      >
+                        🔄
+                      </button>
+                    </div>
+                  </div>
+
+                  {/* Barra de progreso animada */}
+                  <div className="w-full bg-slate-900 rounded-full h-2 mt-2 overflow-hidden border border-slate-800 p-0.5">
+                    <div
+                      className={`h-full rounded-full transition-all duration-300 ${
+                        isUrgent
+                          ? 'bg-red-500 animate-pulse'
+                          : progressPercent <= 30
+                          ? 'bg-orange-500'
+                          : 'bg-gradient-to-r from-amber-500 to-amber-300'
+                      }`}
+                      style={{ width: `${progressPercent}%` }}
+                    />
+                  </div>
+
+                  {/* Alerta visual de tiempo agotado */}
+                  {isTimerFinished && (
+                    <div className="mt-2.5 p-2 bg-red-950/80 border border-red-500/80 rounded-xl text-center animate-bounce">
+                      <div className="text-xs sm:text-sm font-display font-black text-red-300 flex items-center justify-center gap-1.5">
+                        <span>🚨</span>
+                        <span>¡TIEMPO AGOTADO! Bebe o cumple el castigo</span>
+                        <span>🚨</span>
+                      </div>
+                    </div>
+                  )}
+                </div>
+              )}
+            </div>
+          )}
 
           {/* Renderizado específico e interactivo para Trivia */}
           {isTrivia && (

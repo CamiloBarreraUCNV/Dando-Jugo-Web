@@ -181,6 +181,106 @@ class SoundManager {
       console.warn('Audio playFail error:', e);
     }
   }
+
+  // Sonido de inicio de cronómetro / cuenta regresiva
+  playTimerStart() {
+    if (this.isMuted) return;
+    this.init();
+    if (!this.ctx) return;
+
+    try {
+      const osc = this.ctx.createOscillator();
+      const gain = this.ctx.createGain();
+
+      osc.type = 'triangle';
+      osc.frequency.setValueAtTime(523.25, this.ctx.currentTime); // C5
+      osc.frequency.exponentialRampToValueAtTime(783.99, this.ctx.currentTime + 0.12); // G5
+
+      const targetGain = 0.25 * this.volume;
+      gain.gain.setValueAtTime(targetGain, this.ctx.currentTime);
+      gain.gain.exponentialRampToValueAtTime(0.001, this.ctx.currentTime + 0.18);
+
+      osc.connect(gain);
+      gain.connect(this.ctx.destination);
+
+      osc.start();
+      osc.stop(this.ctx.currentTime + 0.18);
+    } catch (e) {
+      console.warn('Audio playTimerStart error:', e);
+    }
+  }
+
+  // Tick de cronómetro (normal u urgente para los últimos 5 segundos)
+  playTimerTick(isUrgent = false) {
+    if (this.isMuted) return;
+    this.init();
+    if (!this.ctx) return;
+
+    try {
+      const osc = this.ctx.createOscillator();
+      const gain = this.ctx.createGain();
+
+      osc.type = isUrgent ? 'sawtooth' : 'triangle';
+      const freq = isUrgent ? 980 : 640;
+      osc.frequency.setValueAtTime(freq, this.ctx.currentTime);
+      osc.frequency.exponentialRampToValueAtTime(freq * 0.4, this.ctx.currentTime + 0.04);
+
+      const targetGain = (isUrgent ? 0.32 : 0.18) * this.volume;
+      gain.gain.setValueAtTime(targetGain, this.ctx.currentTime);
+      gain.gain.exponentialRampToValueAtTime(0.001, this.ctx.currentTime + 0.045);
+
+      osc.connect(gain);
+      gain.connect(this.ctx.destination);
+
+      osc.start();
+      osc.stop(this.ctx.currentTime + 0.045);
+    } catch (e) {
+      console.warn('Audio playTimerTick error:', e);
+    }
+  }
+
+  // Chicharra / Buzzer dramático de tiempo agotado
+  playTimerBuzzer() {
+    if (this.isMuted) return;
+    this.init();
+    if (!this.ctx) return;
+
+    try {
+      if (typeof navigator !== 'undefined' && navigator.vibrate) {
+        try {
+          navigator.vibrate([180, 80, 260]);
+        } catch (_) {}
+      }
+
+      // Dos ráfagas de chicharra de concurso
+      const bursts = [0, 0.22];
+      bursts.forEach((timeOffset) => {
+        const osc = this.ctx.createOscillator();
+        const gain = this.ctx.createGain();
+        const filter = this.ctx.createBiquadFilter();
+
+        osc.type = 'sawtooth';
+        osc.frequency.setValueAtTime(175, this.ctx.currentTime + timeOffset);
+        osc.frequency.exponentialRampToValueAtTime(115, this.ctx.currentTime + timeOffset + 0.18);
+
+        filter.type = 'lowpass';
+        filter.frequency.setValueAtTime(700, this.ctx.currentTime + timeOffset);
+
+        const targetGain = 0.35 * this.volume;
+        gain.gain.setValueAtTime(targetGain, this.ctx.currentTime + timeOffset);
+        gain.gain.exponentialRampToValueAtTime(0.001, this.ctx.currentTime + timeOffset + 0.2);
+
+        osc.connect(filter);
+        filter.connect(gain);
+        gain.connect(this.ctx.destination);
+
+        osc.start(this.ctx.currentTime + timeOffset);
+        osc.stop(this.ctx.currentTime + timeOffset + 0.2);
+      });
+    } catch (e) {
+      console.warn('Audio playTimerBuzzer error:', e);
+    }
+  }
 }
 
 export const soundManager = new SoundManager();

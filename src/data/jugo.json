@@ -398,5 +398,205 @@
     "categoria": null,
     "aprobado_diego": null,
     "observacion": null
+  },
+  {
+    "id": 41,
+    "titulo": "Borracho Abuelo",
+    "descripcion": "Durante # ronda, debes caminar y hablar encorvado sosteniendo un palo o escoba como bastón, quejándote de los dolores de espalda y de cómo la juventud de hoy no aguanta nada.",
+    "castigo": "Bebe $ sorbos si te enderezas o dejas de quejarte de tus achaques.",
+    "dificultad": 3,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 42,
+    "titulo": "Borracho Mayordomo Real",
+    "descripcion": "Durante # ronda, eres el mayordomo de la mesa: debes servirle el trago a los demás con una servilleta doblada en el antebrazo y tratarlos obligatoriamente de \"Su Excelencia\" o \"Mi Lord\".",
+    "castigo": "Bebe # sorbo cada vez que olvides tratar a un jugador como nobleza.",
+    "dificultad": 3,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 43,
+    "titulo": "Borracho Militar Firme",
+    "descripcion": "Durante # ronda, cada vez que alguien en la mesa te hable o te mire, debes pararte firme, hacer el saludo militar con la mano en la frente y responder con voz de mando: \"¡SÍ, MI CAPITÁN!\".",
+    "castigo": "Bebe # sorbo si se te olvida cuadrarte militarmente.",
+    "dificultad": 3,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 44,
+    "titulo": "Borracho Telenovela Mexicana",
+    "descripcion": "Durante # ronda, cada vez que hables debes hacerlo con acento mexicano dramático, exagerando los suspiros, miradas al vacío y diciendo frases como \"¡Maldita lisiada!\" o \"¿Cómo pudiste traicionarme?\".",
+    "castigo": "Bebe $ sorbos si hablas con tu voz normal.",
+    "dificultad": 4,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 45,
+    "titulo": "Borracho Político en Campaña",
+    "descripcion": "Durante # ronda, cada vez que hables debes estrecharle la mano calurosamente al jugador de tu lado y prometerle cosas absurdas que jamás vas a cumplir (\"Les prometo asados y pisco gratis todos los fines de semana\").",
+    "castigo": "Bebe $ sorbos si hablas sin estrechar la mano de tus votantes.",
+    "dificultad": 3,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 46,
+    "titulo": "Borracho Fantasma",
+    "descripcion": "Durante # ronda, debes hacer que nadie te vea: tienes que esconderte o agacharte debajo de la mesa o detrás de un sillón cada vez que no sea tu turno.",
+    "castigo": "Bebe $ sorbos si te pillan visible antes de tu turno.",
+    "dificultad": 4,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 47,
+    "titulo": "Borracho Pastor Evangélico",
+    "descripcion": "Durante # ronda, cada vez que alguien en la mesa tome de su vaso, debes levantar los brazos hacia el cielo, ponerle una mano cerca de la cabeza y exclamar: \"¡ALELUYA, HERMANO!\" o \"¡LIBÉRATE DEL PECADO!\".",
+    "castigo": "Bebe # sorbo si dejas de bendecir el trago de tu prójimo.",
+    "dificultad": 4,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 48,
+    "titulo": "Borracho Puerta Secreta",
+    "descripcion": "Durante # ronda, cada vez que vayas a beber de tu vaso, debes fingir que abres una puerta invisible con llave, entras, tomas el vaso, bebes y vuelves a cerrar la puerta con llave antes de hablar.",
+    "castigo": "Bebe # sorbo si bebes sin abrir la puerta imaginaria.",
+    "dificultad": 3,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 49,
+    "titulo": "Borracho Creador de Contenido",
+    "descripcion": "Durante # ronda, debes hablarle al aire como si estuvieras transmitiendo en vivo en Twitch para 10.000 personas, agradeciendo a viva voz las \"donaciones y suscripciones de 6 meses\" a la gente de la mesa.",
+    "castigo": "Bebe $ sorbos si olvidas agradecer a tus subs imaginarios.",
+    "dificultad": 3,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 50,
+    "titulo": "Borracho Guía Turístico",
+    "descripcion": "Durante # ronda, debes describir cualquier rincón o elemento de la mesa como si fueras un guía mostrando un museo histórico (\"A su derecha pueden apreciar el legendario bowl de papas fritas de la dinastía 2024\").",
+    "castigo": "Bebe $ sorbos si hablas sin tono de documental turístico.",
+    "dificultad": 3,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 51,
+    "titulo": "Borracho Guardia de Discoteca",
+    "descripcion": "Durante # ronda, debes pararte detrás de la persona a tu derecha con lentes de sol y brazos cruzados. Solo puedes dejar que tome de su vaso si te muestra su carnet de identidad o inventa un pase VIP.",
+    "castigo": "Bebe $ sorbos si te ríes o abandonas tu puesto de seguridad.",
+    "dificultad": 4,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 52,
+    "titulo": "Borracho Baterista de Barra",
+    "descripcion": "Tienes 20 segundos para usar cubiertos, vasos vacíos o la mesa como batería e improvisar un solo de percusión con ritmo bailable. Si la mesa aplaude, regalas & sorbos.",
+    "castigo": "Bebe % sorbos si tu concierto de mesa no tiene ritmo.",
+    "dificultad": 4,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 53,
+    "titulo": "Borracho Entrenador de Boxeo",
+    "descripcion": "Elige a un jugador. Durante # ronda, cada vez que esa persona beba o termine un reto, debes secarle el sudor de la frente con una servilleta y masajearle los hombros diciéndole: \"¡Vamos campeón, no te rindas!\".",
+    "castigo": "Bebe $ sorbos si descuidas el rincón de tu boxeador.",
+    "dificultad": 4,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 54,
+    "titulo": "Borracho Extraterrestre",
+    "descripcion": "Durante # ronda, finge que eres un alienígena que acaba de aterrizar en la Tierra y que no entiende para qué sirven los vasos, qué es el alcohol ni por qué los humanos se ríen.",
+    "castigo": "Bebe $ sorbos si respondes como un terrícola común.",
+    "dificultad": 3,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 55,
+    "titulo": "Borracho Idol de K-Pop",
+    "descripcion": "Durante # ronda, cada vez que termines de hablar o de tomar un sorbo, debes hacer la pose de corazón con los dedos guiñando un ojo a la persona que tengas al frente.",
+    "castigo": "Bebe # sorbo cada vez que olvides hacer el corazón coreano.",
+    "dificultad": 3,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 56,
+    "titulo": "Borracho Anunciador de Lucha Libre",
+    "descripcion": "Presenta al jugador que tenga el turno siguiente con vozarrón épico de presentador de WWE durante 15 segundos, inventándole un apodo temible de luchador profesional.",
+    "castigo": "Bebe $ sorbos si tu presentación carece de dramatismo.",
+    "dificultad": 4,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 57,
+    "titulo": "Borracho Chef Cinco Estrellas",
+    "descripcion": "Durante # ronda, cada vez que alguien coma un snack o tome un trago, debes acercarte y preguntarle con acento gourmet italiano o francés qué le pareció el \"maridaje de texturas y notas cítricas\".",
+    "castigo": "Bebe # sorbo si dejas de evaluar el banquete gastronómico.",
+    "dificultad": 3,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 58,
+    "titulo": "Borracho Conspiranoico",
+    "descripcion": "Durante # ronda, a todo lo que digan en la mesa debes responder buscando una teoría conspirativa (\"Eso es lo que los reptilianos de la NASA quieren que creas\", \"El hielo tiene microchips\").",
+    "castigo": "Bebe $ sorbos si aceptas una verdad normal sin cuestionarla.",
+    "dificultad": 3,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 59,
+    "titulo": "Borracho Doblaje Latino Clásico",
+    "descripcion": "Durante # ronda, debes hablar con el acento neutro de las caricaturas y películas de los 90 (diciendo \"¡Maldición!\", \"¡Demonios, viejo!\", \"Emparedado\", \"Cielos\").",
+    "castigo": "Bebe $ sorbos si se te escapa una chilenada o modismo local.",
+    "dificultad": 4,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 60,
+    "titulo": "Borracho Narrador de Naturaleza",
+    "descripcion": "Elige a otro jugador y durante 20 segundos narra en tono solemne cada uno de sus movimientos como si fueras el narrador de un documental observando a un animal salvaje en celo.",
+    "castigo": "Bebe $ sorbos si rompes el personaje o te ríes de tu propio documental.",
+    "dificultad": 4,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
   }
 ]

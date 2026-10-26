@@ -113,7 +113,7 @@ export const GAME_TYPES = [
     color: 'from-fuchsia-600 to-purple-800',
     borderColor: 'border-fuchsia-500/50',
     description: 'Desafíos individuales de fiesta y personajes jugosos.',
-    badge: '40 Tarjetas',
+    badge: '60 Tarjetas',
   },
   {
     id: 'random',

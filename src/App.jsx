@@ -291,35 +291,42 @@ export default function App() {
 
   return (
     <div className={`h-dvh max-h-dvh flex flex-col justify-between items-center px-4 pt-safe pb-safe ${themeContainerClass} max-w-md md:max-w-4xl lg:max-w-5xl mx-auto relative transition-colors duration-200 overflow-hidden w-full`}>
-      {/* Barra superior del Juego */}
-      <header className="w-full flex items-center justify-between py-2 border-b border-slate-800/60 shrink-0">
-        <button
-          onClick={() => setScreen('menu')}
-          className="flex items-center gap-1.5 text-xs bg-slate-800/90 hover:bg-slate-700 active:scale-95 text-slate-200 font-bold px-3 py-1.5 rounded-xl border border-slate-700 transition shadow"
-        >
-          <span>🏠</span>
-          <span>Menú</span>
-        </button>
+      {/* Barra superior del Juego (3 zonas equilibradas) */}
+      <header className="w-full flex items-center justify-between py-2 border-b border-stone-800/80 shrink-0 gap-2">
+        {/* Zona Izquierda: Navegación y Switch de Modo */}
+        <div className="flex items-center gap-1.5">
+          <button
+            onClick={() => setScreen('menu')}
+            className="flex items-center gap-1 text-xs bg-stone-900/90 hover:bg-stone-800 active:scale-95 text-stone-200 font-bold px-2.5 py-1.5 rounded-xl border border-stone-700/80 transition shadow"
+            title="Volver al Menú Principal"
+          >
+            <span>🏠</span>
+            <span className="hidden sm:inline">Menú</span>
+          </button>
 
-        {/* Selector de modo Ruleta vs A la Carta */}
-        <button
-          onClick={() => setScreen(isFreeMode ? 'game' : 'freemode')}
-          className="flex items-center gap-1 text-xs bg-stone-900/90 hover:bg-stone-800 active:scale-95 text-amber-300 font-black px-2.5 py-1.5 rounded-xl border border-amber-500/40 transition shadow-sm"
-          title={isFreeMode ? 'Cambiar a modo Ruleta' : 'Cambiar a modo A la Carta'}
-        >
-          <span>{isFreeMode ? '🎯 Ruleta' : '🎴 A la Carta'}</span>
-        </button>
+          <button
+            onClick={() => setScreen(isFreeMode ? 'game' : 'freemode')}
+            className="flex items-center gap-1 text-xs bg-stone-900/90 hover:bg-stone-800 active:scale-95 text-amber-300 font-black px-2.5 py-1.5 rounded-xl border border-amber-500/40 transition shadow-sm"
+            title={isFreeMode ? 'Cambiar a modo Ruleta' : 'Cambiar a modo A la Carta'}
+          >
+            <span>{isFreeMode ? '🎯 Ruleta' : '🎴 A la Carta'}</span>
+          </button>
+        </div>
 
-        {/* Pill del modo activo */}
-        <button
-          onClick={() => setShowModeModal(true)}
-          className={`text-xs px-2.5 py-1 rounded-full border flex items-center gap-1.5 shadow-sm active:scale-95 transition ${activeModeObj.badgeColor}`}
-        >
-          <span>{activeModeObj.icon}</span>
-          <span className="font-bold">{activeModeObj.name}</span>
-        </button>
+        {/* Zona Central: Modo de Intensidad / Dificultad */}
+        <div className="flex items-center justify-center">
+          <button
+            onClick={() => setShowModeModal(true)}
+            className={`text-xs px-2.5 py-1 rounded-full border flex items-center gap-1.5 shadow-sm active:scale-95 transition ${activeModeObj.badgeColor}`}
+            title="Cambiar nivel de consumo / dificultad"
+          >
+            <span>{activeModeObj.icon}</span>
+            <span className="font-bold hidden md:inline">{activeModeObj.name}</span>
+            <span className="font-bold md:hidden">{activeModeObj.tag}</span>
+          </button>
+        </div>
 
-        {/* Acciones de Opciones y Estado Wake Lock */}
+        {/* Zona Derecha: Acciones del Sistema (Wake Lock & Ajustes) */}
         <div className="flex items-center gap-1.5">
           {keepScreenOn && (
             <button
@@ -334,48 +341,50 @@ export default function App() {
 
           <button
             onClick={() => setShowSettingsModal(true)}
-            className="text-sm bg-slate-800/90 hover:bg-slate-700 active:scale-95 text-slate-300 font-bold p-1.5 rounded-xl border border-slate-700 transition"
-            title="Opciones"
+            className="text-sm bg-stone-900/90 hover:bg-stone-800 active:scale-95 text-stone-300 font-bold p-1.5 rounded-xl border border-stone-700/80 transition"
+            title="Opciones y Ajustes"
           >
             ⚙️
           </button>
         </div>
       </header>
 
-      {/* Indicador destacado del Turno del Jugador (Visible solo en Móvil, en Tablet/TV se integra a la derecha) */}
-      <div className="w-full my-2 flex flex-col items-center animate-in fade-in zoom-in-95 duration-200 shrink-0 md:hidden">
-        <span className="text-[11px] font-black uppercase tracking-widest text-slate-400">
-          ES EL TURNO DE
-        </span>
-        <div className="flex items-center gap-3 mt-1 px-4 py-2 rounded-2xl bg-amber-500/10 border-2 border-amber-400/60 shadow-lg shadow-amber-500/10">
-          <img
-            src={getAnimalAvatar(activePlayer?.animal).image}
-            alt={getAnimalAvatar(activePlayer?.animal).name}
-            className="w-11 h-11 object-contain rounded-xl bg-slate-950 p-0.5 border border-amber-400 drop-shadow"
-          />
-          <div>
-            <div className="flex items-center gap-1.5">
-              <span className="text-xl font-display font-black text-amber-400 tracking-wide">
-                {activePlayer.name}
-              </span>
-              <span className="text-xs">
-                {activePlayer.gender === 'mujer' ? '👩' : activePlayer.gender === 'hombre' ? '👨' : '🧑'}
+      {/* Indicador destacado del Turno del Jugador (Visible solo en Ruleta móvil; en A la Carta se integra en el selector) */}
+      {!isFreeMode && (
+        <div className="w-full my-2 flex flex-col items-center animate-in fade-in zoom-in-95 duration-200 shrink-0 md:hidden">
+          <span className="text-[11px] font-black uppercase tracking-widest text-slate-400">
+            ES EL TURNO DE
+          </span>
+          <div className="flex items-center gap-3 mt-1 px-4 py-2 rounded-2xl bg-amber-500/10 border-2 border-amber-400/60 shadow-lg shadow-amber-500/10">
+            <img
+              src={getAnimalAvatar(activePlayer?.animal).image}
+              alt={getAnimalAvatar(activePlayer?.animal).name}
+              className="w-11 h-11 object-contain rounded-xl bg-slate-950 p-0.5 border border-amber-400 drop-shadow"
+            />
+            <div>
+              <div className="flex items-center gap-1.5">
+                <span className="text-xl font-display font-black text-amber-400 tracking-wide">
+                  {activePlayer.name}
+                </span>
+                <span className="text-xs">
+                  {activePlayer.gender === 'mujer' ? '👩' : activePlayer.gender === 'hombre' ? '👨' : '🧑'}
+                </span>
+              </div>
+              <span className="text-[10px] text-amber-300 font-semibold block">
+                {getAnimalAvatar(activePlayer?.animal).name} • {getAnimalAvatar(activePlayer?.animal).phrase}
               </span>
             </div>
-            <span className="text-[10px] text-amber-300 font-semibold block">
-              {getAnimalAvatar(activePlayer?.animal).name} • {getAnimalAvatar(activePlayer?.animal).phrase}
-            </span>
           </div>
+          <span className="text-[11px] text-slate-400 mt-1 italic">
+            👉 ¡Pásale el teléfono a {activePlayer.name}!
+          </span>
         </div>
-        <span className="text-[11px] text-slate-400 mt-1 italic">
-          👉 ¡Pásale el teléfono a {activePlayer.name}!
-        </span>
-      </div>
+      )}
 
       {/* Centro: Ruleta interactiva O Selector A la Carta */}
       <main className={`w-full flex-1 min-h-0 flex flex-col ${isFreeMode ? 'justify-start' : 'justify-center'} my-1 overflow-hidden`}>
         {isFreeMode ? (
-          <FreePlaySelector onSelectGameType={handleSelectSpecificGame} />
+          <FreePlaySelector onSelectGameType={handleSelectSpecificGame} activePlayer={activePlayer} />
         ) : (
           <div className="w-full h-full flex flex-col md:grid md:grid-cols-12 md:gap-8 items-center justify-center">
             
@@ -525,8 +534,13 @@ export default function App() {
       />
 
       {/* Footer informativo */}
-      <footer className="w-full text-center py-1 text-[11px] text-slate-500 shrink-0">
-        Jugador {currentPlayerIndex + 1} de {players.length} • {isFreeMode ? 'Modo A la Carta' : 'Modo Ruleta'}
+      <footer className="w-full py-1.5 flex items-center justify-center shrink-0">
+        <div className="inline-flex items-center gap-2 px-3 py-0.5 rounded-full bg-stone-900/70 border border-stone-800/80 text-[11px] text-stone-400 shadow-sm">
+          <span className="inline-block w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+          <span>Jugador <strong>{currentPlayerIndex + 1}</strong> de <strong>{players.length}</strong></span>
+          <span className="text-stone-600">•</span>
+          <span className="text-amber-400/90 font-semibold">{isFreeMode ? 'Modo A la Carta' : 'Modo Ruleta'}</span>
+        </div>
       </footer>
     </div>
   );

@@ -65,10 +65,24 @@ export default function App() {
   const [showPenaltyModal, setShowPenaltyModal] = useState(false);
   const [showSettingsModal, setShowSettingsModal] = useState(false);
 
-  // Sincronizar audio con soundManager en inicio
+  // Sincronizar audio con soundManager y desbloquear AudioContext en el primer toque de usuario (Requisito iOS Safari / Chrome Mobile)
   useEffect(() => {
     soundManager.setVolume(volume);
     soundManager.setWheelSound(wheelSound);
+
+    const unlockAudio = () => {
+      soundManager.init();
+    };
+
+    window.addEventListener('pointerdown', unlockAudio, { once: true });
+    window.addEventListener('touchstart', unlockAudio, { once: true });
+    window.addEventListener('keydown', unlockAudio, { once: true });
+
+    return () => {
+      window.removeEventListener('pointerdown', unlockAudio);
+      window.removeEventListener('touchstart', unlockAudio);
+      window.removeEventListener('keydown', unlockAudio);
+    };
   }, []);
 
   // Sincronizar Wake Lock (Mantener pantalla encendida durante el juego)

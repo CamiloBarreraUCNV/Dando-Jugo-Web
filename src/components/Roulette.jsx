@@ -1,5 +1,6 @@
 import React, { useRef, useState, useEffect } from 'react';
 import { soundManager } from '../utils/soundEffects';
+import logoImg from '../assets/Logos/DandoJugoLogotransp2 4.png';
 
 // Paleta Opción 3 (Casino & Barra Clandestina)
 export const CATEGORIES = [
@@ -77,18 +78,12 @@ export default function Roulette({ onSpinEnd, isSpinning, setIsSpinning }) {
 
     // Círculo central con detalles dorados
     ctx.beginPath();
-    ctx.arc(center, center, 28, 0, 2 * Math.PI);
+    ctx.arc(center, center, 30, 0, 2 * Math.PI);
     ctx.fillStyle = '#0d0a0c';
     ctx.fill();
     ctx.lineWidth = 3;
     ctx.strokeStyle = '#d4af37';
     ctx.stroke();
-
-    ctx.fillStyle = '#fef08a';
-    ctx.font = '900 11px Outfit, sans-serif';
-    ctx.textAlign = 'center';
-    ctx.textBaseline = 'middle';
-    ctx.fillText('JUGO', center, center);
   }, []);
 
   const spin = () => {
@@ -138,27 +133,40 @@ export default function Roulette({ onSpinEnd, isSpinning, setIsSpinning }) {
         <div className="w-0 h-0 border-l-[16px] border-l-transparent border-r-[16px] border-r-transparent border-t-[28px] border-t-amber-400 drop-shadow-[0_4px_8px_rgba(0,0,0,0.8)] animate-pulse" />
       </div>
 
-      {/* Rueda animada con marco de taberna / bronce */}
-      <div className="relative p-2 sm:p-2.5 rounded-full bg-[#161214] shadow-[0_0_50px_rgba(212,175,55,0.2)] border-4 border-[#2d2228]">
+      {/* Rueda animada con marco de taberna / bronce y eje central con Logo */}
+      <div className="relative p-2 sm:p-2.5 rounded-full bg-[#161214] shadow-[0_0_50px_rgba(212,175,55,0.2)] border-4 border-[#2d2228] flex items-center justify-center">
         <canvas
           ref={canvasRef}
           style={{
             transform: `rotate(${currentRotation}deg)`,
             transition: isSpinning ? 'transform 4s cubic-bezier(0.12, 0.8, 0.15, 1)' : 'none',
           }}
-          className="rounded-full cursor-pointer w-[min(320px,76vw)] h-[min(320px,76vw)] sm:w-[340px] sm:h-[340px] md:w-[380px] md:h-[380px] lg:w-[400px] lg:h-[400px] aspect-square block"
+          className="rounded-full cursor-pointer w-[min(320px,76vw)] h-[min(320px,76vw)] sm:w-[340px] sm:h-[340px] md:w-[370px] md:h-[370px] lg:w-[390px] lg:h-[390px] aspect-square block"
           onClick={spin}
         />
+
+        {/* Eje central con el Logo Oficial del Juego */}
+        <div
+          onClick={spin}
+          className="absolute z-10 w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-[#0d0a0c] border-2 sm:border-[3px] border-amber-400 p-2 shadow-2xl flex items-center justify-center cursor-pointer pointer-events-auto hover:scale-105 active:scale-95 transition-transform"
+          title="¡Tocar para Girar!"
+        >
+          <img
+            src={logoImg}
+            alt="Dando Jugo Logo"
+            className="w-full h-full object-contain drop-shadow"
+          />
+        </div>
       </div>
 
-      {/* Botón táctil grande con dorado ámbar */}
+      {/* Botón táctil grande con dorado ámbar y resplandor elegante */}
       <button
         onClick={spin}
         disabled={isSpinning}
-        className={`mt-4 sm:mt-6 w-full max-w-xs md:max-w-sm py-3.5 sm:py-4 px-6 sm:px-8 rounded-2xl font-display font-black text-lg sm:text-xl md:text-2xl tracking-wider uppercase shadow-xl transition-all active:scale-95 ${
+        className={`mt-3 sm:mt-4 w-full max-w-xs md:max-w-sm py-3 sm:py-3.5 px-6 sm:px-8 rounded-2xl font-display font-black text-base sm:text-lg md:text-xl tracking-wider uppercase shadow-xl transition-all duration-200 active:scale-95 ${
           isSpinning
             ? 'bg-stone-800 text-stone-500 cursor-not-allowed border border-stone-700'
-            : 'bg-gradient-to-r from-amber-500 via-amber-400 to-amber-600 hover:brightness-110 text-stone-950 shadow-amber-500/30 border border-amber-300 animate-bounce'
+            : 'bg-gradient-to-r from-amber-500 via-amber-400 to-amber-500 hover:from-amber-400 hover:to-amber-400 text-stone-950 shadow-lg shadow-amber-500/25 hover:shadow-amber-500/40 border-2 border-amber-300 hover:scale-[1.02]'
         }`}
       >
         {isSpinning ? '¡Girando...!' : '🎯 ¡Tocar para Girar!'}

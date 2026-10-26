@@ -398,14 +398,14 @@ export default function App() {
             </div>
 
             {/* Columna Derecha (5 cols en Tablet/Desktop): Tablero de la Mesa & Jugador Activo */}
-            <div className="hidden md:flex flex-col gap-3.5 md:col-span-5 w-full bg-[#161214]/90 p-5 rounded-3xl border border-amber-900/40 shadow-2xl">
+            <div className="hidden md:flex flex-col gap-4 md:col-span-5 w-full bg-[#161214]/95 p-5 sm:p-6 rounded-3xl border border-amber-900/50 shadow-2xl">
               
               {/* Turno Actual */}
-              <div className="border-b border-stone-800/80 pb-3">
-                <span className="text-xs font-black uppercase tracking-wider text-amber-300/80 block mb-1">
+              <div className="border-b border-stone-800/80 pb-3.5">
+                <span className="text-xs font-black uppercase tracking-wider text-amber-400/90 block mb-1.5">
                   🏆 ES EL TURNO DE
                 </span>
-                <div className="flex items-center gap-3">
+                <div className="flex items-center gap-3.5">
                   <img
                     src={getAnimalAvatar(activePlayer?.animal).image}
                     alt={getAnimalAvatar(activePlayer?.animal).name}
@@ -431,14 +431,14 @@ export default function App() {
               </div>
 
               {/* Mesa y Ronda de Jugadores */}
-              <div className="bg-[#0c0a0b] p-3 rounded-2xl border border-stone-800">
-                <div className="flex items-center justify-between text-xs text-stone-400 font-bold mb-2">
+              <div className="bg-[#0c0a0b] p-3.5 rounded-2xl border border-stone-800">
+                <div className="flex items-center justify-between text-xs text-stone-400 font-bold mb-2.5">
                   <span>👥 MESA ({players.length} JUGADORES)</span>
                   {nextPlayer && (
                     <span className="text-amber-400">👉 Siguiente: <strong>{nextPlayer.name}</strong></span>
                   )}
                 </div>
-                <div className="flex flex-wrap gap-1.5 max-h-24 overflow-y-auto custom-scrollbar pr-1">
+                <div className="flex flex-wrap gap-2 max-h-28 overflow-y-auto custom-scrollbar pr-1">
                   {players.map((p, idx) => {
                     const isCurrent = idx === currentPlayerIndex % (players.length || 1);
                     const isNext = nextPlayer && p.id === nextPlayer.id;
@@ -446,7 +446,7 @@ export default function App() {
                     return (
                       <span
                         key={p.id}
-                        className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-xl text-xs font-bold transition-all ${
+                        className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold transition-all ${
                           isCurrent
                             ? 'bg-amber-500/20 border-2 border-amber-400 text-amber-300 shadow-md ring-1 ring-amber-400/40'
                             : isNext
@@ -463,30 +463,16 @@ export default function App() {
                 </div>
               </div>
 
-              {/* Modo de Juego Activo */}
-              <div className="flex items-center justify-between p-3 rounded-2xl bg-stone-900/60 border border-stone-800">
-                <div className="flex items-center gap-2.5">
-                  <span className="text-2xl">{activeModeObj.icon}</span>
-                  <div>
-                    <span className="text-xs font-black text-white block">{activeModeObj.name}</span>
-                    <span className="text-[10px] text-stone-400 block">{activeModeObj.tag}</span>
-                  </div>
-                </div>
-                <button
-                  onClick={() => setShowModeModal(true)}
-                  className="text-xs text-amber-400 hover:text-amber-300 font-bold underline"
-                >
-                  Cambiar
-                </button>
-              </div>
-
-              {/* Acceso Rápido Ruleta de Castigo */}
+              {/* Acceso Rápido Ruleta de Castigo (Estilizado Speakeasy / Spicy) */}
               <button
                 onClick={() => setShowPenaltyModal(true)}
-                className="w-full py-2.5 px-4 rounded-xl bg-red-950/40 hover:bg-red-900/50 border border-red-500/40 text-red-300 hover:text-white font-bold text-xs uppercase tracking-wide transition flex items-center justify-center gap-2 shadow"
+                className="w-full py-3 px-4 rounded-2xl bg-gradient-to-r from-red-950 via-rose-900/80 to-red-950 hover:from-red-900 hover:via-rose-800 hover:to-red-900 border-2 border-red-500/60 hover:border-red-400 text-white font-display font-black text-xs sm:text-sm uppercase tracking-wider transition-all duration-200 active:scale-98 flex items-center justify-center gap-2.5 shadow-lg shadow-red-950/60 group"
               >
-                <span>🎲</span>
-                <span>Ruleta del Jugoso (Castigo)</span>
+                <span className="text-base group-hover:rotate-12 transition-transform">🎲</span>
+                <span className="drop-shadow-sm">Ruleta del Jugoso (Castigo)</span>
+                <span className="text-[10px] bg-red-500/30 text-red-200 border border-red-400/40 px-2 py-0.5 rounded-full font-sans font-bold">
+                  Spicy 🔥
+                </span>
               </button>
             </div>
           </div>

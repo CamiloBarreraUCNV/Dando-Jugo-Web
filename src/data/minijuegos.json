@@ -1098,5 +1098,205 @@
     "categoria": null,
     "aprobado_diego": "SI",
     "observacion": null
+  },
+  {
+    "id": 111,
+    "titulo": "Cultura Chupistica",
+    "descripcion": "Cosas que encuentras en tus bolsillos o en la cartera al día siguiente de un carrete",
+    "castigo": null,
+    "dificultad": 3,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 112,
+    "titulo": "Cultura Chupistica",
+    "descripcion": "Platos o comidas clásicas de bajón nocturno después de tomar",
+    "castigo": null,
+    "dificultad": 2,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 113,
+    "titulo": "Cultura Chupistica",
+    "descripcion": "Frases del amigo que siempre promete que hoy no va a tomar mucho",
+    "castigo": null,
+    "dificultad": 2,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 114,
+    "titulo": "Cultura Chupistica",
+    "descripcion": "Razones por las que te echarían de un motel o de una discoteca",
+    "castigo": null,
+    "dificultad": 4,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 115,
+    "titulo": "Cultura Chupistica",
+    "descripcion": "Frases que dicen los borrachos antes de cometer una estupidez",
+    "castigo": null,
+    "dificultad": 2,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 116,
+    "titulo": "Cultura Chupistica",
+    "descripcion": "Lugares donde jamás deberías besarte con alguien",
+    "castigo": null,
+    "dificultad": 3,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 117,
+    "titulo": "Cultura Chupistica",
+    "descripcion": "Pésimas ideas para regalarle a tu pareja en su aniversario",
+    "castigo": null,
+    "dificultad": 3,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 118,
+    "titulo": "Cultura Chupistica",
+    "descripcion": "Cosas que nunca deberías revisar en el celular de tu pareja",
+    "castigo": null,
+    "dificultad": 4,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 119,
+    "titulo": "Cultura Chupistica",
+    "descripcion": "Canciones románticas o corta-venas que cantas a gritos cuando estás con pena de amor",
+    "castigo": null,
+    "dificultad": 3,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 120,
+    "titulo": "Cultura Chupistica",
+    "descripcion": "Profesiones u oficios que tienen fama de ser los más infieles",
+    "castigo": null,
+    "dificultad": 3,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 121,
+    "titulo": "Cultura Chupistica",
+    "descripcion": "Típicas mentiras que la gente pone o aparenta en Instagram",
+    "castigo": null,
+    "dificultad": 3,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 122,
+    "titulo": "Cultura Chupistica",
+    "descripcion": "Cosas que compras ebrio por internet y te arrepientes al día siguiente",
+    "castigo": null,
+    "dificultad": 4,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 123,
+    "titulo": "Cultura Chupistica",
+    "descripcion": "Momentos donde es la peor idea del mundo que te suene el celular a todo volumen",
+    "castigo": null,
+    "dificultad": 3,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 124,
+    "titulo": "Cultura Chupistica",
+    "descripcion": "Cosas que haces cuando quieres que las visitas se vayan de tu casa",
+    "castigo": null,
+    "dificultad": 3,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 125,
+    "titulo": "Cultura Chupistica",
+    "descripcion": "Excusas pésimas para llegar tarde al trabajo o a clases",
+    "castigo": null,
+    "dificultad": 2,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 126,
+    "titulo": "Cultura Chupistica",
+    "descripcion": "Señales claras de que estás envejeciendo y ya no tienes 20 años",
+    "castigo": null,
+    "dificultad": 3,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 127,
+    "titulo": "Cultura Chupistica",
+    "descripcion": "Apodos clásicos para el amigo tacaño del grupo",
+    "castigo": null,
+    "dificultad": 3,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 128,
+    "titulo": "Cultura Chupistica",
+    "descripcion": "Canciones de reggaetón viejito que encienden cualquier carrete",
+    "castigo": null,
+    "dificultad": 2,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 129,
+    "titulo": "Cultura Chupistica",
+    "descripcion": "Golosinas o snacks de infancia que te traen nostalgia pura",
+    "castigo": null,
+    "dificultad": 3,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
+  },
+  {
+    "id": 130,
+    "titulo": "Cultura Chupistica",
+    "descripcion": "Cosas que juras que vas a empezar el lunes pero nunca haces",
+    "castigo": null,
+    "dificultad": 2,
+    "categoria": null,
+    "aprobado_diego": "SI",
+    "observacion": null
   }
 ]

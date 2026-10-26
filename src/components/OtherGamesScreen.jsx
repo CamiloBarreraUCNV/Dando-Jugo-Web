@@ -96,28 +96,6 @@ const OTHER_GAMES_CATALOG = [
     status: 'Jugable con baraja física',
   },
   {
-    id: 'werejuice',
-    name: 'Werejuice (Hombre Lobo Jugoso)',
-    icon: '🐺',
-    category: 'Roles Ocultos',
-    players: '4 a 10 Jugadores',
-    badge: 'Deducción & Caos',
-    badgeColor: 'bg-purple-500/20 text-purple-300 border-purple-500/40',
-    borderColor: 'border-purple-500/40 hover:border-purple-400',
-    color: 'from-purple-950/60 via-stone-900/90 to-purple-950/60',
-    description:
-      'El teléfono asigna un rol secreto a cada participante: el Jugoso (gana si lo eliminan o culpan), el Mejor Amigo (lo defiende), el Borracho (da pistas falsas) y los Piolas (deben descubrir al impostor).',
-    materials: 'Solo la app móvil.',
-    rules: [
-      'Pásense el teléfono en silencio para ver su rol asignado.',
-      'Fase de Preguntas: Todos conversan y debaten sobre quién está actuando sospechoso.',
-      'Habilidades especiales: El Piola puede pedir una pista; el Bailarín puede cancelar una habilidad ajena.',
-      'Votación: A la cuenta de 3, todos apuntan al que creen que es el Jugoso.',
-      'Si expulsan al Jugoso, ¡él y su Mejor Amigo ganan y el resto toma fondo blanco!',
-    ],
-    status: 'En desarrollo para la app',
-  },
-  {
     id: 'verdad-reto',
     name: 'Verdad o Reto (La Mesa Caliente)',
     icon: '🌶️',
@@ -137,32 +115,9 @@ const OTHER_GAMES_CATALOG = [
     ],
     status: 'Disponible en dinámicas de la app',
   },
-  {
-    id: 'piramide',
-    name: 'Pirámide de Cartas',
-    icon: '🔺',
-    category: 'Cartas',
-    players: '2+ Jugadores',
-    badge: 'Memoria & Farol',
-    badgeColor: 'bg-amber-600/20 text-amber-300 border-amber-600/40',
-    borderColor: 'border-amber-600/40 hover:border-amber-500',
-    color: 'from-stone-950/80 via-stone-900/90 to-amber-950/50',
-    description:
-      'Se arma una pirámide boca abajo (5 cartas en la base, hasta 1 en la cima). Cada jugador recibe cartas en su mano. Al voltear cartas de la pirámide, regalas o bebes sorbos dependiendo del piso.',
-    materials: '1 baraja inglesa.',
-    rules: [
-      'Piso 1 (base): Vale 1 sorbo.',
-      'Piso 2: Vale 2 sorbos.',
-      'Piso 3: Vale 3 sorbos.',
-      'Piso 4: Vale 4 sorbos.',
-      'Cima: Vale 5 sorbos o medio vaso.',
-      'Si dices que tienes una carta pero estás mintiendo y te pillan, ¡tomas el doble!',
-    ],
-    status: 'Jugable con baraja física',
-  },
 ];
 
-const CATEGORIES = ['Todos', 'Cartas', 'Competitivo', 'Roles Ocultos', 'Grupal', 'Apuestas'];
+const CATEGORIES = ['Todos', ...new Set(OTHER_GAMES_CATALOG.map((g) => g.category))];
 
 export default function OtherGamesScreen({ onBack, onOpenSettings }) {
   const [selectedCategory, setSelectedCategory] = useState('Todos');

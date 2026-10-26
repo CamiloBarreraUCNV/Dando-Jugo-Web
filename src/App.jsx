@@ -207,24 +207,23 @@ export default function App() {
     ? 'bg-gradient-to-b from-[#140f12] via-[#0b080a] to-[#040304] text-stone-100'
     : 'bg-gradient-to-b from-amber-50 via-stone-100 to-amber-50 text-stone-900';
 
-  // RENDER 1: Pantalla de Configuración de Jugadores
-  if (screen === 'players') {
-    return (
-      <div className={`min-h-dvh ${themeContainerClass} transition-colors duration-200`}>
+  // Determinación de modo A la Carta
+  const isFreeMode = screen === 'freemode';
+
+  return (
+    <div className={`min-h-dvh ${themeContainerClass} transition-colors duration-200 relative w-full overflow-x-hidden`}>
+      {/* 1. Pantalla de Configuración de Jugadores */}
+      {screen === 'players' && (
         <PlayerSetup
           players={players}
           onSavePlayers={handleSavePlayers}
           onCancel={players.length >= 2 ? () => setScreen('menu') : null}
           isFirstTime={players.length < 2}
         />
-      </div>
-    );
-  }
+      )}
 
-  // RENDER 2: Menú Principal
-  if (screen === 'menu') {
-    return (
-      <div className={`min-h-dvh ${themeContainerClass} transition-colors duration-200 relative`}>
+      {/* 2. Menú Principal */}
+      {screen === 'menu' && (
         <MainMenu
           players={players}
           currentMode={currentMode}
@@ -235,62 +234,11 @@ export default function App() {
           onOpenRules={() => setShowRules(true)}
           onOpenModeSelector={() => setShowModeModal(true)}
         />
+      )}
 
-        {/* Modal de Opciones */}
-        <SettingsModal
-          isOpen={showSettingsModal}
-          onClose={() => setShowSettingsModal(false)}
-          isDarkMode={isDarkMode}
-          onToggleTheme={handleToggleTheme}
-          volume={volume}
-          onChangeVolume={handleChangeVolume}
-          wheelSound={wheelSound}
-          onToggleWheelSound={handleToggleWheelSound}
-          keepScreenOn={keepScreenOn}
-          onToggleKeepScreenOn={handleToggleKeepScreenOn}
-        />
-
-        {/* Modal de Selección de Modos */}
-        <ModeSelectorModal
-          isOpen={showModeModal}
-          onClose={() => setShowModeModal(false)}
-          currentMode={currentMode}
-          onSelectMode={handleSelectMode}
-        />
-
-        {/* Modal de Reglas */}
-        {showRules && (
-          <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/85 backdrop-blur-sm animate-in fade-in duration-150">
-            <div className="w-full max-w-sm sm:max-w-md bg-[#161214] border border-amber-900/40 rounded-3xl p-6 shadow-2xl text-stone-100">
-              <h3 className="text-xl font-display font-black text-amber-400 mb-3">
-                🍹 Reglas de la Casa
-              </h3>
-              <ul className="text-sm text-stone-300 space-y-2 mb-6">
-                <li>✨ <strong>Un solo celular:</strong> Se van pasando el teléfono en cada turno.</li>
-                <li>🎯 <strong>Modo Ruleta:</strong> El azar decide qué categoría juegas.</li>
-                <li>🎴 <strong>Modo a la Carta:</strong> El jugador en turno elige libremente qué dinámica jugar.</li>
-                <li>🎲 <strong>¿No quieres hacerlo?:</strong> Si te rehúsas a responder o hacer el reto, gira la <em>Ruleta del Jugoso</em> para probar tu suerte.</li>
-                <li>🧃 <strong>Modos de juego:</strong> Cambia la intensidad arriba (desde *Vasito 250ml* hasta *Camión 3 Ton*).</li>
-                <li>💧 <strong>Toma con cabeza:</strong> Puedes jugar con cerveza, tragos, agua o jugo. ¡No hay obligación de beber alcohol!</li>
-              </ul>
-              <button
-                onClick={() => setShowRules(false)}
-                className="w-full py-3 bg-gradient-to-r from-amber-500 via-amber-400 to-amber-600 hover:brightness-110 active:scale-98 text-stone-950 rounded-xl font-display font-black text-sm uppercase tracking-wide transition border border-amber-300 shadow-lg"
-              >
-                ¡Entendido, a Jugar!
-              </button>
-            </div>
-          </div>
-        )}
-      </div>
-    );
-  }
-
-  // RENDER 3 & 4: Pantalla de Juego (Ruleta o Modo a la Carta)
-  const isFreeMode = screen === 'freemode';
-
-  return (
-    <div className={`h-dvh max-h-dvh flex flex-col justify-between items-center px-4 pt-safe pb-safe ${themeContainerClass} max-w-md md:max-w-4xl lg:max-w-5xl mx-auto relative transition-colors duration-200 overflow-hidden w-full`}>
+      {/* 3 & 4. Pantalla de Juego Activa (Ruleta o Modo a la Carta) */}
+      {(screen === 'game' || screen === 'freemode') && (
+        <div className="h-dvh max-h-dvh flex flex-col justify-between items-center px-4 pt-safe pb-safe max-w-md md:max-w-4xl lg:max-w-5xl mx-auto relative overflow-hidden w-full">
       {/* Barra superior del Juego (3 zonas equilibradas) */}
       <header className="w-full flex items-center justify-between py-2 border-b border-stone-800/80 shrink-0 gap-2">
         {/* Zona Izquierda: Navegación y Switch de Modo */}
@@ -479,6 +427,24 @@ export default function App() {
         )}
       </main>
 
+
+
+      {/* Footer informativo */}
+      <footer className="w-full py-1.5 flex items-center justify-center shrink-0">
+        <div className="inline-flex items-center gap-2 px-3 py-0.5 rounded-full bg-stone-900/70 border border-stone-800/80 text-[11px] text-stone-400 shadow-sm">
+          <span className="inline-block w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+          <span>Jugador <strong>{currentPlayerIndex + 1}</strong> de <strong>{players.length}</strong></span>
+          <span className="text-stone-600">•</span>
+          <span className="text-amber-400/90 font-semibold">{isFreeMode ? 'Modo A la Carta' : 'Modo Ruleta'}</span>
+        </div>
+      </footer>
+        </div>
+      )}
+
+      {/* ========================================================= */}
+      {/* MODALES GLOBALES UNIFICADOS (Renderizados una sola vez)   */}
+      {/* ========================================================= */}
+
       {/* Modal de Tarjeta del Reto */}
       {currentCard && (
         <CardModal
@@ -505,7 +471,7 @@ export default function App() {
         onSelectMode={handleSelectMode}
       />
 
-      {/* Modal de Opciones */}
+      {/* Modal de Opciones y Configuración */}
       <SettingsModal
         isOpen={showSettingsModal}
         onClose={() => setShowSettingsModal(false)}
@@ -519,15 +485,30 @@ export default function App() {
         onToggleKeepScreenOn={handleToggleKeepScreenOn}
       />
 
-      {/* Footer informativo */}
-      <footer className="w-full py-1.5 flex items-center justify-center shrink-0">
-        <div className="inline-flex items-center gap-2 px-3 py-0.5 rounded-full bg-stone-900/70 border border-stone-800/80 text-[11px] text-stone-400 shadow-sm">
-          <span className="inline-block w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
-          <span>Jugador <strong>{currentPlayerIndex + 1}</strong> de <strong>{players.length}</strong></span>
-          <span className="text-stone-600">•</span>
-          <span className="text-amber-400/90 font-semibold">{isFreeMode ? 'Modo A la Carta' : 'Modo Ruleta'}</span>
+      {/* Modal de Reglas de la Casa */}
+      {showRules && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/85 backdrop-blur-sm animate-in fade-in duration-150">
+          <div className="w-full max-w-sm sm:max-w-md bg-[#161214] border border-amber-900/40 rounded-3xl p-6 shadow-2xl text-stone-100">
+            <h3 className="text-xl font-display font-black text-amber-400 mb-3">
+              🍹 Reglas de la Casa
+            </h3>
+            <ul className="text-sm text-stone-300 space-y-2 mb-6">
+              <li>✨ <strong>Un solo celular:</strong> Se van pasando el teléfono en cada turno.</li>
+              <li>🎯 <strong>Modo Ruleta:</strong> El azar decide qué categoría juegas.</li>
+              <li>🎴 <strong>Modo a la Carta:</strong> El jugador en turno elige libremente qué dinámica jugar.</li>
+              <li>🎲 <strong>¿No quieres hacerlo?:</strong> Si te rehúsas a responder o hacer el reto, gira la <em>Ruleta del Jugoso</em> para probar tu suerte.</li>
+              <li>🧃 <strong>Modos de juego:</strong> Cambia la intensidad arriba (desde *Vasito 250ml* hasta *Camión 3 Ton*).</li>
+              <li>💧 <strong>Toma con cabeza:</strong> Puedes jugar con cerveza, tragos, agua o jugo. ¡No hay obligación de beber alcohol!</li>
+            </ul>
+            <button
+              onClick={() => setShowRules(false)}
+              className="w-full py-3 bg-gradient-to-r from-amber-500 via-amber-400 to-amber-600 hover:brightness-110 active:scale-98 text-stone-950 rounded-xl font-display font-black text-sm uppercase tracking-wide transition border border-amber-300 shadow-lg"
+            >
+              ¡Entendido, a Jugar!
+            </button>
+          </div>
         </div>
-      </footer>
+      )}
     </div>
   );
 }

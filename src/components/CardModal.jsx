@@ -382,7 +382,7 @@ export default function CardModal({ card, activePlayer, currentMode, onClose, on
                         {formatTimerDigits(timerSeconds)}
                       </div>
                       <span className="text-[10px] text-slate-400 font-medium">
-                        {isTimerFinished ? '¡Tiempo concluido!' : isTimerRunning ? 'Cuenta regresiva activa' : 'Listo para iniciar'}
+                        {isTimerFinished ? '¡Tiempo agotado!' : isTimerRunning ? 'Cuenta regresiva activa' : 'Listo para iniciar'}
                       </span>
                     </div>
 
@@ -438,7 +438,7 @@ export default function CardModal({ card, activePlayer, currentMode, onClose, on
                     <div className="mt-2.5 p-2 bg-red-950/80 border border-red-500/80 rounded-xl text-center animate-bounce">
                       <div className="text-xs sm:text-sm font-display font-black text-red-300 flex items-center justify-center gap-1.5">
                         <span>🚨</span>
-                        <span>¡TIEMPO AGOTADO! Bebe o cumple el castigo</span>
+                        <span>¡TIEMPO AGOTADO!</span>
                         <span>🚨</span>
                       </div>
                     </div>

@@ -132,7 +132,7 @@ export default function Roulette({ onSpinEnd, isSpinning, setIsSpinning }) {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center relative select-none">
+    <div className="flex flex-col items-center justify-center relative select-none w-full">
       {/* Flecha superior dorada */}
       <div className="relative z-20 -mb-5 flex flex-col items-center">
         <div className="w-0 h-0 border-l-[16px] border-l-transparent border-r-[16px] border-r-transparent border-t-[28px] border-t-amber-400 drop-shadow-[0_4px_8px_rgba(0,0,0,0.8)] animate-pulse" />
@@ -146,7 +146,7 @@ export default function Roulette({ onSpinEnd, isSpinning, setIsSpinning }) {
             transform: `rotate(${currentRotation}deg)`,
             transition: isSpinning ? 'transform 4s cubic-bezier(0.12, 0.8, 0.15, 1)' : 'none',
           }}
-          className="rounded-full cursor-pointer w-[min(320px,76vw)] h-[min(320px,76vw)] sm:w-[340px] sm:h-[340px] aspect-square block"
+          className="rounded-full cursor-pointer w-[min(320px,76vw)] h-[min(320px,76vw)] sm:w-[340px] sm:h-[340px] md:w-[380px] md:h-[380px] lg:w-[400px] lg:h-[400px] aspect-square block"
           onClick={spin}
         />
       </div>
@@ -155,7 +155,7 @@ export default function Roulette({ onSpinEnd, isSpinning, setIsSpinning }) {
       <button
         onClick={spin}
         disabled={isSpinning}
-        className={`mt-6 w-full max-w-xs py-4 px-8 rounded-2xl font-black text-xl tracking-wider uppercase shadow-xl transition-all active:scale-95 ${
+        className={`mt-4 sm:mt-6 w-full max-w-xs md:max-w-sm py-3.5 sm:py-4 px-6 sm:px-8 rounded-2xl font-black text-lg sm:text-xl md:text-2xl tracking-wider uppercase shadow-xl transition-all active:scale-95 ${
           isSpinning
             ? 'bg-stone-800 text-stone-500 cursor-not-allowed border border-stone-700'
             : 'bg-gradient-to-r from-amber-500 via-amber-400 to-amber-600 hover:brightness-110 text-stone-950 shadow-amber-500/30 border border-amber-300 animate-bounce'

@@ -69,6 +69,7 @@ export default function App() {
 
   const activeModeObj = GAME_MODES.find((m) => m.id === currentMode) || GAME_MODES[1];
   const activePlayer = players[currentPlayerIndex % (players.length || 1)] || { name: 'Jugador 1', gender: 'hombre' };
+  const nextPlayer = players.length > 1 ? players[(currentPlayerIndex + 1) % players.length] : null;
 
   // Guardar jugadores
   const handleSavePlayers = (newPlayers) => {
@@ -273,7 +274,7 @@ export default function App() {
   const isFreeMode = screen === 'freemode';
 
   return (
-<div className={`h-dvh max-h-dvh flex flex-col justify-between items-center px-4 pt-safe pb-safe ${themeContainerClass} max-w-md mx-auto relative transition-colors duration-200 overflow-hidden`}>
+    <div className={`h-dvh max-h-dvh flex flex-col justify-between items-center px-4 pt-safe pb-safe ${themeContainerClass} max-w-md md:max-w-4xl lg:max-w-5xl mx-auto relative transition-colors duration-200 overflow-hidden w-full`}>
       {/* Barra superior del Juego */}
       <header className="w-full flex items-center justify-between py-2 border-b border-slate-800/60 shrink-0">
         <button
@@ -312,8 +313,8 @@ export default function App() {
         </button>
       </header>
 
-      {/* Indicador destacado del Turno del Jugador */}
-      <div className="w-full my-2 flex flex-col items-center animate-in fade-in zoom-in-95 duration-200 shrink-0">
+      {/* Indicador destacado del Turno del Jugador (Visible solo en Móvil, en Tablet/TV se integra a la derecha) */}
+      <div className="w-full my-2 flex flex-col items-center animate-in fade-in zoom-in-95 duration-200 shrink-0 md:hidden">
         <span className="text-[11px] font-black uppercase tracking-widest text-slate-400">
           ES EL TURNO DE
         </span>
@@ -343,15 +344,114 @@ export default function App() {
       </div>
 
       {/* Centro: Ruleta interactiva O Selector A la Carta */}
-      <main className={`w-full flex-1 min-h-0 flex flex-col items-center ${isFreeMode ? 'justify-start' : 'justify-center'} my-1 overflow-hidden`}>
+      <main className={`w-full flex-1 min-h-0 flex flex-col ${isFreeMode ? 'justify-start' : 'justify-center'} my-1 overflow-hidden`}>
         {isFreeMode ? (
           <FreePlaySelector onSelectGameType={handleSelectSpecificGame} />
         ) : (
-          <Roulette
-            onSpinEnd={handleSpinEnd}
-            isSpinning={isSpinning}
-            setIsSpinning={setIsSpinning}
-          />
+          <div className="w-full h-full flex flex-col md:grid md:grid-cols-12 md:gap-8 items-center justify-center">
+            
+            {/* Columna Izquierda (7 cols en Tablet/Desktop): Ruleta */}
+            <div className="w-full flex flex-col items-center justify-center md:col-span-7">
+              <Roulette
+                onSpinEnd={handleSpinEnd}
+                isSpinning={isSpinning}
+                setIsSpinning={setIsSpinning}
+              />
+            </div>
+
+            {/* Columna Derecha (5 cols en Tablet/Desktop): Tablero de la Mesa & Jugador Activo */}
+            <div className="hidden md:flex flex-col gap-3.5 md:col-span-5 w-full bg-[#161214]/90 p-5 rounded-3xl border border-amber-900/40 shadow-2xl">
+              
+              {/* Turno Actual */}
+              <div className="border-b border-stone-800/80 pb-3">
+                <span className="text-xs font-black uppercase tracking-wider text-amber-300/80 block mb-1">
+                  🏆 ES EL TURNO DE
+                </span>
+                <div className="flex items-center gap-3">
+                  <img
+                    src={getAnimalAvatar(activePlayer?.animal).image}
+                    alt={getAnimalAvatar(activePlayer?.animal).name}
+                    className="w-14 h-14 object-contain rounded-2xl bg-[#0c0a0b] p-1 border-2 border-amber-400 drop-shadow-md"
+                  />
+                  <div>
+                    <div className="flex items-center gap-1.5">
+                      <span className="text-2xl font-black text-amber-400 tracking-wide">
+                        {activePlayer.name}
+                      </span>
+                      <span className="text-sm">
+                        {activePlayer.gender === 'mujer' ? '👩' : activePlayer.gender === 'hombre' ? '👨' : '🧑'}
+                      </span>
+                    </div>
+                    <span className="text-xs text-amber-300 font-bold block">
+                      {getAnimalAvatar(activePlayer?.animal).name}
+                    </span>
+                    <span className="text-[11px] text-stone-400 italic block">
+                      "{getAnimalAvatar(activePlayer?.animal).phrase}"
+                    </span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Mesa y Ronda de Jugadores */}
+              <div className="bg-[#0c0a0b] p-3 rounded-2xl border border-stone-800">
+                <div className="flex items-center justify-between text-xs text-stone-400 font-bold mb-2">
+                  <span>👥 MESA ({players.length} JUGADORES)</span>
+                  {nextPlayer && (
+                    <span className="text-amber-400">👉 Siguiente: <strong>{nextPlayer.name}</strong></span>
+                  )}
+                </div>
+                <div className="flex flex-wrap gap-1.5 max-h-24 overflow-y-auto custom-scrollbar pr-1">
+                  {players.map((p, idx) => {
+                    const isCurrent = idx === currentPlayerIndex % (players.length || 1);
+                    const isNext = nextPlayer && p.id === nextPlayer.id;
+                    const pAnimal = getAnimalAvatar(p.animal);
+                    return (
+                      <span
+                        key={p.id}
+                        className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-xl text-xs font-bold transition-all ${
+                          isCurrent
+                            ? 'bg-amber-500/20 border-2 border-amber-400 text-amber-300 shadow-md ring-1 ring-amber-400/40'
+                            : isNext
+                            ? 'bg-stone-800/90 border border-amber-500/30 text-stone-200'
+                            : 'bg-[#161214] border border-stone-800 text-stone-500'
+                        }`}
+                      >
+                        <img src={pAnimal.image} alt={pAnimal.name} className="w-4 h-4 object-contain rounded" />
+                        <span>{p.name}</span>
+                        {isCurrent && <span className="text-[10px]">🎯</span>}
+                      </span>
+                    );
+                  })}
+                </div>
+              </div>
+
+              {/* Modo de Juego Activo */}
+              <div className="flex items-center justify-between p-3 rounded-2xl bg-stone-900/60 border border-stone-800">
+                <div className="flex items-center gap-2.5">
+                  <span className="text-2xl">{activeModeObj.icon}</span>
+                  <div>
+                    <span className="text-xs font-black text-white block">{activeModeObj.name}</span>
+                    <span className="text-[10px] text-stone-400 block">{activeModeObj.tag}</span>
+                  </div>
+                </div>
+                <button
+                  onClick={() => setShowModeModal(true)}
+                  className="text-xs text-amber-400 hover:text-amber-300 font-bold underline"
+                >
+                  Cambiar
+                </button>
+              </div>
+
+              {/* Acceso Rápido Ruleta de Castigo */}
+              <button
+                onClick={() => setShowPenaltyModal(true)}
+                className="w-full py-2.5 px-4 rounded-xl bg-red-950/40 hover:bg-red-900/50 border border-red-500/40 text-red-300 hover:text-white font-bold text-xs uppercase tracking-wide transition flex items-center justify-center gap-2 shadow"
+              >
+                <span>🎲</span>
+                <span>Ruleta del Jugoso (Castigo)</span>
+              </button>
+            </div>
+          </div>
         )}
       </main>
 

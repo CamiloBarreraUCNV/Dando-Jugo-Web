@@ -86,22 +86,22 @@ export default function CardModal({ card, activePlayer, currentMode, onClose, on
   const targetAnimal = card.targetPlayer ? getAnimalAvatar(card.targetPlayer.animal) : null;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/85 backdrop-blur-md animate-in fade-in duration-200">
-      <div className={`w-full max-w-md bg-[#171216] border-2 ${theme.bg} rounded-3xl p-6 shadow-2xl flex flex-col justify-between max-h-[88dvh] overflow-y-auto no-scrollbar`}>
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-black/85 backdrop-blur-md animate-in fade-in duration-200">
+      <div className={`w-full max-w-md md:max-w-xl lg:max-w-2xl bg-[#171216] border-2 ${theme.bg} rounded-3xl p-5 sm:p-6 md:p-8 shadow-2xl flex flex-col justify-between max-h-[88dvh] overflow-y-auto no-scrollbar`}>
         <div>
           {/* Barra superior de categoría y dificultad */}
           <div className="flex items-center justify-between mb-3">
-            <span className={`px-3 py-1 rounded-full text-xs font-black uppercase tracking-wider ${theme.badge}`}>
+            <span className={`px-3 py-1 rounded-full text-xs md:text-sm font-black uppercase tracking-wider ${theme.badge}`}>
               {theme.label}
             </span>
             <div className="flex items-center gap-1.5">
               {card.dificultad && (
-                <span className="text-[11px] font-bold text-amber-300 bg-amber-950/60 border border-amber-500/40 px-2 py-0.5 rounded-lg">
+                <span className="text-[11px] md:text-xs font-bold text-amber-300 bg-amber-950/60 border border-amber-500/40 px-2 py-0.5 rounded-lg">
                   Dificultad {card.dificultad}/10
                 </span>
               )}
               {card.categoria && (
-                <span className="text-xs font-semibold text-slate-400 bg-slate-800 px-2.5 py-1 rounded-lg">
+                <span className="text-xs md:text-sm font-semibold text-slate-400 bg-slate-800 px-2.5 py-1 rounded-lg">
                   {card.categoria}
                 </span>
               )}
@@ -109,18 +109,18 @@ export default function CardModal({ card, activePlayer, currentMode, onClose, on
           </div>
 
           {/* Banner de Jugador en Turno y Objetivo Automático con Animales */}
-          <div className="mb-4 p-3 rounded-2xl bg-slate-950/90 border border-slate-800 flex flex-wrap items-center justify-between gap-2 shadow-inner">
+          <div className="mb-4 p-3 md:p-3.5 rounded-2xl bg-slate-950/90 border border-slate-800 flex flex-wrap items-center justify-between gap-2 shadow-inner">
             <div className="flex items-center gap-2.5">
               <img
                 src={activeAnimal.image}
                 alt={activeAnimal.name}
-                className="w-10 h-10 object-contain rounded-xl bg-slate-900 p-0.5 border border-amber-400/60 drop-shadow"
+                className="w-10 h-10 md:w-12 md:h-12 object-contain rounded-xl bg-slate-900 p-0.5 border border-amber-400/60 drop-shadow"
               />
               <div>
-                <span className="text-[10px] text-slate-400 font-bold block uppercase tracking-wider">
+                <span className="text-[10px] md:text-xs text-slate-400 font-bold block uppercase tracking-wider">
                   Turno de:
                 </span>
-                <span className="text-sm font-black text-amber-400">
+                <span className="text-sm md:text-base font-black text-amber-400">
                   {activePlayer?.name || 'Jugador'}
                 </span>
               </div>
@@ -128,17 +128,17 @@ export default function CardModal({ card, activePlayer, currentMode, onClose, on
 
             {/* Jugador Objetivo seleccionado automáticamente */}
             {card.targetPlayer && targetAnimal && (
-              <div className="flex items-center gap-2 bg-rose-500/20 border border-rose-500/50 px-2.5 py-1 rounded-xl animate-pulse">
+              <div className="flex items-center gap-2 bg-rose-500/20 border border-rose-500/50 px-2.5 py-1.5 rounded-xl animate-pulse">
                 <img
                   src={targetAnimal.image}
                   alt={targetAnimal.name}
-                  className="w-8 h-8 object-contain rounded-lg bg-slate-950 p-0.5 border border-rose-400 drop-shadow"
+                  className="w-8 h-8 md:w-9 md:h-9 object-contain rounded-lg bg-slate-950 p-0.5 border border-rose-400 drop-shadow"
                 />
                 <div>
-                  <span className="text-[9px] text-rose-300 font-black block uppercase tracking-wider">
+                  <span className="text-[9px] md:text-[10px] text-rose-300 font-black block uppercase tracking-wider">
                     🎯 Víctima / Pareja:
                   </span>
-                  <span className="text-xs font-black text-white">
+                  <span className="text-xs md:text-sm font-black text-white">
                     {card.targetPlayer.name}
                   </span>
                 </div>
@@ -148,20 +148,20 @@ export default function CardModal({ card, activePlayer, currentMode, onClose, on
 
           {/* Título de la tarjeta */}
           {(card.titulo || card.juego) && (
-            <h3 className="text-2xl font-black text-amber-400 mb-2 leading-tight">
+            <h3 className="text-xl sm:text-2xl md:text-3xl font-black text-amber-400 mb-2 leading-tight">
               {card.titulo || card.juego}
             </h3>
           )}
 
           {/* Contenido / Descripción */}
-          <div className="my-3 text-slate-100 text-lg sm:text-xl font-medium leading-relaxed">
+          <div className="my-3 text-slate-100 text-base sm:text-lg md:text-xl font-medium leading-relaxed">
             {card.descripcionFormateada || card.pregunta}
           </div>
 
           {/* Renderizado específico e interactivo para Trivia */}
           {isTrivia && (
             <div className="mt-4 space-y-2">
-              <div className="grid grid-cols-1 gap-2">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-2.5">
                 {card.opciones && Object.entries(card.opciones).map(([letter, text]) => {
                   const isCorrect = card.correcta && (text === card.correcta || letter === card.correcta);
                   const isChosen = selectedOption === text;
@@ -256,7 +256,7 @@ export default function CardModal({ card, activePlayer, currentMode, onClose, on
 
           {/* Castigo alternativo o castigo por fallar */}
           {card.castigoFormateado && (
-            <div className={`mt-4 p-3 rounded-xl text-xs sm:text-sm border transition-all ${
+            <div className={`mt-4 p-3 rounded-xl text-xs sm:text-sm md:text-base border transition-all ${
               triviaStatus === 'wrong'
                 ? 'bg-red-950/80 border-red-500 text-red-200 font-bold ring-2 ring-red-500/30'
                 : 'bg-red-950/40 border-red-500/30 text-red-300'
@@ -279,10 +279,10 @@ export default function CardModal({ card, activePlayer, currentMode, onClose, on
         </div>
 
         {/* Botones de acción inferiores */}
-        <div className="mt-6 pt-4 border-t border-slate-800 flex flex-col gap-2.5">
+        <div className="mt-6 pt-4 border-t border-slate-800 flex flex-col sm:flex-row gap-2.5">
           <button
             onClick={triviaStatus === 'wrong' ? onClose : handleComplete}
-            className={`w-full py-3.5 px-6 rounded-2xl font-black text-lg shadow-lg uppercase tracking-wider transition-all active:scale-98 ${
+            className={`w-full py-3.5 px-6 rounded-2xl font-black text-base sm:text-lg shadow-lg uppercase tracking-wider transition-all active:scale-98 flex-1 ${
               triviaStatus === 'wrong'
                 ? 'bg-amber-500 hover:bg-amber-400 text-slate-950 shadow-amber-500/20'
                 : 'bg-emerald-500 hover:bg-emerald-400 text-slate-950 shadow-emerald-500/20'
@@ -300,7 +300,7 @@ export default function CardModal({ card, activePlayer, currentMode, onClose, on
           {/* Botón para cuando NO quiere responder o hacer el reto */}
           <button
             onClick={handleRefuse}
-            className="w-full py-3 px-4 bg-rose-600/20 hover:bg-rose-600/30 border border-rose-500/50 text-rose-300 hover:text-white rounded-xl font-black text-sm uppercase tracking-wide transition-all shadow active:scale-98 flex items-center justify-center gap-2"
+            className="w-full sm:w-auto py-3 px-4 bg-rose-600/20 hover:bg-rose-600/30 border border-rose-500/50 text-rose-300 hover:text-white rounded-xl font-black text-sm uppercase tracking-wide transition-all shadow active:scale-98 flex items-center justify-center gap-2"
           >
             <span>🎲 No quiero hacerlo</span>
             <span className="text-xs bg-rose-500/40 px-2 py-0.5 rounded-full text-rose-200">Girar Castigo</span>

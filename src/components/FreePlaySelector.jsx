@@ -9,24 +9,24 @@ export default function FreePlaySelector({ onSelectGameType }) {
   };
 
   return (
-    <div className="w-full flex-1 min-h-0 flex flex-col py-1 animate-in fade-in duration-200">
+    <div className="w-full max-w-md md:max-w-4xl mx-auto flex-1 min-h-0 flex flex-col py-1 animate-in fade-in duration-200">
       <div className="text-center mb-2 shrink-0">
-        <h3 className="text-lg font-black text-amber-400 tracking-wide uppercase">
+        <h3 className="text-lg md:text-xl font-black text-amber-400 tracking-wide uppercase">
           🎴 Modo a la Carta
         </h3>
-        <p className="text-xs text-stone-400">
+        <p className="text-xs md:text-sm text-stone-400">
           Elige la dinámica que quieres jugar en tu turno:
         </p>
       </div>
 
-      {/* Lista con barra de navegación/desplazamiento vertical visible */}
-      <div className="flex-1 min-h-0 overflow-y-auto custom-scrollbar pr-2 pb-4 space-y-3">
+      {/* Grid adaptativo: 1 columna en móvil, 2 columnas en tablet/desktop */}
+      <div className="flex-1 min-h-0 overflow-y-auto custom-scrollbar pr-2 pb-4 grid grid-cols-1 md:grid-cols-2 gap-3 content-start">
         {GAME_TYPES.map((game) => (
           <button
             key={game.id}
             type="button"
             onClick={() => handleSelect(game.id)}
-            className={`w-full text-left p-3.5 sm:p-4 rounded-2xl border ${game.borderColor} bg-gradient-to-r ${game.color} bg-opacity-25 hover:brightness-110 active:scale-98 transition-all shadow-lg group relative overflow-hidden shrink-0`}
+            className={`w-full text-left p-3.5 sm:p-4 rounded-2xl border ${game.borderColor} bg-gradient-to-r ${game.color} bg-opacity-25 hover:brightness-110 active:scale-98 transition-all shadow-lg group relative overflow-hidden`}
           >
             {/* Efecto de iluminación en hover */}
             <div className="absolute inset-0 bg-white/5 opacity-0 group-hover:opacity-100 transition-opacity" />

@@ -402,7 +402,7 @@
   {
     "id": 11,
     "titulo": "Mímica",
-    "descripcion": "Titanic (Jack y Rose abriendo los brazos en la proa)",
+    "descripcion": "Michael Jackson",
     "castigo": null,
     "dificultad": 2,
     "categoria": null,
@@ -412,7 +412,7 @@
   {
     "id": 12,
     "titulo": "Mímica",
-    "descripcion": "Michael Jackson (Caminata lunar / Moonwalk y sombrero)",
+    "descripcion": "El Chavo del 8",
     "castigo": null,
     "dificultad": 2,
     "categoria": null,
@@ -422,7 +422,7 @@
   {
     "id": 13,
     "titulo": "Mímica",
-    "descripcion": "El Chavo del 8 (La garrotera o llorando 'pi-pi-pi')",
+    "descripcion": "Spiderman",
     "castigo": null,
     "dificultad": 2,
     "categoria": null,
@@ -432,7 +432,7 @@
   {
     "id": 14,
     "titulo": "Mímica",
-    "descripcion": "Spiderman (Lanzar telarañas con ambas muñecas)",
+    "descripcion": "Goku",
     "castigo": null,
     "dificultad": 2,
     "categoria": null,
@@ -442,7 +442,7 @@
   {
     "id": 15,
     "titulo": "Mímica",
-    "descripcion": "Goku (Cargar y lanzar un Kamehameha)",
+    "descripcion": "Darth Vader",
     "castigo": null,
     "dificultad": 2,
     "categoria": null,
@@ -452,7 +452,7 @@
   {
     "id": 16,
     "titulo": "Mímica",
-    "descripcion": "Darth Vader (Ahorcamiento con la Fuerza y respiración)",
+    "descripcion": "Terminator",
     "castigo": null,
     "dificultad": 2,
     "categoria": null,
@@ -462,7 +462,7 @@
   {
     "id": 17,
     "titulo": "Mímica",
-    "descripcion": "Terminator (Caminata de robot rígido y disparar escopeta)",
+    "descripcion": "Shakira",
     "castigo": null,
     "dificultad": 2,
     "categoria": null,
@@ -472,7 +472,7 @@
   {
     "id": 18,
     "titulo": "Mímica",
-    "descripcion": "Shakira (Bailar danza del vientre moviendo las caderas)",
+    "descripcion": "Harry Potter",
     "castigo": null,
     "dificultad": 2,
     "categoria": null,
@@ -482,7 +482,7 @@
   {
     "id": 19,
     "titulo": "Mímica",
-    "descripcion": "Harry Potter (Ponerse lentes redondos y lanzar hechizos con varita)",
+    "descripcion": "Jack Sparrow",
     "castigo": null,
     "dificultad": 2,
     "categoria": null,
@@ -492,7 +492,7 @@
   {
     "id": 20,
     "titulo": "Mímica",
-    "descripcion": "Matrix (Esquivar balas inclinándose en cámara lenta hacia atrás)",
+    "descripcion": "Rocky Balboa",
     "castigo": null,
     "dificultad": 2,
     "categoria": null,
@@ -502,7 +502,7 @@
   {
     "id": 81,
     "titulo": "Mímica",
-    "descripcion": "Jack Sparrow (Piratas del Caribe - Pirata tambaleándose ebrio)",
+    "descripcion": "Tarzán",
     "castigo": null,
     "dificultad": 2,
     "categoria": null,
@@ -512,7 +512,7 @@
   {
     "id": 82,
     "titulo": "Mímica",
-    "descripcion": "Rocky Balboa (Trotar tirando golpes al aire y saltar con puños en alto)",
+    "descripcion": "Drácula",
     "castigo": null,
     "dificultad": 2,
     "categoria": null,
@@ -522,7 +522,7 @@
   {
     "id": 83,
     "titulo": "Mímica",
-    "descripcion": "Tarzán (Golpearse el pecho como gorila y colgarse de lianas)",
+    "descripcion": "Homero Simpson",
     "castigo": null,
     "dificultad": 2,
     "categoria": null,
@@ -532,7 +532,7 @@
   {
     "id": 84,
     "titulo": "Mímica",
-    "descripcion": "Drácula (Capa de vampiro tapando la boca y morder el cuello)",
+    "descripcion": "Freddie Mercury",
     "castigo": null,
     "dificultad": 2,
     "categoria": null,
@@ -542,7 +542,7 @@
   {
     "id": 85,
     "titulo": "Mímica",
-    "descripcion": "Homero Simpson (Comerse una rosquilla babeando y gritar ¡D'oh!)",
+    "descripcion": "Marilyn Monroe",
     "castigo": null,
     "dificultad": 2,
     "categoria": null,
@@ -552,7 +552,7 @@
   {
     "id": 86,
     "titulo": "Mímica",
-    "descripcion": "Freddie Mercury (Pose épica con el micrófono y puño al cielo)",
+    "descripcion": "Mr. Bean",
     "castigo": null,
     "dificultad": 2,
     "categoria": null,
@@ -862,7 +862,7 @@
   {
     "id": 87,
     "titulo": "Mímica",
-    "descripcion": "Marilyn Monroe (El viento levantándole la falda del vestido)",
+    "descripcion": "Shrek",
     "castigo": null,
     "dificultad": 2,
     "categoria": null,
@@ -872,7 +872,7 @@
   {
     "id": 88,
     "titulo": "Mímica",
-    "descripcion": "Mr. Bean (Cara graciosa, arreglarse la corbata y manejar un mini auto)",
+    "descripcion": "Batman",
     "castigo": null,
     "dificultad": 2,
     "categoria": null,
@@ -882,7 +882,7 @@
   {
     "id": 89,
     "titulo": "Mímica",
-    "descripcion": "El Padrino (Acariciar un gato en el regazo y dar a besar el anillo)",
+    "descripcion": "Mario Bros",
     "castigo": null,
     "dificultad": 2,
     "categoria": null,
@@ -892,7 +892,7 @@
   {
     "id": 90,
     "titulo": "Mímica",
-    "descripcion": "Shrek (Rugido de ogro abriendo las manos y rascarse la panza)",
+    "descripcion": "Zombie",
     "castigo": null,
     "dificultad": 2,
     "categoria": null,
@@ -902,7 +902,7 @@
   {
     "id": 91,
     "titulo": "Mímica",
-    "descripcion": "Pedir la cuenta en un restaurante (Hacer la firma en el aire con la mano)",
+    "descripcion": "Borracho",
     "castigo": null,
     "dificultad": 2,
     "categoria": null,
@@ -912,7 +912,7 @@
   {
     "id": 92,
     "titulo": "Mímica",
-    "descripcion": "Pisar una caca de perro (Limpiarse el zapato con asco en el pasto)",
+    "descripcion": "Guitarra eléctrica",
     "castigo": null,
     "dificultad": 2,
     "categoria": null,
@@ -922,7 +922,7 @@
   {
     "id": 93,
     "titulo": "Mímica",
-    "descripcion": "Intentar abrir una puerta empujando cuando dice 'Tire'",
+    "descripcion": "Motocicleta",
     "castigo": null,
     "dificultad": 2,
     "categoria": null,
@@ -932,7 +932,7 @@
   {
     "id": 94,
     "titulo": "Mímica",
-    "descripcion": "Dormirse cabeceando en el metro o micro y despertar de golpe",
+    "descripcion": "Batería",
     "castigo": null,
     "dificultad": 2,
     "categoria": null,
@@ -942,7 +942,7 @@
   {
     "id": 95,
     "titulo": "Mímica",
-    "descripcion": "Borracho buscando desesperadamente las llaves en todos los bolsillos",
+    "descripcion": "Bebé",
     "castigo": null,
     "dificultad": 2,
     "categoria": null,
@@ -952,7 +952,7 @@
   {
     "id": 96,
     "titulo": "Mímica",
-    "descripcion": "Chef probando sopa hirviendo y quemándose la lengua con dolor",
+    "descripcion": "Chef",
     "castigo": null,
     "dificultad": 2,
     "categoria": null,
@@ -962,7 +962,7 @@
   {
     "id": 97,
     "titulo": "Mímica",
-    "descripcion": "Gamer jugando concentrado y lanzando el control de rabia al perder",
+    "descripcion": "Boxeador",
     "castigo": null,
     "dificultad": 2,
     "categoria": null,
@@ -972,7 +972,7 @@
   {
     "id": 98,
     "titulo": "Mímica",
-    "descripcion": "Sacarse una selfie grupal con pose y piquito exagerado",
+    "descripcion": "Policía",
     "castigo": null,
     "dificultad": 2,
     "categoria": null,
@@ -982,7 +982,7 @@
   {
     "id": 99,
     "titulo": "Mímica",
-    "descripcion": "Ponerse desodorante o perfume en exceso debajo de las axilas",
+    "descripcion": "Mozo",
     "castigo": null,
     "dificultad": 2,
     "categoria": null,
@@ -992,7 +992,7 @@
   {
     "id": 100,
     "titulo": "Mímica",
-    "descripcion": "Cantante de ópera o mariachi dando una nota altísima con el pecho inflado",
+    "descripcion": "Cámara de fotos",
     "castigo": null,
     "dificultad": 2,
     "categoria": null,

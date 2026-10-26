@@ -2,7 +2,7 @@
   {
     "id": 1,
     "titulo": "¿Quién es más Probable?",
-    "descripcion": "¿Quién es mas probable que renuncie?",
+    "descripcion": "¿Quién es más probable que renuncie a su trabajo?",
     "castigo": null,
     "dificultad": 2,
     "categoria": null,
@@ -12,7 +12,7 @@
   {
     "id": 2,
     "titulo": "¿Quién es más Probable?",
-    "descripcion": "¿Quién se mira mas al espejo?",
+    "descripcion": "¿Quién se mira más al espejo?",
     "castigo": null,
     "dificultad": 1,
     "categoria": null,
@@ -22,7 +22,7 @@
   {
     "id": 3,
     "titulo": "¿Quién es más Probable?",
-    "descripcion": "¿Quién es más facíl para seducir?",
+    "descripcion": "¿Quién es más fácil para seducir?",
     "castigo": null,
     "dificultad": 4,
     "categoria": null,
@@ -102,7 +102,7 @@
   {
     "id": 53,
     "titulo": "¿Quién es más Probable?",
-    "descripcion": "¿Quién es mas probable que realice una revolución en su trabajo?",
+    "descripcion": "¿Quién es más probable que arme una revolución en su trabajo?",
     "castigo": null,
     "dificultad": 4,
     "categoria": null,
@@ -132,7 +132,7 @@
   {
     "id": 62,
     "titulo": "¿Quién es más Probable?",
-    "descripcion": "¿Quién es mas probable que mate a un familiar?",
+    "descripcion": "¿Quién es más probable que termine peleado con un familiar por una herencia?",
     "castigo": null,
     "dificultad": 9,
     "categoria": null,
@@ -242,7 +242,7 @@
   {
     "id": 45,
     "titulo": "Cultura Chupistica",
-    "descripcion": "Peliculas que hayan ganado un oscar",
+    "descripcion": "Películas que hayan ganado un Oscar",
     "castigo": null,
     "dificultad": 6,
     "categoria": null,
@@ -282,7 +282,7 @@
   {
     "id": 49,
     "titulo": "Cultura Chupistica",
-    "descripcion": "Dibujos animados de los 90's",
+    "descripcion": "Dibujos animados de los 90",
     "castigo": null,
     "dificultad": 5,
     "categoria": null,
@@ -352,7 +352,7 @@
   {
     "id": 67,
     "titulo": "Cultura Chupistica",
-    "descripcion": "Formas de decirle a tu mamá que tendras un hijo",
+    "descripcion": "Formas de decirle a tu mamá que tendrás un hijo",
     "castigo": null,
     "dificultad": 5,
     "categoria": null,
@@ -442,7 +442,7 @@
   {
     "id": 15,
     "titulo": "Mimica",
-    "descripcion": "Alienigena",
+    "descripcion": "Alienígena",
     "castigo": null,
     "dificultad": 3,
     "categoria": null,
@@ -452,7 +452,7 @@
   {
     "id": 16,
     "titulo": "Mimica",
-    "descripcion": "Cactús",
+    "descripcion": "Cactus",
     "castigo": null,
     "dificultad": 5,
     "categoria": null,
@@ -462,7 +462,7 @@
   {
     "id": 17,
     "titulo": "Mimica",
-    "descripcion": "Bonsai",
+    "descripcion": "Bonsái",
     "castigo": null,
     "dificultad": 7,
     "categoria": null,
@@ -542,7 +542,7 @@
   {
     "id": 85,
     "titulo": "Mimica",
-    "descripcion": "Silvester Stallone",
+    "descripcion": "Sylvester Stallone",
     "castigo": null,
     "dificultad": 5,
     "categoria": null,
@@ -552,7 +552,7 @@
   {
     "id": 86,
     "titulo": "Mimica",
-    "descripcion": "Pokemón",
+    "descripcion": "Pokémon",
     "castigo": null,
     "dificultad": 8,
     "categoria": null,
@@ -622,7 +622,7 @@
   {
     "id": 37,
     "titulo": "Nunca nunca",
-    "descripcion": "Nunca nunca he orinado en publico",
+    "descripcion": "Nunca nunca he orinado en público",
     "castigo": null,
     "dificultad": 5,
     "categoria": null,
@@ -642,7 +642,7 @@
   {
     "id": 39,
     "titulo": "Nunca nunca",
-    "descripcion": "Nunca nunca he estado mas de cuatro dias sin bañarme",
+    "descripcion": "Nunca nunca he estado más de cuatro días sin bañarme",
     "castigo": null,
     "dificultad": 5,
     "categoria": null,
@@ -652,7 +652,7 @@
   {
     "id": 40,
     "titulo": "Nunca nunca",
-    "descripcion": "Nunca nunca me he reido de un chiste que no entendí",
+    "descripcion": "Nunca nunca me he reído de un chiste que no entendí",
     "castigo": null,
     "dificultad": 2,
     "categoria": null,
@@ -672,7 +672,7 @@
   {
     "id": 54,
     "titulo": "Nunca nunca",
-    "descripcion": "Nunca nunca he fantasiado con alguien que es minimo 10 años mayor",
+    "descripcion": "Nunca nunca he fantaseado con alguien que es mínimo 10 años mayor",
     "castigo": null,
     "dificultad": 7,
     "categoria": null,
@@ -742,7 +742,7 @@
   {
     "id": 75,
     "titulo": "Nunca nunca",
-    "descripcion": "Nunca nunca me han llevado detenido a la comisaria",
+    "descripcion": "Nunca nunca me han llevado detenido a la comisaría",
     "castigo": null,
     "dificultad": 7,
     "categoria": null,
@@ -762,7 +762,7 @@
   {
     "id": 21,
     "titulo": "Versus",
-    "descripcion": "¿Quién bebe agua mas rapido?",
+    "descripcion": "¿Quién bebe un vaso de agua más rápido?",
     "castigo": null,
     "dificultad": 3,
     "categoria": null,
@@ -792,7 +792,7 @@
   {
     "id": 24,
     "titulo": "Versus",
-    "descripcion": "¿Quién hace mas sentadillas en 60 segundos?",
+    "descripcion": "¿Quién hace más sentadillas en 30 segundos?",
     "castigo": null,
     "dificultad": 6,
     "categoria": null,
@@ -832,7 +832,7 @@
   {
     "id": 28,
     "titulo": "Versus",
-    "descripcion": "¿Quién es capaz de aguantar más cachetadas?",
+    "descripcion": "¿Quién es capaz de aguantar más cosquillas sin reírse?",
     "castigo": null,
     "dificultad": 8,
     "categoria": null,
@@ -872,7 +872,7 @@
   {
     "id": 88,
     "titulo": "Mimica",
-    "descripcion": "El Señor de los anillos",
+    "descripcion": "El Señor de los Anillos",
     "castigo": null,
     "dificultad": 6,
     "categoria": null,
@@ -922,7 +922,7 @@
   {
     "id": 93,
     "titulo": "Mimica",
-    "descripcion": "Padel",
+    "descripcion": "Pádel",
     "castigo": null,
     "dificultad": 5,
     "categoria": null,
@@ -932,7 +932,7 @@
   {
     "id": 94,
     "titulo": "Mimica",
-    "descripcion": "Voleyball",
+    "descripcion": "Voleibol",
     "castigo": null,
     "dificultad": 4,
     "categoria": null,
@@ -942,7 +942,7 @@
   {
     "id": 95,
     "titulo": "Mimica",
-    "descripcion": "Beisbol",
+    "descripcion": "Béisbol",
     "castigo": null,
     "dificultad": 4,
     "categoria": null,
@@ -992,7 +992,7 @@
   {
     "id": 100,
     "titulo": "Mimica",
-    "descripcion": "Capitan America",
+    "descripcion": "Capitán América",
     "castigo": null,
     "dificultad": 4,
     "categoria": null,

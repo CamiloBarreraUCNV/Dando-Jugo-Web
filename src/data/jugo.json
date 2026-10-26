@@ -2,7 +2,7 @@
   {
     "id": 1,
     "titulo": "Borracho Limpio",
-    "descripcion": "Busca una escoba y limpia el lugar donde estan jugando.",
+    "descripcion": "Busca una escoba o paño y limpia la mesa donde están jugando.",
     "castigo": "Bebe # sorbo si no limpias el lugar.",
     "dificultad": 2,
     "categoria": null,
@@ -11,8 +11,8 @@
   },
   {
     "id": 2,
-    "titulo": "TransBorracho",
-    "descripcion": "Finge que eres del sexo contrario durante # ronda",
+    "titulo": "Borracho Opuesto",
+    "descripcion": "Finge que eres del sexo opuesto durante # ronda.",
     "castigo": "Bebe % sorbos si rechazas el reto; $ sorbos por cada incumplimiento durante la ronda.",
     "dificultad": 5,
     "categoria": null,
@@ -21,8 +21,8 @@
   },
   {
     "id": 3,
-    "titulo": "Borracho Bailarin",
-    "descripcion": "Elige una canción y realiza el baile mas ridiculo que puedas durante % segundos",
+    "titulo": "Borracho Bailarín",
+    "descripcion": "Elige una canción y realiza el baile más ridículo que puedas durante % segundos.",
     "castigo": "Bebe $ sorbos si no completas el baile.",
     "dificultad": 4,
     "categoria": null,
@@ -81,7 +81,7 @@
   },
   {
     "id": 9,
-    "titulo": "Borracho Fanatico",
+    "titulo": "Borracho Fanático",
     "descripcion": "Durante # rondas, debes pararte y aplaudir cada vez que otro jugador beba.",
     "castigo": "Bebe # sorbo cada vez que olvides pararte y aplaudir.",
     "dificultad": 3,
@@ -92,7 +92,7 @@
   {
     "id": 10,
     "titulo": "Borracho Fetichista",
-    "descripcion": "Lame la oreja de otro jugador, si nadie te acepta, sufre en soledad y bebe $ sorbos.",
+    "descripcion": "Susúrrale al oído a otro jugador una frase romántica o tierna durante 10 segundos.",
     "castigo": "Bebe $ sorbos si no realizas el reto o nadie acepta.",
     "dificultad": 7,
     "categoria": null,
@@ -102,7 +102,7 @@
   {
     "id": 11,
     "titulo": "Borracho Cantante",
-    "descripcion": "Ponte audifonos, elige una canción que te sepas y tienes que cantarla durante / segundos.",
+    "descripcion": "Ponte audífonos, elige una canción que te sepas y cántala a viva voz durante / segundos.",
     "castigo": "Bebe $ sorbos si no cantas durante todo el tiempo indicado.",
     "dificultad": 4,
     "categoria": null,
@@ -112,7 +112,7 @@
   {
     "id": 12,
     "titulo": "Borracho Sucio",
-    "descripcion": "Quitate un calcetín y dejalo encima del tablero por # ronda",
+    "descripcion": "Quítate un calcetín y déjalo encima de la mesa por # ronda.",
     "castigo": "Bebe # sorbo si no dejas el calcetín o lo retiras antes de terminar la ronda.",
     "dificultad": 2,
     "categoria": null,
@@ -122,7 +122,7 @@
   {
     "id": 13,
     "titulo": "Borracho Zen",
-    "descripcion": "Realiza la posición de yoga \"Araña\" durante / segundos",
+    "descripcion": "Realiza una postura de yoga difícil durante / segundos.",
     "castigo": "Bebe & sorbos si no completas la postura durante el tiempo indicado.",
     "dificultad": 8,
     "categoria": null,
@@ -132,7 +132,7 @@
   {
     "id": 14,
     "titulo": "Borracho Coqueto",
-    "descripcion": "Sientate en las piernas de otro jugador durante # rondas",
+    "descripcion": "Siéntate en las piernas de otro jugador durante # rondas.",
     "castigo": "Bebe % sorbos si no realizas el reto o nadie acepta.",
     "dificultad": 6,
     "categoria": null,
@@ -142,7 +142,7 @@
   {
     "id": 15,
     "titulo": "Borracho Gymbro",
-    "descripcion": "Realiza % sentadillas en la cara de otro jugador",
+    "descripcion": "Realiza % flexiones de brazos o sentadillas con otro jugador alentándote como tu entrenador.",
     "castigo": "Bebe & sorbos si no completas las sentadillas o nadie acepta.",
     "dificultad": 8,
     "categoria": null,
@@ -181,8 +181,8 @@
   },
   {
     "id": 19,
-    "titulo": "Borracho Streaper",
-    "descripcion": "Debes realizar un baile sensual a los demas jugadores durante / segundos.",
+    "titulo": "Borracho Stripper",
+    "descripcion": "Realiza un baile cómico sensual a los demás jugadores durante / segundos.",
     "castigo": "Bebe & sorbos si no completas el baile.",
     "dificultad": 7,
     "categoria": null,
@@ -191,7 +191,7 @@
   },
   {
     "id": 20,
-    "titulo": "Borracho Griton",
+    "titulo": "Borracho Gritón",
     "descripcion": "Debes gritar \"AAAAAAH\" cada vez que termines de hablar durante # ronda.",
     "castigo": "Bebe $ sorbos cada vez que olvides gritar al terminar de hablar.",
     "dificultad": 5,
@@ -211,7 +211,7 @@
   },
   {
     "id": 22,
-    "titulo": "Borracho Romantico",
+    "titulo": "Borracho Romántico",
     "descripcion": "Durante # ronda, antes de hablar con alguien debes abrazarlo.",
     "castigo": "Bebe $ sorbos cada vez que hables con alguien sin abrazarlo antes.",
     "dificultad": 4,
@@ -231,7 +231,7 @@
   },
   {
     "id": 24,
-    "titulo": "Borracho Fotografo",
+    "titulo": "Borracho Fotógrafo",
     "descripcion": "Durante # ronda, debes fotografiar a cada jugador en un momento desprevenido.",
     "castigo": "Bebe $ sorbos si al terminar la ronda te falta fotografiar a algún jugador.",
     "dificultad": 4,
@@ -262,7 +262,7 @@
   {
     "id": 27,
     "titulo": "Borracho DJ",
-    "descripcion": "Eliges una canción, debes colocarla en loop infinito durante # ronda.",
+    "descripcion": "Elige una canción y colócala en repetición continua durante # ronda.",
     "castigo": "Bebe # sorbo si no mantienes la canción en repetición durante la ronda.",
     "dificultad": 2,
     "categoria": null,
@@ -281,7 +281,7 @@
   },
   {
     "id": 29,
-    "titulo": "Borracho Timido",
+    "titulo": "Borracho Tímido",
     "descripcion": "Durante # ronda, no puedes tomar nada, debes esperar que alguien te lo ofrezca.",
     "castigo": "Bebe $ sorbos cada vez que tomes algo sin que te lo hayan ofrecido.",
     "dificultad": 4,
@@ -291,8 +291,8 @@
   },
   {
     "id": 30,
-    "titulo": "Borracho Tamagoshi",
-    "descripcion": "Eliges a otro jugador, debe darte de comer/beber durante # ronda.",
+    "titulo": "Borracho Tamagotchi",
+    "descripcion": "Elige a otro jugador: esa persona debe darte de comer un snack o beber en la boca durante # ronda.",
     "castigo": "Bebe % sorbos si rechazas el reto o nadie acepta ayudarte; $ sorbos cada vez que comas o bebas por tu cuenta.",
     "dificultad": 5,
     "categoria": null,
@@ -352,7 +352,7 @@
   {
     "id": 36,
     "titulo": "Borracho Feliz",
-    "descripcion": "Durante # ronda, cada vez que otro jugador hable, debes decir \"Que bueno mi niño\"",
+    "descripcion": "Durante # ronda, cada vez que otro jugador hable, debes exclamar con entusiasmo: \"¡Qué bueno, mi niño!\".",
     "castigo": "Bebe # sorbo cada vez que olvides decir \"Que bueno mi niño\".",
     "dificultad": 3,
     "categoria": null,
@@ -362,7 +362,7 @@
   {
     "id": 37,
     "titulo": "Borracho Tacaño",
-    "descripcion": "Si hay otros jugadores tomando el mismo licor, independiente de la bebida, debes quitarles el vaso y vaciarlo en el tuyo, si no cae mas, busca otro vaso",
+    "descripcion": "Si hay otros jugadores tomando el mismo licor, debes pedirles un sorbo para tu vaso; si no cabe más, busca otro vaso.",
     "castigo": "Bebe % sorbos si no realizas el reto o no hay otro jugador con el mismo licor.",
     "dificultad": 6,
     "categoria": null,
@@ -371,8 +371,8 @@
   },
   {
     "id": 38,
-    "titulo": "Borracho Cristiano",
-    "descripcion": "Durante # ronda, quita la musica, y pone de fondo un partido de Cristiano Ronaldo, debe estar en loop.",
+    "titulo": "Borracho Futbolero",
+    "descripcion": "Durante # ronda, quita la música y pon de fondo relatos de fútbol en loop continuo.",
     "castigo": "Bebe # sorbo si no mantienes el partido en repetición durante la ronda.",
     "dificultad": 2,
     "categoria": null,
@@ -381,8 +381,8 @@
   },
   {
     "id": 39,
-    "titulo": "Borracho Maestro Pokemon",
-    "descripcion": "Te pueden grabar, debes pararte y decir lo siguiente: \"Oye, ¿sabías que en términos de reproduccion de Pokémon humanos masculinos y femeninos, Vaporeon es el Pokémon más compatible para humanos. Debido a su biología principalmente basada en agua, no tengo ninguna duda de que un Vaporeon excitado estaría increíblemente mojado, tan mojado que fácilmente podrías tener sexo con uno. durante horas sin secarse.\"",
+    "titulo": "Borracho Maestro Pokémon",
+    "descripcion": "Párate y declama con pasión científica: \"¿Sabías que en términos de compatibilidad entre humanos y Pokémon, Vaporeon es el más fascinante? Debido a su biología acuática, su cuerpo retiene la humedad durante horas enteras.\"",
     "castigo": "Bebe / sorbos si no completas el texto.",
     "dificultad": 9,
     "categoria": null,
@@ -391,8 +391,8 @@
   },
   {
     "id": 40,
-    "titulo": "Borracho Filosofico",
-    "descripcion": "Pon Música clasica (Ej: Beethoven Symphony No.5) y habla como un señor completamente culturizado (o intentalo)",
+    "titulo": "Borracho Filosófico",
+    "descripcion": "Pon música clásica de fondo y habla como un filósofo ilustrado y refinado durante # ronda.",
     "castigo": "Bebe % sorbos si no pones la música o no realizas la interpretación.",
     "dificultad": 6,
     "categoria": null,

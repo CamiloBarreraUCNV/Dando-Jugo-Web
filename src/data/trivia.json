@@ -1,13 +1,13 @@
 [
   {
     "id": 1,
-    "pregunta": "¿Qué pais tiene la menor cantidad de habitantes?",
+    "pregunta": "¿Qué país tiene la menor cantidad de habitantes?",
     "castigo": "#",
     "dificultad": 4,
-    "categoria": "Geografia",
+    "categoria": "Geografía",
     "opciones": {
       "A": "Andorra",
-      "B": "Monaco",
+      "B": "Mónaco",
       "C": "Tuvalu",
       "D": "Vaticano"
     },
@@ -52,7 +52,7 @@
     "pregunta": "¿Cuál es la moneda de Japón?",
     "castigo": "#",
     "dificultad": 2,
-    "categoria": "Geografia",
+    "categoria": "Geografía",
     "opciones": {
       "A": "Dólar Japones",
       "B": "Euro Asiatico",
@@ -68,7 +68,7 @@
     "pregunta": "¿Cuál es la ciudad más poblada del mundo?",
     "castigo": "#",
     "dificultad": 4,
-    "categoria": "Geografia",
+    "categoria": "Geografía",
     "opciones": {
       "A": "Tokio",
       "B": "New York",
@@ -193,7 +193,7 @@
   },
   {
     "id": 13,
-    "pregunta": "¿En que año murió Freddy Mercury?",
+    "pregunta": "¿En qué año murió Freddy Mercury?",
     "castigo": "#",
     "dificultad": 6,
     "categoria": "Historia",
@@ -225,7 +225,7 @@
   },
   {
     "id": 15,
-    "pregunta": "¿En que año empezó la Primera Guerra Mundial?",
+    "pregunta": "¿En qué año empezó la Primera Guerra Mundial?",
     "castigo": "#",
     "dificultad": 4,
     "categoria": "Historia",
@@ -369,7 +369,7 @@
   },
   {
     "id": 24,
-    "pregunta": "¿Donde nació Juana de Arco?",
+    "pregunta": "¿Dónde nació Juana de Arco?",
     "castigo": "#",
     "dificultad": 6,
     "categoria": "Historia",
@@ -385,10 +385,10 @@
   },
   {
     "id": 25,
-    "pregunta": "¿Cuál es el oceano mas grande el mundo?",
+    "pregunta": "¿Cuál es el océano más grande del mundo?",
     "castigo": "#",
     "dificultad": 2,
-    "categoria": "Geografia",
+    "categoria": "Geografía",
     "opciones": {
       "A": "Atlantico",
       "B": "Pacifico",
@@ -401,10 +401,10 @@
   },
   {
     "id": 26,
-    "pregunta": "¿Cuál es el país mas grande del mundo?",
+    "pregunta": "¿Cuál es el país más grande del mundo?",
     "castigo": "#",
     "dificultad": 2,
-    "categoria": "Geografia",
+    "categoria": "Geografía",
     "opciones": {
       "A": "India",
       "B": "China",
@@ -420,7 +420,7 @@
     "pregunta": "¿Cuál es el país con más habitantes del mundo?",
     "castigo": "#",
     "dificultad": 3,
-    "categoria": "Geografia",
+    "categoria": "Geografía",
     "opciones": {
       "A": "China",
       "B": "India",
@@ -433,10 +433,10 @@
   },
   {
     "id": 28,
-    "pregunta": "¿Donde está la casa blanca?",
+    "pregunta": "¿Dónde está la casa blanca?",
     "castigo": "#",
     "dificultad": 2,
-    "categoria": "Geografia",
+    "categoria": "Geografía",
     "opciones": {
       "A": "Nueva York",
       "B": "Detroit",
@@ -452,7 +452,7 @@
     "pregunta": "¿Qué país produce más vino?",
     "castigo": "#",
     "dificultad": 6,
-    "categoria": "Geografia",
+    "categoria": "Geografía",
     "opciones": {
       "A": "Chile",
       "B": "Argentina",
@@ -465,10 +465,10 @@
   },
   {
     "id": 30,
-    "pregunta": "¿Cuantas personas hay en el mundo?",
+    "pregunta": "¿Cuántas personas hay en el mundo?",
     "castigo": "#",
     "dificultad": 5,
-    "categoria": "Geografia",
+    "categoria": "Geografía",
     "opciones": {
       "A": "6530 Millones",
       "B": "2460 Millones",
@@ -484,7 +484,7 @@
     "pregunta": "¿Cuál es el lugar más frío de la tierra?",
     "castigo": "#",
     "dificultad": 2,
-    "categoria": "Geografia",
+    "categoria": "Geografía",
     "opciones": {
       "A": "Artártida",
       "B": "Canadá",
@@ -500,7 +500,7 @@
     "pregunta": "¿Cuál es la montaña más alta del planeta?",
     "castigo": "#",
     "dificultad": 2,
-    "categoria": "Geografia",
+    "categoria": "Geografía",
     "opciones": {
       "A": "Aconcagua",
       "B": "Everest",
@@ -516,7 +516,7 @@
     "pregunta": "¿Cuál es el río más largo del planeta?",
     "castigo": "#",
     "dificultad": 5,
-    "categoria": "Geografia",
+    "categoria": "Geografía",
     "opciones": {
       "A": "Nilo",
       "B": "Amazonas",
@@ -529,10 +529,10 @@
   },
   {
     "id": 34,
-    "pregunta": "¿En que país se encuentra el rascacielos más alto del mundo?",
+    "pregunta": "¿En qué país se encuentra el rascacielos más alto del mundo?",
     "castigo": "#",
     "dificultad": 4,
-    "categoria": "Geografia",
+    "categoria": "Geografía",
     "opciones": {
       "A": "Estados Unidos",
       "B": "Francia",
@@ -548,7 +548,7 @@
     "pregunta": "¿Cuál es el país más poblado de África?",
     "castigo": "#",
     "dificultad": 6,
-    "categoria": "Geografia",
+    "categoria": "Geografía",
     "opciones": {
       "A": "Nigeria",
       "B": "Serbia",
@@ -564,7 +564,7 @@
     "pregunta": "¿Cuál es el país con mayor turismo del mundo?",
     "castigo": "#",
     "dificultad": 4,
-    "categoria": "Geografia",
+    "categoria": "Geografía",
     "opciones": {
       "A": "Estados Unidos",
       "B": "Francia",
@@ -580,7 +580,7 @@
     "pregunta": "¿Cuál es la capital de Turquía?",
     "castigo": "#",
     "dificultad": 6,
-    "categoria": "Geografia",
+    "categoria": "Geografía",
     "opciones": {
       "A": "Estambul",
       "B": "Ankara",
@@ -596,7 +596,7 @@
     "pregunta": "¿Cuál es el idioma oficial de Jamaica?",
     "castigo": "#",
     "dificultad": 6,
-    "categoria": "Geografia",
+    "categoria": "Geografía",
     "opciones": {
       "A": "Criollo",
       "B": "Inglés",
@@ -1089,7 +1089,7 @@
   },
   {
     "id": 69,
-    "pregunta": "¿Cuantos anillos hay en la bandera olímpica?",
+    "pregunta": "¿Cuántos anillos hay en la bandera olímpica?",
     "castigo": "#",
     "dificultad": 2,
     "categoria": "Deportes",
@@ -1300,7 +1300,7 @@
     "pregunta": "¿Quién fue el vocalista de Queen?",
     "castigo": "#",
     "dificultad": 2,
-    "categoria": "Musica",
+    "categoria": "Música",
     "opciones": {
       "A": "John Lennon",
       "B": "Prince",
@@ -1316,7 +1316,7 @@
     "pregunta": "¿Cómo se llama realmente The Weeknd?",
     "castigo": "#",
     "dificultad": 7,
-    "categoria": "Musica",
+    "categoria": "Música",
     "opciones": {
       "A": "Peter Gene",
       "B": "Leonardo Wilhelm",
@@ -1332,7 +1332,7 @@
     "pregunta": "¿Cuál es el disco más vendido de la historia?",
     "castigo": "#",
     "dificultad": 4,
-    "categoria": "Musica",
+    "categoria": "Música",
     "opciones": {
       "A": "The Dark Side of the Moon, Pink Floyd",
       "B": "Thriller, Michael Jackson",
@@ -1348,7 +1348,7 @@
     "pregunta": "¿Qué cantante americana tiene un Óscar?",
     "castigo": "#",
     "dificultad": 5,
-    "categoria": "Musica",
+    "categoria": "Música",
     "opciones": {
       "A": "Jennifer Lopez",
       "B": "Ariana Grande",
@@ -1364,7 +1364,7 @@
     "pregunta": "¿Cuántas cuerdas tiene un violín?",
     "castigo": "#",
     "dificultad": 4,
-    "categoria": "Musica",
+    "categoria": "Música",
     "opciones": {
       "A": "5",
       "B": "4",
@@ -1380,7 +1380,7 @@
     "pregunta": "¿Cuál es el nombre real de Eminem?",
     "castigo": "#",
     "dificultad": 6,
-    "categoria": "Musica",
+    "categoria": "Música",
     "opciones": {
       "A": "Peter Gene",
       "B": "Leonardo Wilhelm",
@@ -1396,7 +1396,7 @@
     "pregunta": "¿En qué año murió Elvis Presley?",
     "castigo": "#",
     "dificultad": 6,
-    "categoria": "Musica",
+    "categoria": "Música",
     "opciones": {
       "A": "1990",
       "B": "1985",
@@ -1412,7 +1412,7 @@
     "pregunta": "¿Cuántos agujeros tiene una flauta dulce?",
     "castigo": "#",
     "dificultad": 6,
-    "categoria": "Musica",
+    "categoria": "Música",
     "opciones": {
       "A": "10",
       "B": "5",
@@ -1428,7 +1428,7 @@
     "pregunta": "¿Cuál es el nombre artístico de Robyn Fenty?",
     "castigo": "#",
     "dificultad": 6,
-    "categoria": "Musica",
+    "categoria": "Música",
     "opciones": {
       "A": "Katy Perry",
       "B": "Bob Dylan",
@@ -1444,7 +1444,7 @@
     "pregunta": "¿Quién canta 'I Kissed a Girl'?",
     "castigo": "#",
     "dificultad": 4,
-    "categoria": "Musica",
+    "categoria": "Música",
     "opciones": {
       "A": "Katy Perry",
       "B": "Bob Dylan",
@@ -1460,7 +1460,7 @@
     "pregunta": "¿Quién compuso la canción 'Knocking on heavens door'?",
     "castigo": "#",
     "dificultad": 6,
-    "categoria": "Musica",
+    "categoria": "Música",
     "opciones": {
       "A": "Katy Perry",
       "B": "Bob Dylan",
@@ -1476,7 +1476,7 @@
     "pregunta": "¿Quién cantaba 'Hey Jude'?",
     "castigo": "#",
     "dificultad": 2,
-    "categoria": "Musica",
+    "categoria": "Música",
     "opciones": {
       "A": "The Beatles",
       "B": "The Rolling Stones",
@@ -1492,7 +1492,7 @@
     "pregunta": "¿Quién cantaba 'Love me Tender'?",
     "castigo": "#",
     "dificultad": 4,
-    "categoria": "Musica",
+    "categoria": "Música",
     "opciones": {
       "A": "Elvis Presley",
       "B": "The Beatles",
@@ -1508,7 +1508,7 @@
     "pregunta": "¿Quién canta 'Girls Just Wanna Have Fun'?",
     "castigo": "#",
     "dificultad": 5,
-    "categoria": "Musica",
+    "categoria": "Música",
     "opciones": {
       "A": "Katy Perry",
       "B": "Bob Dylan",
@@ -1524,7 +1524,7 @@
     "pregunta": "¿Quién canta 'Barbie Girl'?",
     "castigo": "#",
     "dificultad": 5,
-    "categoria": "Musica",
+    "categoria": "Música",
     "opciones": {
       "A": "Katy Perry",
       "B": "Cindy Lauper",
@@ -1540,7 +1540,7 @@
     "pregunta": "¿Qué película musical protagonizó Zac Efron?",
     "castigo": "#",
     "dificultad": 2,
-    "categoria": "Musica",
+    "categoria": "Música",
     "opciones": {
       "A": "Camp Rock",
       "B": "High School Musical",
@@ -1556,7 +1556,7 @@
     "pregunta": "¿Quién era el cantante de Linkin Park?",
     "castigo": "#",
     "dificultad": 4,
-    "categoria": "Musica",
+    "categoria": "Música",
     "opciones": {
       "A": "Michael Jackson",
       "B": "Chester Bennington",
@@ -1572,7 +1572,7 @@
     "pregunta": "¿Cómo se llamaba el primer single de Britney Spears?",
     "castigo": "#",
     "dificultad": 7,
-    "categoria": "Musica",
+    "categoria": "Música",
     "opciones": {
       "A": "Baby One More Time",
       "B": "Gimme More",
@@ -1588,7 +1588,7 @@
     "pregunta": "¿Quién canta 'Gasolina'?",
     "castigo": "#",
     "dificultad": 2,
-    "categoria": "Musica",
+    "categoria": "Música",
     "opciones": {
       "A": "Don Omar",
       "B": "Romeo Santos",

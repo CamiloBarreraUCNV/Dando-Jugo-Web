@@ -150,7 +150,7 @@ function CardDeckStack({ cardsRemaining, onDraw, isDrawing, disabled }) {
               Cuarto Rey
             </span>
             <span className="text-[10px] text-amber-200/60 font-sans mt-0.5">
-              ¡Toca para destapar!
+              {disabled ? 'Partida Finalizada' : '¡Toca para destapar!'}
             </span>
           </div>
 
@@ -166,7 +166,7 @@ function CardDeckStack({ cardsRemaining, onDraw, isDrawing, disabled }) {
 }
 
 /**
- * Modal de Revelación con Animación de Volteo 3D (Paso 3)
+ * Modal de Revelación con Animación de Volteo 3D (Pasos 3 y 4)
  */
 function CardRevealModal({ card, activePlayer, onClose }) {
   const [isFlipped, setIsFlipped] = useState(false);
@@ -177,8 +177,16 @@ function CardRevealModal({ card, activePlayer, onClose }) {
       setIsFlipped(true);
     }, 50);
 
-    // Si es un Rey, reproducir el efecto de vertido de líquido al revelarse
-    if (card?.isKing) {
+    // Audio: Si es el 4to Rey, clímax dramático; si es rey 1 al 3, vertido de líquido
+    if (card?.isFourthKing) {
+      const climaxTimer = setTimeout(() => {
+        soundManager.playFourthKingClimax();
+      }, 300);
+      return () => {
+        clearTimeout(flipTimer);
+        clearTimeout(climaxTimer);
+      };
+    } else if (card?.isKing) {
       const pourTimer = setTimeout(() => {
         soundManager.playPourDrink();
       }, 350);
@@ -260,7 +268,11 @@ function CardRevealModal({ card, activePlayer, onClose }) {
 
             {/* CARA DELANTERA (Naipe Revelado rotado 180deg) */}
             <div
-              className="absolute inset-0 w-full h-full rounded-3xl p-4 sm:p-5 border-2 border-amber-400/80 bg-gradient-to-b from-[#1b1518] via-[#120d10] to-[#0a0709] shadow-2xl shadow-amber-500/20 flex flex-col justify-between text-stone-100"
+              className={`absolute inset-0 w-full h-full rounded-3xl p-4 sm:p-5 border-2 ${
+                card.isFourthKing
+                  ? 'border-red-500 shadow-2xl shadow-red-600/50 bg-gradient-to-b from-[#240e13] via-[#150a0d] to-[#0a0507]'
+                  : 'border-amber-400/80 shadow-2xl shadow-amber-500/20 bg-gradient-to-b from-[#1b1518] via-[#120d10] to-[#0a0709]'
+              } flex flex-col justify-between text-stone-100`}
               style={{
                 backfaceVisibility: 'hidden',
                 WebkitBackfaceVisibility: 'hidden',
@@ -271,7 +283,11 @@ function CardRevealModal({ card, activePlayer, onClose }) {
               <div className="w-full flex items-center justify-between">
                 <div
                   className={`flex flex-col items-center leading-none ${
-                    isRed ? 'text-red-500' : 'text-amber-400'
+                    card.isFourthKing
+                      ? 'text-red-400 animate-pulse'
+                      : isRed
+                      ? 'text-red-500'
+                      : 'text-amber-400'
                   }`}
                 >
                   <span className="font-display font-black text-2xl sm:text-3xl tracking-tight">
@@ -280,17 +296,27 @@ function CardRevealModal({ card, activePlayer, onClose }) {
                   <span className="text-xl sm:text-2xl mt-0.5">{suitSymbol}</span>
                 </div>
 
-                <span className="text-[10px] font-black uppercase tracking-wider px-2.5 py-1 rounded-full border bg-amber-400/15 text-amber-300 border-amber-400/40">
-                  {card.rule.badge}
+                <span
+                  className={`text-[10px] font-black uppercase tracking-wider px-2.5 py-1 rounded-full border ${
+                    card.isFourthKing
+                      ? 'bg-red-500/25 text-red-200 border-red-500/50 animate-bounce'
+                      : 'bg-amber-400/15 text-amber-300 border-amber-400/40'
+                  }`}
+                >
+                  {card.isFourthKing ? '💀 FONDO BLANCO' : card.rule.badge}
                 </span>
               </div>
 
               {/* Centro de la Carta: Icono, Título y Dinámica */}
               <div className="flex flex-col items-center text-center my-auto py-2">
                 <span className="text-4xl sm:text-5xl mb-2 drop-shadow-md">
-                  {card.rule.icon}
+                  {card.isFourthKing ? '👑💀' : card.rule.icon}
                 </span>
-                <h3 className="font-display font-black text-lg sm:text-xl text-white tracking-wide uppercase drop-shadow mb-1.5">
+                <h3
+                  className={`font-display font-black text-lg sm:text-xl tracking-wide uppercase drop-shadow mb-1.5 ${
+                    card.isFourthKing ? 'text-red-400 animate-pulse' : 'text-white'
+                  }`}
+                >
                   {card.rule.title}
                 </h3>
                 <p className="text-xs sm:text-sm text-stone-300 leading-relaxed max-w-[240px]">
@@ -302,6 +328,14 @@ function CardRevealModal({ card, activePlayer, onClose }) {
                   <div className="mt-3 px-3 py-1.5 rounded-xl bg-amber-500/20 border border-amber-400/50 text-[11px] font-bold text-amber-300 animate-pulse flex items-center gap-1.5">
                     <span>👑</span>
                     <span>¡Rey #{card.kingNumber} de 4 en la copa!</span>
+                  </div>
+                )}
+
+                {/* Si es el 4.º Rey */}
+                {card.isFourthKing && (
+                  <div className="mt-3 px-3 py-1.5 rounded-xl bg-red-500/30 border border-red-400 text-xs font-black text-red-200 animate-pulse flex items-center gap-1.5">
+                    <span>💀</span>
+                    <span>¡EL VASO ES TODO TUYO!</span>
                   </div>
                 )}
               </div>
@@ -317,7 +351,11 @@ function CardRevealModal({ card, activePlayer, onClose }) {
 
                 <div
                   className={`flex flex-col items-center leading-none rotate-180 ${
-                    isRed ? 'text-red-500' : 'text-amber-400'
+                    card.isFourthKing
+                      ? 'text-red-400'
+                      : isRed
+                      ? 'text-red-500'
+                      : 'text-amber-400'
                   }`}
                 >
                   <span className="font-display font-black text-xl tracking-tight">
@@ -330,7 +368,7 @@ function CardRevealModal({ card, activePlayer, onClose }) {
           </div>
         </div>
 
-        {/* Ficha del Jugador que sacó la carta y Botón de Continuar */}
+        {/* Ficha del Jugador que sacó la carta y Botón de Acción */}
         <div className="w-full flex flex-col items-center gap-2">
           <div className="flex items-center gap-2 text-xs text-stone-300 bg-stone-900/80 px-3 py-1 rounded-full border border-stone-800">
             <img
@@ -345,10 +383,119 @@ function CardRevealModal({ card, activePlayer, onClose }) {
 
           <button
             onClick={onClose}
-            className="w-full py-3 px-6 rounded-2xl bg-gradient-to-r from-amber-500 via-amber-400 to-amber-600 hover:brightness-110 active:scale-95 text-stone-950 font-display font-black text-sm sm:text-base uppercase tracking-wider shadow-xl shadow-amber-500/25 border border-amber-300 transition-all flex items-center justify-center gap-2 cursor-pointer"
+            className={`w-full py-3 px-6 rounded-2xl font-display font-black text-sm sm:text-base uppercase tracking-wider shadow-xl transition-all flex items-center justify-center gap-2 cursor-pointer active:scale-95 ${
+              card.isFourthKing
+                ? 'bg-gradient-to-r from-red-600 via-rose-600 to-red-700 hover:brightness-110 text-white shadow-red-600/30 border border-red-400'
+                : 'bg-gradient-to-r from-amber-500 via-amber-400 to-amber-600 hover:brightness-110 text-stone-950 shadow-amber-500/25 border border-amber-300'
+            }`}
           >
-            <span>Siguiente Jugador</span>
+            <span>{card.isFourthKing ? '☠️ Ver Castigo del Fondo Blanco' : 'Siguiente Jugador'}</span>
             <span>→</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+/**
+ * Modal de Clímax Épico del 4.º Rey (Paso 4)
+ * Muestra la copa al 100%, la víctima señalada y opciones de reinicio
+ */
+function FourthKingClimaxModal({
+  victimPlayer,
+  stats,
+  onResetGame,
+  onExit,
+}) {
+  const avatar = getAnimalAvatar(victimPlayer?.animal);
+
+  return (
+    <div
+      role="dialog"
+      aria-modal="true"
+      className="fixed inset-0 z-50 bg-black/90 backdrop-blur-lg flex items-center justify-center p-4 animate-in fade-in duration-300"
+    >
+      {/* Resplandor ominoso de fondo */}
+      <div className="absolute inset-0 bg-radial from-red-600/25 via-rose-950/20 to-transparent pointer-events-none animate-pulse" />
+
+      <div className="w-full max-w-md bg-[#161214] border-2 border-red-500/80 rounded-3xl p-6 shadow-2xl shadow-red-950/80 relative z-10 flex flex-col items-center text-center">
+        {/* Cabecera dramática */}
+        <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-red-500/20 text-red-300 border border-red-500/40 text-xs font-black uppercase tracking-wider mb-2 animate-bounce">
+          <span>👑💀</span>
+          <span>EL 4.° REY HA CAÍDO</span>
+          <span>💀👑</span>
+        </div>
+
+        <h2 className="font-display font-black text-2xl sm:text-3xl text-white tracking-wide uppercase drop-shadow mb-1">
+          ¡FONDO BLANCO!
+        </h2>
+        <p className="text-xs sm:text-sm text-stone-300 mb-4">
+          La Copa del Káiser está al 100% y ya tiene dueño en la mesa
+        </p>
+
+        {/* Copa del Káiser en su estado final desbordante */}
+        <div className="my-2">
+          <KingCupVisual kingsDrawn={4} cupLevel={100} isGameOver={true} />
+        </div>
+
+        {/* La Víctima Spotlight */}
+        <div className="w-full bg-[#1e1418] border-2 border-red-500/60 rounded-2xl p-4 my-3 flex items-center gap-3.5 shadow-lg">
+          <img
+            src={avatar.image}
+            alt={avatar.name}
+            className="w-14 h-14 object-contain rounded-xl bg-black/70 p-1 border-2 border-red-400 drop-shadow shrink-0"
+          />
+          <div className="text-left min-w-0">
+            <span className="text-[10px] font-black uppercase tracking-wider text-red-400 block">
+              ¡LA COPA ES PARA TI!
+            </span>
+            <div className="flex items-center gap-1.5">
+              <span className="font-display font-black text-lg sm:text-xl text-white truncate">
+                {victimPlayer?.name}
+              </span>
+              <span className="text-sm">
+                {victimPlayer?.gender === 'mujer' ? '👩' : victimPlayer?.gender === 'hombre' ? '👨' : '🧑'}
+              </span>
+            </div>
+            <p className="text-xs text-stone-300 mt-0.5 leading-tight">
+              Debes tomarte la copa central <strong>completa al seco</strong> sin parar.
+            </p>
+          </div>
+        </div>
+
+        {/* Resumen de la Partida */}
+        <div className="w-full grid grid-cols-3 gap-2 my-2 text-stone-400 text-xs">
+          <div className="bg-black/50 border border-stone-800 rounded-xl p-2 flex flex-col items-center">
+            <span className="text-[10px] text-stone-500">Cartas jugadas</span>
+            <strong className="text-stone-200 text-sm font-black">{stats.discards}</strong>
+          </div>
+          <div className="bg-black/50 border border-stone-800 rounded-xl p-2 flex flex-col items-center">
+            <span className="text-[10px] text-stone-500">Reyes totales</span>
+            <strong className="text-amber-400 text-sm font-black">4 / 4</strong>
+          </div>
+          <div className="bg-black/50 border border-stone-800 rounded-xl p-2 flex flex-col items-center">
+            <span className="text-[10px] text-stone-500">Castigo</span>
+            <strong className="text-red-400 text-sm font-black">Al Seco</strong>
+          </div>
+        </div>
+
+        {/* Botones de Acción */}
+        <div className="w-full flex flex-col gap-2 mt-3">
+          <button
+            onClick={onResetGame}
+            className="w-full py-3.5 px-6 rounded-2xl bg-gradient-to-r from-amber-500 via-amber-400 to-amber-600 hover:brightness-110 active:scale-95 text-stone-950 font-display font-black text-sm sm:text-base uppercase tracking-wider shadow-xl shadow-amber-500/25 border border-amber-300 transition-all flex items-center justify-center gap-2 cursor-pointer"
+          >
+            <span>🔄</span>
+            <span>Jugar Otra Partida (Vaciar Copa)</span>
+          </button>
+
+          <button
+            onClick={onExit}
+            className="w-full py-2.5 px-4 rounded-xl bg-stone-900/90 hover:bg-stone-800 active:scale-95 text-stone-300 hover:text-white font-bold text-xs border border-stone-700/80 transition flex items-center justify-center gap-1.5 cursor-pointer"
+          >
+            <span>←</span>
+            <span>Volver a Otros Juegos</span>
           </button>
         </div>
       </div>
@@ -370,6 +517,8 @@ export default function CuartoReyGame({
   const [showCheatSheet, setShowCheatSheet] = useState(false);
   const [isDrawing, setIsDrawing] = useState(false);
   const [revealedCard, setRevealedCard] = useState(null);
+  const [victimPlayer, setVictimPlayer] = useState(null);
+  const [showClimaxModal, setShowClimaxModal] = useState(false);
 
   // Jugador activo
   const activePlayer =
@@ -382,7 +531,7 @@ export default function CuartoReyGame({
       : null;
   const avatar = getAnimalAvatar(activePlayer.animal);
 
-  // Extraer carta y activar animación 3D de volteo (Paso 3)
+  // Extraer carta y activar animación 3D de volteo
   const handleDrawCard = () => {
     if (isDrawing || stats.isGameOver) return;
     setIsDrawing(true);
@@ -390,30 +539,37 @@ export default function CuartoReyGame({
 
     const card = deckManager.drawCard();
     if (card) {
+      if (card.isFourthKing) {
+        setVictimPlayer(activePlayer);
+      }
       setRevealedCard(card);
       setStats(deckManager.getStats());
     }
     setIsDrawing(false);
   };
 
-  // Cerrar la carta revelada y avanzar el turno al siguiente jugador
+  // Cerrar la carta revelada y avanzar el turno o activar clímax del 4.º Rey
   const handleCloseCard = () => {
     soundManager.playTick(600);
+    const wasFourth = revealedCard?.isFourthKing;
     setRevealedCard(null);
-    if (players.length > 0) {
+
+    if (wasFourth) {
+      setShowClimaxModal(true);
+    } else if (players.length > 0) {
       setCurrentPlayerIndex((prev) => (prev + 1) % players.length);
     }
   };
 
-  // Reiniciar partida
+  // Reiniciar partida completa
   const handleResetGame = () => {
-    if (window.confirm('¿Deseas reiniciar la baraja y vaciar la Copa del Káiser?')) {
-      soundManager.playTick(500);
-      deckManager.reset();
-      setStats(deckManager.getStats());
-      setRevealedCard(null);
-      setCurrentPlayerIndex(0);
-    }
+    soundManager.playSuccess();
+    deckManager.reset();
+    setStats(deckManager.getStats());
+    setRevealedCard(null);
+    setShowClimaxModal(false);
+    setVictimPlayer(null);
+    setCurrentPlayerIndex(0);
   };
 
   return (
@@ -461,35 +617,60 @@ export default function CuartoReyGame({
         </div>
       </header>
 
-      {/* 2. Banner del Jugador en Turno */}
-      <div className="w-full bg-[#161214]/90 border border-amber-900/40 rounded-2xl px-3 py-2 flex items-center justify-between gap-3 shadow-md shrink-0 my-1">
-        <div className="flex items-center gap-2.5 min-w-0">
-          <img
-            src={avatar.image}
-            alt={avatar.name}
-            className="w-10 h-10 object-contain rounded-xl bg-black/60 p-0.5 border border-amber-400/60 drop-shadow shrink-0"
-          />
-          <div className="min-w-0">
-            <span className="text-[10px] font-black uppercase tracking-wider text-amber-400/80 block">
-              ES EL TURNO DE
-            </span>
-            <div className="flex items-center gap-1.5">
-              <span className="font-display font-black text-sm sm:text-base text-white truncate">
-                {activePlayer.name}
-              </span>
-              <span className="text-xs">
-                {activePlayer.gender === 'mujer' ? '👩' : activePlayer.gender === 'hombre' ? '👨' : '🧑'}
+      {/* Banner de Aviso cuando el juego termina (4.º Rey) */}
+      {stats.isGameOver && (
+        <div className="w-full bg-red-950/80 border-2 border-red-500/80 rounded-2xl p-2.5 flex items-center justify-between text-xs my-1 animate-pulse shadow-lg shadow-red-950/60 shrink-0">
+          <div className="flex items-center gap-2.5 min-w-0">
+            <span className="text-2xl shrink-0">👑💀</span>
+            <div className="min-w-0">
+              <strong className="text-white block font-display tracking-wide truncate">
+                ¡PARTIDA FINALIZADA!
+              </strong>
+              <span className="text-red-200 truncate block">
+                La Copa es para <strong>{victimPlayer?.name || activePlayer.name}</strong>
               </span>
             </div>
           </div>
+          <button
+            onClick={() => setShowClimaxModal(true)}
+            className="text-xs bg-red-500 hover:bg-red-400 text-stone-950 font-black px-3 py-1.5 rounded-xl transition cursor-pointer shrink-0"
+          >
+            Ver Castigo
+          </button>
         </div>
+      )}
 
-        {nextPlayer && (
-          <span className="text-[11px] text-stone-400 shrink-0 text-right">
-            Siguiente: <strong className="text-stone-300">{nextPlayer.name}</strong>
-          </span>
-        )}
-      </div>
+      {/* 2. Banner del Jugador en Turno */}
+      {!stats.isGameOver && (
+        <div className="w-full bg-[#161214]/90 border border-amber-900/40 rounded-2xl px-3 py-2 flex items-center justify-between gap-3 shadow-md shrink-0 my-1">
+          <div className="flex items-center gap-2.5 min-w-0">
+            <img
+              src={avatar.image}
+              alt={avatar.name}
+              className="w-10 h-10 object-contain rounded-xl bg-black/60 p-0.5 border border-amber-400/60 drop-shadow shrink-0"
+            />
+            <div className="min-w-0">
+              <span className="text-[10px] font-black uppercase tracking-wider text-amber-400/80 block">
+                ES EL TURNO DE
+              </span>
+              <div className="flex items-center gap-1.5">
+                <span className="font-display font-black text-sm sm:text-base text-white truncate">
+                  {activePlayer.name}
+                </span>
+                <span className="text-xs">
+                  {activePlayer.gender === 'mujer' ? '👩' : activePlayer.gender === 'hombre' ? '👨' : '🧑'}
+                </span>
+              </div>
+            </div>
+          </div>
+
+          {nextPlayer && (
+            <span className="text-[11px] text-stone-400 shrink-0 text-right">
+              Siguiente: <strong className="text-stone-300">{nextPlayer.name}</strong>
+            </span>
+          )}
+        </div>
+      )}
 
       {/* 3. Área Central: La Copa del Káiser + El Mazo 3D */}
       <main className="w-full flex-1 min-h-0 flex flex-col items-center justify-around py-1 overflow-hidden">
@@ -512,7 +693,11 @@ export default function CuartoReyGame({
       {/* 4. Footer con Controles y Ayuda */}
       <footer className="w-full py-1.5 flex items-center justify-between border-t border-stone-800/80 shrink-0 text-xs text-stone-400">
         <button
-          onClick={handleResetGame}
+          onClick={() => {
+            if (window.confirm('¿Deseas reiniciar la baraja y vaciar la Copa del Káiser?')) {
+              handleResetGame();
+            }
+          }}
           className="text-stone-400 hover:text-red-400 font-bold transition flex items-center gap-1 cursor-pointer"
         >
           <span>🔄</span>
@@ -527,12 +712,22 @@ export default function CuartoReyGame({
         </button>
       </footer>
 
-      {/* Modal de Revelación de Carta con Giro 3D (Paso 3) */}
+      {/* Modal de Revelación de Carta con Giro 3D */}
       {revealedCard && (
         <CardRevealModal
           card={revealedCard}
           activePlayer={activePlayer}
           onClose={handleCloseCard}
+        />
+      )}
+
+      {/* Modal de Clímax Épico del 4.º Rey (Paso 4) */}
+      {showClimaxModal && (
+        <FourthKingClimaxModal
+          victimPlayer={victimPlayer || activePlayer}
+          stats={stats}
+          onResetGame={handleResetGame}
+          onExit={onBack}
         />
       )}
 

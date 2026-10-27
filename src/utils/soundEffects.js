@@ -351,6 +351,73 @@ class SoundManager {
       console.warn('Audio playPourDrink error:', e);
     }
   }
+
+  // Clímax dramático del 4to Rey (Alarma, estruendo y fanfarria fatídica)
+  playFourthKingClimax() {
+    if (this.isMuted) return;
+    this.init();
+    if (!this.ctx) return;
+
+    try {
+      if (typeof navigator !== 'undefined' && navigator.vibrate) {
+        try {
+          navigator.vibrate([250, 100, 250, 100, 500]);
+        } catch (_) {}
+      }
+
+      const now = this.ctx.currentTime;
+
+      // 1. Golpe de bajo profundo / retumbe
+      const subOsc = this.ctx.createOscillator();
+      const subGain = this.ctx.createGain();
+      subOsc.type = 'triangle';
+      subOsc.frequency.setValueAtTime(140, now);
+      subOsc.frequency.exponentialRampToValueAtTime(35, now + 0.6);
+
+      const targetSubGain = 0.45 * this.volume;
+      subGain.gain.setValueAtTime(targetSubGain, now);
+      subGain.gain.exponentialRampToValueAtTime(0.001, now + 0.6);
+
+      subOsc.connect(subGain);
+      subGain.connect(this.ctx.destination);
+      subOsc.start(now);
+      subOsc.stop(now + 0.6);
+
+      // 2. Acorde dramático y sirena de alerta
+      const alertTones = [
+        { f: 440, time: 0.1, duration: 0.2 },
+        { f: 554.37, time: 0.25, duration: 0.2 },
+        { f: 659.25, time: 0.4, duration: 0.25 },
+        { f: 880, time: 0.6, duration: 0.5 },
+      ];
+
+      alertTones.forEach((tone) => {
+        const osc = this.ctx.createOscillator();
+        const gain = this.ctx.createGain();
+        const filter = this.ctx.createBiquadFilter();
+
+        osc.type = 'sawtooth';
+        osc.frequency.setValueAtTime(tone.f, now + tone.time);
+        osc.frequency.exponentialRampToValueAtTime(tone.f * 1.05, now + tone.time + tone.duration);
+
+        filter.type = 'lowpass';
+        filter.frequency.setValueAtTime(1200, now + tone.time);
+
+        const targetGain = 0.3 * this.volume;
+        gain.gain.setValueAtTime(targetGain, now + tone.time);
+        gain.gain.exponentialRampToValueAtTime(0.001, now + tone.time + tone.duration);
+
+        osc.connect(filter);
+        filter.connect(gain);
+        gain.connect(this.ctx.destination);
+
+        osc.start(now + tone.time);
+        osc.stop(now + tone.time + tone.duration);
+      });
+    } catch (e) {
+      console.warn('Audio playFourthKingClimax error:', e);
+    }
+  }
 }
 
 export const soundManager = new SoundManager();

@@ -97,40 +97,42 @@ export function getRiskTier(prob) {
 }
 
 /**
- * Calcula en tiempo real las probabilidades exactas sobre las cartas restantes en el mazo
+ * Calcula las probabilidades teóricas con respecto al mazo completo (52 cartas)
+ * y no al mazo restante, evitando así trampas o deducción de cartas por conteo.
+ * 
+ * En una baraja estándar de 52 cartas (con la carta actual visible = 51 posibles):
+ * - Rango R (As=1 a Rey=13):
+ *   - Cartas mayores: (13 - R) * 4
+ *   - Cartas menores: (R - 1) * 4
+ *   - Cartas del mismo valor: 3
+ *   - Total cartas de referencia: 51
+ * 
  * @param {Object} currentCard Carta visible actual en la mesa
- * @param {Array} remainingDeck Cartas que aún quedan en el mazo
- * @returns {Object} Desglose completo de probabilidades y sorbos a regalar por opción
+ * @returns {Object} Desglose completo de probabilidades teóricas y sorbos a regalar por opción
  */
-export function calculateOdds(currentCard, remainingDeck) {
-  if (!currentCard || !remainingDeck || remainingDeck.length === 0) {
+export function calculateOdds(currentCard) {
+  if (!currentCard || typeof currentCard.rank !== 'number') {
     return {
-      totalRemaining: 0,
+      totalReference: 51,
       higher: { count: 0, prob: 0, percent: 0, sips: 1, tier: getRiskTier(0) },
       lower: { count: 0, prob: 0, percent: 0, sips: 1, tier: getRiskTier(0) },
       same: { count: 0, prob: 0, percent: 0, sips: 8, tier: { label: 'Jackpot', color: 'text-amber-300', badgeBg: 'bg-amber-500/20 border-amber-500/40 text-amber-300' } },
     };
   }
 
-  const total = remainingDeck.length;
-  const curRank = currentCard.rank;
+  const curRank = Math.max(1, Math.min(13, currentCard.rank));
+  const totalReference = 51;
 
-  let higherCount = 0;
-  let lowerCount = 0;
-  let sameCount = 0;
+  const higherCount = (13 - curRank) * 4;
+  const lowerCount = (curRank - 1) * 4;
+  const sameCount = 3;
 
-  for (const card of remainingDeck) {
-    if (card.rank > curRank) higherCount++;
-    else if (card.rank < curRank) lowerCount++;
-    else sameCount++;
-  }
-
-  const probMayor = higherCount / total;
-  const probMenor = lowerCount / total;
-  const probMismo = sameCount / total;
+  const probMayor = higherCount / totalReference;
+  const probMenor = lowerCount / totalReference;
+  const probMismo = sameCount / totalReference;
 
   return {
-    totalRemaining: total,
+    totalReference,
     higher: {
       count: higherCount,
       prob: probMayor,
@@ -206,7 +208,7 @@ export class ApuestasGameManager {
    * Obtiene las probabilidades del turno actual
    */
   getOdds() {
-    return calculateOdds(this.currentCard, this.deck);
+    return calculateOdds(this.currentCard);
   }
 
   /**

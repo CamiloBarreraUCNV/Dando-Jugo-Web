@@ -233,6 +233,15 @@ export class CaballosRaceManager {
   }
 
   /**
+   * Cantidad actual de sorbos que regalan los apostadores cuando su caballo avanza.
+   * Regla de carrera: Inicia en 1 y aumenta en +1 cada vez que una valla oculta se revela.
+   */
+  getSipsPerAdvance() {
+    const revealedCount = this.hurdles ? this.hurdles.filter((h) => h.revealed).length : 0;
+    return 1 + revealedCount;
+  }
+
+  /**
    * Inicia la carrera después de la ronda de apuestas
    */
   startRace() {
@@ -241,15 +250,16 @@ export class CaballosRaceManager {
     this.history.push({
       type: 'race_started',
       timestamp: Date.now(),
-      text: '¡Partieron! La carrera de caballos ha comenzado.',
+      text: '¡Partieron! La carrera de caballos ha comenzado. Cada avance otorga 1 sorbo para regalar a quienes apostaron por él.',
     });
   }
 
   /**
    * Extrae la siguiente carta del mazo de carrera y procesa:
    * 1. Avance del caballo del palo de la carta (+1 paso).
-   * 2. Verificación de si alcanzó la meta.
-   * 3. Verificación de vallas superadas por todos los caballos (tropiezo y retroceso -1).
+   * 2. Quienes apostaron por él regalan sorbos (1 al inicio, aumentando con cada valla revelada).
+   * 3. Verificación de si alcanzó la meta.
+   * 4. Verificación de vallas superadas por todos los caballos (tropiezo, retroceso -1 y subida de valor).
    * 
    * @returns {Object} Detalle de lo sucedido en este turno
    */
@@ -278,13 +288,30 @@ export class CaballosRaceManager {
     this.positions[advancingSuit] += 1;
     const newPosition = this.positions[advancingSuit];
 
+    // Regla de Regalo por Avance:
+    // Quienes apostaron por este caballo regalan sorbos (valor actual según vallas reveladas)
+    const currentSipsToGive = this.getSipsPerAdvance();
+    const backers = this.getBetsList().filter((b) => b.horseId === advancingSuit);
+
+    const advanceGiftInfo = {
+      sipsPerBacker: currentSipsToGive,
+      backers: backers.map((b) => ({
+        playerId: b.playerId,
+        playerName: b.playerName,
+        sipsToGive: currentSipsToGive,
+      })),
+      totalSipsGifted: backers.length * currentSipsToGive,
+    };
+
     const turnEvent = {
       card: drawnCard,
       advancingHorse,
       newPosition,
+      advanceGiftInfo,
       hurdlesTriggered: [],
       winner: null,
       isFinished: false,
+      sipsPerAdvanceNext: currentSipsToGive,
     };
 
     // 3. ¿El caballo cruzó la meta?
@@ -301,6 +328,7 @@ export class CaballosRaceManager {
         type: 'winner',
         card: drawnCard,
         horse: advancingHorse,
+        advanceGiftInfo,
         text: `🏆 ¡${advancingHorse.name} (${advancingHorse.symbol}) ha cruzado la meta en 1.er lugar!`,
       });
 
@@ -328,12 +356,17 @@ export class CaballosRaceManager {
         this.positions[hurdleSuit] = Math.max(0, this.positions[hurdleSuit] - 1);
         const penalizedNewPos = this.positions[hurdleSuit];
 
+        // El valor por avance aumenta para los siguientes turnos
+        const newSipsValue = this.getSipsPerAdvance();
+        turnEvent.sipsPerAdvanceNext = newSipsValue;
+
         const hurdleTrigger = {
           step: hurdle.step,
           card: hurdle.card,
           penalizedHorse,
           previousPos,
           newPos: penalizedNewPos,
+          newSipsValue,
         };
 
         turnEvent.hurdlesTriggered.push(hurdleTrigger);
@@ -343,7 +376,7 @@ export class CaballosRaceManager {
           step: hurdle.step,
           card: hurdle.card,
           horse: penalizedHorse,
-          text: `🚧 ¡Valla ${hurdle.step} revelada! Salió ${hurdle.card.name}. ¡${penalizedHorse.name} tropieza y retrocede a la casilla ${penalizedNewPos}!`,
+          text: `🚧 ¡Valla ${hurdle.step} revelada! Salió ${hurdle.card.name}. ¡${penalizedHorse.name} tropieza y retrocede a la casilla ${penalizedNewPos}! ¡A partir de ahora, cada avance vale ${newSipsValue} sorbos para regalar!`,
         });
       }
     }
@@ -353,7 +386,11 @@ export class CaballosRaceManager {
       card: drawnCard,
       horse: advancingHorse,
       newPosition,
-      text: `${advancingHorse.name} avanza a la casilla ${newPosition} con ${drawnCard.name}.`,
+      advanceGiftInfo,
+      text: `${advancingHorse.name} avanza a la casilla ${newPosition} con ${drawnCard.name}.` +
+        (backers.length > 0
+          ? ` (${backers.map((b) => b.playerName).join(', ')} regala${backers.length === 1 ? '' : 'n'} ${currentSipsToGive} sorbo${currentSipsToGive > 1 ? 's' : ''})`
+          : ''),
     });
 
     return turnEvent;
@@ -427,6 +464,7 @@ export class CaballosRaceManager {
       winner: this.winner,
       results: this.results,
       leader: this.getLeader(),
+      sipsPerAdvance: this.getSipsPerAdvance(),
     };
   }
 

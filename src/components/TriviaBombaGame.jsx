@@ -27,10 +27,15 @@ function BombVisual({ tensionLevel, isExploded }) {
 
   if (isExploded) {
     return (
-      <div className="relative flex flex-col items-center justify-center my-1">
-        <span className="text-6xl sm:text-7xl animate-bounce drop-shadow-[0_0_35px_rgba(225,29,72,0.8)]">
-          💥
-        </span>
+      <div className="relative flex flex-col items-center justify-center my-2 select-none">
+        {/* Onda expansiva de fuego y humo */}
+        <div className="absolute w-28 h-28 rounded-full bg-red-600/20 blur-xl animate-ping" />
+        <div className="relative flex items-center justify-center gap-1.5">
+          <span className="text-5xl sm:text-6xl animate-bounce drop-shadow-[0_0_35px_rgba(225,29,72,0.9)]">
+            💥
+          </span>
+          <span className="text-3xl animate-pulse">🔥</span>
+        </div>
       </div>
     );
   }
@@ -66,7 +71,7 @@ function BombVisual({ tensionLevel, isExploded }) {
 
 /**
  * Componente Principal: Trivia Bomba (La Papa Caliente Contrarreloj)
- * Paso 2: Tablero Visual Speakeasy, Bomba con Mecha, Preguntas de Opción Múltiple
+ * Paso 3: Clímax de Detonación 💥, Pantalla de Humo, Flash Háptico y Cobro a la Víctima
  */
 export default function TriviaBombaGame({
   players = [],
@@ -88,10 +93,10 @@ export default function TriviaBombaGame({
   const [gameState, setGameState] = useState(() => manager.getSnapshot());
 
   // Estado de feedback visual de respuesta
-  // type: 'correct' | 'wrong' | null
   const [feedback, setFeedback] = useState(null);
   const [selectedKey, setSelectedKey] = useState(null);
   const [isAnswering, setIsAnswering] = useState(false);
+  const [showBlastFlash, setShowBlastFlash] = useState(false);
 
   // Referencia al intervalo del temporizador invisible
   const timerRef = useRef(null);
@@ -121,6 +126,7 @@ export default function TriviaBombaGame({
     setFeedback(null);
     setSelectedKey(null);
     setIsAnswering(false);
+    setShowBlastFlash(false);
 
     // Iniciar el temporizador invisible
     if (timerRef.current) clearInterval(timerRef.current);
@@ -131,6 +137,16 @@ export default function TriviaBombaGame({
       if (tickResult.isExploded) {
         clearInterval(timerRef.current);
         soundManager.playTimerBuzzer();
+
+        // Disparar flash visual y vibración háptica de detonación (Paso 3)
+        setShowBlastFlash(true);
+        setTimeout(() => setShowBlastFlash(false), 500);
+
+        if (typeof navigator !== 'undefined' && navigator.vibrate) {
+          try {
+            navigator.vibrate([150, 70, 300, 80, 500]);
+          } catch (_) {}
+        }
       } else {
         const isUrgent = tickResult.tensionLevel === 'critical' || tickResult.tensionLevel === 'high';
         soundManager.playTimerTick(isUrgent);
@@ -146,6 +162,7 @@ export default function TriviaBombaGame({
     setFeedback(null);
     setSelectedKey(null);
     setIsAnswering(false);
+    setShowBlastFlash(false);
     syncState();
   };
 
@@ -437,48 +454,73 @@ export default function TriviaBombaGame({
         {/* PANTALLA C: ESTADO EXPLODED (¡BOOM! Castigo del Pozo)          */}
         {/* ------------------------------------------------------------- */}
         {gameState.status === 'exploded' && (
-          <div className="w-full border-2 border-[#DC143C] bg-gradient-to-b from-[#2e0911] via-[#1a060b] to-[#0f0407] rounded-2xl p-4 shadow-2xl shadow-rose-950/80 flex flex-col items-center justify-center relative my-auto text-center gap-3 animate-shake">
+          <div className="w-full border-2 border-[#DC143C] bg-gradient-to-b from-[#2e0911] via-[#1a060b] to-[#0f0407] rounded-2xl p-3.5 sm:p-4 shadow-2xl shadow-rose-950/80 flex flex-col items-center justify-center relative my-auto text-center gap-2.5 animate-shake">
             <BombVisual tensionLevel="critical" isExploded={true} />
 
             <div>
-              <span className="text-xs font-black uppercase tracking-wider px-3 py-1 rounded-full bg-red-600/30 text-red-300 border border-red-500/50 inline-block mb-1">
+              <span className="text-[10px] sm:text-xs font-black uppercase tracking-wider px-3 py-0.5 rounded-full bg-red-600/30 text-red-300 border border-red-500/50 inline-block mb-1 animate-pulse">
                 ¡TIEMPO AGOTADO!
               </span>
-              <h3 className="font-display font-black text-xl sm:text-2xl text-white">
-                ¡BOOOOOOM! LA BOMBA EXPLOTÓ
+              <h3 className="font-display font-black text-xl sm:text-2xl text-white drop-shadow-md">
+                💥 ¡BOOOOOOM! LA BOMBA EXPLOTÓ
               </h3>
             </div>
 
-            {/* Ficha de la Víctima que tenía el teléfono */}
+            {/* Ficha de la Víctima que tenía el teléfono en la mano */}
             <div className="p-3 rounded-2xl bg-black/60 border border-rose-500/40 w-full max-w-sm flex flex-col items-center gap-1.5 shadow-inner">
               <span className="text-[10px] font-black uppercase text-stone-400">
                 Le explotó en las manos a:
               </span>
-              <div className="flex items-center gap-2">
-                <img
-                  src={getAnimalAvatar(gameState.victimPlayer?.animal).image}
-                  alt={gameState.victimPlayer?.name}
-                  className="w-8 h-8 rounded-lg object-contain border border-amber-400"
-                />
-                <span className="text-base sm:text-lg font-black text-amber-300">
-                  {gameState.victimPlayer?.name}
-                </span>
+
+              <div className="flex items-center gap-2.5 my-0.5">
+                <div className="relative">
+                  <img
+                    src={getAnimalAvatar(gameState.victimPlayer?.animal).image}
+                    alt={gameState.victimPlayer?.name}
+                    className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl object-contain border-2 border-amber-400 shadow-lg shadow-orange-500/30"
+                  />
+                  <span className="absolute -top-1.5 -right-1.5 text-xs animate-bounce">🔥</span>
+                </div>
+                <div className="text-left">
+                  <span className="text-base sm:text-lg font-black text-amber-300 block leading-tight">
+                    {gameState.victimPlayer?.name}
+                  </span>
+                  <span className="text-[10px] text-stone-400 font-medium">
+                    {gameState.victimPlayer?.gender === 'mujer' ? '👩 Jugadora' : '👨 Jugador'}
+                  </span>
+                </div>
               </div>
 
-              <div className="w-full border-t border-white/10 mt-1 pt-1.5 flex items-center justify-center gap-2">
-                <span className="text-xs font-bold text-stone-200">Debe beberse:</span>
-                <span className="text-base font-black px-2.5 py-0.5 rounded-lg bg-red-600/70 text-white border border-rose-400">
-                  {gameState.pot} {gameState.pot === 1 ? 'Sorbo' : 'Sorbos'}
-                </span>
-                <span className="text-xs text-stone-300">del pozo acumulado 🍺</span>
+              {/* Sorbos que debe beber */}
+              <div className="w-full border-t border-white/10 mt-1 pt-2 flex flex-col items-center gap-1">
+                <div className="flex items-center justify-center gap-1.5 text-stone-100 font-bold text-xs sm:text-sm">
+                  <span>Debe beberse</span>
+                  <span className="text-base sm:text-lg font-black px-3 py-0.5 rounded-xl bg-gradient-to-r from-red-600 to-rose-600 text-white border border-rose-400 shadow-md">
+                    {gameState.pot} {gameState.pot === 1 ? 'Sorbo' : 'Sorbos'}
+                  </span>
+                  <span>del pozo 🍺</span>
+                </div>
+
+                {gameState.pot >= 6 && (
+                  <span className="text-[10px] text-amber-300 font-black animate-pulse">
+                    ⚠️ ¡Pozo de alto calibre! ¡Se recomienda al seco! 💀
+                  </span>
+                )}
+              </div>
+
+              {/* Estadísticas de la ronda */}
+              <div className="w-full bg-black/40 rounded-xl p-1.5 mt-1 border border-white/5 flex items-center justify-around text-[10px] text-stone-400">
+                <span>🎯 <strong>{gameState.correctCount}</strong> aciertos</span>
+                <span>•</span>
+                <span>⏱️ <strong>{gameState.elapsedTime}s</strong> de pura tensión</span>
               </div>
             </div>
 
             {/* Botones de Acción tras Explosión */}
-            <div className="w-full max-w-xs flex flex-col gap-2 mt-1">
+            <div className="w-full max-w-xs flex flex-col gap-1.5 mt-1">
               <button
                 onClick={handleStartRound}
-                className="w-full py-3 px-4 rounded-2xl bg-gradient-to-r from-red-600 via-rose-600 to-amber-500 hover:brightness-110 active:scale-95 text-white font-black text-xs sm:text-sm uppercase tracking-wider border border-red-300 shadow-lg shadow-red-600/30 transition cursor-pointer flex items-center justify-center gap-2"
+                className="w-full py-2.5 sm:py-3 px-4 rounded-2xl bg-gradient-to-r from-red-600 via-rose-600 to-amber-500 hover:brightness-110 active:scale-95 text-white font-black text-xs sm:text-sm uppercase tracking-wider border border-red-300 shadow-lg shadow-red-600/30 transition cursor-pointer flex items-center justify-center gap-2"
               >
                 <span>🔥</span>
                 <span>Jugar Otra Ronda (Nueva Mecha)</span>
@@ -489,12 +531,17 @@ export default function TriviaBombaGame({
                 className="w-full py-2 px-3 rounded-xl bg-stone-900 hover:bg-stone-800 text-stone-400 hover:text-stone-200 border border-stone-800 text-xs font-bold transition active:scale-95 cursor-pointer"
               >
                 <span>↺</span>
-                <span className="ml-1">Reiniciar a Pantalla de Inicio</span>
+                <span className="ml-1">Reiniciar Partida</span>
               </button>
             </div>
           </div>
         )}
       </main>
+
+      {/* Flash Visual de Explosión (Paso 3) */}
+      {showBlastFlash && (
+        <div className="fixed inset-0 bg-red-600/60 backdrop-blur-xs z-50 pointer-events-none animate-in fade-in duration-75" />
+      )}
     </div>
   );
 }

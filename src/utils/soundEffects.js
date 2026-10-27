@@ -418,6 +418,82 @@ class SoundManager {
       console.warn('Audio playFourthKingClimax error:', e);
     }
   }
+
+  // Sonido místico/revelador al destapar una VERDAD
+  playTruthReveal() {
+    if (this.isMuted) return;
+    this.init();
+    if (!this.ctx) return;
+
+    try {
+      const now = this.ctx.currentTime;
+      const notes = [
+        { f: 523.25, time: 0 },      // C5
+        { f: 659.25, time: 0.08 },   // E5
+        { f: 783.99, time: 0.16 },   // G5
+        { f: 1046.50, time: 0.24 },  // C6
+      ];
+
+      notes.forEach((note) => {
+        const osc = this.ctx.createOscillator();
+        const gain = this.ctx.createGain();
+
+        osc.type = 'sine';
+        osc.frequency.setValueAtTime(note.f, now + note.time);
+        osc.frequency.exponentialRampToValueAtTime(note.f * 1.02, now + note.time + 0.35);
+
+        const targetGain = 0.2 * this.volume;
+        gain.gain.setValueAtTime(targetGain, now + note.time);
+        gain.gain.exponentialRampToValueAtTime(0.001, now + note.time + 0.4);
+
+        osc.connect(gain);
+        gain.connect(this.ctx.destination);
+
+        osc.start(now + note.time);
+        osc.stop(now + note.time + 0.4);
+      });
+    } catch (e) {
+      console.warn('Audio playTruthReveal error:', e);
+    }
+  }
+
+  // Sonido de fuego y tensión al destapar un RETO
+  playDareReveal() {
+    if (this.isMuted) return;
+    this.init();
+    if (!this.ctx) return;
+
+    try {
+      const now = this.ctx.currentTime;
+
+      // Golpe dramático
+      const osc = this.ctx.createOscillator();
+      const gain = this.ctx.createGain();
+      const filter = this.ctx.createBiquadFilter();
+
+      osc.type = 'sawtooth';
+      osc.frequency.setValueAtTime(280, now);
+      osc.frequency.exponentialRampToValueAtTime(80, now + 0.25);
+
+      filter.type = 'bandpass';
+      filter.frequency.setValueAtTime(800, now);
+      filter.frequency.exponentialRampToValueAtTime(300, now + 0.25);
+      filter.Q.setValueAtTime(3, now);
+
+      const targetGain = 0.35 * this.volume;
+      gain.gain.setValueAtTime(targetGain, now);
+      gain.gain.exponentialRampToValueAtTime(0.001, now + 0.25);
+
+      osc.connect(filter);
+      filter.connect(gain);
+      gain.connect(this.ctx.destination);
+
+      osc.start(now);
+      osc.stop(now + 0.25);
+    } catch (e) {
+      console.warn('Audio playDareReveal error:', e);
+    }
+  }
 }
 
 export const soundManager = new SoundManager();

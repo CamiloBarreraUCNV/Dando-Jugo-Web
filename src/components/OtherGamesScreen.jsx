@@ -77,21 +77,22 @@ const OTHER_GAMES_CATALOG = [
     icon: '📈',
     category: 'Cartas',
     players: '2+ Jugadores',
-    badge: 'Rápido & Brutal',
-    badgeColor: 'bg-cyan-500/20 text-cyan-300 border-cyan-500/40',
-    borderColor: 'border-cyan-500/40 hover:border-cyan-400',
+    badge: '¡Modo Virtual Jugable!',
+    badgeColor: 'bg-emerald-500/20 text-emerald-300 border-emerald-500/40',
+    borderColor: 'border-cyan-500/50 hover:border-cyan-400',
     color: 'from-cyan-950/60 via-stone-900/90 to-cyan-950/60',
     description:
-      'Un juego de adrenalina pura. Tienes una carta visible y debes predecir si la siguiente será mayor o menor. Por cada acierto el pozo de sorbos crece; si fallas, ¡te bebes todo lo acumulado!',
-    materials: '1 baraja inglesa.',
+      'Casino Speakeasy en vivo. Predice si la carta siguiente será Mayor, Menor o el Jackpot de Mismo Número con probabilidades teóricas anti-conteo. Acierta para regalar sorbos y engordar el pozo, o plántate y pásale la bomba caliente al siguiente.',
+    materials: 'Jugable 100% en la app (con probabilidades en vivo, pozo acumulativo y baraja inglesa).',
     rules: [
-      'El pozo comienza en 1 sorbo.',
-      'El jugador dice en voz alta "Mayor", "Menor" o "Mismo número".',
-      'Si acierta, el pozo suma 1 sorbo y puede pasar la baraja al siguiente o arriesgarse otra vez.',
-      'Si falla, debe tomar todos los sorbos del pozo acumulado.',
-      'Cada 10 cartas jugadas, la dificultad y los multiplicadores se duplican.',
+      'Jerarquía: As (A) vale 1 (la carta más baja) y Rey (K) vale 13 (la más alta).',
+      'Probabilidades Teóricas Anti-Trampas: Se calculan sobre las 52 cartas del mazo completo para evitar conteos.',
+      'Sorbos según Riesgo: A menor probabilidad de la opción acertada, más sorbos regalas a la mesa (hasta 8 sorbos).',
+      'Fallo en Rojo Carmesí: Si te equivocas, la mesa arde en rojo y debes beberte todos los sorbos del pozo acumulado.',
+      'Carta Gemela Imprevista: Si sale el mismo valor sin haberlo predicho, el pozo se duplica y se recomienda tomarlo al seco.',
+      'Plantarme y Pasar Pozo: Al acertar al menos 1 vez, puedes plantarte y transferirle el pozo caliente al siguiente jugador.',
     ],
-    status: 'Jugable con baraja física',
+    status: 'Modo Virtual Activo en la App',
   },
   {
     id: 'verdad-reto',
@@ -267,26 +268,20 @@ export default function OtherGamesScreen({
                   <span className="text-[11px] text-stone-400 font-medium flex items-center gap-1.5">
                     <span
                       className={`w-2 h-2 rounded-full ${
-                        game.id === 'cuarto-rey' || game.id === 'verdad-reto' || game.id === 'caballos'
+                        ['cuarto-rey', 'verdad-reto', 'caballos', 'apuestas-mayor-menor'].includes(game.id)
                           ? 'bg-emerald-400 animate-pulse'
-                          : game.id === 'apuestas-mayor-menor'
-                          ? 'bg-cyan-400 animate-pulse'
                           : 'bg-amber-400'
                       }`}
                     />
                     <span
                       className={
-                        game.id === 'cuarto-rey' || game.id === 'verdad-reto' || game.id === 'caballos'
+                        ['cuarto-rey', 'verdad-reto', 'caballos', 'apuestas-mayor-menor'].includes(game.id)
                           ? 'text-emerald-300 font-bold'
-                          : game.id === 'apuestas-mayor-menor'
-                          ? 'text-cyan-300 font-bold'
                           : ''
                       }
                     >
-                      {game.id === 'cuarto-rey' || game.id === 'verdad-reto' || game.id === 'caballos'
+                      {['cuarto-rey', 'verdad-reto', 'caballos', 'apuestas-mayor-menor'].includes(game.id)
                         ? '¡Modo Virtual Listo!'
-                        : game.id === 'apuestas-mayor-menor'
-                        ? '¡Demo Paso 2 Activa!'
                         : game.status}
                     </span>
                   </span>
@@ -325,10 +320,10 @@ export default function OtherGamesScreen({
                     {game.id === 'apuestas-mayor-menor' && onPlayApuestas && (
                       <button
                         onClick={onPlayApuestas}
-                        className="text-xs font-black px-3.5 py-1.5 rounded-xl bg-gradient-to-r from-cyan-500 via-sky-500 to-indigo-500 hover:brightness-110 active:scale-95 text-stone-950 border border-cyan-300 shadow-md shadow-cyan-500/25 transition cursor-pointer flex items-center gap-1.5"
+                        className="text-xs font-black px-3.5 py-1.5 rounded-xl bg-gradient-to-r from-cyan-500 via-teal-400 to-emerald-400 hover:brightness-110 active:scale-95 text-stone-950 border border-cyan-300 shadow-md shadow-cyan-500/25 transition cursor-pointer flex items-center gap-1.5"
                       >
                         <span>▶️</span>
-                        <span>Probar Apuestas</span>
+                        <span>Jugar Apuestas</span>
                       </button>
                     )}
 

@@ -315,7 +315,7 @@ export default function App() {
         />
       )}
 
-      {/* 2.9 Pantalla de Juego de las Apuestas (Demo Paso 2) */}
+      {/* 2.9 Pantalla Oficial de Juego de las Apuestas (Mayor o Menor) */}
       {screen === 'apuestas' && (
         <JuegoApuestasGame
           players={players}

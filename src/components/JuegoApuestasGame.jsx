@@ -73,7 +73,7 @@ function JackpotMismoModal({ data, onClose }) {
 
 /**
  * Componente Principal: Juego de las Apuestas (Mayor o Menor)
- * Paso 4: Audio Casino Speakeasy, Volteo 3D, Feedback Rojo Carmesí y Jackpot Gemelo
+ * Modo Virtual Oficial: Casino Speakeasy, Probabilidades Anti-Trampas, Audio Sintetizado y Feedback In-Place
  */
 export default function JuegoApuestasGame({
   players = [],

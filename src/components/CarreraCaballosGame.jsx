@@ -9,7 +9,7 @@ import { getAnimalAvatar } from '../utils/animalAvatars';
 import { soundManager } from '../utils/soundEffects';
 
 /**
- * Modal de Revelación Dramática de Valla Lateral (Paso 3)
+ * Modal de Revelación Dramática de Valla Lateral (Turf Club)
  */
 function HurdleRevealModal({ hurdle, onClose }) {
   if (!hurdle) return null;
@@ -217,8 +217,8 @@ function WinnerCelebrationModal({ winner, results, onClose, onReset }) {
 }
 
 /**
- * Componente Principal: Carrera de Caballos (Turf Club)
- * Paso 3: Vallas 3D, Efectos de Tropiezo, Escalamiento de Sorbos y Podio de Meta
+ * Componente Principal Oficial: Carrera de Caballos (Turf Club)
+ * 4 Caballos de Colores Distintos, Casa de Apuestas, Vallas 3D, Efectos de Tropiezo y Podio
  */
 export default function CarreraCaballosGame({
   players = [],

@@ -304,7 +304,7 @@ export default function App() {
         />
       )}
 
-      {/* 2.8 Pantalla de Carrera de Caballos (Demo Paso 2) */}
+      {/* 2.8 Pantalla Oficial de Carrera de Caballos (Turf Club) */}
       {screen === 'caballos' && (
         <CarreraCaballosGame
           players={players}

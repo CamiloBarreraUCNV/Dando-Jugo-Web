@@ -56,22 +56,20 @@ const OTHER_GAMES_CATALOG = [
     icon: '🏇',
     category: 'Apuestas',
     players: '2+ Jugadores',
-    badge: 'Apuestas de Bar',
+    badge: '¡Modo Virtual Jugable!',
     badgeColor: 'bg-emerald-500/20 text-emerald-300 border-emerald-500/40',
-    borderColor: 'border-emerald-500/40 hover:border-emerald-400',
+    borderColor: 'border-emerald-500/50 hover:border-emerald-400',
     color: 'from-emerald-950/60 via-stone-900/90 to-emerald-950/60',
     description:
-      'Los 4 ases representan a los caballos competidores (Corazones, Diamantes, Picas y Tréboles). Cada jugador apuesta sorbos a su favorito antes de comenzar. Se destapan cartas del mazo y el caballo de ese palo avanza.',
-    materials: '1 baraja inglesa completa.',
+      '4 caballos con 4 colores distintos (Rojo, Oro, Esmeralda y Zafiro) compiten por la gloria. Apuesta sorbos o el vaso al seco, supera las vallas y regala sorbos en cada avance.',
+    materials: 'Jugable 100% en la app (con baraja virtual, 6 vallas y apuestas).',
     rules: [
-      'Se alinean los 4 Ases en la línea de partida.',
-      'Se colocan 6 a 8 cartas boca abajo al costado como vallas o metas.',
-      'Cada jugador apuesta (ej: "Apuesto 4 sorbos a Picas").',
-      'El relator destapa cartas una a una: el palo que sale avanza 1 paso.',
-      'Cuando todos los caballos superan una valla, se voltea la carta lateral: ese palo retrocede 1 paso.',
-      'El caballo que cruce la meta final gana: quienes apostaron por él reparten el doble de sorbos; los demás beben lo que apostaron.',
+      'Ronda de Apuestas: Cada jugador elige su caballo y define sus sorbos apostados (o activa ¡Al Seco!).',
+      'Avance y Regalo: Cuando un caballo avanza, quienes apostaron por él regalan sorbos a la mesa (comienza en 1 sorbo).',
+      'Tropiezo en Vallas: Cuando los 4 caballos cruzan un tramo, se revela la carta lateral: ese caballo retrocede 1 casilla y el valor de sorbos a regalar sube en +1.',
+      'Meta Final: Quien apostó al caballo ganador regala el DOBLE (o manda 2 vasos al seco); los perdedores beben su apuesta (o el vaso completo al seco).',
     ],
-    status: 'Jugable con baraja física',
+    status: 'Modo Virtual Activo en la App',
   },
   {
     id: 'apuestas-mayor-menor',
@@ -268,26 +266,20 @@ export default function OtherGamesScreen({
                   <span className="text-[11px] text-stone-400 font-medium flex items-center gap-1.5">
                     <span
                       className={`w-2 h-2 rounded-full ${
-                        game.id === 'cuarto-rey' || game.id === 'verdad-reto'
+                        game.id === 'cuarto-rey' || game.id === 'verdad-reto' || game.id === 'caballos'
                           ? 'bg-emerald-400 animate-pulse'
-                          : game.id === 'caballos'
-                          ? 'bg-amber-400 animate-pulse'
                           : 'bg-amber-400'
                       }`}
                     />
                     <span
                       className={
-                        game.id === 'cuarto-rey' || game.id === 'verdad-reto'
+                        game.id === 'cuarto-rey' || game.id === 'verdad-reto' || game.id === 'caballos'
                           ? 'text-emerald-300 font-bold'
-                          : game.id === 'caballos'
-                          ? 'text-amber-300 font-bold'
                           : ''
                       }
                     >
-                      {game.id === 'cuarto-rey' || game.id === 'verdad-reto'
+                      {game.id === 'cuarto-rey' || game.id === 'verdad-reto' || game.id === 'caballos'
                         ? '¡Modo Virtual Listo!'
-                        : game.id === 'caballos'
-                        ? '¡Demo Paso 2 Activa!'
                         : game.status}
                     </span>
                   </span>
@@ -319,7 +311,7 @@ export default function OtherGamesScreen({
                         className="text-xs font-black px-3.5 py-1.5 rounded-xl bg-gradient-to-r from-emerald-500 via-teal-500 to-amber-500 hover:brightness-110 active:scale-95 text-stone-950 border border-emerald-300 shadow-md shadow-emerald-500/25 transition cursor-pointer flex items-center gap-1.5"
                       >
                         <span>▶️</span>
-                        <span>Probar Carrera</span>
+                        <span>Jugar Carrera de Caballos</span>
                       </button>
                     )}
 

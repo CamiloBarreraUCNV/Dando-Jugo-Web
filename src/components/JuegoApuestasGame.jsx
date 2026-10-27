@@ -6,8 +6,185 @@ import { getAnimalAvatar } from '../utils/animalAvatars';
 import { soundManager } from '../utils/soundEffects';
 
 /**
+ * Modal Dramático de Explosión del Pozo (Paso 3)
+ */
+function PozoExplosionModal({ data, onClose }) {
+  if (!data) return null;
+
+  const playerAvatar = getAnimalAvatar(data.player?.animal);
+  const isRedPrev = data.prevCard.isRed;
+  const isRedNew = data.newCard.isRed;
+
+  return (
+    <div
+      role="dialog"
+      aria-modal="true"
+      className="fixed inset-0 z-50 bg-black/90 backdrop-blur-md flex items-center justify-center p-4 animate-in fade-in duration-200"
+      onClick={onClose}
+    >
+      <div
+        className="w-full max-w-sm rounded-3xl p-5 shadow-2xl relative z-10 flex flex-col items-center border-2 border-rose-500/80 bg-gradient-to-b from-[#240e13] via-[#17090c] to-[#0a0406] text-stone-100 animate-in zoom-in-95 duration-200"
+        onClick={(e) => e.stopPropagation()}
+      >
+        {/* Cabecera */}
+        <div className="flex items-center gap-2 mb-2">
+          <span className="text-3xl animate-bounce">💥</span>
+          <span className="text-xs font-black uppercase tracking-wider px-3 py-1 rounded-full bg-rose-500/20 text-rose-300 border border-rose-500/50">
+            {data.isTiePunishment ? '¡CARTA GEMELA DUPLICADA!' : '¡EXPLOSIÓN DEL POZO!'}
+          </span>
+        </div>
+
+        {/* Ficha del Jugador Castigado */}
+        <div className="flex items-center gap-2 my-1.5 p-1 px-3 rounded-full bg-black/50 border border-white/10">
+          <img
+            src={playerAvatar.image}
+            alt={data.player.name}
+            className="w-5 h-5 rounded-md object-contain border border-amber-400/50"
+          />
+          <span className="text-xs text-stone-200">
+            ¡Le tocó pagar a <strong className="text-amber-300">{data.player.name}</strong>!
+          </span>
+        </div>
+
+        {/* Comparación visual de las 2 cartas */}
+        <div className="flex items-center justify-center gap-3 my-3">
+          {/* Carta Anterior */}
+          <div className="flex flex-col items-center">
+            <span className="text-[10px] text-stone-400 font-bold mb-1">Tenías:</span>
+            <div className="w-16 h-24 rounded-xl bg-stone-100 border-2 border-white shadow-md flex flex-col justify-between p-1.5 text-center select-none">
+              <span className={`text-xs font-black leading-none ${isRedPrev ? 'text-red-600' : 'text-stone-900'}`}>
+                {data.prevCard.value}
+              </span>
+              <span className="text-2xl leading-none">
+                {data.prevCard.suitSymbol}
+              </span>
+              <span className={`text-xs font-black leading-none self-end rotate-180 ${isRedPrev ? 'text-red-600' : 'text-stone-900'}`}>
+                {data.prevCard.value}
+              </span>
+            </div>
+          </div>
+
+          <div className="flex flex-col items-center">
+            <span className="text-xs font-black text-rose-400">Dijiste</span>
+            <span className="text-xs font-black uppercase px-2 py-0.5 rounded bg-black/60 border border-rose-500/40 text-rose-300 my-1">
+              {data.option === 'mayor' ? '⬆️ Mayor' : data.option === 'menor' ? '⬇️ Menor' : '🟰 Mismo'}
+            </span>
+            <span className="text-base text-stone-500">➔</span>
+          </div>
+
+          {/* Carta Revelada */}
+          <div className="flex flex-col items-center">
+            <span className="text-[10px] text-stone-400 font-bold mb-1">Salió:</span>
+            <div className="w-16 h-24 rounded-xl bg-stone-100 border-2 border-rose-400 shadow-md shadow-rose-500/30 flex flex-col justify-between p-1.5 text-center select-none animate-shake">
+              <span className={`text-xs font-black leading-none ${isRedNew ? 'text-red-600' : 'text-stone-900'}`}>
+                {data.newCard.value}
+              </span>
+              <span className="text-2xl leading-none">
+                {data.newCard.suitSymbol}
+              </span>
+              <span className={`text-xs font-black leading-none self-end rotate-180 ${isRedNew ? 'text-red-600' : 'text-stone-900'}`}>
+                {data.newCard.value}
+              </span>
+            </div>
+          </div>
+        </div>
+
+        {/* Mensaje de Cobro y Sorbos Gigantes */}
+        <div className="w-full my-1.5 p-3 rounded-2xl bg-rose-950/60 border border-rose-500/50 text-center flex flex-col items-center gap-1 shadow-inner">
+          <span className="text-[10px] font-black uppercase tracking-wider text-rose-300">
+            {data.isTiePunishment ? '¡Empate Imprevisto! Pozo Duplicado' : 'Castigo del Pozo Acumulado:'}
+          </span>
+          <div className="text-3xl sm:text-4xl font-black text-white flex items-center justify-center gap-1.5 drop-shadow-md">
+            <span>🍺</span>
+            <span className="text-rose-400">{data.sipsToDrink}</span>
+            <span>{data.sipsToDrink === 1 ? 'Sorbo' : 'Sorbos'}</span>
+          </div>
+          {data.isTiePunishment && (
+            <span className="text-[11px] text-amber-300 font-black animate-pulse mt-0.5">
+              ¡Se recomienda tomarlo al seco! 💀
+            </span>
+          )}
+        </div>
+
+        {/* Botón de Continuar */}
+        <button
+          onClick={onClose}
+          className="w-full py-2.5 rounded-2xl bg-gradient-to-r from-rose-500 via-red-500 to-amber-500 hover:brightness-110 active:scale-95 text-white font-black text-xs sm:text-sm border border-rose-300 shadow-lg shadow-rose-500/30 transition cursor-pointer flex items-center justify-center gap-1.5 mt-2"
+        >
+          <span>¡Castigo Pagado!</span>
+          <span>🍻</span>
+        </button>
+      </div>
+    </div>
+  );
+}
+
+/**
+ * Modal de Jackpot de Carta Gemela (Paso 3)
+ */
+function JackpotMismoModal({ data, onClose }) {
+  if (!data) return null;
+
+  const playerAvatar = getAnimalAvatar(data.player?.animal);
+
+  return (
+    <div
+      role="dialog"
+      aria-modal="true"
+      className="fixed inset-0 z-50 bg-black/90 backdrop-blur-md flex items-center justify-center p-4 animate-in fade-in duration-200"
+      onClick={onClose}
+    >
+      <div
+        className="w-full max-w-sm rounded-3xl p-5 shadow-2xl relative z-10 flex flex-col items-center border-2 border-amber-400/80 bg-gradient-to-b from-[#2a1c0d] via-[#1a1208] to-[#0d0904] text-stone-100 animate-in zoom-in-95 duration-200"
+        onClick={(e) => e.stopPropagation()}
+      >
+        <span className="text-5xl animate-bounce my-1">💎</span>
+        <span className="text-xs font-black uppercase tracking-wider px-3 py-1 rounded-full bg-amber-500/20 text-amber-300 border border-amber-500/50 mb-2">
+          ¡JACKPOT DE CARTA GEMELA!
+        </span>
+
+        <div className="flex items-center gap-2 my-1 p-1 px-3 rounded-full bg-black/50 border border-amber-500/30">
+          <img
+            src={playerAvatar.image}
+            alt={data.player.name}
+            className="w-5 h-5 rounded-md object-contain border border-amber-400"
+          />
+          <span className="text-xs text-amber-200">
+            ¡Hazaña histórica de <strong>{data.player.name}</strong>!
+          </span>
+        </div>
+
+        <p className="text-xs text-stone-300 text-center my-2">
+          Acertó la apuesta de <strong>Mismo Número (~6% de probabilidad)</strong> con el {data.newCard.name}.
+        </p>
+
+        <div className="w-full my-2 p-3 rounded-2xl bg-amber-500/15 border border-amber-500/40 text-center flex flex-col items-center gap-1">
+          <span className="text-[10px] font-black uppercase tracking-wider text-amber-400">
+            PREMIO LEGENDARIO PARA REGALAR:
+          </span>
+          <span className="text-2xl sm:text-3xl font-black text-amber-300">
+            ¡Regalas {data.sipsGifted} Sorbos! 🔥
+          </span>
+          <span className="text-[11px] text-stone-300">
+            (O tienes derecho a mandar 1 Vaso al Seco a quien elijas)
+          </span>
+        </div>
+
+        <button
+          onClick={onClose}
+          className="w-full py-2.5 rounded-2xl bg-gradient-to-r from-amber-500 via-amber-400 to-amber-600 hover:brightness-110 active:scale-95 text-stone-950 font-black text-xs sm:text-sm border border-amber-300 shadow-lg shadow-amber-500/25 transition cursor-pointer flex items-center justify-center gap-1.5 mt-2"
+        >
+          <span>¡Repartir Premio con Gloria!</span>
+          <span>🏆</span>
+        </button>
+      </div>
+    </div>
+  );
+}
+
+/**
  * Componente Principal: Juego de las Apuestas (Mayor o Menor)
- * Paso 2: Interfaz Visual de Casino Speakeasy, Probabilidades Dinámicas y Pozo de Sorbos
+ * Paso 3: Volteo 3D, Modales de Explosión de Pozo, Empate x2 y Jackpot Gemelo
  */
 export default function JuegoApuestasGame({
   players = [],
@@ -36,6 +213,10 @@ export default function JuegoApuestasGame({
   const [odds, setOdds] = useState(() => manager.getOdds());
   const [lastResult, setLastResult] = useState(null);
   const [isFlipping, setIsFlipping] = useState(false);
+
+  // Estados de Modales del Paso 3
+  const [explosionModalData, setExplosionModalData] = useState(null);
+  const [jackpotModalData, setJackpotModalData] = useState(null);
 
   // Sincronizar jugadores si cambian
   useEffect(() => {
@@ -70,8 +251,14 @@ export default function JuegoApuestasGame({
 
       if (result.isCorrect) {
         soundManager.playSuccess();
+        // Si acertó el Jackpot de mismo número:
+        if (result.option === 'mismo') {
+          setJackpotModalData(result);
+        }
       } else {
-        soundManager.playChickenPenalty(); // Sonido cómico de cobro
+        soundManager.playChickenPenalty();
+        // Abrir modal de explosión de pozo (Paso 3)
+        setExplosionModalData(result);
       }
     }, 280);
   };
@@ -89,11 +276,21 @@ export default function JuegoApuestasGame({
   const handleReset = () => {
     soundManager.playTick(500);
     manager.reset();
+    setExplosionModalData(null);
+    setJackpotModalData(null);
     syncState();
   };
 
   const avatar = getAnimalAvatar(activePlayer?.animal);
   const isRed = currentCard?.isRed;
+
+  // Nivel de intensidad del pozo para efectos visuales
+  const potIntensity =
+    pot >= 8
+      ? 'from-red-950/80 via-rose-900/60 to-red-950/80 border-rose-500 shadow-rose-500/30 animate-pulse'
+      : pot >= 4
+      ? 'from-amber-950/80 via-orange-950/60 to-amber-950/80 border-amber-500 shadow-amber-500/20'
+      : 'from-amber-950/60 via-red-950/40 to-amber-950/60 border-amber-500/40 shadow-amber-500/10';
 
   return (
     <div className="h-dvh max-h-dvh flex flex-col justify-between items-center px-3 sm:px-4 pt-safe pb-safe max-w-md md:max-w-4xl lg:max-w-5xl mx-auto relative overflow-hidden w-full animate-in fade-in duration-200 text-stone-100">
@@ -157,9 +354,11 @@ export default function JuegoApuestasGame({
             )}
           </div>
 
-          {/* El Pozo Acumulado de Sorbos (The Pot) */}
-          <div className="flex items-center gap-2 bg-gradient-to-r from-amber-950/60 via-red-950/40 to-amber-950/60 border border-amber-500/40 px-3.5 py-1.5 rounded-2xl shadow-md shadow-amber-500/10">
-            <span className="text-xl animate-pulse">🍺</span>
+          {/* El Pozo Acumulado de Sorbos (The Pot) con fuego dinámico */}
+          <div className={`flex items-center gap-2 bg-gradient-to-r ${potIntensity} border px-3.5 py-1.5 rounded-2xl shadow-md transition-all duration-300`}>
+            <span className={`text-xl ${pot >= 6 ? 'animate-bounce' : 'animate-pulse'}`}>
+              {pot >= 8 ? '🔥' : '🍺'}
+            </span>
             <div>
               <span className="text-[9px] font-black uppercase tracking-wider text-amber-400 block leading-tight">
                 Pozo Acumulado:
@@ -335,6 +534,23 @@ export default function JuegoApuestasGame({
           </div>
         </div>
       </main>
+
+      {/* ========================================================= */}
+      {/* 4. MODALES DE PASO 3: EXPLOSIÓN DE POZO & JACKPOT GEMELO  */}
+      {/* ========================================================= */}
+      {explosionModalData && (
+        <PozoExplosionModal
+          data={explosionModalData}
+          onClose={() => setExplosionModalData(null)}
+        />
+      )}
+
+      {jackpotModalData && (
+        <JackpotMismoModal
+          data={jackpotModalData}
+          onClose={() => setJackpotModalData(null)}
+        />
+      )}
     </div>
   );
 }

@@ -10,6 +10,7 @@ import FreePlaySelector from './components/FreePlaySelector';
 import CategoryDeckView from './components/CategoryDeckView';
 import OtherGamesScreen from './components/OtherGamesScreen';
 import CuartoReyGame from './components/CuartoReyGame';
+import VerdadRetoGame from './components/VerdadRetoGame';
 import { deckManager, GAME_MODES, GAME_TYPES } from './utils/deckManager';
 import { soundManager } from './utils/soundEffects';
 import { getAnimalAvatar } from './utils/animalAvatars';
@@ -279,12 +280,22 @@ export default function App() {
           onBack={() => setScreen('menu')}
           onOpenSettings={() => setShowSettingsModal(true)}
           onPlayCuartoRey={() => setScreen('cuarto_rey')}
+          onPlayVerdadReto={() => setScreen('verdad_reto')}
         />
       )}
 
       {/* 2.6 Pantalla Oficial de Cuarto Rey */}
       {screen === 'cuarto_rey' && (
         <CuartoReyGame
+          players={players}
+          onBack={() => setScreen('other_games')}
+          onOpenSettings={() => setShowSettingsModal(true)}
+        />
+      )}
+
+      {/* 2.7 Pantalla de Verdad o Reto (Demo Paso 2) */}
+      {screen === 'verdad_reto' && (
+        <VerdadRetoGame
           players={players}
           onBack={() => setScreen('other_games')}
           onOpenSettings={() => setShowSettingsModal(true)}

@@ -119,7 +119,12 @@ const OTHER_GAMES_CATALOG = [
 
 const CATEGORIES = ['Todos', ...new Set(OTHER_GAMES_CATALOG.map((g) => g.category))];
 
-export default function OtherGamesScreen({ onBack, onOpenSettings, onPlayCuartoRey }) {
+export default function OtherGamesScreen({
+  onBack,
+  onOpenSettings,
+  onPlayCuartoRey,
+  onPlayVerdadReto,
+}) {
   const [selectedCategory, setSelectedCategory] = useState('Todos');
   const [expandedGameId, setExpandedGameId] = useState(null);
 
@@ -256,16 +261,32 @@ export default function OtherGamesScreen({ onBack, onOpenSettings, onPlayCuartoR
                   )}
                 </div>
 
-                {/* Footer de la tarjeta con botón de expansión y botón de Jugar Cuarto Rey */}
+                {/* Footer de la tarjeta con botones de juego y reglas */}
                 <div className="mt-3 pt-2.5 border-t border-stone-800/60 flex items-center justify-between gap-2 flex-wrap">
                   <span className="text-[11px] text-stone-400 font-medium flex items-center gap-1.5">
                     <span
                       className={`w-2 h-2 rounded-full ${
-                        game.id === 'cuarto-rey' ? 'bg-emerald-400 animate-pulse' : 'bg-amber-400'
+                        game.id === 'cuarto-rey'
+                          ? 'bg-emerald-400 animate-pulse'
+                          : game.id === 'verdad-reto'
+                          ? 'bg-rose-400 animate-pulse'
+                          : 'bg-amber-400'
                       }`}
                     />
-                    <span className={game.id === 'cuarto-rey' ? 'text-emerald-300 font-bold' : ''}>
-                      {game.id === 'cuarto-rey' ? '¡Modo Virtual Listo!' : game.status}
+                    <span
+                      className={
+                        game.id === 'cuarto-rey'
+                          ? 'text-emerald-300 font-bold'
+                          : game.id === 'verdad-reto'
+                          ? 'text-rose-300 font-bold'
+                          : ''
+                      }
+                    >
+                      {game.id === 'cuarto-rey'
+                        ? '¡Modo Virtual Listo!'
+                        : game.id === 'verdad-reto'
+                        ? '¡Demo Paso 2 Activa!'
+                        : game.status}
                     </span>
                   </span>
 
@@ -277,6 +298,16 @@ export default function OtherGamesScreen({ onBack, onOpenSettings, onPlayCuartoR
                       >
                         <span>▶️</span>
                         <span>Jugar Cuarto Rey</span>
+                      </button>
+                    )}
+
+                    {game.id === 'verdad-reto' && onPlayVerdadReto && (
+                      <button
+                        onClick={onPlayVerdadReto}
+                        className="text-xs font-black px-3.5 py-1.5 rounded-xl bg-gradient-to-r from-rose-500 via-red-500 to-amber-500 hover:brightness-110 active:scale-95 text-white border border-rose-300 shadow-md shadow-rose-500/25 transition cursor-pointer flex items-center gap-1.5"
+                      >
+                        <span>▶️</span>
+                        <span>Probar Juego</span>
                       </button>
                     )}
 

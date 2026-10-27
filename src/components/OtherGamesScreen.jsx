@@ -125,6 +125,7 @@ export default function OtherGamesScreen({
   onOpenSettings,
   onPlayCuartoRey,
   onPlayVerdadReto,
+  onPlayCaballos,
 }) {
   const [selectedCategory, setSelectedCategory] = useState('Todos');
   const [expandedGameId, setExpandedGameId] = useState(null);
@@ -269,6 +270,8 @@ export default function OtherGamesScreen({
                       className={`w-2 h-2 rounded-full ${
                         game.id === 'cuarto-rey' || game.id === 'verdad-reto'
                           ? 'bg-emerald-400 animate-pulse'
+                          : game.id === 'caballos'
+                          ? 'bg-amber-400 animate-pulse'
                           : 'bg-amber-400'
                       }`}
                     />
@@ -276,11 +279,15 @@ export default function OtherGamesScreen({
                       className={
                         game.id === 'cuarto-rey' || game.id === 'verdad-reto'
                           ? 'text-emerald-300 font-bold'
+                          : game.id === 'caballos'
+                          ? 'text-amber-300 font-bold'
                           : ''
                       }
                     >
                       {game.id === 'cuarto-rey' || game.id === 'verdad-reto'
                         ? '¡Modo Virtual Listo!'
+                        : game.id === 'caballos'
+                        ? '¡Demo Paso 2 Activa!'
                         : game.status}
                     </span>
                   </span>
@@ -303,6 +310,16 @@ export default function OtherGamesScreen({
                       >
                         <span>▶️</span>
                         <span>Jugar Verdad o Reto</span>
+                      </button>
+                    )}
+
+                    {game.id === 'caballos' && onPlayCaballos && (
+                      <button
+                        onClick={onPlayCaballos}
+                        className="text-xs font-black px-3.5 py-1.5 rounded-xl bg-gradient-to-r from-emerald-500 via-teal-500 to-amber-500 hover:brightness-110 active:scale-95 text-stone-950 border border-emerald-300 shadow-md shadow-emerald-500/25 transition cursor-pointer flex items-center gap-1.5"
+                      >
+                        <span>▶️</span>
+                        <span>Probar Carrera</span>
                       </button>
                     )}
 

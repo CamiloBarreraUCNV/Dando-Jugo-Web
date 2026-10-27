@@ -11,6 +11,7 @@ import CategoryDeckView from './components/CategoryDeckView';
 import OtherGamesScreen from './components/OtherGamesScreen';
 import CuartoReyGame from './components/CuartoReyGame';
 import VerdadRetoGame from './components/VerdadRetoGame';
+import CarreraCaballosGame from './components/CarreraCaballosGame';
 import { deckManager, GAME_MODES, GAME_TYPES } from './utils/deckManager';
 import { soundManager } from './utils/soundEffects';
 import { getAnimalAvatar } from './utils/animalAvatars';
@@ -281,6 +282,7 @@ export default function App() {
           onOpenSettings={() => setShowSettingsModal(true)}
           onPlayCuartoRey={() => setScreen('cuarto_rey')}
           onPlayVerdadReto={() => setScreen('verdad_reto')}
+          onPlayCaballos={() => setScreen('caballos')}
         />
       )}
 
@@ -296,6 +298,15 @@ export default function App() {
       {/* 2.7 Pantalla Oficial de Verdad o Reto (La Mesa Caliente) */}
       {screen === 'verdad_reto' && (
         <VerdadRetoGame
+          players={players}
+          onBack={() => setScreen('other_games')}
+          onOpenSettings={() => setShowSettingsModal(true)}
+        />
+      )}
+
+      {/* 2.8 Pantalla de Carrera de Caballos (Demo Paso 2) */}
+      {screen === 'caballos' && (
+        <CarreraCaballosGame
           players={players}
           onBack={() => setScreen('other_games')}
           onOpenSettings={() => setShowSettingsModal(true)}

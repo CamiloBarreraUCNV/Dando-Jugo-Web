@@ -34,21 +34,21 @@ const OTHER_GAMES_CATALOG = [
     icon: '💣',
     category: 'Competitivo',
     players: '2+ Jugadores',
-    badge: 'A Contrarreloj',
-    badgeColor: 'bg-red-500/20 text-red-300 border-red-500/40',
-    borderColor: 'border-red-500/40 hover:border-red-400',
+    badge: '¡Modo Virtual Jugable!',
+    badgeColor: 'bg-emerald-500/20 text-emerald-300 border-emerald-500/40',
+    borderColor: 'border-red-500/50 hover:border-red-400',
     color: 'from-red-950/60 via-stone-900/90 to-red-950/60',
     description:
-      'Preguntas de conocimiento y rapidez mental. La bomba tiene un temporizador invisible aleatorio entre 45 y 90 segundos. Quien tenga el teléfono en la mano cuando explote, ¡bebe la cantidad total de preguntas respondidas en sorbos!',
-    materials: 'Solo la app móvil.',
+      'La Papa Caliente definitiva. Responde preguntas de trivia contrarreloj con un temporizador invisible de 45 a 80 segundos. Cada acierto suma +1 sorbo al pozo y te da derecho a pasar el teléfono. Si te equivocas, no hay spoilers: ¡debes responder otra de inmediato! Quien tenga el teléfono al estallar la bomba, ¡se bebe todo el pozo!',
+    materials: 'Jugable 100% en la app (con 100 preguntas curadas, mecha reactiva y temporizador secreto).',
     rules: [
-      'El jugador en turno lee la trivia en voz alta.',
-      'Si acierta, pasa inmediatamente el teléfono al jugador de la derecha.',
-      'Si falla, debe responder otra pregunta antes de poder pasar el turno.',
-      'El tic-tac acelera aleatoriamente.',
-      '¡Quien tenga el teléfono al sonar la explosión se bebe el acumulado!',
+      'Reloj Invisible: La bomba tiene un temporizador secreto aleatorio de 45 a 80 segundos.',
+      'Si aciertas: El pozo suma +1 sorbo y debes pasar el teléfono inmediatamente al siguiente jugador.',
+      'Si fallas (Sin Spoilers): Borde rojo durante 1 segundo y nueva pregunta inmediata. ¡No puedes pasar el teléfono hasta acertar!',
+      'Tic-Tac en Crescendo: La mecha y el sonido de la bomba se aceleran en 4 fases de tensión.',
+      'Detonación 💥: Quien tenga el teléfono en las manos al sonar la explosión se bebe todos los sorbos del pozo acumulado.',
     ],
-    status: 'Próximamente en la app',
+    status: 'Modo Virtual Activo en la App',
   },
   {
     id: 'caballos',
@@ -269,19 +269,19 @@ export default function OtherGamesScreen({
                   <span className="text-[11px] text-stone-400 font-medium flex items-center gap-1.5">
                     <span
                       className={`w-2 h-2 rounded-full ${
-                        ['cuarto-rey', 'verdad-reto', 'caballos', 'apuestas-mayor-menor'].includes(game.id)
+                        ['cuarto-rey', 'verdad-reto', 'caballos', 'apuestas-mayor-menor', 'trivia-bomba'].includes(game.id)
                           ? 'bg-emerald-400 animate-pulse'
                           : 'bg-amber-400'
                       }`}
                     />
                     <span
                       className={
-                        ['cuarto-rey', 'verdad-reto', 'caballos', 'apuestas-mayor-menor'].includes(game.id)
+                        ['cuarto-rey', 'verdad-reto', 'caballos', 'apuestas-mayor-menor', 'trivia-bomba'].includes(game.id)
                           ? 'text-emerald-300 font-bold'
                           : ''
                       }
                     >
-                      {['cuarto-rey', 'verdad-reto', 'caballos', 'apuestas-mayor-menor'].includes(game.id)
+                      {['cuarto-rey', 'verdad-reto', 'caballos', 'apuestas-mayor-menor', 'trivia-bomba'].includes(game.id)
                         ? '¡Modo Virtual Listo!'
                         : game.status}
                     </span>
@@ -334,7 +334,7 @@ export default function OtherGamesScreen({
                         className="text-xs font-black px-3.5 py-1.5 rounded-xl bg-gradient-to-r from-red-600 via-rose-600 to-amber-500 hover:brightness-110 active:scale-95 text-white border border-red-400 shadow-md shadow-red-600/25 transition cursor-pointer flex items-center gap-1.5"
                       >
                         <span>▶️</span>
-                        <span>Probar Trivia Bomba</span>
+                        <span>Jugar Trivia Bomba</span>
                       </button>
                     )}
 

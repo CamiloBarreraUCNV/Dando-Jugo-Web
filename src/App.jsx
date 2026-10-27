@@ -326,7 +326,7 @@ export default function App() {
         />
       )}
 
-      {/* 2.10 Pantalla de Trivia Bomba (Paso 2) */}
+      {/* 2.10 Pantalla Oficial de Trivia Bomba (Papa Caliente Contrarreloj) */}
       {screen === 'trivia_bomba' && (
         <TriviaBombaGame
           players={players}

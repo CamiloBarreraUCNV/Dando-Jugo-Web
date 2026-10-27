@@ -71,7 +71,7 @@ function BombVisual({ tensionLevel, isExploded }) {
 
 /**
  * Componente Principal: Trivia Bomba (La Papa Caliente Contrarreloj)
- * Paso 4: Audio Web Audio Sintetizado (Mecha Sizzle, Tensión Progresiva y Gran Detonación Sub-Bass)
+ * Modo Virtual Oficial: 100 Preguntas, Temporizador Invisible, Pase Rápido y Clímax de Detonación
  */
 export default function TriviaBombaGame({
   players = [],

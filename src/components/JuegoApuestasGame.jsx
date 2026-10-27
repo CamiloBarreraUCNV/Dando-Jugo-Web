@@ -184,9 +184,9 @@ export default function JuegoApuestasGame({
       : 'from-amber-950/60 via-red-950/40 to-amber-950/60 border-amber-500/40 shadow-amber-500/10';
 
   return (
-    <div className="h-dvh max-h-dvh flex flex-col justify-between items-center px-3 sm:px-4 pt-safe pb-safe max-w-md md:max-w-4xl lg:max-w-5xl mx-auto relative overflow-hidden w-full animate-in fade-in duration-200 text-stone-100">
+    <div className="h-dvh max-h-dvh flex flex-col justify-between items-center px-3 sm:px-4 pt-safe pb-safe max-w-md md:max-w-4xl lg:max-w-5xl mx-auto relative overflow-hidden overflow-x-hidden w-full animate-in fade-in duration-200 text-stone-100 select-none">
       {/* 1. Header Superior del Casino */}
-      <header className="w-full flex items-center justify-between py-2 border-b border-stone-800/80 shrink-0 gap-2">
+      <header className="w-full flex items-center justify-between py-1.5 sm:py-2 border-b border-stone-800/80 shrink-0 gap-2">
         <button
           onClick={onBack}
           className="flex items-center gap-1 text-xs bg-stone-900/90 hover:bg-stone-800 active:scale-95 text-stone-200 font-bold px-3 py-1.5 rounded-xl border border-stone-700/80 transition shadow cursor-pointer"
@@ -198,12 +198,12 @@ export default function JuegoApuestasGame({
 
         <div className="text-center min-w-0">
           <div className="flex items-center justify-center gap-1.5">
-            <span className="text-lg">📈</span>
+            <span className="text-base sm:text-lg">📈</span>
             <h2 className="font-display font-black text-sm sm:text-base text-cyan-400 tracking-wide truncate">
               Juego de las Apuestas
             </h2>
           </div>
-          <span className="text-[10px] text-stone-400 block truncate">
+          <span className="text-[9px] sm:text-[10px] text-stone-400 block truncate">
             Casino Speakeasy • Mayor o Menor
           </span>
         </div>
@@ -220,18 +220,18 @@ export default function JuegoApuestasGame({
       </header>
 
       {/* 2. Cuerpo Central del Juego */}
-      <main className="w-full flex-1 flex flex-col justify-between py-1.5 min-h-0 overflow-y-auto">
+      <main className="w-full flex-1 min-h-0 flex flex-col justify-between py-1 overflow-x-hidden overflow-y-auto no-scrollbar">
         {/* Ficha del Turno y Medidor del Pozo */}
-        <div className="w-full flex items-center justify-between gap-2 mb-1">
+        <div className="w-full flex items-center justify-between gap-2 mb-1 shrink-0">
           {/* Ficha del Jugador Activo */}
-          <div className="flex items-center gap-2 bg-[#191416] border border-stone-800 px-3 py-1.5 rounded-2xl">
+          <div className="flex items-center gap-2 bg-[#191416] border border-stone-800 px-2.5 py-1 sm:px-3 sm:py-1.5 rounded-2xl">
             <img
               src={avatar.image}
               alt={activePlayer.name}
-              className="w-7 h-7 rounded-lg object-contain border border-amber-400/50"
+              className="w-6 h-6 sm:w-7 sm:h-7 rounded-lg object-contain border border-amber-400/50"
             />
             <div className="min-w-0">
-              <span className="text-[10px] text-stone-400 block uppercase tracking-wider font-bold">
+              <span className="text-[9px] sm:text-[10px] text-stone-400 block uppercase tracking-wider font-bold">
                 Turno de:
               </span>
               <span className="text-xs font-black text-amber-300 truncate block">
@@ -239,22 +239,22 @@ export default function JuegoApuestasGame({
               </span>
             </div>
             {streak > 0 && (
-              <span className="ml-1 text-[10px] font-black px-1.5 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-500/40">
+              <span className="ml-1 text-[9px] sm:text-[10px] font-black px-1.5 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-500/40">
                 🔥 {streak}
               </span>
             )}
           </div>
 
           {/* El Pozo Acumulado de Sorbos (The Pot) con fuego dinámico */}
-          <div className={`flex items-center gap-2 bg-gradient-to-r ${potIntensity} border px-3.5 py-1.5 rounded-2xl shadow-md transition-all duration-300`}>
-            <span className={`text-xl ${pot >= 6 ? 'animate-bounce' : 'animate-pulse'}`}>
+          <div className={`flex items-center gap-1.5 sm:gap-2 bg-gradient-to-r ${potIntensity} border px-3 py-1 sm:px-3.5 sm:py-1.5 rounded-2xl shadow-md transition-all duration-300`}>
+            <span className={`text-lg sm:text-xl ${pot >= 6 ? 'animate-bounce' : 'animate-pulse'}`}>
               {pot >= 8 ? '🔥' : '🍺'}
             </span>
             <div>
-              <span className="text-[9px] font-black uppercase tracking-wider text-amber-400 block leading-tight">
+              <span className="text-[8px] sm:text-[9px] font-black uppercase tracking-wider text-amber-400 block leading-tight">
                 Pozo Acumulado:
               </span>
-              <span className="text-sm font-black text-white leading-tight">
+              <span className="text-xs sm:text-sm font-black text-white leading-tight">
                 {pot} {pot === 1 ? 'Sorbo' : 'Sorbos'}
               </span>
             </div>
@@ -262,13 +262,13 @@ export default function JuegoApuestasGame({
         </div>
 
         {/* Mesa Central: La Carta Activa y Descarte */}
-        <div className={`w-full border-2 rounded-2xl p-3 shadow-2xl flex flex-col items-center justify-center relative my-auto transition-all duration-300 ${
+        <div className={`w-full border-2 rounded-2xl p-2 sm:p-2.5 shadow-2xl flex flex-col items-center justify-center relative my-auto transition-all duration-300 ${
           isFailedState
-            ? 'bg-gradient-to-b from-[#2e0911] via-[#1a060b] to-[#0f0407] border-[#DC143C] shadow-[0_0_35px_rgba(220,20,60,0.45)] animate-shake'
+            ? 'bg-gradient-to-b from-[#2e0911] via-[#1a060b] to-[#0f0407] border-[#DC143C] shadow-[0_0_25px_rgba(220,20,60,0.4)] animate-shake'
             : 'bg-[#120e10] border-cyan-500/30 shadow-cyan-900/20'
         }`}>
           {/* Contador de mazo restante */}
-          <div className={`absolute top-2.5 right-3 text-[10px] font-bold px-2 py-0.5 rounded-md border transition-colors ${
+          <div className={`absolute top-2 right-2.5 text-[9px] sm:text-[10px] font-bold px-2 py-0.5 rounded-md border transition-colors ${
             isFailedState
               ? 'text-rose-300 bg-black/60 border-rose-500/30'
               : 'text-stone-400 bg-black/40 border-white/10'
@@ -277,7 +277,7 @@ export default function JuegoApuestasGame({
           </div>
 
           {/* Historial de cartas descartadas (cinta horizontal) */}
-          <div className="absolute top-2.5 left-3 flex items-center gap-1">
+          <div className="absolute top-2 left-2.5 flex items-center gap-1">
             <span className={`text-[9px] font-bold uppercase tracking-wider transition-colors ${
               isFailedState ? 'text-rose-400/80' : 'text-stone-500'
             }`}>
@@ -286,7 +286,7 @@ export default function JuegoApuestasGame({
             {discardPile.slice(-3).map((c, idx) => (
               <span
                 key={idx}
-                className={`text-[10px] font-bold px-1.5 py-0.2 rounded bg-black/60 border ${
+                className={`text-[9px] sm:text-[10px] font-bold px-1.5 py-0.2 rounded bg-black/60 border ${
                   isFailedState ? 'border-rose-500/30' : 'border-white/10'
                 } ${c.isRed ? 'text-red-400' : 'text-stone-300'}`}
               >
@@ -296,30 +296,30 @@ export default function JuegoApuestasGame({
           </div>
 
           {/* La Carta Central con animación 3D */}
-          <div className="my-2 mt-4 sm:my-3 flex flex-col items-center">
+          <div className="my-1 sm:my-1.5 mt-3 sm:mt-4 flex flex-col items-center">
             <div
-              className={`w-28 h-40 sm:w-32 sm:h-44 rounded-2xl bg-stone-50 border-4 shadow-2xl flex flex-col justify-between p-2.5 transition-all duration-300 select-none ${
+              className={`w-24 h-36 sm:w-28 sm:h-40 rounded-2xl bg-stone-50 border-4 shadow-2xl flex flex-col justify-between p-2 transition-all duration-300 select-none ${
                 isFlipping
                   ? 'scale-90 rotate-6 opacity-60'
                   : 'scale-100 rotate-0 opacity-100'
               } ${
                 isFailedState
-                  ? 'border-rose-400 shadow-[0_0_25px_rgba(220,20,60,0.5)]'
+                  ? 'border-rose-400 shadow-[0_0_20px_rgba(220,20,60,0.5)]'
                   : 'border-white shadow-cyan-900/30'
               }`}
             >
-              <div className={`text-lg font-black leading-none ${isRed ? 'text-red-600' : 'text-stone-900'}`}>
+              <div className={`text-base sm:text-lg font-black leading-none ${isRed ? 'text-red-600' : 'text-stone-900'}`}>
                 {currentCard?.value}
               </div>
-              <div className="text-center text-5xl sm:text-6xl leading-none">
+              <div className="text-center text-4xl sm:text-5xl leading-none">
                 {currentCard?.suitSymbol}
               </div>
-              <div className={`text-lg font-black leading-none self-end rotate-180 ${isRed ? 'text-red-600' : 'text-stone-900'}`}>
+              <div className={`text-base sm:text-lg font-black leading-none self-end rotate-180 ${isRed ? 'text-red-600' : 'text-stone-900'}`}>
                 {currentCard?.value}
               </div>
             </div>
 
-            <span className={`text-xs font-black mt-2 text-center truncate transition-colors ${
+            <span className={`text-[11px] sm:text-xs font-black mt-1 text-center truncate transition-colors ${
               isFailedState ? 'text-rose-300' : 'text-amber-300'
             }`}>
               {currentCard?.name}
@@ -329,7 +329,7 @@ export default function JuegoApuestasGame({
           {/* Notificación de último resultado: Destaca el jugador y cuánto debe beber */}
           {lastResult && (
             <div
-              className={`w-full max-w-sm p-2.5 rounded-xl text-center text-xs border transition-all duration-300 animate-in fade-in ${
+              className={`w-full max-w-sm p-1.5 sm:p-2 rounded-xl text-center text-xs border transition-all duration-300 animate-in fade-in ${
                 lastResult.isCorrect
                   ? 'bg-emerald-950/80 border-emerald-500/60 text-emerald-200 shadow-md shadow-emerald-950/50'
                   : lastResult.isPass
@@ -338,60 +338,60 @@ export default function JuegoApuestasGame({
               }`}
             >
               {lastResult.isCorrect ? (
-                <div className="flex flex-col items-center gap-0.5">
-                  <div className="flex items-center justify-center gap-1.5 text-emerald-300 font-black text-xs sm:text-sm">
+                <div className="flex flex-col items-center">
+                  <div className="flex items-center justify-center gap-1.5 text-emerald-300 font-black text-xs">
                     <span>🎉</span>
                     {lastResult.player && (
                       <img
                         src={getAnimalAvatar(lastResult.player.animal).image}
                         alt={lastResult.player.name}
-                        className="w-4 h-4 rounded-full object-contain border border-emerald-400/50"
+                        className="w-3.5 h-3.5 rounded-full object-contain border border-emerald-400/50"
                       />
                     )}
                     <span>¡{lastResult.player?.name} acertó!</span>
                   </div>
-                  <p className="text-stone-200 text-xs">
-                    Regala <strong className="text-emerald-400 font-black text-sm">{lastResult.sipsGifted} {lastResult.sipsGifted === 1 ? 'sorbo' : 'sorbos'}</strong> a la mesa 🥂
+                  <p className="text-stone-200 text-[11px] leading-tight">
+                    Regala <strong className="text-emerald-400 font-black">{lastResult.sipsGifted} {lastResult.sipsGifted === 1 ? 'sorbo' : 'sorbos'}</strong> a la mesa 🥂
                   </p>
                 </div>
               ) : lastResult.isPass ? (
-                <div className="flex flex-col items-center gap-0.5">
-                  <div className="flex items-center justify-center gap-1.5 text-amber-300 font-black text-xs sm:text-sm">
+                <div className="flex flex-col items-center">
+                  <div className="flex items-center justify-center gap-1.5 text-amber-300 font-black text-xs">
                     <span>🛡️</span>
                     <span>¡{lastResult.fromPlayer?.name} se plantó!</span>
                   </div>
-                  <p className="text-stone-200 text-xs">
-                    Le pasa el pozo caliente de <strong className="text-amber-400 font-black">{lastResult.pot} sorbos</strong> a <strong>{lastResult.toPlayer?.name}</strong> 🔥
+                  <p className="text-stone-200 text-[11px] leading-tight">
+                    Le pasa el pozo de <strong className="text-amber-400 font-black">{lastResult.pot} sorbos</strong> a <strong>{lastResult.toPlayer?.name}</strong> 🔥
                   </p>
                 </div>
               ) : (
-                <div className="flex flex-col items-center gap-1">
+                <div className="flex flex-col items-center gap-0.5">
                   {/* Jugador que se equivocó */}
-                  <div className="flex items-center justify-center gap-1.5 text-rose-300 font-black text-xs sm:text-sm">
-                    <span className="text-base">💥</span>
+                  <div className="flex items-center justify-center gap-1.5 text-rose-300 font-black text-xs">
+                    <span>💥</span>
                     {lastResult.player && (
                       <img
                         src={getAnimalAvatar(lastResult.player.animal).image}
                         alt={lastResult.player.name}
-                        className="w-4 h-4 rounded-full object-contain border border-rose-400/80 shadow"
+                        className="w-3.5 h-3.5 rounded-full object-contain border border-rose-400/80 shadow"
                       />
                     )}
                     <span>¡{lastResult.player?.name} se equivocó!</span>
-                    <span className="text-base">💥</span>
+                    <span>💥</span>
                   </div>
 
                   {/* Cuánto debe beber */}
-                  <div className="flex items-center justify-center gap-1.5 text-stone-100 font-bold text-xs sm:text-sm">
+                  <div className="flex items-center justify-center gap-1 text-stone-100 font-bold text-[11px] sm:text-xs">
                     <span>Debe beberse</span>
-                    <span className="text-white font-black text-sm sm:text-base px-2.5 py-0.5 rounded-lg bg-red-600/70 border border-rose-400 shadow-md">
+                    <span className="text-white font-black px-2 py-0.2 rounded-md bg-red-600/70 border border-rose-400 shadow-md">
                       {lastResult.sipsToDrink} {lastResult.sipsToDrink === 1 ? 'sorbo' : 'sorbos'}
                     </span>
                     <span>del pozo acumulado 🍺</span>
                   </div>
 
                   {lastResult.isTiePunishment && (
-                    <span className="text-[10px] text-amber-300 font-black animate-pulse mt-0.5 block">
-                      ⚠️ ¡Carta Gemela! El pozo se duplicó. ¡Se recomienda al seco! 💀
+                    <span className="text-[10px] text-amber-300 font-black animate-pulse leading-none">
+                      ⚠️ ¡Carta Gemela! Pozo duplicado. ¡Al seco! 💀
                     </span>
                   )}
                 </div>
@@ -401,29 +401,29 @@ export default function JuegoApuestasGame({
         </div>
 
         {/* 3. Panel de Probabilidades y Botones de Apuesta */}
-        <div className="w-full mt-2 flex flex-col gap-2">
+        <div className="w-full mt-1 sm:mt-1.5 flex flex-col gap-1.5 shrink-0">
           <div className="text-center">
-            <span className="text-[10px] font-bold text-stone-400 uppercase tracking-wider block">
+            <span className="text-[9px] sm:text-[10px] font-bold text-stone-400 uppercase tracking-wider block">
               ¿Cómo será la siguiente carta?
             </span>
           </div>
 
-          {/* Los 3 Botones Principales con Probabilidad en Vivo y Sorbos a Regalar */}
-          <div className="grid grid-cols-3 gap-2">
+          {/* Los 3 Botones Principales con Probabilidad en Vivo y Sorbos a Regalar (Sin scale para evitar scrollbar) */}
+          <div className="grid grid-cols-3 gap-1.5 sm:gap-2">
             {/* Opción 1: MAYOR (⬆️) */}
             <button
               onClick={() => handleBet('mayor')}
               disabled={isFlipping}
-              className="p-2 sm:p-2.5 rounded-2xl bg-gradient-to-b from-cyan-950/70 to-stone-900 border-2 border-cyan-500/40 hover:border-cyan-400 hover:scale-[1.02] active:scale-95 transition-all text-center flex flex-col items-center justify-between shadow-lg cursor-pointer disabled:opacity-50"
+              className="p-1.5 sm:p-2 rounded-xl sm:rounded-2xl bg-gradient-to-b from-cyan-950/70 to-stone-900 border-2 border-cyan-500/40 hover:border-cyan-400 hover:brightness-110 active:scale-95 transition-all text-center flex flex-col items-center justify-between shadow-lg cursor-pointer disabled:opacity-50"
             >
-              <div className="flex items-center gap-1 text-cyan-400 font-black text-xs sm:text-sm">
+              <div className="flex items-center gap-1 text-cyan-400 font-black text-xs">
                 <span>⬆️</span>
                 <span>MAYOR</span>
               </div>
-              <span className="text-lg sm:text-xl font-black text-white my-0.5">
+              <span className="text-base sm:text-lg font-black text-white my-0.5">
                 {odds.higher.percent}%
               </span>
-              <span className="text-[10px] font-bold px-2 py-0.5 rounded-md bg-cyan-500/20 text-cyan-300 border border-cyan-500/30">
+              <span className="text-[9px] sm:text-[10px] font-bold px-1.5 py-0.2 rounded-md bg-cyan-500/20 text-cyan-300 border border-cyan-500/30">
                 Regala +{odds.higher.sips}s
               </span>
             </button>
@@ -432,16 +432,16 @@ export default function JuegoApuestasGame({
             <button
               onClick={() => handleBet('mismo')}
               disabled={isFlipping}
-              className="p-2 sm:p-2.5 rounded-2xl bg-gradient-to-b from-amber-950/70 to-stone-900 border-2 border-amber-500/40 hover:border-amber-400 hover:scale-[1.02] active:scale-95 transition-all text-center flex flex-col items-center justify-between shadow-lg cursor-pointer disabled:opacity-50"
+              className="p-1.5 sm:p-2 rounded-xl sm:rounded-2xl bg-gradient-to-b from-amber-950/70 to-stone-900 border-2 border-amber-500/40 hover:border-amber-400 hover:brightness-110 active:scale-95 transition-all text-center flex flex-col items-center justify-between shadow-lg cursor-pointer disabled:opacity-50"
             >
-              <div className="flex items-center gap-1 text-amber-400 font-black text-xs sm:text-sm">
+              <div className="flex items-center gap-1 text-amber-400 font-black text-xs">
                 <span>🟰</span>
                 <span>MISMO</span>
               </div>
-              <span className="text-lg sm:text-xl font-black text-white my-0.5">
+              <span className="text-base sm:text-lg font-black text-white my-0.5">
                 {odds.same.percent}%
               </span>
-              <span className="text-[10px] font-black px-2 py-0.5 rounded-md bg-amber-500/20 text-amber-300 border border-amber-500/30 animate-pulse">
+              <span className="text-[9px] sm:text-[10px] font-black px-1.5 py-0.2 rounded-md bg-amber-500/20 text-amber-300 border border-amber-500/30 animate-pulse">
                 Regala +{odds.same.sips}s 🔥
               </span>
             </button>
@@ -450,27 +450,27 @@ export default function JuegoApuestasGame({
             <button
               onClick={() => handleBet('menor')}
               disabled={isFlipping}
-              className="p-2 sm:p-2.5 rounded-2xl bg-gradient-to-b from-rose-950/70 to-stone-900 border-2 border-rose-500/40 hover:border-rose-400 hover:scale-[1.02] active:scale-95 transition-all text-center flex flex-col items-center justify-between shadow-lg cursor-pointer disabled:opacity-50"
+              className="p-1.5 sm:p-2 rounded-xl sm:rounded-2xl bg-gradient-to-b from-rose-950/70 to-stone-900 border-2 border-rose-500/40 hover:border-rose-400 hover:brightness-110 active:scale-95 transition-all text-center flex flex-col items-center justify-between shadow-lg cursor-pointer disabled:opacity-50"
             >
-              <div className="flex items-center gap-1 text-rose-400 font-black text-xs sm:text-sm">
+              <div className="flex items-center gap-1 text-rose-400 font-black text-xs">
                 <span>⬇️</span>
                 <span>MENOR</span>
               </div>
-              <span className="text-lg sm:text-xl font-black text-white my-0.5">
+              <span className="text-base sm:text-lg font-black text-white my-0.5">
                 {odds.lower.percent}%
               </span>
-              <span className="text-[10px] font-bold px-2 py-0.5 rounded-md bg-rose-500/20 text-rose-300 border border-rose-500/30">
+              <span className="text-[9px] sm:text-[10px] font-bold px-1.5 py-0.2 rounded-md bg-rose-500/20 text-rose-300 border border-rose-500/30">
                 Regala +{odds.lower.sips}s
               </span>
             </button>
           </div>
 
           {/* Botón de Decisión Estratégica: Plantarme y Pasar el Pozo */}
-          <div className="flex items-center gap-2 mt-1">
+          <div className="flex items-center gap-2 mt-0.5">
             <button
               onClick={handlePass}
               disabled={!canPass || isFlipping}
-              className={`flex-1 py-2.5 rounded-2xl font-black text-xs sm:text-sm border transition-all flex items-center justify-center gap-2 ${
+              className={`flex-1 py-2 sm:py-2.5 rounded-xl sm:rounded-2xl font-black text-xs sm:text-sm border transition-all flex items-center justify-center gap-2 ${
                 canPass
                   ? 'bg-gradient-to-r from-emerald-500 via-teal-500 to-amber-500 hover:brightness-110 active:scale-95 text-stone-950 border-emerald-300 shadow-md shadow-emerald-500/20 cursor-pointer animate-pulse'
                   : 'bg-stone-900/60 border-stone-800 text-stone-500 opacity-50 cursor-not-allowed'
@@ -487,7 +487,7 @@ export default function JuegoApuestasGame({
 
             <button
               onClick={handleReset}
-              className="px-3.5 py-2.5 rounded-2xl bg-stone-900 hover:bg-stone-800 text-stone-400 hover:text-stone-200 border border-stone-700 text-xs font-bold transition active:scale-95 cursor-pointer shrink-0"
+              className="p-2 sm:px-3 sm:py-2.5 rounded-xl sm:rounded-2xl bg-stone-900 hover:bg-stone-800 text-stone-400 hover:text-stone-200 border border-stone-700 text-xs font-bold transition active:scale-95 cursor-pointer shrink-0"
               title="Reiniciar baraja y pozo"
             >
               <span>↺</span>

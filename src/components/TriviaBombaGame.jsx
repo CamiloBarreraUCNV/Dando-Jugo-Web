@@ -71,7 +71,7 @@ function BombVisual({ tensionLevel, isExploded }) {
 
 /**
  * Componente Principal: Trivia Bomba (La Papa Caliente Contrarreloj)
- * Paso 3: Clímax de Detonación 💥, Pantalla de Humo, Flash Háptico y Cobro a la Víctima
+ * Paso 4: Audio Web Audio Sintetizado (Mecha Sizzle, Tensión Progresiva y Gran Detonación Sub-Bass)
  */
 export default function TriviaBombaGame({
   players = [],
@@ -120,6 +120,7 @@ export default function TriviaBombaGame({
 
   // Iniciar la ronda
   const handleStartRound = () => {
+    soundManager.playFuseSizzle();
     soundManager.playTimerStart();
     manager.startRound();
     syncState();
@@ -136,20 +137,14 @@ export default function TriviaBombaGame({
 
       if (tickResult.isExploded) {
         clearInterval(timerRef.current);
-        soundManager.playTimerBuzzer();
+        soundManager.playBombBlast(); // 💥 Gran detonación sub-bass con ruido blanco y metralla
 
-        // Disparar flash visual y vibración háptica de detonación (Paso 3)
+        // Disparar flash visual (Paso 3 y 4)
         setShowBlastFlash(true);
         setTimeout(() => setShowBlastFlash(false), 500);
-
-        if (typeof navigator !== 'undefined' && navigator.vibrate) {
-          try {
-            navigator.vibrate([150, 70, 300, 80, 500]);
-          } catch (_) {}
-        }
       } else {
-        const isUrgent = tickResult.tensionLevel === 'critical' || tickResult.tensionLevel === 'high';
-        soundManager.playTimerTick(isUrgent);
+        // Tic-Tac progresivo sintetizado según el nivel de tensión (Paso 4)
+        soundManager.playBombTensionTick(tickResult.tensionLevel);
       }
     }, 1000);
   };
@@ -176,7 +171,7 @@ export default function TriviaBombaGame({
     const result = manager.submitAnswer(key);
 
     if (result.isCorrect) {
-      soundManager.playSuccess();
+      soundManager.playBombPass(); // 🔔 Campanilla alegre de pase de teléfono
       setFeedback({
         type: 'correct',
         fromPlayer: result.fromPlayer,

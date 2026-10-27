@@ -981,6 +981,255 @@ class SoundManager {
       console.warn('Audio playHighStakesTension error:', e);
     }
   }
+
+  // =====================================================================
+  // SONIDOS PARA: TRIVIA BOMBA (PAPA CALIENTE / CONTRARRELOJ)
+  // =====================================================================
+
+  // 1. Gran Detonación Estruendosa de la Bomba (Sub-Bass + Explosión de Ruido Blanco)
+  playBombBlast() {
+    if (this.isMuted) return;
+    this.init();
+    if (!this.ctx) return;
+
+    try {
+      if (typeof navigator !== 'undefined' && navigator.vibrate) {
+        try {
+          navigator.vibrate([150, 70, 300, 80, 500]);
+        } catch (_) {}
+      }
+
+      const now = this.ctx.currentTime;
+
+      // Componente A: Golpe masivo de Sub-Bass (160Hz -> 25Hz)
+      const subOsc = this.ctx.createOscillator();
+      const subGain = this.ctx.createGain();
+      subOsc.type = 'sine';
+      subOsc.frequency.setValueAtTime(160, now);
+      subOsc.frequency.exponentialRampToValueAtTime(25, now + 0.8);
+
+      const targetSubGain = 0.55 * this.volume;
+      subGain.gain.setValueAtTime(targetSubGain, now);
+      subGain.gain.exponentialRampToValueAtTime(0.001, now + 0.85);
+
+      subOsc.connect(subGain);
+      subGain.connect(this.ctx.destination);
+      subOsc.start(now);
+      subOsc.stop(now + 0.85);
+
+      // Componente B: Onda expansiva de ruido blanco (fuego y escombros)
+      const bufferSize = Math.floor(this.ctx.sampleRate * 0.7);
+      const buffer = this.ctx.createBuffer(1, bufferSize, this.ctx.sampleRate);
+      const data = buffer.getChannelData(0);
+      for (let i = 0; i < bufferSize; i++) {
+        data[i] = Math.random() * 2 - 1;
+      }
+
+      const noiseSource = this.ctx.createBufferSource();
+      noiseSource.buffer = buffer;
+
+      const noiseFilter = this.ctx.createBiquadFilter();
+      noiseFilter.type = 'lowpass';
+      noiseFilter.frequency.setValueAtTime(2400, now);
+      noiseFilter.frequency.exponentialRampToValueAtTime(120, now + 0.7);
+
+      const noiseGain = this.ctx.createGain();
+      const targetNoiseGain = 0.45 * this.volume;
+      noiseGain.gain.setValueAtTime(targetNoiseGain, now);
+      noiseGain.gain.exponentialRampToValueAtTime(0.001, now + 0.7);
+
+      noiseSource.connect(noiseFilter);
+      noiseFilter.connect(noiseGain);
+      noiseGain.connect(this.ctx.destination);
+
+      noiseSource.start(now);
+      noiseSource.stop(now + 0.7);
+
+      // Componente C: Descenso metálico de metralla
+      const clangOsc = this.ctx.createOscillator();
+      const clangGain = this.ctx.createGain();
+      clangOsc.type = 'sawtooth';
+      clangOsc.frequency.setValueAtTime(380, now);
+      clangOsc.frequency.exponentialRampToValueAtTime(65, now + 0.5);
+
+      const targetClangGain = 0.3 * this.volume;
+      clangGain.gain.setValueAtTime(targetClangGain, now);
+      clangGain.gain.exponentialRampToValueAtTime(0.001, now + 0.5);
+
+      clangOsc.connect(clangGain);
+      clangGain.connect(this.ctx.destination);
+      clangOsc.start(now);
+      clangOsc.stop(now + 0.5);
+    } catch (e) {
+      console.warn('Audio playBombBlast error:', e);
+    }
+  }
+
+  // 2. Tic-Tac Progresivo según el Nivel de Tensión Invisible
+  playBombTensionTick(tensionLevel = 'calm') {
+    if (this.isMuted) return;
+    this.init();
+    if (!this.ctx) return;
+
+    try {
+      const now = this.ctx.currentTime;
+
+      if (tensionLevel === 'critical') {
+        // Taquicardia crítica: doble tick urgente con microvibración
+        if (typeof navigator !== 'undefined' && navigator.vibrate) {
+          try { navigator.vibrate(25); } catch (_) {}
+        }
+
+        [0, 0.12].forEach((offset) => {
+          const osc = this.ctx.createOscillator();
+          const gain = this.ctx.createGain();
+          osc.type = 'sawtooth';
+          osc.frequency.setValueAtTime(1250, now + offset);
+          osc.frequency.exponentialRampToValueAtTime(450, now + offset + 0.04);
+
+          const targetGain = 0.35 * this.volume;
+          gain.gain.setValueAtTime(targetGain, now + offset);
+          gain.gain.exponentialRampToValueAtTime(0.001, now + offset + 0.045);
+
+          osc.connect(gain);
+          gain.connect(this.ctx.destination);
+          osc.start(now + offset);
+          osc.stop(now + offset + 0.045);
+        });
+      } else if (tensionLevel === 'high') {
+        // Alerta alta: tono agudo acelerado
+        const osc = this.ctx.createOscillator();
+        const gain = this.ctx.createGain();
+        osc.type = 'sawtooth';
+        osc.frequency.setValueAtTime(950, now);
+        osc.frequency.exponentialRampToValueAtTime(320, now + 0.045);
+
+        const targetGain = 0.28 * this.volume;
+        gain.gain.setValueAtTime(targetGain, now);
+        gain.gain.exponentialRampToValueAtTime(0.001, now + 0.05);
+
+        osc.connect(gain);
+        gain.connect(this.ctx.destination);
+        osc.start(now);
+        osc.stop(now + 0.05);
+      } else if (tensionLevel === 'medium') {
+        // Tensión moderada: tick metálico de reloj
+        const osc = this.ctx.createOscillator();
+        const gain = this.ctx.createGain();
+        osc.type = 'triangle';
+        osc.frequency.setValueAtTime(780, now);
+        osc.frequency.exponentialRampToValueAtTime(220, now + 0.04);
+
+        const targetGain = 0.22 * this.volume;
+        gain.gain.setValueAtTime(targetGain, now);
+        gain.gain.exponentialRampToValueAtTime(0.001, now + 0.045);
+
+        osc.connect(gain);
+        gain.connect(this.ctx.destination);
+        osc.start(now);
+        osc.stop(now + 0.045);
+      } else {
+        // Tensión calma: tick sutil y mecánico
+        const osc = this.ctx.createOscillator();
+        const gain = this.ctx.createGain();
+        osc.type = 'triangle';
+        osc.frequency.setValueAtTime(580, now);
+        osc.frequency.exponentialRampToValueAtTime(180, now + 0.035);
+
+        const targetGain = 0.16 * this.volume;
+        gain.gain.setValueAtTime(targetGain, now);
+        gain.gain.exponentialRampToValueAtTime(0.001, now + 0.04);
+
+        osc.connect(gain);
+        gain.connect(this.ctx.destination);
+        osc.start(now);
+        osc.stop(now + 0.04);
+      }
+    } catch (e) {
+      console.warn('Audio playBombTensionTick error:', e);
+    }
+  }
+
+  // 3. Chisporroteo de la mecha encendida (Gunpowder Sizzle)
+  playFuseSizzle() {
+    if (this.isMuted) return;
+    this.init();
+    if (!this.ctx) return;
+
+    try {
+      const now = this.ctx.currentTime;
+      const crackles = [
+        { f: 3400, time: 0, dur: 0.025 },
+        { f: 4200, time: 0.03, dur: 0.02 },
+        { f: 2900, time: 0.055, dur: 0.03 },
+      ];
+
+      crackles.forEach((c) => {
+        const osc = this.ctx.createOscillator();
+        const gain = this.ctx.createGain();
+        const filter = this.ctx.createBiquadFilter();
+
+        osc.type = 'sawtooth';
+        osc.frequency.setValueAtTime(c.f, now + c.time);
+        osc.frequency.exponentialRampToValueAtTime(c.f * 0.6, now + c.time + c.dur);
+
+        filter.type = 'highpass';
+        filter.frequency.setValueAtTime(2000, now + c.time);
+
+        const targetGain = 0.2 * this.volume;
+        gain.gain.setValueAtTime(targetGain, now + c.time);
+        gain.gain.exponentialRampToValueAtTime(0.001, now + c.time + c.dur);
+
+        osc.connect(filter);
+        filter.connect(gain);
+        gain.connect(this.ctx.destination);
+
+        osc.start(now + c.time);
+        osc.stop(now + c.time + c.dur);
+      });
+    } catch (e) {
+      console.warn('Audio playFuseSizzle error:', e);
+    }
+  }
+
+  // 4. Campanilla triunfal de Pase de Teléfono al acertar
+  playBombPass() {
+    if (this.isMuted) return;
+    this.init();
+    if (!this.ctx) return;
+
+    try {
+      if (typeof navigator !== 'undefined' && navigator.vibrate) {
+        try { navigator.vibrate(35); } catch (_) {}
+      }
+
+      const now = this.ctx.currentTime;
+      const notes = [
+        { f: 783.99, time: 0, dur: 0.08 },    // G5
+        { f: 1046.50, time: 0.08, dur: 0.2 }, // C6
+      ];
+
+      notes.forEach((n) => {
+        const osc = this.ctx.createOscillator();
+        const gain = this.ctx.createGain();
+
+        osc.type = 'sine';
+        osc.frequency.setValueAtTime(n.f, now + n.time);
+
+        const targetGain = 0.26 * this.volume;
+        gain.gain.setValueAtTime(targetGain, now + n.time);
+        gain.gain.exponentialRampToValueAtTime(0.001, now + n.time + n.dur);
+
+        osc.connect(gain);
+        gain.connect(this.ctx.destination);
+
+        osc.start(now + n.time);
+        osc.stop(now + n.time + n.dur);
+      });
+    } catch (e) {
+      console.warn('Audio playBombPass error:', e);
+    }
+  }
 }
 
 export const soundManager = new SoundManager();

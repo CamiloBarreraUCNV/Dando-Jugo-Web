@@ -14,6 +14,10 @@ import { soundManager } from '../utils/soundEffects';
 function HurdleRevealModal({ hurdle, onClose }) {
   if (!hurdle) return null;
 
+  useEffect(() => {
+    soundManager.playHurdleStumble();
+  }, []);
+
   const horse = hurdle.penalizedHorse;
   const card = hurdle.card;
   const isRedCard = card.suit === 'corazones' || card.suit === 'diamantes';
@@ -99,6 +103,10 @@ function HurdleRevealModal({ hurdle, onClose }) {
  */
 function WinnerCelebrationModal({ winner, results, onClose, onReset }) {
   if (!winner || !results) return null;
+
+  useEffect(() => {
+    soundManager.playRaceVictory();
+  }, []);
 
   return (
     <div
@@ -341,7 +349,7 @@ export default function CarreraCaballosGame({
 
   // Confirmar todas las apuestas y largar la carrera
   const handleStartRace = () => {
-    soundManager.playSuccess();
+    soundManager.playRaceBell(); // 🔔 Campana de largada de hipódromo ("¡Ding-ding-ding!")
     effectivePlayers.forEach((p) => {
       const b = draftBets[p.id] || { horseId: 'corazones', sips: 2, isAlSeco: false };
       manager.setBet(p.id, p.name, b.horseId, b.isAlSeco ? 'al_seco' : b.sips, b.isAlSeco);
@@ -358,7 +366,7 @@ export default function CarreraCaballosGame({
   const handleDrawCard = () => {
     if (phase !== 'racing') return;
 
-    soundManager.playCardFlip();
+    soundManager.playHorseGallop(); // 🏇 Cascos de galope al avanzar
     const event = manager.drawNextCard();
     setLastEvent(event);
 
@@ -372,7 +380,7 @@ export default function CarreraCaballosGame({
       setTimeout(() => setAdvancingHorseId(null), 800);
     }
 
-    // Comprobar si se activó alguna valla (Paso 3: Revelación Dramática)
+    // Comprobar si se activó alguna valla (Paso 3 y 4: Revelación y Tropezón)
     if (event.hurdlesTriggered && event.hurdlesTriggered.length > 0) {
       const hurdleInfo = event.hurdlesTriggered[0];
       setStumbledHorseId(hurdleInfo.penalizedHorse.id);
@@ -387,7 +395,7 @@ export default function CarreraCaballosGame({
 
     // Comprobar si cruzó la meta
     if (event.isFinished) {
-      soundManager.playSuccess();
+      soundManager.playRaceVictory(); // 🎺 Clarín de victoria de hipódromo
       setPhase('finished');
       setAutoRun(false);
       setShowWinnerModal(true);

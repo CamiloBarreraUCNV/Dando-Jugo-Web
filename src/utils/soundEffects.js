@@ -537,6 +537,220 @@ class SoundManager {
       console.warn('Audio playChickenPenalty error:', e);
     }
   }
+
+  // =========================================================
+  // SONIDOS PARA CARRERA DE CABALLOS (TURF CLUB)
+  // =========================================================
+
+  // 1. Campana de largada de hipódromo ("¡Ding-ding-ding! ¡Partieron!")
+  playRaceBell() {
+    if (this.isMuted) return;
+    this.init();
+    if (!this.ctx) return;
+
+    try {
+      if (typeof navigator !== 'undefined' && navigator.vibrate) {
+        try {
+          navigator.vibrate([70, 50, 70, 50, 160]);
+        } catch (_) {}
+      }
+
+      const now = this.ctx.currentTime;
+      const chimes = [
+        { f: 1800, time: 0, duration: 0.22 },
+        { f: 1800, time: 0.12, duration: 0.22 },
+        { f: 2200, time: 0.25, duration: 0.55 },
+      ];
+
+      chimes.forEach((c) => {
+        // Tono principal
+        const osc = this.ctx.createOscillator();
+        const gain = this.ctx.createGain();
+
+        osc.type = 'sine';
+        osc.frequency.setValueAtTime(c.f, now + c.time);
+
+        // Armónico metálico brillante
+        const overtone = this.ctx.createOscillator();
+        const overtoneGain = this.ctx.createGain();
+        overtone.type = 'triangle';
+        overtone.frequency.setValueAtTime(c.f * 1.58, now + c.time);
+
+        const targetGain = 0.3 * this.volume;
+        gain.gain.setValueAtTime(targetGain, now + c.time);
+        gain.gain.exponentialRampToValueAtTime(0.001, now + c.time + c.duration);
+
+        overtoneGain.gain.setValueAtTime(targetGain * 0.4, now + c.time);
+        overtoneGain.gain.exponentialRampToValueAtTime(0.001, now + c.time + c.duration * 0.7);
+
+        osc.connect(gain);
+        gain.connect(this.ctx.destination);
+
+        overtone.connect(overtoneGain);
+        overtoneGain.connect(this.ctx.destination);
+
+        osc.start(now + c.time);
+        osc.stop(now + c.time + c.duration);
+        overtone.start(now + c.time);
+        overtone.stop(now + c.time + c.duration);
+      });
+    } catch (e) {
+      console.warn('Audio playRaceBell error:', e);
+    }
+  }
+
+  // 2. Cascos de galope de caballo ("clop-clop" rítmico percusivo)
+  playHorseGallop() {
+    if (this.isMuted) return;
+    this.init();
+    if (!this.ctx) return;
+
+    try {
+      const now = this.ctx.currentTime;
+      const beats = [
+        { fStart: 240, fEnd: 80, time: 0, duration: 0.045 },
+        { fStart: 310, fEnd: 95, time: 0.065, duration: 0.05 },
+      ];
+
+      beats.forEach((b) => {
+        const osc = this.ctx.createOscillator();
+        const gain = this.ctx.createGain();
+        const filter = this.ctx.createBiquadFilter();
+
+        osc.type = 'triangle';
+        osc.frequency.setValueAtTime(b.fStart, now + b.time);
+        osc.frequency.exponentialRampToValueAtTime(b.fEnd, now + b.time + b.duration);
+
+        filter.type = 'lowpass';
+        filter.frequency.setValueAtTime(500, now + b.time);
+
+        const targetGain = 0.25 * this.volume;
+        gain.gain.setValueAtTime(targetGain, now + b.time);
+        gain.gain.exponentialRampToValueAtTime(0.001, now + b.time + b.duration);
+
+        osc.connect(filter);
+        filter.connect(gain);
+        gain.connect(this.ctx.destination);
+
+        osc.start(now + b.time);
+        osc.stop(now + b.time + b.duration);
+      });
+    } catch (e) {
+      console.warn('Audio playHorseGallop error:', e);
+    }
+  }
+
+  // 3. Tropezón dramático en valla (impacto sordo + relincho cómico deslizante)
+  playHurdleStumble() {
+    if (this.isMuted) return;
+    this.init();
+    if (!this.ctx) return;
+
+    try {
+      if (typeof navigator !== 'undefined' && navigator.vibrate) {
+        try {
+          navigator.vibrate([60, 40, 180]);
+        } catch (_) {}
+      }
+
+      const now = this.ctx.currentTime;
+
+      // Componente 1: Golpe de impacto con la valla
+      const thudOsc = this.ctx.createOscillator();
+      const thudGain = this.ctx.createGain();
+      thudOsc.type = 'sine';
+      thudOsc.frequency.setValueAtTime(140, now);
+      thudOsc.frequency.exponentialRampToValueAtTime(35, now + 0.18);
+
+      const targetThudGain = 0.4 * this.volume;
+      thudGain.gain.setValueAtTime(targetThudGain, now);
+      thudGain.gain.exponentialRampToValueAtTime(0.001, now + 0.18);
+
+      thudOsc.connect(thudGain);
+      thudGain.connect(this.ctx.destination);
+      thudOsc.start(now);
+      thudOsc.stop(now + 0.18);
+
+      // Componente 2: Descenso cómico de relincho / tropiezo
+      const slideOsc = this.ctx.createOscillator();
+      const slideGain = this.ctx.createGain();
+      const filter = this.ctx.createBiquadFilter();
+
+      slideOsc.type = 'sawtooth';
+      slideOsc.frequency.setValueAtTime(750, now + 0.05);
+      slideOsc.frequency.linearRampToValueAtTime(950, now + 0.15);
+      slideOsc.frequency.exponentialRampToValueAtTime(220, now + 0.45);
+
+      filter.type = 'bandpass';
+      filter.frequency.setValueAtTime(900, now + 0.05);
+      filter.Q.setValueAtTime(2.5, now + 0.05);
+
+      const targetSlideGain = 0.28 * this.volume;
+      slideGain.gain.setValueAtTime(targetSlideGain, now + 0.05);
+      slideGain.gain.exponentialRampToValueAtTime(0.001, now + 0.45);
+
+      slideOsc.connect(filter);
+      filter.connect(slideGain);
+      slideGain.connect(this.ctx.destination);
+
+      slideOsc.start(now + 0.05);
+      slideOsc.stop(now + 0.45);
+    } catch (e) {
+      console.warn('Audio playHurdleStumble error:', e);
+    }
+  }
+
+  // 4. Clarín triunfal de turf / Fanfarria de victoria de hipódromo ("Call to the Post")
+  playRaceVictory() {
+    if (this.isMuted) return;
+    this.init();
+    if (!this.ctx) return;
+
+    try {
+      if (typeof navigator !== 'undefined' && navigator.vibrate) {
+        try {
+          navigator.vibrate([100, 50, 100, 50, 300]);
+        } catch (_) {}
+      }
+
+      const now = this.ctx.currentTime;
+      // Melodía clásica de clarín de hipódromo (notas de corneta C-E-G)
+      const notes = [
+        { f: 392.00, time: 0, dur: 0.12 },     // G4
+        { f: 523.25, time: 0.12, dur: 0.12 },  // C5
+        { f: 659.25, time: 0.24, dur: 0.12 },  // E5
+        { f: 783.99, time: 0.36, dur: 0.18 },  // G5
+        { f: 659.25, time: 0.54, dur: 0.12 },  // E5
+        { f: 783.99, time: 0.66, dur: 0.35 },  // G5 (sostenida triunfal)
+      ];
+
+      notes.forEach((n) => {
+        const osc = this.ctx.createOscillator();
+        const gain = this.ctx.createGain();
+        const filter = this.ctx.createBiquadFilter();
+
+        osc.type = 'sawtooth';
+        osc.frequency.setValueAtTime(n.f, now + n.time);
+
+        filter.type = 'lowpass';
+        filter.frequency.setValueAtTime(2200, now + n.time);
+
+        const targetGain = 0.26 * this.volume;
+        gain.gain.setValueAtTime(0.01, now + n.time);
+        gain.gain.linearRampToValueAtTime(targetGain, now + n.time + 0.02);
+        gain.gain.exponentialRampToValueAtTime(0.001, now + n.time + n.dur);
+
+        osc.connect(filter);
+        filter.connect(gain);
+        gain.connect(this.ctx.destination);
+
+        osc.start(now + n.time);
+        osc.stop(now + n.time + n.dur);
+      });
+    } catch (e) {
+      console.warn('Audio playRaceVictory error:', e);
+    }
+  }
 }
 
 export const soundManager = new SoundManager();

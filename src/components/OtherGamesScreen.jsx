@@ -124,6 +124,7 @@ export default function OtherGamesScreen({
   onPlayCuartoRey,
   onPlayVerdadReto,
   onPlayCaballos,
+  onPlayApuestas,
 }) {
   const [selectedCategory, setSelectedCategory] = useState('Todos');
   const [expandedGameId, setExpandedGameId] = useState(null);
@@ -268,6 +269,8 @@ export default function OtherGamesScreen({
                       className={`w-2 h-2 rounded-full ${
                         game.id === 'cuarto-rey' || game.id === 'verdad-reto' || game.id === 'caballos'
                           ? 'bg-emerald-400 animate-pulse'
+                          : game.id === 'apuestas-mayor-menor'
+                          ? 'bg-cyan-400 animate-pulse'
                           : 'bg-amber-400'
                       }`}
                     />
@@ -275,11 +278,15 @@ export default function OtherGamesScreen({
                       className={
                         game.id === 'cuarto-rey' || game.id === 'verdad-reto' || game.id === 'caballos'
                           ? 'text-emerald-300 font-bold'
+                          : game.id === 'apuestas-mayor-menor'
+                          ? 'text-cyan-300 font-bold'
                           : ''
                       }
                     >
                       {game.id === 'cuarto-rey' || game.id === 'verdad-reto' || game.id === 'caballos'
                         ? '¡Modo Virtual Listo!'
+                        : game.id === 'apuestas-mayor-menor'
+                        ? '¡Demo Paso 2 Activa!'
                         : game.status}
                     </span>
                   </span>
@@ -312,6 +319,16 @@ export default function OtherGamesScreen({
                       >
                         <span>▶️</span>
                         <span>Jugar Carrera de Caballos</span>
+                      </button>
+                    )}
+
+                    {game.id === 'apuestas-mayor-menor' && onPlayApuestas && (
+                      <button
+                        onClick={onPlayApuestas}
+                        className="text-xs font-black px-3.5 py-1.5 rounded-xl bg-gradient-to-r from-cyan-500 via-sky-500 to-indigo-500 hover:brightness-110 active:scale-95 text-stone-950 border border-cyan-300 shadow-md shadow-cyan-500/25 transition cursor-pointer flex items-center gap-1.5"
+                      >
+                        <span>▶️</span>
+                        <span>Probar Apuestas</span>
                       </button>
                     )}
 

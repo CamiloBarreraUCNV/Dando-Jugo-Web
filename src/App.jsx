@@ -12,6 +12,7 @@ import OtherGamesScreen from './components/OtherGamesScreen';
 import CuartoReyGame from './components/CuartoReyGame';
 import VerdadRetoGame from './components/VerdadRetoGame';
 import CarreraCaballosGame from './components/CarreraCaballosGame';
+import JuegoApuestasGame from './components/JuegoApuestasGame';
 import { deckManager, GAME_MODES, GAME_TYPES } from './utils/deckManager';
 import { soundManager } from './utils/soundEffects';
 import { getAnimalAvatar } from './utils/animalAvatars';
@@ -283,6 +284,7 @@ export default function App() {
           onPlayCuartoRey={() => setScreen('cuarto_rey')}
           onPlayVerdadReto={() => setScreen('verdad_reto')}
           onPlayCaballos={() => setScreen('caballos')}
+          onPlayApuestas={() => setScreen('apuestas')}
         />
       )}
 
@@ -307,6 +309,15 @@ export default function App() {
       {/* 2.8 Pantalla Oficial de Carrera de Caballos (Turf Club) */}
       {screen === 'caballos' && (
         <CarreraCaballosGame
+          players={players}
+          onBack={() => setScreen('other_games')}
+          onOpenSettings={() => setShowSettingsModal(true)}
+        />
+      )}
+
+      {/* 2.9 Pantalla de Juego de las Apuestas (Demo Paso 2) */}
+      {screen === 'apuestas' && (
+        <JuegoApuestasGame
           players={players}
           onBack={() => setScreen('other_games')}
           onOpenSettings={() => setShowSettingsModal(true)}

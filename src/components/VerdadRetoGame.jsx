@@ -4,9 +4,15 @@ import { getAnimalAvatar } from '../utils/animalAvatars';
 import { soundManager } from '../utils/soundEffects';
 
 /**
- * Modal de Revelación Dramática de Verdad o Reto (Paso 3)
+ * Modal de Revelación Dramática de Verdad o Reto (Pasos 3 y 4)
  */
-function VerdadRetoRevealModal({ card, activePlayer, onClose }) {
+function VerdadRetoRevealModal({
+  card,
+  activePlayer,
+  onFulfilled,
+  onChickened,
+  onClose,
+}) {
   const isVerdad = card.tipo === 'verdad';
 
   // Sonido específico al abrir
@@ -121,27 +127,96 @@ function VerdadRetoRevealModal({ card, activePlayer, onClose }) {
           )}
         </div>
 
-        {/* Footer de la tarjeta con aviso de castigo y botón */}
+        {/* Footer de la tarjeta con los botones de resolución (Paso 4) */}
         <div className="mt-3 pt-3 border-t border-white/10 flex flex-col gap-2">
-          <div className="text-center text-xs text-stone-400 flex items-center justify-center gap-1.5">
-            <span>🐔 Castigo por no cumplir:</span>
+          <div className="text-center text-xs text-stone-400 flex items-center justify-center gap-1.5 mb-1">
+            <span>🐔 Castigo si arruga:</span>
             <strong className="text-amber-300 font-bold">
               {card.castigoSorbos} sorbos de trago
             </strong>
           </div>
 
-          <button
-            onClick={onClose}
-            className={`w-full py-3 px-6 rounded-2xl font-display font-black text-xs sm:text-sm uppercase tracking-wider shadow-xl transition-all flex items-center justify-center gap-2 cursor-pointer active:scale-95 ${
-              isVerdad
-                ? 'bg-gradient-to-r from-cyan-500 via-sky-400 to-cyan-600 hover:brightness-110 text-stone-950 border border-cyan-300 shadow-cyan-500/25'
-                : 'bg-gradient-to-r from-rose-600 via-red-500 to-rose-700 hover:brightness-110 text-white border border-rose-400 shadow-rose-600/30'
-            }`}
-          >
-            <span>Siguiente Turno</span>
-            <span>→</span>
-          </button>
+          {/* Botones de Resolución para la mesa */}
+          <div className="grid grid-cols-2 gap-2 w-full">
+            {/* Opción 1: Cumplió */}
+            <button
+              onClick={onFulfilled}
+              className="py-3 px-3 rounded-2xl bg-gradient-to-r from-emerald-600 via-teal-500 to-emerald-600 hover:brightness-110 active:scale-95 text-stone-950 font-display font-black text-xs uppercase tracking-wider shadow-lg shadow-emerald-600/30 border border-emerald-300 transition-all flex items-center justify-center gap-1.5 cursor-pointer"
+              title="Cumplió con éxito la verdad o el reto"
+            >
+              <span>✅</span>
+              <span>¡Cumplió!</span>
+            </button>
+
+            {/* Opción 2: Arrugó */}
+            <button
+              onClick={onChickened}
+              className="py-3 px-3 rounded-2xl bg-gradient-to-r from-amber-600 via-rose-600 to-red-600 hover:brightness-110 active:scale-95 text-white font-display font-black text-xs uppercase tracking-wider shadow-lg shadow-rose-900/40 border border-rose-400 transition-all flex items-center justify-center gap-1.5 cursor-pointer"
+              title="No se atrevió o se negó a responder"
+            >
+              <span>🐔</span>
+              <span>¡Arrugó!</span>
+            </button>
+          </div>
         </div>
+      </div>
+    </div>
+  );
+}
+
+/**
+ * Modal de Cobro de Castigo ("¡Arrugó!") (Paso 4)
+ */
+function ArruguePenaltyModal({ card, activePlayer, onPenaltyPaid }) {
+  const avatar = getAnimalAvatar(activePlayer?.animal);
+
+  return (
+    <div
+      role="dialog"
+      aria-modal="true"
+      className="fixed inset-0 z-50 bg-black/90 backdrop-blur-md flex items-center justify-center p-4 animate-in fade-in duration-200"
+    >
+      <div className="absolute inset-0 bg-radial from-amber-600/20 via-red-950/25 to-transparent pointer-events-none animate-pulse" />
+
+      <div className="w-full max-w-sm bg-[#181114] border-2 border-amber-500/80 rounded-3xl p-6 shadow-2xl shadow-amber-950/80 relative z-10 flex flex-col items-center text-center animate-in zoom-in-95 duration-200">
+        <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-500/20 text-amber-300 border border-amber-500/40 text-xs font-black uppercase tracking-wider mb-2 animate-bounce">
+          <span>🐔 ¡GALLINA A LA VISTA! 🐔</span>
+        </div>
+
+        <span className="text-5xl my-1 animate-pulse">🐔🍺</span>
+
+        <h3 className="font-display font-black text-2xl text-white tracking-wide uppercase drop-shadow mt-1">
+          ¡A PAGAR EL CASTIGO!
+        </h3>
+
+        <div className="w-full bg-black/50 border border-amber-500/40 rounded-2xl p-3.5 my-3 flex items-center gap-3">
+          <img
+            src={avatar.image}
+            alt={avatar.name}
+            className="w-12 h-12 object-contain rounded-xl bg-stone-900 p-1 border border-amber-400 drop-shadow shrink-0"
+          />
+          <div className="text-left min-w-0">
+            <span className="text-xs text-amber-300 font-bold block truncate">
+              {activePlayer.name} no se atrevió
+            </span>
+            <span className="text-xs text-stone-300 block leading-tight">
+              Debe beber <strong className="text-red-400 text-sm font-black">{card.castigoSorbos} sorbos</strong> de su trago ahora mismo.
+            </span>
+          </div>
+        </div>
+
+        <p className="text-xs text-stone-400 mb-4 italic">
+          "El que arruga en esta mesa, paga con jugo."
+        </p>
+
+        <button
+          onClick={onPenaltyPaid}
+          className="w-full py-3.5 px-6 rounded-2xl bg-gradient-to-r from-amber-500 via-amber-400 to-amber-600 hover:brightness-110 active:scale-95 text-stone-950 font-display font-black text-sm uppercase tracking-wider shadow-xl shadow-amber-500/25 border border-amber-300 transition-all flex items-center justify-center gap-2 cursor-pointer"
+        >
+          <span>🍻</span>
+          <span>¡Sorbos Pagados! (Siguiente Jugador)</span>
+          <span>→</span>
+        </button>
       </div>
     </div>
   );
@@ -159,6 +234,7 @@ export default function VerdadRetoGame({
   const [currentPlayerIndex, setCurrentPlayerIndex] = useState(0);
   const [consecutiveVerdades, setConsecutiveVerdades] = useState(0);
   const [activeCard, setActiveCard] = useState(null);
+  const [chickenPenaltyCard, setChickenPenaltyCard] = useState(null);
 
   // Jugador activo
   const activePlayer =
@@ -175,7 +251,7 @@ export default function VerdadRetoGame({
   const activeLevelObj =
     INTENSITY_LEVELS.find((lvl) => lvl.id === currentLevel) || INTENSITY_LEVELS[0];
 
-  // Selección de Verdad, Reto o Azar (Paso 3: activa el modal dramático)
+  // Selección de Verdad, Reto o Azar
   const handleSelectOption = (tipo) => {
     // Control de racha anti-arrugue (máximo 2 verdades seguidas)
     if (tipo === 'verdad' && consecutiveVerdades >= 2) {
@@ -195,10 +271,26 @@ export default function VerdadRetoGame({
     }
   };
 
-  // Pasar al siguiente turno
-  const handleCloseCard = () => {
-    soundManager.playTick(600);
+  // 1. Caso Cumplido (Paso 4): Fanfarria y pase de turno con honor
+  const handleFulfilled = () => {
+    soundManager.playSuccess();
     setActiveCard(null);
+    if (players.length > 0) {
+      setCurrentPlayerIndex((prev) => (prev + 1) % players.length);
+    }
+  };
+
+  // 2. Caso Arrugó (Paso 4): Sonido de gallina y activación del cobro de castigo
+  const handleChickened = () => {
+    soundManager.playChickenPenalty();
+    setChickenPenaltyCard(activeCard);
+    setActiveCard(null);
+  };
+
+  // 3. Castigo pagado
+  const handlePenaltyPaid = () => {
+    soundManager.playTick(600);
+    setChickenPenaltyCard(null);
     if (players.length > 0) {
       setCurrentPlayerIndex((prev) => (prev + 1) % players.length);
     }
@@ -251,6 +343,7 @@ export default function VerdadRetoGame({
                 soundManager.playTick(750);
                 setCurrentLevel(lvl.id);
                 setActiveCard(null);
+                setChickenPenaltyCard(null);
               }}
               className={`text-xs px-3 py-1.5 rounded-xl font-bold transition-all duration-200 cursor-pointer active:scale-95 flex items-center gap-1.5 border ${
                 isActive
@@ -364,12 +457,23 @@ export default function VerdadRetoGame({
         <span>🐔 Arrugar: <strong className="text-amber-400">{activeLevelObj.penaltySips} sorbos</strong></span>
       </footer>
 
-      {/* Modal de Revelación Dramática (Paso 3) */}
+      {/* Modal de Revelación Dramática con Botones Cumplió / Arrugó (Paso 4) */}
       {activeCard && (
         <VerdadRetoRevealModal
           card={activeCard}
           activePlayer={activePlayer}
-          onClose={handleCloseCard}
+          onFulfilled={handleFulfilled}
+          onChickened={handleChickened}
+          onClose={() => setActiveCard(null)}
+        />
+      )}
+
+      {/* Modal de Cobro de Castigo (Paso 4) */}
+      {chickenPenaltyCard && (
+        <ArruguePenaltyModal
+          card={chickenPenaltyCard}
+          activePlayer={activePlayer}
+          onPenaltyPaid={handlePenaltyPaid}
         />
       )}
     </div>

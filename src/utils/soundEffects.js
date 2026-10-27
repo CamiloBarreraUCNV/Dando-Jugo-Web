@@ -494,6 +494,49 @@ class SoundManager {
       console.warn('Audio playDareReveal error:', e);
     }
   }
+
+  // Sonido cómico de gallina y cobro de castigo ("¡Arrugó!")
+  playChickenPenalty() {
+    if (this.isMuted) return;
+    this.init();
+    if (!this.ctx) return;
+
+    try {
+      if (typeof navigator !== 'undefined' && navigator.vibrate) {
+        try {
+          navigator.vibrate([120, 60, 120, 60, 250]);
+        } catch (_) {}
+      }
+
+      const now = this.ctx.currentTime;
+      const clucks = [
+        { fStart: 700, fEnd: 420, time: 0, duration: 0.1 },
+        { fStart: 750, fEnd: 400, time: 0.12, duration: 0.1 },
+        { fStart: 820, fEnd: 320, time: 0.25, duration: 0.22 },
+      ];
+
+      clucks.forEach((c) => {
+        const osc = this.ctx.createOscillator();
+        const gain = this.ctx.createGain();
+
+        osc.type = 'sawtooth';
+        osc.frequency.setValueAtTime(c.fStart, now + c.time);
+        osc.frequency.exponentialRampToValueAtTime(c.fEnd, now + c.time + c.duration);
+
+        const targetGain = 0.28 * this.volume;
+        gain.gain.setValueAtTime(targetGain, now + c.time);
+        gain.gain.exponentialRampToValueAtTime(0.001, now + c.time + c.duration);
+
+        osc.connect(gain);
+        gain.connect(this.ctx.destination);
+
+        osc.start(now + c.time);
+        osc.stop(now + c.time + c.duration);
+      });
+    } catch (e) {
+      console.warn('Audio playChickenPenalty error:', e);
+    }
+  }
 }
 
 export const soundManager = new SoundManager();

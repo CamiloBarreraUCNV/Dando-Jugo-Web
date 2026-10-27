@@ -333,6 +333,7 @@ export class ApuestasGameManager {
     this.canPass = false;
 
     const passEvent = {
+      isPass: true,
       type: 'pass',
       fromPlayer: previousPlayer,
       toPlayer: nextPlayer,
@@ -340,6 +341,7 @@ export class ApuestasGameManager {
       text: `🛡️ ${previousPlayer.name} se plantó con honor y le pasó el pozo vivo de ${this.pot} sorbos a ${nextPlayer.name}!`,
     };
 
+    this.lastResult = passEvent;
     this.history.push(passEvent);
     return passEvent;
   }

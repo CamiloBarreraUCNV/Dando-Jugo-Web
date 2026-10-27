@@ -57,7 +57,10 @@ function JackpotMismoModal({ data, onClose }) {
         </div>
 
         <button
-          onClick={onClose}
+          onClick={() => {
+            soundManager.playCasinoChips();
+            onClose();
+          }}
           className="w-full py-2.5 rounded-2xl bg-gradient-to-r from-amber-500 via-amber-400 to-amber-600 hover:brightness-110 active:scale-95 text-stone-950 font-black text-xs sm:text-sm border border-amber-300 shadow-lg shadow-amber-500/25 transition cursor-pointer flex items-center justify-center gap-1.5 mt-2"
         >
           <span>¡Repartir Premio con Gloria!</span>
@@ -70,7 +73,7 @@ function JackpotMismoModal({ data, onClose }) {
 
 /**
  * Componente Principal: Juego de las Apuestas (Mayor o Menor)
- * Paso 3: Volteo 3D, Modales de Explosión de Pozo, Empate x2 y Jackpot Gemelo
+ * Paso 4: Audio Casino Speakeasy, Volteo 3D, Feedback Rojo Carmesí y Jackpot Gemelo
  */
 export default function JuegoApuestasGame({
   players = [],
@@ -135,13 +138,18 @@ export default function JuegoApuestasGame({
       setIsFlipping(false);
 
       if (result.isCorrect) {
-        soundManager.playSuccess();
-        // Si acertó el Jackpot de mismo número:
         if (result.option === 'mismo') {
+          soundManager.playJackpotFanfare();
           setJackpotModalData(result);
+        } else {
+          soundManager.playCasinoChips();
+          // Si el pozo creció a niveles de alta tensión (≥4 sorbos), pulso sutil
+          if (result.currentPot >= 4) {
+            setTimeout(() => soundManager.playHighStakesTension(), 250);
+          }
         }
       } else {
-        soundManager.playChickenPenalty();
+        soundManager.playCrimsonFail();
       }
     }, 280);
   };
@@ -150,7 +158,7 @@ export default function JuegoApuestasGame({
   const handlePass = () => {
     if (!canPass || isFlipping) return;
 
-    soundManager.playTick(750);
+    soundManager.playPassShield();
     manager.passTurn();
     syncState();
   };

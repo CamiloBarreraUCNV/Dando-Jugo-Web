@@ -751,6 +751,236 @@ class SoundManager {
       console.warn('Audio playRaceVictory error:', e);
     }
   }
+
+  // =====================================================================
+  // SONIDOS PARA: JUEGO DE LAS APUESTAS (MAYOR O MENOR / CASINO SPEAKEASY)
+  // =====================================================================
+
+  // 1. Tintineo realista de fichas de casino al acertar y regalar sorbos
+  playCasinoChips() {
+    if (this.isMuted) return;
+    this.init();
+    if (!this.ctx) return;
+
+    try {
+      if (typeof navigator !== 'undefined' && navigator.vibrate) {
+        try {
+          navigator.vibrate(30);
+        } catch (_) {}
+      }
+
+      const now = this.ctx.currentTime;
+      const chipClicks = [
+        { f: 2200, time: 0, dur: 0.035, gain: 0.22 },
+        { f: 3100, time: 0.035, dur: 0.03, gain: 0.26 },
+        { f: 2600, time: 0.07, dur: 0.04, gain: 0.28 },
+      ];
+
+      chipClicks.forEach((chip) => {
+        const osc = this.ctx.createOscillator();
+        const gain = this.ctx.createGain();
+        const filter = this.ctx.createBiquadFilter();
+
+        osc.type = 'triangle';
+        osc.frequency.setValueAtTime(chip.f, now + chip.time);
+        osc.frequency.exponentialRampToValueAtTime(chip.f * 0.7, now + chip.time + chip.dur);
+
+        filter.type = 'highpass';
+        filter.frequency.setValueAtTime(1500, now + chip.time);
+
+        const targetGain = chip.gain * this.volume;
+        gain.gain.setValueAtTime(targetGain, now + chip.time);
+        gain.gain.exponentialRampToValueAtTime(0.001, now + chip.time + chip.dur);
+
+        osc.connect(filter);
+        filter.connect(gain);
+        gain.connect(this.ctx.destination);
+
+        osc.start(now + chip.time);
+        osc.stop(now + chip.time + chip.dur);
+      });
+    } catch (e) {
+      console.warn('Audio playCasinoChips error:', e);
+    }
+  }
+
+  // 2. Chicharra / Buzzer disonante de casino con impacto en Rojo Carmesí al equivocarse
+  playCrimsonFail() {
+    if (this.isMuted) return;
+    this.init();
+    if (!this.ctx) return;
+
+    try {
+      if (typeof navigator !== 'undefined' && navigator.vibrate) {
+        try {
+          navigator.vibrate([80, 50, 220]);
+        } catch (_) {}
+      }
+
+      const now = this.ctx.currentTime;
+
+      // Componente A: Golpe sordo de impacto sub-bass
+      const subOsc = this.ctx.createOscillator();
+      const subGain = this.ctx.createGain();
+      subOsc.type = 'sine';
+      subOsc.frequency.setValueAtTime(130, now);
+      subOsc.frequency.exponentialRampToValueAtTime(38, now + 0.25);
+
+      const targetSubGain = 0.4 * this.volume;
+      subGain.gain.setValueAtTime(targetSubGain, now);
+      subGain.gain.exponentialRampToValueAtTime(0.001, now + 0.25);
+
+      subOsc.connect(subGain);
+      subGain.connect(this.ctx.destination);
+      subOsc.start(now);
+      subOsc.stop(now + 0.25);
+
+      // Componente B: Buzzer disonante de casino (Tritono descendente Eb4 / A3)
+      const freqs = [311.13, 220.00];
+      freqs.forEach((f) => {
+        const osc = this.ctx.createOscillator();
+        const gain = this.ctx.createGain();
+        const filter = this.ctx.createBiquadFilter();
+
+        osc.type = 'sawtooth';
+        osc.frequency.setValueAtTime(f, now + 0.05);
+        osc.frequency.linearRampToValueAtTime(f * 0.72, now + 0.45);
+
+        filter.type = 'lowpass';
+        filter.frequency.setValueAtTime(950, now + 0.05);
+
+        const targetGain = 0.25 * this.volume;
+        gain.gain.setValueAtTime(targetGain, now + 0.05);
+        gain.gain.exponentialRampToValueAtTime(0.001, now + 0.45);
+
+        osc.connect(filter);
+        filter.connect(gain);
+        gain.connect(this.ctx.destination);
+
+        osc.start(now + 0.05);
+        osc.stop(now + 0.45);
+      });
+    } catch (e) {
+      console.warn('Audio playCrimsonFail error:', e);
+    }
+  }
+
+  // 3. Bloqueo de escudo / Click de alivio al plantarse y pasar el pozo caliente
+  playPassShield() {
+    if (this.isMuted) return;
+    this.init();
+    if (!this.ctx) return;
+
+    try {
+      if (typeof navigator !== 'undefined' && navigator.vibrate) {
+        try {
+          navigator.vibrate([40, 30, 80]);
+        } catch (_) {}
+      }
+
+      const now = this.ctx.currentTime;
+      const notes = [
+        { f: 392.00, time: 0, dur: 0.08 },    // G4
+        { f: 523.25, time: 0.07, dur: 0.1 },  // C5
+        { f: 659.25, time: 0.15, dur: 0.25 }, // E5
+      ];
+
+      notes.forEach((n) => {
+        const osc = this.ctx.createOscillator();
+        const gain = this.ctx.createGain();
+
+        osc.type = 'sine';
+        osc.frequency.setValueAtTime(n.f, now + n.time);
+        osc.frequency.exponentialRampToValueAtTime(n.f * 1.03, now + n.time + n.dur);
+
+        const targetGain = 0.24 * this.volume;
+        gain.gain.setValueAtTime(targetGain, now + n.time);
+        gain.gain.exponentialRampToValueAtTime(0.001, now + n.time + n.dur);
+
+        osc.connect(gain);
+        gain.connect(this.ctx.destination);
+
+        osc.start(now + n.time);
+        osc.stop(now + n.time + n.dur);
+      });
+    } catch (e) {
+      console.warn('Audio playPassShield error:', e);
+    }
+  }
+
+  // 4. Fanfarria arpegiada triunfal de Jackpot para Carta Gemela (~6% probabilidad)
+  playJackpotFanfare() {
+    if (this.isMuted) return;
+    this.init();
+    if (!this.ctx) return;
+
+    try {
+      if (typeof navigator !== 'undefined' && navigator.vibrate) {
+        try {
+          navigator.vibrate([100, 50, 100, 50, 250]);
+        } catch (_) {}
+      }
+
+      const now = this.ctx.currentTime;
+      const arpeggio = [
+        { f: 523.25, time: 0, dur: 0.1 },      // C5
+        { f: 659.25, time: 0.08, dur: 0.1 },   // E5
+        { f: 783.99, time: 0.16, dur: 0.1 },   // G5
+        { f: 1046.50, time: 0.24, dur: 0.12 }, // C6
+        { f: 1318.51, time: 0.34, dur: 0.15 }, // E6
+        { f: 1567.98, time: 0.46, dur: 0.45 }, // G6
+      ];
+
+      arpeggio.forEach((n) => {
+        const osc = this.ctx.createOscillator();
+        const gain = this.ctx.createGain();
+
+        osc.type = 'triangle';
+        osc.frequency.setValueAtTime(n.f, now + n.time);
+
+        const targetGain = 0.28 * this.volume;
+        gain.gain.setValueAtTime(targetGain, now + n.time);
+        gain.gain.exponentialRampToValueAtTime(0.001, now + n.time + n.dur);
+
+        osc.connect(gain);
+        gain.connect(this.ctx.destination);
+
+        osc.start(now + n.time);
+        osc.stop(now + n.time + n.dur);
+      });
+    } catch (e) {
+      console.warn('Audio playJackpotFanfare error:', e);
+    }
+  }
+
+  // 5. Pulso sub-bass de alta tensión cuando el pozo acumula 4 o más sorbos
+  playHighStakesTension() {
+    if (this.isMuted) return;
+    this.init();
+    if (!this.ctx) return;
+
+    try {
+      const now = this.ctx.currentTime;
+      const osc = this.ctx.createOscillator();
+      const gain = this.ctx.createGain();
+
+      osc.type = 'triangle';
+      osc.frequency.setValueAtTime(95, now);
+      osc.frequency.exponentialRampToValueAtTime(55, now + 0.18);
+
+      const targetGain = 0.24 * this.volume;
+      gain.gain.setValueAtTime(targetGain, now);
+      gain.gain.exponentialRampToValueAtTime(0.001, now + 0.18);
+
+      osc.connect(gain);
+      gain.connect(this.ctx.destination);
+
+      osc.start(now);
+      osc.stop(now + 0.18);
+    } catch (e) {
+      console.warn('Audio playHighStakesTension error:', e);
+    }
+  }
 }
 
 export const soundManager = new SoundManager();

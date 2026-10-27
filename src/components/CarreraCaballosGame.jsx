@@ -9,8 +9,208 @@ import { getAnimalAvatar } from '../utils/animalAvatars';
 import { soundManager } from '../utils/soundEffects';
 
 /**
+ * Modal de Revelación Dramática de Valla Lateral (Paso 3)
+ */
+function HurdleRevealModal({ hurdle, onClose }) {
+  if (!hurdle) return null;
+
+  const horse = hurdle.penalizedHorse;
+  const card = hurdle.card;
+  const isRedCard = card.suit === 'corazones' || card.suit === 'diamantes';
+
+  return (
+    <div
+      role="dialog"
+      aria-modal="true"
+      className="fixed inset-0 z-50 bg-black/85 backdrop-blur-md flex items-center justify-center p-4 animate-in fade-in duration-200"
+      onClick={onClose}
+    >
+      <div
+        className="w-full max-w-sm rounded-3xl p-5 shadow-2xl relative z-10 flex flex-col items-center border-2 border-amber-500/80 bg-gradient-to-b from-[#221518] via-[#160f12] to-[#0d090b] text-stone-100 animate-in zoom-in-95 duration-200"
+        onClick={(e) => e.stopPropagation()}
+      >
+        {/* Cabecera */}
+        <div className="flex items-center gap-2 mb-2">
+          <span className="text-2xl animate-bounce">🚧</span>
+          <span className="text-xs font-black uppercase tracking-wider px-3 py-1 rounded-full bg-amber-500/20 text-amber-300 border border-amber-500/40">
+            ¡VALLA #{hurdle.step} ACTIVADA!
+          </span>
+        </div>
+
+        <p className="text-[11px] text-stone-400 text-center mb-2">
+          Todos los caballos superaron el tramo {hurdle.step}. ¡Se voltea la carta lateral!
+        </p>
+
+        {/* Carta 3D Revelada */}
+        <div className="my-2 p-1 rounded-2xl bg-gradient-to-br from-amber-400 via-amber-600 to-amber-700 shadow-xl shadow-amber-500/20">
+          <div className="w-24 h-36 sm:w-28 sm:h-40 rounded-xl bg-stone-50 border-2 border-white flex flex-col justify-between p-2 shadow-inner select-none">
+            <div className={`text-base font-black leading-none ${isRedCard ? 'text-red-600' : 'text-stone-900'}`}>
+              {card.value}
+            </div>
+            <div className="text-center text-4xl sm:text-5xl leading-none">
+              {horse.symbol}
+            </div>
+            <div className={`text-base font-black leading-none self-end rotate-180 ${isRedCard ? 'text-red-600' : 'text-stone-900'}`}>
+              {card.value}
+            </div>
+          </div>
+        </div>
+
+        <span className="text-xs font-black text-amber-300 mt-1 text-center">
+          {card.name}
+        </span>
+
+        {/* Mensaje de Tropiezo */}
+        <div className="w-full my-2.5 p-2.5 rounded-2xl bg-rose-950/50 border border-rose-500/50 text-center flex flex-col items-center gap-1 animate-shake">
+          <div className="flex items-center gap-1.5 text-rose-300 font-black text-sm">
+            <span>💥</span>
+            <span>¡{horse.name} tropieza y retrocede!</span>
+          </div>
+          <span className="text-xs text-stone-300">
+            Cae de casilla <strong className="text-white">{hurdle.previousPos}</strong> a <strong className="text-rose-400 text-sm font-black">{hurdle.newPos}</strong> (-1 paso).
+          </span>
+        </div>
+
+        {/* Notificación de Aumento de Sorbos */}
+        <div className="w-full mb-3 p-2 rounded-xl bg-amber-500/10 border border-amber-500/30 text-center">
+          <span className="text-[10px] font-black uppercase tracking-wider text-amber-400 block">
+            🔥 ¡LA TENSIÓN ESCALA EN LA PISTA!
+          </span>
+          <span className="text-xs text-stone-200 mt-0.5 block">
+            A partir de ahora, cada avance regala <strong className="text-amber-300 font-black text-sm">{hurdle.newSipsValue} sorbos</strong> a la mesa.
+          </span>
+        </div>
+
+        {/* Botón de Continuar */}
+        <button
+          onClick={onClose}
+          className="w-full py-2.5 rounded-2xl bg-gradient-to-r from-amber-500 via-amber-400 to-amber-600 hover:brightness-110 active:scale-95 text-stone-950 font-black text-xs sm:text-sm border border-amber-300 shadow-md shadow-amber-500/25 transition cursor-pointer flex items-center justify-center gap-1.5"
+        >
+          <span>¡Continuar Carrera!</span>
+          <span>➔</span>
+        </button>
+      </div>
+    </div>
+  );
+}
+
+/**
+ * Modal de Gran Podio y Celebración de Ganador (Paso 3)
+ */
+function WinnerCelebrationModal({ winner, results, onClose, onReset }) {
+  if (!winner || !results) return null;
+
+  return (
+    <div
+      role="dialog"
+      aria-modal="true"
+      className="fixed inset-0 z-50 bg-black/90 backdrop-blur-md flex items-center justify-center p-4 animate-in fade-in duration-200"
+      onClick={onClose}
+    >
+      <div
+        className="w-full max-w-md rounded-3xl p-5 shadow-2xl relative z-10 flex flex-col border-2 border-amber-400/80 bg-gradient-to-b from-[#1f1719] via-[#140e10] to-[#0a0708] text-stone-100 max-h-[90vh] overflow-y-auto animate-in zoom-in-95 duration-200"
+        onClick={(e) => e.stopPropagation()}
+      >
+        {/* Cabecera con Trofeo */}
+        <div className="text-center mb-3">
+          <span className="text-5xl sm:text-6xl drop-shadow-lg inline-block animate-bounce mb-1">
+            🏆
+          </span>
+          <div className="flex items-center justify-center gap-2">
+            <span className="text-2xl">{winner.symbol}</span>
+            <h2 className="font-display font-black text-xl sm:text-2xl text-amber-400 tracking-wide">
+              ¡{winner.name.toUpperCase()} GANA!
+            </h2>
+          </div>
+          <span className={`text-xs font-bold uppercase tracking-wider ${winner.textClass}`}>
+            Seda #{winner.silkNumber} • {winner.colorKey}
+          </span>
+        </div>
+
+        {/* Lista de Ganadores (Reparten el doble / al seco) */}
+        <div className="mb-3">
+          <div className="flex items-center gap-1.5 text-xs font-black uppercase text-emerald-400 mb-1.5">
+            <span>🎉</span>
+            <span>Apostadores Ganadores (¡Reparten el Doble!):</span>
+          </div>
+          {results.winners.length > 0 ? (
+            <div className="flex flex-col gap-1.5">
+              {results.winners.map((w) => (
+                <div
+                  key={w.playerId}
+                  className="p-2.5 rounded-xl bg-emerald-950/50 border border-emerald-500/40 flex items-center justify-between"
+                >
+                  <span className="font-bold text-xs text-stone-200">
+                    {w.playerName}
+                  </span>
+                  <span className="text-xs font-black text-emerald-300 bg-emerald-500/20 px-2 py-0.5 rounded-md border border-emerald-500/30">
+                    {w.isAlSeco ? '¡Manda 2 Vasos al Seco! 🔥' : `Regala ${w.sipsToGive} sorbos 🥂`}
+                  </span>
+                </div>
+              ))}
+            </div>
+          ) : (
+            <div className="p-2.5 rounded-xl bg-stone-900/60 border border-stone-800 text-xs text-stone-400 text-center italic">
+              Nadie apostó por {winner.name}. ¡La casa se salva!
+            </div>
+          )}
+        </div>
+
+        {/* Lista de Perdedores (Beben lo apostado / al seco) */}
+        <div className="mb-4">
+          <div className="flex items-center gap-1.5 text-xs font-black uppercase text-rose-400 mb-1.5">
+            <span>🍺</span>
+            <span>Apostadores Perdedores (¡Beben su Apuesta!):</span>
+          </div>
+          {results.losers.length > 0 ? (
+            <div className="flex flex-col gap-1.5">
+              {results.losers.map((l) => (
+                <div
+                  key={l.playerId}
+                  className="p-2.5 rounded-xl bg-rose-950/50 border border-rose-500/40 flex items-center justify-between"
+                >
+                  <div className="text-xs">
+                    <span className="font-bold text-stone-200">{l.playerName}</span>
+                    <span className="text-[10px] text-stone-400 block">
+                      Apostó por {l.horse.name}
+                    </span>
+                  </div>
+                  <span className="text-xs font-black text-rose-300 bg-rose-500/20 px-2 py-0.5 rounded-md border border-rose-500/30">
+                    {l.isAlSeco ? '¡Vaso al Seco! 💀' : `Toma ${l.sipsToDrink} sorbos 🍺`}
+                  </span>
+                </div>
+              ))}
+            </div>
+          ) : (
+            <div className="p-2.5 rounded-xl bg-stone-900/60 border border-stone-800 text-xs text-stone-400 text-center italic">
+              ¡Todos apostaron por el ganador!
+            </div>
+          )}
+        </div>
+
+        {/* Botonera de Salida y Reinicio */}
+        <div className="flex items-center gap-2 pt-2 border-t border-stone-800">
+          <button
+            onClick={onClose}
+            className="flex-1 py-2.5 rounded-xl bg-stone-800 hover:bg-stone-700 text-stone-300 text-xs font-bold transition active:scale-95 cursor-pointer"
+          >
+            Ver Pista Final 🏁
+          </button>
+          <button
+            onClick={onReset}
+            className="flex-1 py-2.5 rounded-xl bg-gradient-to-r from-amber-500 to-amber-600 hover:brightness-110 text-stone-950 text-xs font-black border border-amber-300 shadow-md transition active:scale-95 cursor-pointer"
+          >
+            Nueva Carrera ↺
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+/**
  * Componente Principal: Carrera de Caballos (Turf Club)
- * Paso 2: Interfaz Visual, 4 Colores Distintos, Casa de Apuestas y Pista de Carreras
+ * Paso 3: Vallas 3D, Efectos de Tropiezo, Escalamiento de Sorbos y Podio de Meta
  */
 export default function CarreraCaballosGame({
   players = [],
@@ -37,15 +237,20 @@ export default function CarreraCaballosGame({
   const [hurdles, setHurdles] = useState([]);
   const [lastEvent, setLastEvent] = useState(null);
   const [autoRun, setAutoRun] = useState(false);
-  const [autoRunSpeed, setAutoRunSpeed] = useState(1300); // ms entre cartas
+  const [autoRunSpeed] = useState(1300); // ms entre cartas
   const autoRunTimerRef = useRef(null);
 
+  // Estados interactivos para Paso 3 (Modales y animaciones)
+  const [activeHurdleModal, setActiveHurdleModal] = useState(null);
+  const [showWinnerModal, setShowWinnerModal] = useState(false);
+  const [stumbledHorseId, setStumbledHorseId] = useState(null);
+  const [advancingHorseId, setAdvancingHorseId] = useState(null);
+  const resumeAutoRunAfterModal = useRef(false);
+
   // Apuestas en borrador durante la fase de apuestas
-  // { [playerId]: { horseId: 'corazones', sips: 3, isAlSeco: false } }
   const [draftBets, setDraftBets] = useState(() => {
     const initial = {};
     effectivePlayers.forEach((p, idx) => {
-      // Repartir caballos por defecto inicialmente para comodidad
       const defaultHorse = HORSES[idx % HORSES.length].id;
       initial[p.id] = {
         horseId: defaultHorse,
@@ -56,7 +261,6 @@ export default function CarreraCaballosGame({
     return initial;
   });
 
-  // Jugador seleccionado en vista de apuestas móvil
   const [activeBetPlayerId, setActiveBetPlayerId] = useState(effectivePlayers[0]?.id || '1');
 
   // Sincronizar estado inicial desde el motor
@@ -69,7 +273,7 @@ export default function CarreraCaballosGame({
 
   // Manejador del Auto-Run
   useEffect(() => {
-    if (autoRun && phase === 'racing') {
+    if (autoRun && phase === 'racing' && !activeHurdleModal && !showWinnerModal) {
       autoRunTimerRef.current = setInterval(() => {
         handleDrawCard();
       }, autoRunSpeed);
@@ -85,7 +289,7 @@ export default function CarreraCaballosGame({
         clearInterval(autoRunTimerRef.current);
       }
     };
-  }, [autoRun, phase, autoRunSpeed]);
+  }, [autoRun, phase, autoRunSpeed, activeHurdleModal, showWinnerModal]);
 
   // Detener autorun si la carrera termina
   useEffect(() => {
@@ -138,7 +342,6 @@ export default function CarreraCaballosGame({
   // Confirmar todas las apuestas y largar la carrera
   const handleStartRace = () => {
     soundManager.playSuccess();
-    // Registrar todas las apuestas en el motor
     effectivePlayers.forEach((p) => {
       const b = draftBets[p.id] || { horseId: 'corazones', sips: 2, isAlSeco: false };
       manager.setBet(p.id, p.name, b.horseId, b.isAlSeco ? 'al_seco' : b.sips, b.isAlSeco);
@@ -163,10 +366,40 @@ export default function CarreraCaballosGame({
     setPositions({ ...snap.positions });
     setHurdles([...snap.hurdles]);
 
+    // Resaltar caballo que avanza
+    if (event.advancingHorse) {
+      setAdvancingHorseId(event.advancingHorse.id);
+      setTimeout(() => setAdvancingHorseId(null), 800);
+    }
+
+    // Comprobar si se activó alguna valla (Paso 3: Revelación Dramática)
+    if (event.hurdlesTriggered && event.hurdlesTriggered.length > 0) {
+      const hurdleInfo = event.hurdlesTriggered[0];
+      setStumbledHorseId(hurdleInfo.penalizedHorse.id);
+      setTimeout(() => setStumbledHorseId(null), 1500);
+
+      if (autoRun) {
+        resumeAutoRunAfterModal.current = true;
+        setAutoRun(false);
+      }
+      setActiveHurdleModal(hurdleInfo);
+    }
+
+    // Comprobar si cruzó la meta
     if (event.isFinished) {
       soundManager.playSuccess();
       setPhase('finished');
       setAutoRun(false);
+      setShowWinnerModal(true);
+    }
+  };
+
+  // Cerrar modal de valla y retomar carrera si venía en autorun
+  const handleCloseHurdleModal = () => {
+    setActiveHurdleModal(null);
+    if (resumeAutoRunAfterModal.current) {
+      resumeAutoRunAfterModal.current = false;
+      setTimeout(() => setAutoRun(true), 400);
     }
   };
 
@@ -174,6 +407,8 @@ export default function CarreraCaballosGame({
   const handleResetRace = () => {
     soundManager.playTick(500);
     setAutoRun(false);
+    setShowWinnerModal(false);
+    setActiveHurdleModal(null);
     manager.reset();
     const snap = manager.getSnapshot();
     setPhase('betting');
@@ -423,7 +658,7 @@ export default function CarreraCaballosGame({
       {(phase === 'racing' || phase === 'finished') && (
         <main className="w-full flex-1 flex flex-col justify-between py-1.5 min-h-0 overflow-y-auto">
           {/* Barra de Información de Carrera */}
-          <div className="flex items-center justify-between bg-stone-900/90 border border-stone-800 px-3 py-1.5 rounded-xl mb-2 text-xs">
+          <div className="flex items-center justify-between bg-stone-900/90 border border-stone-800 px-3 py-1.5 rounded-xl mb-1.5 text-xs">
             <div className="flex items-center gap-1.5">
               <span className="text-amber-400 font-bold">Avance actual:</span>
               <span className="font-black px-2 py-0.5 rounded-md bg-amber-500/20 text-amber-300 border border-amber-500/30">
@@ -437,8 +672,44 @@ export default function CarreraCaballosGame({
             </div>
           </div>
 
+          {/* MINI-PISTA DE VALLAS LATERALES (Visualización 3D de las 6 cartas de valla) */}
+          <div className="w-full bg-[#161214] border border-amber-500/30 rounded-xl px-2.5 py-1.5 mb-2 flex items-center justify-between text-xs">
+            <span className="text-[10px] font-bold text-stone-400 uppercase tracking-wider">
+              🚧 Vallas:
+            </span>
+            <div className="flex items-center gap-1 sm:gap-2">
+              {hurdles.map((hurdle) => {
+                const isRevealed = hurdle.revealed;
+                const hurdleHorse = isRevealed ? HORSES.find((h) => h.id === hurdle.card.suit) : null;
+                return (
+                  <div
+                    key={hurdle.step}
+                    className={`px-1.5 py-0.5 rounded-md border text-[10px] font-mono flex items-center gap-1 transition-all duration-300 select-none ${
+                      isRevealed
+                        ? 'bg-rose-500/20 border-rose-500/50 text-rose-300 font-black scale-105 shadow-sm shadow-rose-500/20'
+                        : 'bg-stone-900/80 border-stone-700/60 text-stone-400 font-bold'
+                    }`}
+                    title={isRevealed ? `${hurdle.card.name} (Paso ${hurdle.step})` : `Valla ${hurdle.step} Oculta`}
+                  >
+                    {isRevealed ? (
+                      <>
+                        <span>{hurdleHorse?.symbol}</span>
+                        <span>{hurdle.card.value}</span>
+                      </>
+                    ) : (
+                      <>
+                        <span className="text-[9px]">🂠</span>
+                        <span>V{hurdle.step}</span>
+                      </>
+                    )}
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+
           {/* LA PISTA: 4 CARRILES DE COLORES DISTINTOS */}
-          <div className="w-full bg-[#120e10] border-2 border-amber-500/30 rounded-2xl p-2 sm:p-3 shadow-2xl flex flex-col gap-2.5 my-auto">
+          <div className="w-full bg-[#120e10] border-2 border-amber-500/30 rounded-2xl p-2 sm:p-3 shadow-2xl flex flex-col gap-2 my-auto">
             {/* Cabecera de Casillas / Marcador de Pista */}
             <div className="flex items-center justify-between text-[10px] font-bold text-stone-400 uppercase px-2 border-b border-stone-800 pb-1">
               <span>🚩 Partida (0)</span>
@@ -453,12 +724,20 @@ export default function CarreraCaballosGame({
               const currentPos = positions[horse.id] || 0;
               const isWinner = manager.winner?.id === horse.id;
               const backers = manager.getBetsList().filter((b) => b.horseId === horse.id);
+              const isStumbling = stumbledHorseId === horse.id;
+              const isAdvancing = advancingHorseId === horse.id;
 
               return (
                 <div
                   key={horse.id}
                   className={`rounded-xl p-2 border transition-all duration-300 ${horse.laneBg} ${
-                    isWinner ? 'ring-2 ring-amber-400 shadow-lg shadow-amber-500/20' : ''
+                    isWinner
+                      ? 'ring-2 ring-amber-400 shadow-lg shadow-amber-500/20'
+                      : isStumbling
+                      ? 'animate-shake ring-2 ring-rose-500 bg-rose-950/40'
+                      : isAdvancing
+                      ? 'ring-1 ring-amber-400/50'
+                      : ''
                   }`}
                 >
                   {/* Encabezado del carril con nombre, seda y apostadores */}
@@ -467,6 +746,13 @@ export default function CarreraCaballosGame({
                       <span className="text-base">{horse.symbol}</span>
                       <span className={`font-black ${horse.textClass}`}>{horse.name}</span>
                       <span className="text-[10px] text-stone-400 font-bold">#{horse.silkNumber}</span>
+
+                      {/* Notificación de tropiezo en el carril */}
+                      {isStumbling && (
+                        <span className="text-[10px] font-black px-1.5 py-0.2 rounded bg-rose-500 text-white animate-pulse">
+                          💥 ¡Tropezó! -1
+                        </span>
+                      )}
                     </div>
 
                     <div className="flex items-center gap-1 text-[11px] text-stone-300">
@@ -525,8 +811,14 @@ export default function CarreraCaballosGame({
                       className="absolute z-20 flex items-center gap-1 select-none pointer-events-none"
                     >
                       <div
-                        className={`w-7 h-7 sm:w-8 sm:h-8 rounded-full flex items-center justify-center shadow-lg border-2 text-base ${horse.borderClass} ${horse.bgGradient} ${
-                          isWinner ? 'scale-125 animate-bounce ring-2 ring-amber-300' : ''
+                        className={`w-7 h-7 sm:w-8 sm:h-8 rounded-full flex items-center justify-center shadow-lg border-2 text-base transition-transform ${horse.borderClass} ${horse.bgGradient} ${
+                          isWinner
+                            ? 'scale-125 animate-bounce ring-2 ring-amber-300'
+                            : isStumbling
+                            ? 'scale-90 rotate-12'
+                            : isAdvancing
+                            ? 'scale-110'
+                            : ''
                         }`}
                       >
                         {horse.avatar}
@@ -620,16 +912,44 @@ export default function CarreraCaballosGame({
                 </button>
               </>
             ) : (
-              <button
-                onClick={handleResetRace}
-                className="w-full py-3 rounded-2xl bg-gradient-to-r from-amber-500 via-amber-400 to-amber-600 hover:brightness-110 active:scale-95 text-stone-950 font-black text-sm border border-amber-300 shadow-md shadow-amber-500/20 transition cursor-pointer flex items-center justify-center gap-1.5"
-              >
-                <span>↺</span>
-                <span>Nueva Carrera de Caballos</span>
-              </button>
+              <div className="w-full flex items-center gap-2">
+                <button
+                  onClick={() => setShowWinnerModal(true)}
+                  className="flex-1 py-2.5 rounded-2xl bg-amber-500/20 hover:bg-amber-500/30 text-amber-300 font-bold text-xs border border-amber-500/40 transition active:scale-95 cursor-pointer flex items-center justify-center gap-1.5"
+                >
+                  <span>🏆</span>
+                  <span>Ver Podio y Cobros</span>
+                </button>
+                <button
+                  onClick={handleResetRace}
+                  className="flex-1 py-2.5 rounded-2xl bg-gradient-to-r from-amber-500 to-amber-600 hover:brightness-110 active:scale-95 text-stone-950 font-black text-xs border border-amber-300 shadow-md shadow-amber-500/20 transition cursor-pointer flex items-center justify-center gap-1.5"
+                >
+                  <span>↺</span>
+                  <span>Nueva Carrera</span>
+                </button>
+              </div>
             )}
           </div>
         </main>
+      )}
+
+      {/* ========================================================= */}
+      {/* 4. MODALES DE PASO 3: VALLA ACTIVADA & GRAN PODIO META    */}
+      {/* ========================================================= */}
+      {activeHurdleModal && (
+        <HurdleRevealModal
+          hurdle={activeHurdleModal}
+          onClose={handleCloseHurdleModal}
+        />
+      )}
+
+      {showWinnerModal && manager.winner && (
+        <WinnerCelebrationModal
+          winner={manager.winner}
+          results={manager.results}
+          onClose={() => setShowWinnerModal(false)}
+          onReset={handleResetRace}
+        />
       )}
     </div>
   );

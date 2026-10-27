@@ -200,9 +200,10 @@ export class CaballosRaceManager {
    * @param {string} playerId
    * @param {string} playerName
    * @param {string} horseId ('corazones', 'diamantes', 'treboles', 'picas')
-   * @param {number} sipsBet Cantidad de sorbos apostados (>= 1)
+   * @param {number|string} sipsBet Cantidad de sorbos apostados (>= 1) o 'al_seco'
+   * @param {boolean} isAlSeco Si el jugador arriesga el vaso completo al seco
    */
-  setBet(playerId, playerName, horseId, sipsBet) {
+  setBet(playerId, playerName, horseId, sipsBet, isAlSeco = false) {
     if (this.phase !== 'betting') {
       throw new Error('Solo se pueden realizar apuestas durante la ronda de apuestas previa.');
     }
@@ -212,7 +213,9 @@ export class CaballosRaceManager {
       throw new Error(`Caballo no válido: ${horseId}`);
     }
 
-    const cleanSips = Math.max(1, parseInt(sipsBet, 10) || 1);
+    const alSeco = Boolean(isAlSeco || sipsBet === 'seco' || sipsBet === 'al_seco');
+    const cleanSips = alSeco ? 'AL SECO' : Math.max(1, parseInt(sipsBet, 10) || 1);
+    const sipsLabel = alSeco ? '🍺 ¡Vaso al Seco!' : `${cleanSips} sorbo${cleanSips > 1 ? 's' : ''}`;
 
     this.bets[playerId] = {
       playerId,
@@ -220,6 +223,8 @@ export class CaballosRaceManager {
       horseId,
       horse,
       sipsBet: cleanSips,
+      isAlSeco: alSeco,
+      sipsLabel,
     };
 
     return this.bets[playerId];
@@ -416,26 +421,49 @@ export class CaballosRaceManager {
     betsList.forEach((bet) => {
       const isWinner = bet.horseId === winningHorseId;
 
-      if (isWinner) {
-        const sipsToGive = bet.sipsBet * 2; // ¡Regala el doble!
-        totalSipsToGive += sipsToGive;
-        winners.push({
-          ...bet,
-          isWinner: true,
-          sipsToGive,
-          sipsToDrink: 0,
-          description: `¡Acertó con ${winningHorse.name}! Reparte ${sipsToGive} sorbos a la mesa (el doble de sus ${bet.sipsBet} apostados).`,
-        });
+      if (bet.isAlSeco) {
+        if (isWinner) {
+          winners.push({
+            ...bet,
+            isWinner: true,
+            isAlSeco: true,
+            sipsToGive: '2 Vasos al Seco',
+            sipsToDrink: 0,
+            description: `¡ÉPICO! Apostó el vaso al seco por ${winningHorse.name}. ¡Manda a 2 personas (o 2 vasos) al seco a elección! 🏆🔥`,
+          });
+        } else {
+          losers.push({
+            ...bet,
+            isWinner: false,
+            isAlSeco: true,
+            sipsToGive: 0,
+            sipsToDrink: '1 Vaso al Seco',
+            description: `Apostó el vaso al seco por ${bet.horse.name} y perdió. ¡DEBE TOMARSE EL VASO COMPLETO AL SECO! 🍻💀`,
+          });
+        }
       } else {
-        const sipsToDrink = bet.sipsBet; // ¡Bebe lo apostado!
-        totalSipsToDrink += sipsToDrink;
-        losers.push({
-          ...bet,
-          isWinner: false,
-          sipsToGive: 0,
-          sipsToDrink,
-          description: `Apostó por ${bet.horse.name}. Debe tomarse ${sipsToDrink} sorbos de castigo.`,
-        });
+        const numericSips = typeof bet.sipsBet === 'number' ? bet.sipsBet : 1;
+        if (isWinner) {
+          const sipsToGive = numericSips * 2; // ¡Regala el doble!
+          totalSipsToGive += sipsToGive;
+          winners.push({
+            ...bet,
+            isWinner: true,
+            sipsToGive,
+            sipsToDrink: 0,
+            description: `¡Acertó con ${winningHorse.name}! Reparte ${sipsToGive} sorbos a la mesa (el doble de sus ${numericSips} apostados).`,
+          });
+        } else {
+          const sipsToDrink = numericSips; // ¡Bebe lo apostado!
+          totalSipsToDrink += sipsToDrink;
+          losers.push({
+            ...bet,
+            isWinner: false,
+            sipsToGive: 0,
+            sipsToDrink,
+            description: `Apostó por ${bet.horse.name}. Debe tomarse ${sipsToDrink} sorbos de castigo.`,
+          });
+        }
       }
     });
 

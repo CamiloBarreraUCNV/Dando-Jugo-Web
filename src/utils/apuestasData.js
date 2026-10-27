@@ -2,7 +2,7 @@
  * Motor de Lógica, Baraja y Probabilidades para "Juego de las Apuestas (Mayor o Menor)"
  * 
  * Reglas fundamentales:
- * 1. Baraja inglesa estándar de 52 cartas (del 2 al As alto = 14).
+ * 1. Baraja inglesa estándar de 52 cartas (del As = 1 al Rey alto = 13).
  * 2. Cálculo dinámico de probabilidades en tiempo real sobre las cartas restantes en el mazo:
  *    - Mayor (⬆️), Menor (⬇️) o Mismo Número / Empate (🟰).
  * 3. Riesgo vs Recompensa: Cuanto más baja la probabilidad de acierto, más sorbos regalas a la mesa.
@@ -20,6 +20,7 @@ export const SUITS = [
 ];
 
 export const RANKS = [
+  { rank: 1, label: 'A', name: 'As' },
   { rank: 2, label: '2', name: 'Dos' },
   { rank: 3, label: '3', name: 'Tres' },
   { rank: 4, label: '4', name: 'Cuatro' },
@@ -32,7 +33,6 @@ export const RANKS = [
   { rank: 11, label: 'J', name: 'Jota' },
   { rank: 12, label: 'Q', name: 'Reina' },
   { rank: 13, label: 'K', name: 'Rey' },
-  { rank: 14, label: 'A', name: 'As' },
 ];
 
 /**

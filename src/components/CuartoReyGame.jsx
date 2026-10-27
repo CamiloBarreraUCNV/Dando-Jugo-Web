@@ -572,6 +572,16 @@ export default function CuartoReyGame({
     setCurrentPlayerIndex(0);
   };
 
+  // Soporte de tecla Escape para cerrar tabla de reglas
+  useEffect(() => {
+    if (!showCheatSheet) return;
+    const handleKeyDown = (e) => {
+      if (e.key === 'Escape') setShowCheatSheet(false);
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [showCheatSheet]);
+
   return (
     <div className="h-dvh max-h-dvh flex flex-col justify-between items-center px-4 pt-safe pb-safe max-w-md md:max-w-4xl lg:max-w-5xl mx-auto relative overflow-hidden w-full animate-in fade-in duration-200">
       {/* 1. Header Superior */}

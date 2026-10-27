@@ -8,13 +8,13 @@ const OTHER_GAMES_CATALOG = [
     icon: '👑',
     category: 'Cartas',
     players: '2+ Jugadores',
-    badge: 'Clásico de Bar',
-    badgeColor: 'bg-amber-500/20 text-amber-300 border-amber-500/40',
-    borderColor: 'border-amber-500/40 hover:border-amber-400',
+    badge: '¡Modo Virtual Jugable!',
+    badgeColor: 'bg-emerald-500/20 text-emerald-300 border-emerald-500/40',
+    borderColor: 'border-amber-500/50 hover:border-amber-400',
     color: 'from-amber-950/60 via-stone-900/90 to-amber-950/60',
     description:
       'Se coloca un vaso grande al centro. Cada carta de la baraja tiene una regla o dinámica. Cuando sale un Rey (Kaiser), debes verter un tercio de tu vaso al centro. ¡Quien saque el 4to Rey debe tomarse el vaso completo!',
-    materials: '1 baraja inglesa y 1 vaso grande al centro de la mesa.',
+    materials: 'Jugable 100% en la app (o con 1 baraja física y 1 vaso central).',
     rules: [
       'As: Cascada (todos beben en orden hasta que el de su izquierda pare).',
       '2 al 6: Reglas de sorbos numéricos (repartes o tomas según el número).',
@@ -26,7 +26,7 @@ const OTHER_GAMES_CATALOG = [
       'Reina (Q): Preguntón (a quien le respondas una pregunta, bebe).',
       'Rey (K): Kaiser. Llena 1/3 del vaso central. El 4to Rey se lo toma al seco.',
     ],
-    status: 'Jugable con baraja física',
+    status: 'Modo Virtual Activo en la App',
   },
   {
     id: 'trivia-bomba',
@@ -256,21 +256,27 @@ export default function OtherGamesScreen({ onBack, onOpenSettings, onPlayCuartoR
                   )}
                 </div>
 
-                {/* Footer de la tarjeta con botón de expansión y botón de Probar Demo */}
+                {/* Footer de la tarjeta con botón de expansión y botón de Jugar Cuarto Rey */}
                 <div className="mt-3 pt-2.5 border-t border-stone-800/60 flex items-center justify-between gap-2 flex-wrap">
-                  <span className="text-[11px] text-stone-400 font-medium flex items-center gap-1">
-                    <span className="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse" />
-                    <span>{game.id === 'cuarto-rey' ? '¡Demo Activa!' : game.status}</span>
+                  <span className="text-[11px] text-stone-400 font-medium flex items-center gap-1.5">
+                    <span
+                      className={`w-2 h-2 rounded-full ${
+                        game.id === 'cuarto-rey' ? 'bg-emerald-400 animate-pulse' : 'bg-amber-400'
+                      }`}
+                    />
+                    <span className={game.id === 'cuarto-rey' ? 'text-emerald-300 font-bold' : ''}>
+                      {game.id === 'cuarto-rey' ? '¡Modo Virtual Listo!' : game.status}
+                    </span>
                   </span>
 
                   <div className="flex items-center gap-1.5">
                     {game.id === 'cuarto-rey' && onPlayCuartoRey && (
                       <button
                         onClick={onPlayCuartoRey}
-                        className="text-xs font-black px-3 py-1.5 rounded-xl bg-gradient-to-r from-amber-500 to-amber-600 hover:brightness-110 text-stone-950 border border-amber-300 shadow-md shadow-amber-500/20 transition active:scale-95 cursor-pointer flex items-center gap-1"
+                        className="text-xs font-black px-3.5 py-1.5 rounded-xl bg-gradient-to-r from-amber-500 via-amber-400 to-amber-600 hover:brightness-110 active:scale-95 text-stone-950 border border-amber-300 shadow-md shadow-amber-500/25 transition cursor-pointer flex items-center gap-1.5"
                       >
                         <span>▶️</span>
-                        <span>Probar Juego</span>
+                        <span>Jugar Cuarto Rey</span>
                       </button>
                     )}
 

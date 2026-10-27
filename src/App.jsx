@@ -282,7 +282,7 @@ export default function App() {
         />
       )}
 
-      {/* 2.6 Pantalla de Cuarto Rey (Demo Pasos 1 y 2) */}
+      {/* 2.6 Pantalla Oficial de Cuarto Rey */}
       {screen === 'cuarto_rey' && (
         <CuartoReyGame
           players={players}

@@ -4,7 +4,7 @@ import { getAnimalAvatar } from '../utils/animalAvatars';
 import { soundManager } from '../utils/soundEffects';
 
 /**
- * Modal de Revelación Dramática de Verdad o Reto (Pasos 3 y 4)
+ * Modal de Revelación Dramática de Verdad o Reto (La Mesa Caliente)
  */
 function VerdadRetoRevealModal({
   card,

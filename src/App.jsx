@@ -293,7 +293,7 @@ export default function App() {
         />
       )}
 
-      {/* 2.7 Pantalla de Verdad o Reto (Demo Paso 2) */}
+      {/* 2.7 Pantalla Oficial de Verdad o Reto (La Mesa Caliente) */}
       {screen === 'verdad_reto' && (
         <VerdadRetoGame
           players={players}

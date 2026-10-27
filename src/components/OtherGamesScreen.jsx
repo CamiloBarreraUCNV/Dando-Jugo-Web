@@ -101,19 +101,20 @@ const OTHER_GAMES_CATALOG = [
     icon: '🌶️',
     category: 'Grupal',
     players: '2+ Jugadores',
-    badge: 'Picante & Social',
-    badgeColor: 'bg-rose-500/20 text-rose-300 border-rose-500/40',
-    borderColor: 'border-rose-500/40 hover:border-rose-400',
+    badge: '¡Modo Virtual Jugable!',
+    badgeColor: 'bg-emerald-500/20 text-emerald-300 border-emerald-500/40',
+    borderColor: 'border-rose-500/50 hover:border-rose-400',
     color: 'from-rose-950/60 via-stone-900/90 to-rose-950/60',
     description:
-      'El clásico juego de fiesta llevado al extremo. Elige entre confesar tus secretos más íntimos o realizar penitencias grupales y pruebas de valor con castigo de tragos.',
-    materials: 'La app o creatividad de la mesa.',
+      'El clásico juego de fiesta llevado al extremo con 300 cartas interactivas y 3 niveles de intensidad. Elige entre confesar tus secretos más íntimos o realizar penitencias y pruebas de valor.',
+    materials: 'Jugable 100% en la app (300 cartas con 3 niveles de intensidad).',
     rules: [
-      'El jugador en turno debe elegir obligatoriamente "Verdad" o "Reto".',
-      'No se puede elegir "Verdad" más de dos veces seguidas por jugador.',
-      'Si te niegas a responder o a realizar el reto, debes pagar el castigo doble acordado por la mesa.',
+      'El jugador en turno debe elegir obligatoriamente "Verdad" (😇), "Reto" (😈) o "Al Azar" (🎲).',
+      'Regla Anti-Arrugue: No se puede elegir "Verdad" más de 2 veces consecutivas por turno.',
+      'Resolución de mesa: Al resolver la carta, la mesa valida si "¡Cumplió! ✅" o "¡Arrugó! 🐔" pagando los sorbos de penitencia.',
+      '3 Niveles de Intensidad: Previa Entre Amigos (2 sorbos), Picante 18+ (3 sorbos) y Extremo Jugo (4 sorbos).',
     ],
-    status: 'Disponible en dinámicas de la app',
+    status: 'Modo Virtual Activo en la App',
   },
 ];
 
@@ -266,26 +267,20 @@ export default function OtherGamesScreen({
                   <span className="text-[11px] text-stone-400 font-medium flex items-center gap-1.5">
                     <span
                       className={`w-2 h-2 rounded-full ${
-                        game.id === 'cuarto-rey'
+                        game.id === 'cuarto-rey' || game.id === 'verdad-reto'
                           ? 'bg-emerald-400 animate-pulse'
-                          : game.id === 'verdad-reto'
-                          ? 'bg-rose-400 animate-pulse'
                           : 'bg-amber-400'
                       }`}
                     />
                     <span
                       className={
-                        game.id === 'cuarto-rey'
+                        game.id === 'cuarto-rey' || game.id === 'verdad-reto'
                           ? 'text-emerald-300 font-bold'
-                          : game.id === 'verdad-reto'
-                          ? 'text-rose-300 font-bold'
                           : ''
                       }
                     >
-                      {game.id === 'cuarto-rey'
+                      {game.id === 'cuarto-rey' || game.id === 'verdad-reto'
                         ? '¡Modo Virtual Listo!'
-                        : game.id === 'verdad-reto'
-                        ? '¡Demo Paso 2 Activa!'
                         : game.status}
                     </span>
                   </span>
@@ -307,7 +302,7 @@ export default function OtherGamesScreen({
                         className="text-xs font-black px-3.5 py-1.5 rounded-xl bg-gradient-to-r from-rose-500 via-red-500 to-amber-500 hover:brightness-110 active:scale-95 text-white border border-rose-300 shadow-md shadow-rose-500/25 transition cursor-pointer flex items-center gap-1.5"
                       >
                         <span>▶️</span>
-                        <span>Probar Juego</span>
+                        <span>Jugar Verdad o Reto</span>
                       </button>
                     )}
 

@@ -13,6 +13,7 @@ import CuartoReyGame from './components/CuartoReyGame';
 import VerdadRetoGame from './components/VerdadRetoGame';
 import CarreraCaballosGame from './components/CarreraCaballosGame';
 import JuegoApuestasGame from './components/JuegoApuestasGame';
+import TriviaBombaGame from './components/TriviaBombaGame';
 import { deckManager, GAME_MODES, GAME_TYPES } from './utils/deckManager';
 import { soundManager } from './utils/soundEffects';
 import { getAnimalAvatar } from './utils/animalAvatars';
@@ -285,6 +286,7 @@ export default function App() {
           onPlayVerdadReto={() => setScreen('verdad_reto')}
           onPlayCaballos={() => setScreen('caballos')}
           onPlayApuestas={() => setScreen('apuestas')}
+          onPlayBomba={() => setScreen('trivia_bomba')}
         />
       )}
 
@@ -318,6 +320,15 @@ export default function App() {
       {/* 2.9 Pantalla Oficial de Juego de las Apuestas (Mayor o Menor) */}
       {screen === 'apuestas' && (
         <JuegoApuestasGame
+          players={players}
+          onBack={() => setScreen('other_games')}
+          onOpenSettings={() => setShowSettingsModal(true)}
+        />
+      )}
+
+      {/* 2.10 Pantalla de Trivia Bomba (Paso 2) */}
+      {screen === 'trivia_bomba' && (
+        <TriviaBombaGame
           players={players}
           onBack={() => setScreen('other_games')}
           onOpenSettings={() => setShowSettingsModal(true)}

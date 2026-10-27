@@ -126,6 +126,7 @@ export default function OtherGamesScreen({
   onPlayVerdadReto,
   onPlayCaballos,
   onPlayApuestas,
+  onPlayBomba,
 }) {
   const [selectedCategory, setSelectedCategory] = useState('Todos');
   const [expandedGameId, setExpandedGameId] = useState(null);
@@ -324,6 +325,16 @@ export default function OtherGamesScreen({
                       >
                         <span>▶️</span>
                         <span>Jugar Apuestas</span>
+                      </button>
+                    )}
+
+                    {game.id === 'trivia-bomba' && onPlayBomba && (
+                      <button
+                        onClick={onPlayBomba}
+                        className="text-xs font-black px-3.5 py-1.5 rounded-xl bg-gradient-to-r from-red-600 via-rose-600 to-amber-500 hover:brightness-110 active:scale-95 text-white border border-red-400 shadow-md shadow-red-600/25 transition cursor-pointer flex items-center gap-1.5"
+                      >
+                        <span>▶️</span>
+                        <span>Probar Trivia Bomba</span>
                       </button>
                     )}
 

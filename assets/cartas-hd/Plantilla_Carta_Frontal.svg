@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 716" width="512" height="716">
+  <defs>
+    <filter id="frontShadow" x="-10%" y="-10%" width="125%" height="125%">
+      <feDropShadow dx="0" dy="16" stdDeviation="16" flood-color="#000000" flood-opacity="0.55" />
+    </filter>
+    <linearGradient id="paperGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF" />
+      <stop offset="80%" stop-color="#FDFBF7" />
+      <stop offset="100%" stop-color="#F5EFE6" />
+    </linearGradient>
+    <linearGradient id="goldBorder" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#E6A817" />
+      <stop offset="50%" stop-color="#FFF2B2" />
+      <stop offset="100%" stop-color="#D4900A" />
+    </linearGradient>
+  </defs>
+
+  <!-- Base de Naipe -->
+  <g filter="url(#frontShadow)">
+    <rect x="12" y="12" width="488" height="692" rx="34" fill="#FFFFFF" stroke="#E0D7CC" stroke-width="2" />
+    <rect x="14" y="14" width="484" height="688" rx="32" fill="url(#paperGrad)" />
+  </g>
+
+  <!-- Marco de Diseño Interior -->
+  <rect x="34" y="34" width="444" height="648" rx="20" fill="none" stroke="#EAE2D5" stroke-width="2" />
+  <rect x="38" y="38" width="436" height="640" rx="16" fill="none" stroke="url(#goldBorder)" stroke-width="1.5" opacity="0.75" />
+
+  <!-- Marcas de esquina para el índice (pips placeholders sutiles) -->
+  <circle cx="68" cy="68" r="24" fill="#F4EDE2" opacity="0.4" />
+  <circle cx="444" cy="648" r="24" fill="#F4EDE2" opacity="0.4" />
+</svg>

@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256" height="256">
+    <g transform="translate(128, 128)">
+      <circle cx="0" cy="-45" r="42" fill="#140F12" stroke="#FF7A00" stroke-width="5" />
+      <circle cx="-42" cy="15" r="42" fill="#140F12" stroke="#FF7A00" stroke-width="5" />
+      <circle cx="42" cy="15" r="42" fill="#140F12" stroke="#FF7A00" stroke-width="5" />
+      <path d="M -15 45 L -28 105 L 28 105 L 15 45 Z" fill="#140F12" stroke="#FF7A00" stroke-width="5" />
+      <!-- Botella interior -->
+      <rect x="-8" y="-45" width="16" height="60" rx="3" fill="#2E7D32" stroke="#FFE57F" stroke-width="2" />
+      <rect x="-4" y="-62" width="8" height="18" fill="#FFE57F" />
+    </g>
+  </svg>

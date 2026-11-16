@@ -1,0 +1,158 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 716" width="512" height="716">
+  <defs>
+    <!-- Sombra exterior de la carta -->
+    <filter id="cardShadow" x="-10%" y="-10%" width="125%" height="125%">
+      <feDropShadow dx="0" dy="16" stdDeviation="16" flood-color="#000000" flood-opacity="0.6" />
+    </filter>
+
+    <!-- Resplandor dorado -->
+    <filter id="goldGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="8" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+
+    <!-- Degradado de Oro Metálico -->
+    <linearGradient id="gold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFE885" />
+      <stop offset="25%" stop-color="#FFB300" />
+      <stop offset="50%" stop-color="#FFF8D6" />
+      <stop offset="75%" stop-color="#FF8F00" />
+      <stop offset="100%" stop-color="#FFE082" />
+    </linearGradient>
+
+    <!-- Degradado Fondo Naranja Casino -->
+    <radialGradient id="backBgGrad" cx="50%" cy="50%" r="70%">
+      <stop offset="0%" stop-color="#FF9429" />
+      <stop offset="60%" stop-color="#FF7A00" />
+      <stop offset="100%" stop-color="#C74B00" />
+    </radialGradient>
+
+    <!-- Degradado del Monograma DJ -->
+    <linearGradient id="djLetterGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#FFBA52" />
+      <stop offset="45%" stop-color="#FF7A00" />
+      <stop offset="100%" stop-color="#D94E00" />
+    </linearGradient>
+
+    <!-- Patrón geométrico de casino (Lattice Pattern) -->
+    <pattern id="casinoPattern" width="24" height="24" patternUnits="userSpaceOnUse">
+      <path d="M 0 12 L 12 0 L 24 12 L 12 24 Z" fill="none" stroke="#FF5500" stroke-width="1.8" />
+      <circle cx="12" cy="12" r="2.2" fill="#FFA533" opacity="0.8" />
+      <path d="M 12 0 L 12 24 M 0 12 L 24 12" stroke="#D94E00" stroke-width="0.8" opacity="0.5" />
+    </pattern>
+
+    <!-- Brillo especular -->
+    <linearGradient id="cardGleam" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.35" />
+      <stop offset="40%" stop-color="#FFFFFF" stop-opacity="0.05" />
+      <stop offset="100%" stop-color="#FFFFFF" stop-opacity="0" />
+    </linearGradient>
+  </defs>
+
+  <!-- 1. BASE BLANCA CON BORDE TRADICIONAL DE NAIPE -->
+  <g filter="url(#cardShadow)">
+    <rect x="12" y="12" width="488" height="692" rx="34" fill="#FFFFFF" stroke="#E2DCD5" stroke-width="2" />
+    <rect x="14" y="14" width="484" height="688" rx="32" fill="#FDFCFA" />
+  </g>
+
+  <!-- 2. MARCO INTERIOR NARANJA CASINO -->
+  <g transform="translate(0, 0)">
+    <!-- Fondo base naranja -->
+    <rect x="28" y="28" width="456" height="660" rx="24" fill="url(#backBgGrad)" stroke="#161214" stroke-width="2.5" />
+    
+    <!-- Patrón de fondo estilo baraja de lujo -->
+    <rect x="28" y="28" width="456" height="660" rx="24" fill="url(#casinoPattern)" opacity="0.65" />
+
+    <!-- Filete perimetral dorado -->
+    <rect x="36" y="36" width="440" height="644" rx="18" fill="none" stroke="url(#gold)" stroke-width="2.5" />
+    <rect x="42" y="42" width="428" height="632" rx="14" fill="none" stroke="#161214" stroke-width="1.5" stroke-dasharray="3 4" opacity="0.6" />
+
+    <!-- 4 Esquinas ornamentales con símbolo de trago/naipe -->
+    <g fill="#FFFFFF" opacity="0.85">
+      <circle cx="56" cy="56" r="6" fill="#161214" />
+      <circle cx="56" cy="56" r="4.5" fill="#FFE57F" />
+      <circle cx="456" cy="56" r="6" fill="#161214" />
+      <circle cx="456" cy="56" r="4.5" fill="#FFE57F" />
+      <circle cx="56" cy="660" r="6" fill="#161214" />
+      <circle cx="56" cy="660" r="4.5" fill="#FFE57F" />
+      <circle cx="456" cy="660" r="6" fill="#161214" />
+      <circle cx="456" cy="660" r="4.5" fill="#FFE57F" />
+    </g>
+
+    <!-- 3. MEDALLÓN CENTRAL OVALADO (IDENTIDAD DANDO JUGO) -->
+    <!-- Sombra del medallón -->
+    <ellipse cx="256" cy="358" rx="148" ry="196" fill="#000000" opacity="0.45" />
+
+    <!-- Anillo exterior dorado -->
+    <ellipse cx="256" cy="358" rx="144" ry="192" fill="#161214" stroke="url(#gold)" stroke-width="6" />
+    <ellipse cx="256" cy="358" rx="136" ry="184" fill="none" stroke="#FFFFFF" stroke-opacity="0.3" stroke-width="1.5" stroke-dasharray="4 6" />
+
+    <!-- Centro oscuro del medallón -->
+    <ellipse cx="256" cy="358" rx="132" ry="180" fill="#120E10" />
+    <ellipse cx="256" cy="358" rx="128" ry="176" fill="radial-gradient(circle at 50% 40%, #2A1F25 0%, #120E10 70%, #060405 100%)" />
+
+    <!-- Rayos sutiles de fondo del medallón -->
+    <g stroke="#FF7A00" stroke-opacity="0.15" stroke-width="1.5">
+      <line x1="256" y1="180" x2="256" y2="536" />
+      <line x1="126" y1="358" x2="386" y2="358" />
+      <line x1="164" y1="230" x2="348" y2="486" />
+      <line x1="348" y1="230" x2="164" y2="486" />
+    </g>
+
+    <!-- Textos en el medallón -->
+    <text x="256" y="235" font-family="'Arial Black', 'Impact', sans-serif" font-weight="900" font-size="16" letter-spacing="4" fill="#FFE57F" text-anchor="middle">
+      ★ DANDO JUGO ★
+    </text>
+
+    <text x="256" y="492" font-family="'Arial Black', 'Impact', sans-serif" font-weight="900" font-size="13" letter-spacing="3.5" fill="#FFB300" text-anchor="middle">
+      CASINO BAR DECK
+    </text>
+
+    <!-- Corona de laurel / hojas doradas laterales -->
+    <g fill="#FFB300" opacity="0.8">
+      <circle cx="158" cy="358" r="4" />
+      <circle cx="354" cy="358" r="4" />
+      <circle cx="166" cy="330" r="3.5" />
+      <circle cx="346" cy="330" r="3.5" />
+      <circle cx="166" cy="386" r="3.5" />
+      <circle cx="346" cy="386" r="3.5" />
+    </g>
+
+    <!-- 4. MONOGRAMA CENTRAL 'DJ' CON JUGO DERRAMADO -->
+    <g transform="translate(256, 360) scale(1.18)">
+      <!-- Resplandor ámbar posterior -->
+      <circle cx="0" cy="0" r="50" fill="#FF7A00" opacity="0.35" filter="url(#goldGlow)" />
+
+      <!-- Sombra profunda -->
+      <text x="0" y="32" font-family="'Arial Black', 'Impact', sans-serif" font-size="96" font-weight="900" text-anchor="middle" letter-spacing="-5" fill="#000000" opacity="0.9" transform="translate(0, 5)">
+        DJ
+      </text>
+
+      <!-- Borde grueso oscuro de sticker -->
+      <text x="0" y="32" font-family="'Arial Black', 'Impact', sans-serif" font-size="96" font-weight="900" text-anchor="middle" letter-spacing="-5" fill="#120E10" stroke="#120E10" stroke-width="16" stroke-linejoin="round">
+        DJ
+      </text>
+
+      <!-- Borde fino dorado -->
+      <text x="0" y="32" font-family="'Arial Black', 'Impact', sans-serif" font-size="96" font-weight="900" text-anchor="middle" letter-spacing="-5" fill="none" stroke="#FFE082" stroke-width="3.5" stroke-linejoin="round">
+        DJ
+      </text>
+
+      <!-- Relleno degradado oficial de Dando Jugo -->
+      <text x="0" y="32" font-family="'Arial Black', 'Impact', sans-serif" font-size="96" font-weight="900" text-anchor="middle" letter-spacing="-5" fill="url(#djLetterGrad)">
+        DJ
+      </text>
+
+      <!-- Gotas de jugo derramadas -->
+      <g transform="translate(30, 32)">
+        <path d="M 0 0 C 5 -6 13 -6 17 0 C 20 7 13 16 6 17 C 0 18 -5 8 0 0 Z" fill="#FFA500" stroke="#120E10" stroke-width="2.5" />
+        <circle cx="8" cy="5" r="2.2" fill="#FFFFFF" opacity="0.85" />
+        <circle cx="20" cy="18" r="4.5" fill="#FF7A00" stroke="#120E10" stroke-width="2" />
+        <circle cx="19" cy="16.5" r="1.5" fill="#FFFFFF" opacity="0.9" />
+      </g>
+    </g>
+
+    <!-- 5. REFLEJO DE LUZ DIAGONAL EN LA CARTA -->
+    <path d="M 28 28 L 220 28 L 484 500 L 484 688 Z" fill="url(#cardGleam)" opacity="0.25" pointer-events="none" />
+  </g>
+</svg>

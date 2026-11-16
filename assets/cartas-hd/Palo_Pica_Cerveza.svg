@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256" height="256">
+    <g transform="translate(128, 128)">
+      <path d="M 0 -85 C -45 -20 -90 5 -90 50 C -90 95 -45 110 0 85 C 45 110 90 95 90 50 C 90 5 45 -20 0 -85 Z" fill="#140F12" stroke="#FF7A00" stroke-width="6" />
+      <path d="M -15 85 L -30 115 L 30 115 L 15 85 Z" fill="#140F12" stroke="#FF7A00" stroke-width="5" />
+      <!-- Jarra miniatura -->
+      <rect x="-18" y="0" width="36" height="40" rx="6" fill="#FFB300" />
+      <path d="M 18 8 C 28 8 28 30 18 30" fill="none" stroke="#FFE57F" stroke-width="4" stroke-linecap="round" />
+      <ellipse cx="0" cy="0" rx="20" ry="6" fill="#FFFFFF" />
+    </g>
+  </svg>

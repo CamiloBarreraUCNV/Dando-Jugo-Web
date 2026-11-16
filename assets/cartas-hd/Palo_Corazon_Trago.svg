@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256" height="256">
+    <g transform="translate(128, 128)">
+      <path d="M 0 85 C -85 30 -95 -45 -55 -75 C -25 -95 0 -55 0 -45 C 0 -55 25 -95 55 -75 C 95 -45 85 30 0 85 Z" fill="#E52D27" stroke="#FFE57F" stroke-width="6" />
+      <!-- Copa trago festiva -->
+      <path d="M -22 -30 C -22 15 22 15 22 -30 Z" fill="#FFFFFF" opacity="0.9" />
+      <circle cx="-6" cy="-10" r="3" fill="#FF7A00" />
+      <circle cx="8" cy="-5" r="2.5" fill="#FF7A00" />
+      <circle cx="2" cy="5" r="2" fill="#FF7A00" />
+    </g>
+  </svg>

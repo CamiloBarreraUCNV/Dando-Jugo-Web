@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 716" width="512" height="716">
+  <defs>
+    <filter id="aceShadow" x="-10%" y="-10%" width="125%" height="125%">
+      <feDropShadow dx="0" dy="16" stdDeviation="16" flood-color="#000000" flood-opacity="0.6" />
+    </filter>
+    <linearGradient id="aceGold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFE885" />
+      <stop offset="40%" stop-color="#FFB300" />
+      <stop offset="100%" stop-color="#D97706" />
+    </linearGradient>
+  </defs>
+
+  <g filter="url(#aceShadow)">
+    <rect x="12" y="12" width="488" height="692" rx="34" fill="#FFFFFF" stroke="#E0D7CC" stroke-width="2" />
+    <rect x="14" y="14" width="484" height="688" rx="32" fill="#FDFBF7" />
+  </g>
+
+  <rect x="34" y="34" width="444" height="648" rx="20" fill="none" stroke="#E8DFD3" stroke-width="2" />
+  <rect x="40" y="40" width="432" height="636" rx="16" fill="none" stroke="url(#aceGold)" stroke-width="1.5" opacity="0.8" />
+
+  <!-- ESQUINAS: ÍNDICE 'A' + PICA -->
+  <g fill="#161214">
+    <text x="68" y="90" font-family="'Arial Black', 'Impact', sans-serif" font-size="54" font-weight="900" text-anchor="middle">A</text>
+    <path d="M 68 108 C 62 100 52 104 52 112 C 52 118 62 125 68 130 C 74 125 84 118 84 112 C 84 104 74 100 68 108 Z M 67 128 L 64 135 L 72 135 L 69 128 Z" />
+
+    <g transform="rotate(180 444 626)">
+      <text x="444" y="618" font-family="'Arial Black', 'Impact', sans-serif" font-size="54" font-weight="900" text-anchor="middle">A</text>
+      <path d="M 444 636 C 438 628 428 632 428 640 C 428 646 438 653 444 658 C 450 653 460 646 460 640 C 460 632 450 628 444 636 Z M 443 656 L 440 663 L 448 663 L 445 656 Z" />
+    </g>
+  </g>
+
+  <!-- PICA GIGANTE ORNAMENTAL EN EL CENTRO CON JARRA DE CERVEZA -->
+  <g transform="translate(256, 358)">
+    <!-- Silueta principal de la Pica con detalles en dorado -->
+    <path d="M 0 -130 C -70 -30 -140 10 -140 80 C -140 145 -70 170 0 130 C 70 170 140 145 140 80 C 140 10 70 -30 0 -130 Z" fill="#140F12" stroke="url(#aceGold)" stroke-width="8" />
+    <path d="M -20 130 L -45 190 L 45 190 L 20 130 Z" fill="#140F12" stroke="url(#aceGold)" stroke-width="6" />
+
+    <!-- Ilustración de Jarra de Cerveza Dorada en el interior de la Pica -->
+    <g transform="translate(0, 55)">
+      <!-- Cuerpo de la jarra -->
+      <rect x="-42" y="-60" width="84" height="95" rx="14" fill="#FFB300" stroke="#FFE57F" stroke-width="3" />
+      <!-- Asa de la jarra -->
+      <path d="M 42 -40 C 65 -40 65 10 42 10" fill="none" stroke="#FFE57F" stroke-width="7" stroke-linecap="round" />
+      <!-- Espuma rebosante -->
+      <ellipse cx="0" cy="-60" rx="46" ry="14" fill="#FFFFFF" />
+      <circle cx="-25" cy="-62" r="14" fill="#FFFFFF" />
+      <circle cx="0" cy="-66" r="16" fill="#FFFFFF" />
+      <circle cx="25" cy="-62" r="14" fill="#FFFFFF" />
+    </g>
+
+    <!-- Texto bajo la pica -->
+    <text x="0" y="145" font-family="'Arial Black', sans-serif" font-size="14" font-weight="900" fill="#FFE57F" letter-spacing="3" text-anchor="middle">
+      PICA CERVECERA
+    </text>
+  </g>
+</svg>

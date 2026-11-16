@@ -41,7 +41,6 @@ export default function Roulette({ onSpinEnd, isSpinning, setIsSpinning }) {
     setIsSpinning(true);
     setIsStopped(false);
     setResultText('');
-    soundManager.init();
 
     const frame = frameRef.current;
     const strip = stripRef.current;
@@ -53,55 +52,61 @@ export default function Roulette({ onSpinEnd, isSpinning, setIsSpinning }) {
       return;
     }
 
-    frame.classList.remove('stopped');
+    try {
+      soundManager.init();
+      frame.classList.remove('stopped');
 
-    const targetIndex = Math.floor(Math.random() * CATEGORIES.length);
-    const targetCategory = CATEGORIES[targetIndex];
-    const totalSteps = 18;
-    let currentPos = position;
+      const targetIndex = Math.floor(Math.random() * CATEGORIES.length);
+      const targetCategory = CATEGORIES[targetIndex];
+      const totalSteps = 18;
+      let currentPos = position;
 
-    for (let step = 0; step < totalSteps; step++) {
-      const isLast = step === totalSteps - 1;
-      const nextIndex = isLast ? targetIndex : (currentPos + 1 + Math.floor(Math.random() * 2)) % CATEGORIES.length;
-      const nextCat = CATEGORIES[nextIndex];
+      for (let step = 0; step < totalSteps; step++) {
+        const isLast = step === totalSteps - 1;
+        const nextIndex = isLast ? targetIndex : (currentPos + 1 + Math.floor(Math.random() * 2)) % CATEGORIES.length;
+        const nextCat = CATEGORIES[nextIndex];
 
-      paintCell(cell1, nextCat);
+        paintCell(cell1, nextCat);
 
-      // Reproducir sonido mecánico en cada paso con tono variable
-      soundManager.playTick(550 + Math.random() * 120);
+        // Reproducir sonido mecánico en cada paso con tono variable
+        soundManager.playTick(550 + Math.random() * 120);
 
-      strip.style.transition = 'transform 85ms linear';
-      strip.style.transform = 'translateY(-50%)';
+        strip.style.transition = 'transform 85ms linear';
+        strip.style.transform = 'translateY(-50%)';
 
-      await wait(90);
+        await wait(90);
 
-      paintCell(cell0, nextCat);
-      strip.style.transition = 'none';
-      strip.style.transform = 'translateY(0)';
-      currentPos = nextIndex;
+        paintCell(cell0, nextCat);
+        strip.style.transition = 'none';
+        strip.style.transform = 'translateY(0)';
+        currentPos = nextIndex;
 
-      // Lectura de layout para reiniciar ciclo de CSS
-      void strip.offsetHeight;
+        // Lectura de layout para reiniciar ciclo de CSS
+        void strip.offsetHeight;
 
-      // Desaceleración progresiva al final del giro
-      const extraDelay = Math.floor((step / totalSteps) * 22);
-      await wait(14 + extraDelay);
-    }
-
-    setPosition(targetIndex);
-    setIsStopped(true);
-    frame.classList.add('stopped');
-
-    soundManager.playFanfare();
-    setResultText(targetCategory.name);
-
-    // Esperar brevemente para que los jugadores vean el resultado y lanzar la carta
-    setTimeout(() => {
-      setIsSpinning(false);
-      if (onSpinEnd) {
-        onSpinEnd(targetCategory);
+        // Desaceleración progresiva al final del giro
+        const extraDelay = Math.floor((step / totalSteps) * 22);
+        await wait(14 + extraDelay);
       }
-    }, 650);
+
+      setPosition(targetIndex);
+      setIsStopped(true);
+      frame.classList.add('stopped');
+
+      soundManager.playFanfare();
+      setResultText(targetCategory.name);
+
+      // Esperar brevemente para que los jugadores vean el resultado y lanzar la carta
+      setTimeout(() => {
+        setIsSpinning(false);
+        if (onSpinEnd) {
+          onSpinEnd(targetCategory);
+        }
+      }, 650);
+    } catch (err) {
+      console.error('Error durante el giro:', err);
+      setIsSpinning(false);
+    }
   };
 
   return (

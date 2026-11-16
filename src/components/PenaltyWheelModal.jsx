@@ -91,23 +91,31 @@ export default function PenaltyWheelModal({ isOpen, onClose, currentMode }) {
   const slices = PENALTY_CONFIGS[currentMode] || PENALTY_CONFIGS.caja;
 
   useEffect(() => {
-    if (!isOpen) {
-      setResult(null);
-      setRetoDetalle(null);
-      setIsStopped(false);
-      return;
+    // Al abrir o cerrar: resetear de manera limpia y absoluta todo estado de giro
+    setIsSpinning(false);
+    setIsStopped(false);
+    setResult(null);
+    setRetoDetalle(null);
+
+    if (frameRef.current) {
+      frameRef.current.classList.remove('stopped');
     }
+    if (stripRef.current) {
+      stripRef.current.style.transition = 'none';
+      stripRef.current.style.transform = 'translateY(0)';
+    }
+
+    if (!isOpen) return;
+
+    if (cell0Ref.current && slices.length > 0) {
+      paintCell(cell0Ref.current, slices[0]);
+    }
+
     const handleKeyDown = (e) => {
       if (e.key === 'Escape' && !isSpinning) onClose();
     };
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [isOpen, isSpinning, onClose]);
-
-  useEffect(() => {
-    if (isOpen && cell0Ref.current && slices.length > 0) {
-      paintCell(cell0Ref.current, slices[0]);
-    }
   }, [isOpen, slices]);
 
   const paintCell = (cell, item) => {
@@ -131,7 +139,6 @@ export default function PenaltyWheelModal({ isOpen, onClose, currentMode }) {
     setIsStopped(false);
     setResult(null);
     setRetoDetalle(null);
-    soundManager.init();
 
     const frame = frameRef.current;
     const strip = stripRef.current;
@@ -143,79 +150,84 @@ export default function PenaltyWheelModal({ isOpen, onClose, currentMode }) {
       return;
     }
 
-    frame.classList.remove('stopped');
+    try {
+      soundManager.init();
+      frame.classList.remove('stopped');
 
-    // Selección ponderada de castigo según probabilidades del modo
-    const rand = Math.random() * 100;
-    let accumulated = 0;
-    let targetSlice = slices[0];
-    let targetIndex = 0;
+      // Selección ponderada de castigo según probabilidades del modo
+      const rand = Math.random() * 100;
+      let accumulated = 0;
+      let targetSlice = slices[0];
+      let targetIndex = 0;
 
-    for (let i = 0; i < slices.length; i++) {
-      accumulated += slices[i].prob;
-      if (rand <= accumulated) {
-        targetSlice = slices[i];
-        targetIndex = i;
-        break;
+      for (let i = 0; i < slices.length; i++) {
+        accumulated += slices[i].prob;
+        if (rand <= accumulated) {
+          targetSlice = slices[i];
+          targetIndex = i;
+          break;
+        }
       }
-    }
 
-    const totalSteps = 16;
-    let currentPos = 0;
+      const totalSteps = 16;
+      let currentPos = 0;
 
-    for (let step = 0; step < totalSteps; step++) {
-      const isLast = step === totalSteps - 1;
-      const nextIndex = isLast ? targetIndex : (currentPos + 1 + Math.floor(Math.random() * 2)) % slices.length;
-      const nextSlice = slices[nextIndex];
+      for (let step = 0; step < totalSteps; step++) {
+        const isLast = step === totalSteps - 1;
+        const nextIndex = isLast ? targetIndex : (currentPos + 1 + Math.floor(Math.random() * 2)) % slices.length;
+        const nextSlice = slices[nextIndex];
 
-      paintCell(cell1, nextSlice);
+        paintCell(cell1, nextSlice);
 
-      soundManager.playTick(500 + Math.random() * 120);
+        soundManager.playTick(500 + Math.random() * 120);
 
-      strip.style.transition = 'transform 85ms linear';
-      strip.style.transform = 'translateY(-50%)';
+        strip.style.transition = 'transform 85ms linear';
+        strip.style.transform = 'translateY(-50%)';
 
-      await wait(90);
+        await wait(90);
 
-      paintCell(cell0, nextSlice);
-      strip.style.transition = 'none';
-      strip.style.transform = 'translateY(0)';
-      currentPos = nextIndex;
+        paintCell(cell0, nextSlice);
+        strip.style.transition = 'none';
+        strip.style.transform = 'translateY(0)';
+        currentPos = nextIndex;
 
-      void strip.offsetHeight;
+        void strip.offsetHeight;
 
-      const extraDelay = Math.floor((step / totalSteps) * 20);
-      await wait(12 + extraDelay);
-    }
-
-    setIsStopped(true);
-    frame.classList.add('stopped');
-    setResult(targetSlice);
-
-    if (targetSlice.id === 'nada') {
-      soundManager.playFanfare();
-      confetti({
-        particleCount: 75,
-        spread: 60,
-        origin: { y: 0.6 },
-      });
-    } else if (targetSlice.id === 'al_seco') {
-      soundManager.playGlassBreak();
-    } else {
-      soundManager.playPenaltyTick();
-    }
-
-    if (targetSlice.id === 'reto') {
-      try {
-        const reto = deckManager.getRandomReto(currentMode);
-        setRetoDetalle(reto || getFallbackReto());
-      } catch (err) {
-        console.error('Error al obtener reto:', err);
-        setRetoDetalle(getFallbackReto());
+        const extraDelay = Math.floor((step / totalSteps) * 20);
+        await wait(12 + extraDelay);
       }
-    }
 
-    setIsSpinning(false);
+      setIsStopped(true);
+      frame.classList.add('stopped');
+      setResult(targetSlice);
+
+      if (targetSlice.id === 'nada') {
+        soundManager.playFanfare();
+        confetti({
+          particleCount: 75,
+          spread: 60,
+          origin: { y: 0.6 },
+        });
+      } else if (targetSlice.id === 'al_seco') {
+        soundManager.playGlassBreak();
+      } else {
+        soundManager.playPenaltyTick();
+      }
+
+      if (targetSlice.id === 'reto') {
+        try {
+          const reto = deckManager.getRandomReto(currentMode);
+          setRetoDetalle(reto || getFallbackReto());
+        } catch (err) {
+          console.error('Error al obtener reto:', err);
+          setRetoDetalle(getFallbackReto());
+        }
+      }
+    } catch (err) {
+      console.error('Error durante el giro de castigo:', err);
+    } finally {
+      setIsSpinning(false);
+    }
   };
 
   if (!isOpen) return null;

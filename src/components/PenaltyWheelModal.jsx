@@ -218,17 +218,6 @@ export default function PenaltyWheelModal({ isOpen, onClose, currentMode }) {
     setIsSpinning(false);
   };
 
-  const handleRerollReto = () => {
-    soundManager.playTick(650);
-    try {
-      const reto = deckManager.getRandomReto(currentMode);
-      setRetoDetalle(reto || getFallbackReto());
-    } catch (err) {
-      console.error('Error al obtener reto:', err);
-      setRetoDetalle(getFallbackReto());
-    }
-  };
-
   if (!isOpen) return null;
 
   return (
@@ -347,53 +336,23 @@ export default function PenaltyWheelModal({ isOpen, onClose, currentMode }) {
             )}
 
             {result.id === 'reto' && (
-              <div className="w-full text-center">
-                <span className="text-3xl sm:text-4xl inline-block animate-bounce">🎭</span>
-                <h4 className="text-lg sm:text-xl font-black text-purple-400 mt-1 uppercase tracking-wide">
-                  ¡TE TOCA UN RETO!
-                </h4>
-                <p className="text-[11px] sm:text-xs text-purple-200/80 mb-2">
-                  ¡El carrete te perdonó los sorbos directos, pero debes cumplir este reto frente a la mesa!
-                </p>
-
+              <div className="w-full text-left">
                 {(() => {
                   const activeReto = retoDetalle || getFallbackReto();
                   return (
-                    <div className="mt-2 text-left bg-[#140f12] p-3.5 sm:p-4 rounded-2xl border-2 border-purple-500/60 shadow-lg shadow-purple-950/40">
+                    <div className="p-3.5 sm:p-4 rounded-2xl bg-[#140f12] border-2 border-purple-500/60 shadow-lg shadow-purple-950/40">
                       <div className="flex items-center justify-between gap-2 mb-2">
                         <span className="text-[10px] sm:text-xs font-black uppercase tracking-wider text-purple-300 bg-purple-950/90 border border-purple-500/40 px-2 py-0.5 rounded-md">
-                          {activeReto.tipo || 'PENITENCIA'}
+                          {activeReto.tipo || 'RETO'}
                         </span>
-                        <span className="text-xs sm:text-sm font-bold text-amber-400 truncate max-w-[160px]">
+                        <span className="text-xs sm:text-sm font-bold text-amber-400 truncate max-w-[200px]">
                           {activeReto.titulo}
                         </span>
                       </div>
 
-                      <p className="text-sm sm:text-base text-stone-100 font-medium leading-relaxed my-2">
+                      <p className="text-sm sm:text-base text-stone-100 font-medium leading-relaxed my-1">
                         {activeReto.descripcion}
                       </p>
-
-                      {activeReto.castigo && (
-                        <div className="mt-2.5 pt-2 border-t border-purple-900/50 flex items-start gap-1.5 text-xs text-rose-300">
-                          <span className="text-sm leading-none">⚠️</span>
-                          <span>
-                            <strong className="text-rose-400">Si arrugas: </strong>
-                            {activeReto.castigo}
-                          </span>
-                        </div>
-                      )}
-
-                      <div className="mt-3 flex justify-end">
-                        <button
-                          type="button"
-                          onClick={handleRerollReto}
-                          className="inline-flex items-center gap-1.5 px-3 py-1 bg-purple-900/40 hover:bg-purple-800/60 border border-purple-500/40 text-[11px] font-bold text-purple-200 rounded-lg transition active:scale-95 cursor-pointer"
-                          title="Cambiar reto si es físicamente imposible"
-                        >
-                          <span>🎲</span>
-                          <span>Cambiar Reto</span>
-                        </button>
-                      </div>
                     </div>
                   );
                 })()}

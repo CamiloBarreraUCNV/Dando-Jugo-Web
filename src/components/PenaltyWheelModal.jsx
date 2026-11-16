@@ -3,7 +3,7 @@ import { soundManager } from '../utils/soundEffects';
 import { deckManager, GAME_MODES } from '../utils/deckManager';
 import confetti from 'canvas-confetti';
 
-export const PENALTY_CONFIGS = {
+const PENALTY_CONFIGS = {
   vasito: [
     { id: 'nada', label: 'NADA (80%)', prob: 80, word: '¡Te Salvaste! (Nada)', icon: '🍀', color: '#059669' },
     { id: '1_sorbo', label: '1 SORBO (10%)', prob: 10, word: 'Toma 1 Sorbo', icon: '🍺', color: '#1d4ed8' },
@@ -32,7 +32,7 @@ export const PENALTY_CONFIGS = {
   ],
 };
 
-export const FALLBACK_RETOS = [
+const FALLBACK_RETOS = [
   {
     titulo: 'El Muñeco de Cera',
     descripcion: 'Quédate congelado como estatua en la pose que estés. Todos deben imitarte al instante; el último en congelarse bebe 3 sorbos.',
@@ -71,7 +71,7 @@ export const FALLBACK_RETOS = [
   },
 ];
 
-export function getFallbackReto() {
+function getFallbackReto() {
   const idx = Math.floor(Math.random() * FALLBACK_RETOS.length);
   return FALLBACK_RETOS[idx];
 }

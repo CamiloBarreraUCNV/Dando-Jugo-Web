@@ -3,6 +3,7 @@ import minijuegosData from '../data/minijuegos.json';
 import jugoData from '../data/jugo.json';
 import hoja7Data from '../data/hoja7_retos.json';
 import variablesData from '../data/variables.json';
+import { RETOS_DATA } from './verdadRetoData';
 
 // Definición de Modos de Juego y sus multiplicadores/reglas
 export const GAME_MODES = [
@@ -305,19 +306,84 @@ class DeckManager {
     };
   }
 
-  // Obtener un reto aleatorio rápido para la Ruleta de Castigo
-  getRandomReto(modeId = 'caja') {
-    const pool = [...jugoData, ...hoja7Data];
-    const randomIndex = Math.floor(Math.random() * pool.length);
-    const item = pool[randomIndex];
-    return {
-      titulo: item.titulo || 'Reto de la Casa',
-      descripcion: resolverTexto(item.descripcion, modeId),
-    };
+  // Obtener un reto de acción o penitencia para realizar en la Ruleta del Jugoso (Castigo)
+  getRandomReto(modeId = 'caja', targetPlayerName = 'otro jugador') {
+    const PASSIVE_PATTERNS = [
+      'toman todos',
+      'los solteros',
+      'el jugador más longevo',
+      'cada uno debe beber',
+      'regalas',
+      'toman los ex',
+      'solteros vs en pareja',
+      'tributo al anfitrión',
+      'la familia',
+      'tercera edad',
+      'ultra sobrio',
+      'a tu salud',
+      'suertudo',
+      'quien haya llegado primero',
+    ];
+
+    const candidates = [];
+
+    // 1. Retos de Desafío Personal (Jugo) — 100% acciones y penitencias
+    for (const item of jugoData) {
+      if (item.descripcion) {
+        candidates.push({
+          titulo: item.titulo || 'Reto de Jugo',
+          descripcion: resolverTexto(item.descripcion, modeId),
+          castigo: item.castigo ? resolverTexto(item.castigo, modeId) : 'Bebe 3 sorbos si no cumples.',
+          tipo: 'Desafío Personal',
+        });
+      }
+    }
+
+    // 2. Retos de Acción de Hoja 7 (filtrando reglas pasivas de solo beber)
+    for (const item of hoja7Data) {
+      const t = (item.titulo || '').toLowerCase();
+      const d = (item.descripcion || '').toLowerCase();
+      const isPassive = PASSIVE_PATTERNS.some((p) => t.includes(p) || d.startsWith(p));
+      if (!isPassive && item.descripcion) {
+        candidates.push({
+          titulo: item.titulo || 'Reto de Fiesta',
+          descripcion: resolverTexto(item.descripcion, modeId),
+          castigo: item.castigo ? resolverTexto(item.castigo, modeId) : 'Bebe 3 sorbos si arrugas.',
+          tipo: 'Reto Dinámico',
+        });
+      }
+    }
+
+    // 3. Retos de Penitencia en Vivo (Verdad o Reto)
+    if (Array.isArray(RETOS_DATA)) {
+      for (const item of RETOS_DATA) {
+        if (item.nivel === 'clasico' || item.nivel === 'extremo') {
+          const text = (item.texto || '').replace(/\{target\}/g, targetPlayerName);
+          candidates.push({
+            titulo: item.nivel === 'extremo' ? 'Penitencia Extrema' : 'Reto de Actuación',
+            descripcion: text,
+            castigo: `Bebe ${item.nivel === 'extremo' ? '4' : '2'} sorbos si te niegas a hacerlo.`,
+            tipo: 'Penitencia de Mesa',
+          });
+        }
+      }
+    }
+
+    if (candidates.length === 0) {
+      return {
+        titulo: 'Reto de la Casa',
+        descripcion: 'Realiza 15 sentadillas mirando a la mesa sin reírte.',
+        castigo: 'Bebe 3 sorbos si arrugas.',
+        tipo: 'Penitencia',
+      };
+    }
+
+    const randomIndex = Math.floor(Math.random() * candidates.length);
+    return candidates[randomIndex];
   }
 
-  getRandomPenitencia(modeId = 'caja') {
-    return this.getRandomReto(modeId);
+  getRandomPenitencia(modeId = 'caja', targetPlayerName = 'otro jugador') {
+    return this.getRandomReto(modeId, targetPlayerName);
   }
 }
 

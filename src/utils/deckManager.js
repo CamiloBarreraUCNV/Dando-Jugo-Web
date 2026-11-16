@@ -3,7 +3,7 @@ import minijuegosData from '../data/minijuegos.json';
 import jugoData from '../data/jugo.json';
 import hoja7Data from '../data/hoja7_retos.json';
 import variablesData from '../data/variables.json';
-import { RETOS_DATA } from './verdadRetoData';
+import { RETOS_DATA } from './verdadRetoData.js';
 
 // Definición de Modos de Juego y sus multiplicadores/reglas
 export const GAME_MODES = [

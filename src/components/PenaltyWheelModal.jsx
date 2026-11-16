@@ -32,6 +32,50 @@ export const PENALTY_CONFIGS = {
   ],
 };
 
+export const FALLBACK_RETOS = [
+  {
+    titulo: 'El Muñeco de Cera',
+    descripcion: 'Quédate congelado como estatua en la pose que estés. Todos deben imitarte al instante; el último en congelarse bebe 3 sorbos.',
+    castigo: 'Bebe 3 sorbos si te ríes o rompes la pose.',
+    tipo: 'DESAFÍO EN VIVO',
+  },
+  {
+    titulo: 'Borracho Bailarín',
+    descripcion: 'Ponte de pie y realiza el baile más ridículo o exagerado que puedas durante 20 segundos frente a la mesa.',
+    castigo: 'Bebe 3 sorbos si te da vergüenza.',
+    tipo: 'RETO DE BAILE',
+  },
+  {
+    titulo: 'La Pose del Avión',
+    descripcion: 'Párate en un solo pie con los brazos abiertos e inclínate hacia adelante manteniendo el equilibrio por 20 segundos.',
+    castigo: 'Bebe 2 sorbos si tocas el suelo con ambos pies.',
+    tipo: 'DESAFÍO FÍSICO',
+  },
+  {
+    titulo: 'Relator de Fútbol Poseído',
+    descripcion: 'Relata un gol ficticio a máxima velocidad durante 15 segundos con voz de locutor de radio eufórico.',
+    castigo: 'Bebe 2 sorbos si te trabas o te ríes.',
+    tipo: 'RETO VOCAL',
+  },
+  {
+    titulo: 'Stand Up Comedia',
+    descripcion: 'Cuenta un chiste a la mesa; si nadie se ríe en los siguientes 5 segundos, debes beber 3 sorbos.',
+    castigo: 'Bebe 3 sorbos si nadie se ríe.',
+    tipo: 'DESAFÍO DE HUMOR',
+  },
+  {
+    titulo: 'Borracho Gymbro',
+    descripcion: 'Realiza 15 sentadillas o 10 flexiones de brazos ahora mismo mientras toda la mesa te cuenta en voz alta.',
+    castigo: 'Bebe 3 sorbos si no completas la serie.',
+    tipo: 'DESAFÍO FÍSICO',
+  },
+];
+
+export function getFallbackReto() {
+  const idx = Math.floor(Math.random() * FALLBACK_RETOS.length);
+  return FALLBACK_RETOS[idx];
+}
+
 export default function PenaltyWheelModal({ isOpen, onClose, currentMode }) {
   const frameRef = useRef(null);
   const stripRef = useRef(null);
@@ -162,8 +206,13 @@ export default function PenaltyWheelModal({ isOpen, onClose, currentMode }) {
     }
 
     if (targetSlice.id === 'reto') {
-      const reto = deckManager.getRandomReto(currentMode);
-      setRetoDetalle(reto);
+      try {
+        const reto = deckManager.getRandomReto(currentMode);
+        setRetoDetalle(reto || getFallbackReto());
+      } catch (err) {
+        console.error('Error al obtener reto:', err);
+        setRetoDetalle(getFallbackReto());
+      }
     }
 
     setIsSpinning(false);
@@ -171,8 +220,13 @@ export default function PenaltyWheelModal({ isOpen, onClose, currentMode }) {
 
   const handleRerollReto = () => {
     soundManager.playTick(650);
-    const reto = deckManager.getRandomReto(currentMode);
-    setRetoDetalle(reto);
+    try {
+      const reto = deckManager.getRandomReto(currentMode);
+      setRetoDetalle(reto || getFallbackReto());
+    } catch (err) {
+      console.error('Error al obtener reto:', err);
+      setRetoDetalle(getFallbackReto());
+    }
   };
 
   if (!isOpen) return null;
@@ -302,44 +356,47 @@ export default function PenaltyWheelModal({ isOpen, onClose, currentMode }) {
                   ¡El carrete te perdonó los sorbos directos, pero debes cumplir este reto frente a la mesa!
                 </p>
 
-                {retoDetalle && (
-                  <div className="mt-2 text-left bg-[#140f12] p-3.5 sm:p-4 rounded-2xl border-2 border-purple-500/60 shadow-lg shadow-purple-950/40">
-                    <div className="flex items-center justify-between gap-2 mb-2">
-                      <span className="text-[10px] sm:text-xs font-black uppercase tracking-wider text-purple-300 bg-purple-950/90 border border-purple-500/40 px-2 py-0.5 rounded-md">
-                        {retoDetalle.tipo || 'PENITENCIA'}
-                      </span>
-                      <span className="text-xs sm:text-sm font-bold text-amber-400 truncate max-w-[160px]">
-                        {retoDetalle.titulo}
-                      </span>
-                    </div>
-
-                    <p className="text-sm sm:text-base text-stone-100 font-medium leading-relaxed my-2">
-                      {retoDetalle.descripcion}
-                    </p>
-
-                    {retoDetalle.castigo && (
-                      <div className="mt-2.5 pt-2 border-t border-purple-900/50 flex items-start gap-1.5 text-xs text-rose-300">
-                        <span className="text-sm leading-none">⚠️</span>
-                        <span>
-                          <strong className="text-rose-400">Si arrugas: </strong>
-                          {retoDetalle.castigo}
+                {(() => {
+                  const activeReto = retoDetalle || getFallbackReto();
+                  return (
+                    <div className="mt-2 text-left bg-[#140f12] p-3.5 sm:p-4 rounded-2xl border-2 border-purple-500/60 shadow-lg shadow-purple-950/40">
+                      <div className="flex items-center justify-between gap-2 mb-2">
+                        <span className="text-[10px] sm:text-xs font-black uppercase tracking-wider text-purple-300 bg-purple-950/90 border border-purple-500/40 px-2 py-0.5 rounded-md">
+                          {activeReto.tipo || 'PENITENCIA'}
+                        </span>
+                        <span className="text-xs sm:text-sm font-bold text-amber-400 truncate max-w-[160px]">
+                          {activeReto.titulo}
                         </span>
                       </div>
-                    )}
 
-                    <div className="mt-3 flex justify-end">
-                      <button
-                        type="button"
-                        onClick={handleRerollReto}
-                        className="inline-flex items-center gap-1.5 px-3 py-1 bg-purple-900/40 hover:bg-purple-800/60 border border-purple-500/40 text-[11px] font-bold text-purple-200 rounded-lg transition active:scale-95 cursor-pointer"
-                        title="Cambiar reto si es físicamente imposible"
-                      >
-                        <span>🎲</span>
-                        <span>Cambiar Reto</span>
-                      </button>
+                      <p className="text-sm sm:text-base text-stone-100 font-medium leading-relaxed my-2">
+                        {activeReto.descripcion}
+                      </p>
+
+                      {activeReto.castigo && (
+                        <div className="mt-2.5 pt-2 border-t border-purple-900/50 flex items-start gap-1.5 text-xs text-rose-300">
+                          <span className="text-sm leading-none">⚠️</span>
+                          <span>
+                            <strong className="text-rose-400">Si arrugas: </strong>
+                            {activeReto.castigo}
+                          </span>
+                        </div>
+                      )}
+
+                      <div className="mt-3 flex justify-end">
+                        <button
+                          type="button"
+                          onClick={handleRerollReto}
+                          className="inline-flex items-center gap-1.5 px-3 py-1 bg-purple-900/40 hover:bg-purple-800/60 border border-purple-500/40 text-[11px] font-bold text-purple-200 rounded-lg transition active:scale-95 cursor-pointer"
+                          title="Cambiar reto si es físicamente imposible"
+                        >
+                          <span>🎲</span>
+                          <span>Cambiar Reto</span>
+                        </button>
+                      </div>
                     </div>
-                  </div>
-                )}
+                  );
+                })()}
               </div>
             )}
 

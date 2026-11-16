@@ -28,3 +28,5 @@ outputs/
 scratch/
 Dando Jugo/
 Dando Jugo Web/
+.agents/
+skills-lock.json

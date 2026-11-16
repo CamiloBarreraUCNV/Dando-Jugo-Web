@@ -1,0 +1,243 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <!-- Sombra general de la ficha -->
+    <filter id="chipShadow" x="-15%" y="-15%" width="135%" height="135%">
+      <feDropShadow dx="0" dy="16" stdDeviation="16" flood-color="#000000" flood-opacity="0.7" />
+    </filter>
+
+    <!-- Resplandor del monograma DJ -->
+    <filter id="amberGlow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="16" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+
+    <radialGradient id="bodyGrad" cx="38%" cy="28%" r="72%">
+      <stop offset="0%" stop-color="#FFA033" />
+      <stop offset="60%" stop-color="#FF7A00" />
+      <stop offset="100%" stop-color="#CC4E00" />
+    </radialGradient>
+
+    <linearGradient id="goldMetallic" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFE885" />
+      <stop offset="25%" stop-color="#FFB300" />
+      <stop offset="50%" stop-color="#FFF8D6" />
+      <stop offset="75%" stop-color="#FF8F00" />
+      <stop offset="100%" stop-color="#FFE082" />
+    </linearGradient>
+
+    <radialGradient id="inlayGrad" cx="45%" cy="32%" r="68%">
+      <stop offset="0%" stop-color="#261E23" />
+      <stop offset="65%" stop-color="#140F12" />
+      <stop offset="100%" stop-color="#070506" />
+    </radialGradient>
+
+    <linearGradient id="djFillGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#FFBA52" />
+      <stop offset="45%" stop-color="#FF7A00" />
+      <stop offset="100%" stop-color="#D94E00" />
+    </linearGradient>
+
+    <linearGradient id="specularGleam" x1="20%" y1="0%" x2="80%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.4" />
+      <stop offset="35%" stop-color="#FFFFFF" stop-opacity="0.08" />
+      <stop offset="100%" stop-color="#FFFFFF" stop-opacity="0" />
+    </linearGradient>
+  </defs>
+
+  <!-- 1. BASE EXTERIOR CON SOMBRA -->
+  <g filter="url(#chipShadow)">
+    <circle cx="256" cy="256" r="236" fill="url(#bodyGrad)" stroke="#161214" stroke-width="3" />
+    
+    <!-- Relieve perimetral de luz/sombra -->
+    <circle cx="256" cy="256" r="234" fill="none" stroke="#FFFFFF" stroke-opacity="0.3" stroke-width="2" />
+    <circle cx="256" cy="256" r="236.5" fill="none" stroke="#000000" stroke-opacity="0.5" stroke-width="2.5" />
+
+    <!-- 2. EDGE SPOTS -->
+    
+      <g transform="rotate(0 256 256)">
+        <path d="M 226 20 A 236 236 0 0 1 286 20 L 278 72 A 184 184 0 0 0 234 72 Z" fill="#140E11" />
+        <path d="M 238 20 A 236 236 0 0 1 274 20 L 268 72 A 184 184 0 0 0 244 72 Z" fill="#FFFFFF" />
+      </g>
+    
+      <g transform="rotate(60 256 256)">
+        <path d="M 226 20 A 236 236 0 0 1 286 20 L 278 72 A 184 184 0 0 0 234 72 Z" fill="#140E11" />
+        <path d="M 238 20 A 236 236 0 0 1 274 20 L 268 72 A 184 184 0 0 0 244 72 Z" fill="#FFFFFF" />
+      </g>
+    
+      <g transform="rotate(120 256 256)">
+        <path d="M 226 20 A 236 236 0 0 1 286 20 L 278 72 A 184 184 0 0 0 234 72 Z" fill="#140E11" />
+        <path d="M 238 20 A 236 236 0 0 1 274 20 L 268 72 A 184 184 0 0 0 244 72 Z" fill="#FFFFFF" />
+      </g>
+    
+      <g transform="rotate(180 256 256)">
+        <path d="M 226 20 A 236 236 0 0 1 286 20 L 278 72 A 184 184 0 0 0 234 72 Z" fill="#140E11" />
+        <path d="M 238 20 A 236 236 0 0 1 274 20 L 268 72 A 184 184 0 0 0 244 72 Z" fill="#FFFFFF" />
+      </g>
+    
+      <g transform="rotate(240 256 256)">
+        <path d="M 226 20 A 236 236 0 0 1 286 20 L 278 72 A 184 184 0 0 0 234 72 Z" fill="#140E11" />
+        <path d="M 238 20 A 236 236 0 0 1 274 20 L 268 72 A 184 184 0 0 0 244 72 Z" fill="#FFFFFF" />
+      </g>
+    
+      <g transform="rotate(300 256 256)">
+        <path d="M 226 20 A 236 236 0 0 1 286 20 L 278 72 A 184 184 0 0 0 234 72 Z" fill="#140E11" />
+        <path d="M 238 20 A 236 236 0 0 1 274 20 L 268 72 A 184 184 0 0 0 244 72 Z" fill="#FFFFFF" />
+      </g>
+    
+
+    <!-- Ranura concéntrica de moldeado de ficha -->
+    <circle cx="256" cy="256" r="184" fill="none" stroke="#000000" stroke-opacity="0.4" stroke-width="3.5" />
+    <circle cx="256" cy="256" r="182" fill="none" stroke="#FFFFFF" stroke-opacity="0.25" stroke-width="1.5" />
+
+    <!-- Pips de arcilla -->
+    
+        <circle cx="256" cy="62" r="3.2" fill="#000000" opacity="0.3" transform="rotate(15 256 256)" />
+        <circle cx="256" cy="63" r="2.5" fill="#FFFFFF" opacity="0.22" transform="rotate(15 256 256)" />
+      
+        <circle cx="256" cy="62" r="3.2" fill="#000000" opacity="0.3" transform="rotate(30 256 256)" />
+        <circle cx="256" cy="63" r="2.5" fill="#FFFFFF" opacity="0.22" transform="rotate(30 256 256)" />
+      
+        <circle cx="256" cy="62" r="3.2" fill="#000000" opacity="0.3" transform="rotate(45 256 256)" />
+        <circle cx="256" cy="63" r="2.5" fill="#FFFFFF" opacity="0.22" transform="rotate(45 256 256)" />
+      
+        <circle cx="256" cy="62" r="3.2" fill="#000000" opacity="0.3" transform="rotate(75 256 256)" />
+        <circle cx="256" cy="63" r="2.5" fill="#FFFFFF" opacity="0.22" transform="rotate(75 256 256)" />
+      
+        <circle cx="256" cy="62" r="3.2" fill="#000000" opacity="0.3" transform="rotate(90 256 256)" />
+        <circle cx="256" cy="63" r="2.5" fill="#FFFFFF" opacity="0.22" transform="rotate(90 256 256)" />
+      
+        <circle cx="256" cy="62" r="3.2" fill="#000000" opacity="0.3" transform="rotate(105 256 256)" />
+        <circle cx="256" cy="63" r="2.5" fill="#FFFFFF" opacity="0.22" transform="rotate(105 256 256)" />
+      
+        <circle cx="256" cy="62" r="3.2" fill="#000000" opacity="0.3" transform="rotate(135 256 256)" />
+        <circle cx="256" cy="63" r="2.5" fill="#FFFFFF" opacity="0.22" transform="rotate(135 256 256)" />
+      
+        <circle cx="256" cy="62" r="3.2" fill="#000000" opacity="0.3" transform="rotate(150 256 256)" />
+        <circle cx="256" cy="63" r="2.5" fill="#FFFFFF" opacity="0.22" transform="rotate(150 256 256)" />
+      
+        <circle cx="256" cy="62" r="3.2" fill="#000000" opacity="0.3" transform="rotate(165 256 256)" />
+        <circle cx="256" cy="63" r="2.5" fill="#FFFFFF" opacity="0.22" transform="rotate(165 256 256)" />
+      
+        <circle cx="256" cy="62" r="3.2" fill="#000000" opacity="0.3" transform="rotate(195 256 256)" />
+        <circle cx="256" cy="63" r="2.5" fill="#FFFFFF" opacity="0.22" transform="rotate(195 256 256)" />
+      
+        <circle cx="256" cy="62" r="3.2" fill="#000000" opacity="0.3" transform="rotate(210 256 256)" />
+        <circle cx="256" cy="63" r="2.5" fill="#FFFFFF" opacity="0.22" transform="rotate(210 256 256)" />
+      
+        <circle cx="256" cy="62" r="3.2" fill="#000000" opacity="0.3" transform="rotate(225 256 256)" />
+        <circle cx="256" cy="63" r="2.5" fill="#FFFFFF" opacity="0.22" transform="rotate(225 256 256)" />
+      
+        <circle cx="256" cy="62" r="3.2" fill="#000000" opacity="0.3" transform="rotate(255 256 256)" />
+        <circle cx="256" cy="63" r="2.5" fill="#FFFFFF" opacity="0.22" transform="rotate(255 256 256)" />
+      
+        <circle cx="256" cy="62" r="3.2" fill="#000000" opacity="0.3" transform="rotate(270 256 256)" />
+        <circle cx="256" cy="63" r="2.5" fill="#FFFFFF" opacity="0.22" transform="rotate(270 256 256)" />
+      
+        <circle cx="256" cy="62" r="3.2" fill="#000000" opacity="0.3" transform="rotate(285 256 256)" />
+        <circle cx="256" cy="63" r="2.5" fill="#FFFFFF" opacity="0.22" transform="rotate(285 256 256)" />
+      
+        <circle cx="256" cy="62" r="3.2" fill="#000000" opacity="0.3" transform="rotate(315 256 256)" />
+        <circle cx="256" cy="63" r="2.5" fill="#FFFFFF" opacity="0.22" transform="rotate(315 256 256)" />
+      
+        <circle cx="256" cy="62" r="3.2" fill="#000000" opacity="0.3" transform="rotate(330 256 256)" />
+        <circle cx="256" cy="63" r="2.5" fill="#FFFFFF" opacity="0.22" transform="rotate(330 256 256)" />
+      
+        <circle cx="256" cy="62" r="3.2" fill="#000000" opacity="0.3" transform="rotate(345 256 256)" />
+        <circle cx="256" cy="63" r="2.5" fill="#FFFFFF" opacity="0.22" transform="rotate(345 256 256)" />
+      
+  </g>
+
+  <!-- 3. ANILLO DE ORO METÁLICO -->
+  <circle cx="256" cy="256" r="158" fill="none" stroke="url(#goldMetallic)" stroke-width="8" />
+  <circle cx="256" cy="256" r="162.5" fill="none" stroke="#000000" stroke-opacity="0.65" stroke-width="1.5" />
+  <circle cx="256" cy="256" r="153.5" fill="none" stroke="#000000" stroke-opacity="0.65" stroke-width="1.5" />
+
+  <!-- Dientes dorados perimetrales -->
+  <circle cx="256" cy="256" r="158" fill="none" stroke="#FFFFFF" stroke-opacity="0.8" stroke-width="1.5" stroke-dasharray="2 7" />
+
+  <!-- 4. INLAY CENTRAL OSCURO -->
+  <circle cx="256" cy="256" r="152" fill="url(#inlayGrad)" />
+  <circle cx="256" cy="256" r="147" fill="none" stroke="#FF7A00" stroke-opacity="0.35" stroke-width="1.5" stroke-dasharray="5 5" />
+
+  <!-- Palos de casino miniatura dorados en los laterales -->
+  <g fill="#FFB300" opacity="0.9">
+    <!-- Pica izquierda ♠ -->
+    <path d="M 124 251 C 119 245 112 248 112 254 C 112 258 119 263 124 266 C 129 263 136 258 136 254 C 136 248 129 245 124 251 Z M 123 265 L 121 270 L 127 270 L 125 265 Z" />
+    <!-- Corazón derecho ♥ -->
+    <path d="M 388 253 C 384 247 377 249 377 255 C 377 261 388 270 388 270 C 388 270 399 261 399 255 C 399 249 392 247 388 253 Z" />
+  </g>
+
+  <!-- TEXTOS CURVADOS CIRCULARES -->
+  <text x="152.8" y="183.7" font-family="'Arial Black', 'Impact', sans-serif" font-weight="900" font-size="14.5" fill="#FFE57F" text-anchor="middle" dominant-baseline="central" transform="rotate(-55.0 152.8 183.7)">★</text>
+<text x="164.5" y="169.3" font-family="'Arial Black', 'Impact', sans-serif" font-weight="900" font-size="14.5" fill="#FFE57F" text-anchor="middle" dominant-baseline="central" transform="rotate(-46.5 164.5 169.3)"> </text>
+<text x="178.3" y="156.8" font-family="'Arial Black', 'Impact', sans-serif" font-weight="900" font-size="14.5" fill="#FFE57F" text-anchor="middle" dominant-baseline="central" transform="rotate(-38.1 178.3 156.8)">D</text>
+<text x="193.7" y="146.5" font-family="'Arial Black', 'Impact', sans-serif" font-weight="900" font-size="14.5" fill="#FFE57F" text-anchor="middle" dominant-baseline="central" transform="rotate(-29.6 193.7 146.5)">A</text>
+<text x="210.5" y="138.5" font-family="'Arial Black', 'Impact', sans-serif" font-weight="900" font-size="14.5" fill="#FFE57F" text-anchor="middle" dominant-baseline="central" transform="rotate(-21.2 210.5 138.5)">N</text>
+<text x="228.3" y="133.1" font-family="'Arial Black', 'Impact', sans-serif" font-weight="900" font-size="14.5" fill="#FFE57F" text-anchor="middle" dominant-baseline="central" transform="rotate(-12.7 228.3 133.1)">D</text>
+<text x="246.7" y="130.3" font-family="'Arial Black', 'Impact', sans-serif" font-weight="900" font-size="14.5" fill="#FFE57F" text-anchor="middle" dominant-baseline="central" transform="rotate(-4.2 246.7 130.3)">O</text>
+<text x="265.3" y="130.3" font-family="'Arial Black', 'Impact', sans-serif" font-weight="900" font-size="14.5" fill="#FFE57F" text-anchor="middle" dominant-baseline="central" transform="rotate(4.2 265.3 130.3)"> </text>
+<text x="283.7" y="133.1" font-family="'Arial Black', 'Impact', sans-serif" font-weight="900" font-size="14.5" fill="#FFE57F" text-anchor="middle" dominant-baseline="central" transform="rotate(12.7 283.7 133.1)">J</text>
+<text x="301.5" y="138.5" font-family="'Arial Black', 'Impact', sans-serif" font-weight="900" font-size="14.5" fill="#FFE57F" text-anchor="middle" dominant-baseline="central" transform="rotate(21.2 301.5 138.5)">U</text>
+<text x="318.3" y="146.5" font-family="'Arial Black', 'Impact', sans-serif" font-weight="900" font-size="14.5" fill="#FFE57F" text-anchor="middle" dominant-baseline="central" transform="rotate(29.6 318.3 146.5)">G</text>
+<text x="333.7" y="156.8" font-family="'Arial Black', 'Impact', sans-serif" font-weight="900" font-size="14.5" fill="#FFE57F" text-anchor="middle" dominant-baseline="central" transform="rotate(38.1 333.7 156.8)">O</text>
+<text x="347.5" y="169.3" font-family="'Arial Black', 'Impact', sans-serif" font-weight="900" font-size="14.5" fill="#FFE57F" text-anchor="middle" dominant-baseline="central" transform="rotate(46.5 347.5 169.3)"> </text>
+<text x="359.2" y="183.7" font-family="'Arial Black', 'Impact', sans-serif" font-weight="900" font-size="14.5" fill="#FFE57F" text-anchor="middle" dominant-baseline="central" transform="rotate(55.0 359.2 183.7)">★</text>
+  <text x="156.0" y="332.7" font-family="'Arial Black', 'Impact', sans-serif" font-weight="900" font-size="12.5" fill="#FFB300" text-anchor="middle" dominant-baseline="central" transform="rotate(322.5 156.0 332.7)">C</text>
+<text x="167.8" y="346.0" font-family="'Arial Black', 'Impact', sans-serif" font-weight="900" font-size="12.5" fill="#FFB300" text-anchor="middle" dominant-baseline="central" transform="rotate(314.4 167.8 346.0)">A</text>
+<text x="181.3" y="357.5" font-family="'Arial Black', 'Impact', sans-serif" font-weight="900" font-size="12.5" fill="#FFB300" text-anchor="middle" dominant-baseline="central" transform="rotate(306.3 181.3 357.5)">S</text>
+<text x="196.3" y="367.0" font-family="'Arial Black', 'Impact', sans-serif" font-weight="900" font-size="12.5" fill="#FFB300" text-anchor="middle" dominant-baseline="central" transform="rotate(298.3 196.3 367.0)">I</text>
+<text x="212.5" y="374.3" font-family="'Arial Black', 'Impact', sans-serif" font-weight="900" font-size="12.5" fill="#FFB300" text-anchor="middle" dominant-baseline="central" transform="rotate(290.2 212.5 374.3)">N</text>
+<text x="229.6" y="379.2" font-family="'Arial Black', 'Impact', sans-serif" font-weight="900" font-size="12.5" fill="#FFB300" text-anchor="middle" dominant-baseline="central" transform="rotate(282.1 229.6 379.2)">O</text>
+<text x="247.1" y="381.7" font-family="'Arial Black', 'Impact', sans-serif" font-weight="900" font-size="12.5" fill="#FFB300" text-anchor="middle" dominant-baseline="central" transform="rotate(274.0 247.1 381.7)"> </text>
+<text x="264.9" y="381.7" font-family="'Arial Black', 'Impact', sans-serif" font-weight="900" font-size="12.5" fill="#FFB300" text-anchor="middle" dominant-baseline="central" transform="rotate(266.0 264.9 381.7)">E</text>
+<text x="282.4" y="379.2" font-family="'Arial Black', 'Impact', sans-serif" font-weight="900" font-size="12.5" fill="#FFB300" text-anchor="middle" dominant-baseline="central" transform="rotate(257.9 282.4 379.2)">D</text>
+<text x="299.5" y="374.3" font-family="'Arial Black', 'Impact', sans-serif" font-weight="900" font-size="12.5" fill="#FFB300" text-anchor="middle" dominant-baseline="central" transform="rotate(249.8 299.5 374.3)">I</text>
+<text x="315.7" y="367.0" font-family="'Arial Black', 'Impact', sans-serif" font-weight="900" font-size="12.5" fill="#FFB300" text-anchor="middle" dominant-baseline="central" transform="rotate(241.7 315.7 367.0)">T</text>
+<text x="330.7" y="357.5" font-family="'Arial Black', 'Impact', sans-serif" font-weight="900" font-size="12.5" fill="#FFB300" text-anchor="middle" dominant-baseline="central" transform="rotate(233.7 330.7 357.5)">I</text>
+<text x="344.2" y="346.0" font-family="'Arial Black', 'Impact', sans-serif" font-weight="900" font-size="12.5" fill="#FFB300" text-anchor="middle" dominant-baseline="central" transform="rotate(225.6 344.2 346.0)">O</text>
+<text x="356.0" y="332.7" font-family="'Arial Black', 'Impact', sans-serif" font-weight="900" font-size="12.5" fill="#FFB300" text-anchor="middle" dominant-baseline="central" transform="rotate(217.5 356.0 332.7)">N</text>
+
+  <!-- 5. MONOGRAMA CENTRAL 'DJ' -->
+  <g transform="translate(256, 258)">
+    
+    <!-- Resplandor ámbar posterior -->
+    <circle cx="0" cy="0" r="58" fill="#FF7A00" opacity="0.35" filter="url(#amberGlow)" />
+
+    <!-- Sombra profunda del texto -->
+    <text x="0" y="34" font-family="'Arial Black', 'Impact', sans-serif" font-size="106" font-weight="900" text-anchor="middle" letter-spacing="-6" fill="#000000" opacity="0.85" transform="translate(0, 6)">
+      DJ
+    </text>
+
+    <!-- Borde exterior oscuro súper grueso (estilo logo oficial) -->
+    <text x="0" y="34" font-family="'Arial Black', 'Impact', sans-serif" font-size="106" font-weight="900" text-anchor="middle" letter-spacing="-6" fill="#120E10" stroke="#120E10" stroke-width="16" stroke-linejoin="round">
+      DJ
+    </text>
+
+    <!-- Fino bisel dorado exterior -->
+    <text x="0" y="34" font-family="'Arial Black', 'Impact', sans-serif" font-size="106" font-weight="900" text-anchor="middle" letter-spacing="-6" fill="none" stroke="#FFE082" stroke-width="4" stroke-linejoin="round">
+      DJ
+    </text>
+
+    <!-- Relleno de las letras en degradado naranja cálido -->
+    <text x="0" y="34" font-family="'Arial Black', 'Impact', sans-serif" font-size="106" font-weight="900" text-anchor="middle" letter-spacing="-6" fill="url(#djFillGrad)">
+      DJ
+    </text>
+
+    <!-- GOTAS DE JUGO DERRAMADAS (ADN DEL LOGO DANDO JUGO) -->
+    <g transform="translate(34, 34)">
+      <!-- Gota principal cayendo de la cola de la 'J' -->
+      <path d="M 0 0 C 5 -7 14 -7 18 0 C 21 8 14 17 7 18 C 0 19 -5 9 0 0 Z" fill="#FFA500" stroke="#120E10" stroke-width="2.5" />
+      <circle cx="9" cy="5" r="2.5" fill="#FFFFFF" opacity="0.85" />
+      
+      <!-- Gotita secundaria salpicada -->
+      <circle cx="21" cy="20" r="5" fill="#FF7A00" stroke="#120E10" stroke-width="2" />
+      <circle cx="19.5" cy="18" r="1.8" fill="#FFFFFF" opacity="0.9" />
+    </g>
+  </g>
+
+  <!-- 6. REFLEJO DE CRISTAL / BRILLO ESPECULAR SUPERIOR -->
+  <path d="M 52 175 A 236 236 0 0 1 460 175 C 370 115 142 115 52 175 Z" fill="url(#specularGleam)" opacity="0.55" pointer-events="none" />
+  
+  <!-- Luz reflejada inferior -->
+  <path d="M 75 335 A 236 236 0 0 0 437 335 C 350 375 162 375 75 335 Z" fill="#FFFFFF" opacity="0.1" pointer-events="none" />
+</svg>

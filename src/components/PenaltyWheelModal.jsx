@@ -107,8 +107,13 @@ export default function PenaltyWheelModal({ isOpen, onClose, currentMode }) {
 
     if (!isOpen) return;
 
-    if (cell0Ref.current && slices.length > 0) {
-      paintCell(cell0Ref.current, slices[0]);
+    if (cell0Ref.current) {
+      paintCell(cell0Ref.current, {
+        icon: '🎰',
+        word: '¿Qué te tocará?',
+        label: 'CASTIGO',
+        color: '#ff8b22',
+      });
     }
 
     const handleKeyDown = (e) => {

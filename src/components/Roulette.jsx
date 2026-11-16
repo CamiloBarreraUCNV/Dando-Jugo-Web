@@ -3,10 +3,10 @@ import { soundManager } from '../utils/soundEffects';
 import logoImg from '../assets/Logos/DandoJugoLogotransp2 4.png';
 
 export const CATEGORIES = [
-  { id: 'trivia', name: 'Trivia', word: 'Trivia Cultural', icon: '🧠', color: '#1d4ed8', textColor: '#ffffff', badge: 'bg-blue-600/30 text-blue-300 border-blue-500/50' },
-  { id: 'minijuego', name: 'Minijuego', word: 'Minijuego Grupal', icon: '🎮', color: '#d97706', textColor: '#ffffff', badge: 'bg-amber-600/30 text-amber-300 border-amber-500/50' },
-  { id: 'jugo', name: 'Jugo', word: 'Momento de Jugo', icon: '🧃', color: '#9333ea', textColor: '#ffffff', badge: 'bg-purple-600/30 text-purple-300 border-purple-500/50' },
-  { id: 'reto', name: 'Reto', word: 'Reto o Penitencia', icon: '🔥', color: '#b91c1c', textColor: '#ffffff', badge: 'bg-red-600/30 text-red-300 border-red-500/50' },
+  { id: 'trivia', name: 'Trivia', word: 'Trivia', icon: '🧠', color: '#1d4ed8', textColor: '#ffffff' },
+  { id: 'reto', name: 'Reto', word: 'Reto', icon: '🔥', color: '#b91c1c', textColor: '#ffffff' },
+  { id: 'jugo', name: 'Jugo', word: 'Jugo', icon: '🧃', color: '#9333ea', textColor: '#ffffff' },
+  { id: 'minijuego', name: 'Minijuego', word: 'Minijuego', icon: '🎮', color: '#d97706', textColor: '#ffffff' },
 ];
 
 export default function Roulette({ onSpinEnd, isSpinning, setIsSpinning }) {
@@ -30,13 +30,8 @@ export default function Roulette({ onSpinEnd, isSpinning, setIsSpinning }) {
     if (!cell || !cat) return;
     const iconEl = cell.querySelector('.reel-icon');
     const wordEl = cell.querySelector('.reel-word');
-    const badgeEl = cell.querySelector('.reel-badge');
     if (iconEl) iconEl.textContent = cat.icon;
-    if (wordEl) wordEl.textContent = cat.word;
-    if (badgeEl) {
-      badgeEl.textContent = cat.name.toUpperCase();
-      badgeEl.style.backgroundColor = cat.color;
-    }
+    if (wordEl) wordEl.textContent = cat.name;
   };
 
   const wait = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
@@ -98,7 +93,7 @@ export default function Roulette({ onSpinEnd, isSpinning, setIsSpinning }) {
     frame.classList.add('stopped');
 
     soundManager.playFanfare();
-    setResultText(targetCategory.word);
+    setResultText(targetCategory.name);
 
     // Esperar brevemente para que los jugadores vean el resultado y lanzar la carta
     setTimeout(() => {
@@ -151,20 +146,16 @@ export default function Roulette({ onSpinEnd, isSpinning, setIsSpinning }) {
               <div ref={stripRef} className="reel-strip h-[200%]">
                 {/* Celda 0 (Visible actualmente) */}
                 <div ref={cell0Ref} className="reel-cell h-1/2 flex flex-col items-center justify-center gap-2 p-2">
-                  <span className="reel-icon text-4xl sm:text-5xl">🧃</span>
-                  <span className="reel-word font-extrabold text-base sm:text-xl text-[#fff1df]">
-                    Dando Jugo
-                  </span>
-                  <span className="reel-badge text-[10px] font-black uppercase tracking-wider px-2.5 py-0.5 rounded-full text-white shadow">
-                    CATEGORÍA
+                  <span className="reel-icon text-4xl sm:text-5xl">🧠</span>
+                  <span className="reel-word font-extrabold text-lg sm:text-2xl text-[#fff1df] tracking-wide">
+                    Trivia
                   </span>
                 </div>
 
                 {/* Celda 1 (Siguiente que entra desde abajo) */}
                 <div ref={cell1Ref} className="reel-cell h-1/2 flex flex-col items-center justify-center gap-2 p-2">
                   <span className="reel-icon text-4xl sm:text-5xl"></span>
-                  <span className="reel-word font-extrabold text-base sm:text-xl text-[#fff1df]"></span>
-                  <span className="reel-badge text-[10px] font-black uppercase tracking-wider px-2.5 py-0.5 rounded-full text-white shadow"></span>
+                  <span className="reel-word font-extrabold text-lg sm:text-2xl text-[#fff1df] tracking-wide"></span>
                 </div>
               </div>
             </div>

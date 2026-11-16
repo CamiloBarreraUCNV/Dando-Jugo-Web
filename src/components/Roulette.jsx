@@ -2,175 +2,213 @@ import React, { useRef, useState, useEffect } from 'react';
 import { soundManager } from '../utils/soundEffects';
 import logoImg from '../assets/Logos/DandoJugoLogotransp2 4.png';
 
-// Paleta Opción 3 (Casino & Barra Clandestina)
 export const CATEGORIES = [
-  { id: 'trivia', name: 'Trivia', color: '#1d4ed8', textColor: '#ffffff' },        // Zafiro Casino
-  { id: 'minijuego', name: 'Minijuego', color: '#d97706', textColor: '#ffffff' },   // Cobre / Bronce
-  { id: 'jugo', name: 'Jugo', color: '#9333ea', textColor: '#ffffff' },              // Ciruela Terciopelo
-  { id: 'reto', name: 'Reto', color: '#b91c1c', textColor: '#ffffff' },              // Vino Tinto / Burdeos
+  { id: 'trivia', name: 'Trivia', word: 'Trivia Cultural', icon: '🧠', color: '#1d4ed8', textColor: '#ffffff', badge: 'bg-blue-600/30 text-blue-300 border-blue-500/50' },
+  { id: 'minijuego', name: 'Minijuego', word: 'Minijuego Grupal', icon: '🎮', color: '#d97706', textColor: '#ffffff', badge: 'bg-amber-600/30 text-amber-300 border-amber-500/50' },
+  { id: 'jugo', name: 'Jugo', word: 'Momento de Jugo', icon: '🧃', color: '#9333ea', textColor: '#ffffff', badge: 'bg-purple-600/30 text-purple-300 border-purple-500/50' },
+  { id: 'reto', name: 'Reto', word: 'Reto o Penitencia', icon: '🔥', color: '#b91c1c', textColor: '#ffffff', badge: 'bg-red-600/30 text-red-300 border-red-500/50' },
 ];
 
 export default function Roulette({ onSpinEnd, isSpinning, setIsSpinning }) {
-  const canvasRef = useRef(null);
-  const [currentRotation, setCurrentRotation] = useState(0);
+  const frameRef = useRef(null);
+  const stripRef = useRef(null);
+  const cell0Ref = useRef(null);
+  const cell1Ref = useRef(null);
 
-  const numSlices = CATEGORIES.length;
-  const sliceAngle = (2 * Math.PI) / numSlices;
+  const [position, setPosition] = useState(0);
+  const [resultText, setResultText] = useState('');
+  const [isStopped, setIsStopped] = useState(false);
 
-  // Dibujar la ruleta en el Canvas con renderizado Retina HD
+  // Inicializar celda 0
   useEffect(() => {
-    const canvas = canvasRef.current;
-    if (!canvas) return;
-    const ctx = canvas.getContext('2d');
-    
-    // Soporte para pantallas Retina / HiDPI (iPhone, Android moderno, iPad)
-    const logicalSize = 340;
-    const dpr = Math.max(window.devicePixelRatio || 1, 2);
-    
-    canvas.width = logicalSize * dpr;
-    canvas.height = logicalSize * dpr;
-    
-    // Escalar el contexto para dibujar en alta definición sin alterar las coordenadas lógicas
-    ctx.scale(dpr, dpr);
-
-    const center = logicalSize / 2;
-    const radius = center - 12;
-
-    ctx.clearRect(0, 0, logicalSize, logicalSize);
-
-    // Borde exterior metálico dorado / latón
-    ctx.beginPath();
-    ctx.arc(center, center, radius + 8, 0, 2 * Math.PI);
-    ctx.fillStyle = '#1c1719';
-    ctx.fill();
-    ctx.lineWidth = 4;
-    ctx.strokeStyle = '#d4af37';
-    ctx.stroke();
-
-    CATEGORIES.forEach((cat, index) => {
-      const startAngle = index * sliceAngle;
-      const endAngle = startAngle + sliceAngle;
-
-      ctx.beginPath();
-      ctx.moveTo(center, center);
-      ctx.arc(center, center, radius, startAngle, endAngle);
-      ctx.closePath();
-      ctx.fillStyle = cat.color;
-      ctx.fill();
-
-      ctx.lineWidth = 2.5;
-      ctx.strokeStyle = '#0d0a0c';
-      ctx.stroke();
-
-      // Texto de la categoría
-      ctx.save();
-      ctx.translate(center, center);
-      ctx.rotate(startAngle + sliceAngle / 2);
-      ctx.textAlign = 'right';
-      ctx.textBaseline = 'middle';
-      ctx.fillStyle = cat.textColor;
-      ctx.font = '800 15px Outfit, system-ui, sans-serif';
-      ctx.shadowColor = 'rgba(0,0,0,0.6)';
-      ctx.shadowBlur = 6;
-      ctx.fillText(cat.name.toUpperCase(), radius - 20, 0);
-      ctx.restore();
-    });
-
-    // Círculo central con detalles dorados
-    ctx.beginPath();
-    ctx.arc(center, center, 30, 0, 2 * Math.PI);
-    ctx.fillStyle = '#0d0a0c';
-    ctx.fill();
-    ctx.lineWidth = 3;
-    ctx.strokeStyle = '#d4af37';
-    ctx.stroke();
+    if (cell0Ref.current) {
+      paintCell(cell0Ref.current, CATEGORIES[0]);
+    }
   }, []);
 
-  const spin = () => {
+  const paintCell = (cell, cat) => {
+    if (!cell || !cat) return;
+    const iconEl = cell.querySelector('.reel-icon');
+    const wordEl = cell.querySelector('.reel-word');
+    const badgeEl = cell.querySelector('.reel-badge');
+    if (iconEl) iconEl.textContent = cat.icon;
+    if (wordEl) wordEl.textContent = cat.word;
+    if (badgeEl) {
+      badgeEl.textContent = cat.name.toUpperCase();
+      badgeEl.style.backgroundColor = cat.color;
+    }
+  };
+
+  const wait = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+
+  const handleSpin = async () => {
     if (isSpinning) return;
     setIsSpinning(true);
+    setIsStopped(false);
+    setResultText('');
     soundManager.init();
 
-    let delay = 60;
-    let accumulatedTime = 0;
+    const frame = frameRef.current;
+    const strip = stripRef.current;
+    const cell0 = cell0Ref.current;
+    const cell1 = cell1Ref.current;
 
-    const scheduleTick = () => {
-      if (accumulatedTime < 3800) {
-        setTimeout(() => {
-          soundManager.playTick(600 + Math.random() * 80);
-        }, accumulatedTime);
-        delay = delay * 1.09;
-        accumulatedTime += delay;
-        scheduleTick();
-      }
-    };
-    scheduleTick();
+    if (!frame || !strip || !cell0 || !cell1) {
+      setIsSpinning(false);
+      return;
+    }
 
-    const selectedIndex = Math.floor(Math.random() * numSlices);
-    const selectedCategory = CATEGORIES[selectedIndex];
+    frame.classList.remove('stopped');
 
-    const sliceDeg = 360 / numSlices;
-    const targetDegFromSlice = 360 - (selectedIndex * sliceDeg + sliceDeg / 2);
-    const arrowOffset = 270;
-    const targetSliceRotation = (arrowOffset + targetDegFromSlice) % 360;
+    const targetIndex = Math.floor(Math.random() * CATEGORIES.length);
+    const targetCategory = CATEGORIES[targetIndex];
+    const totalSteps = 18;
+    let currentPos = position;
 
-    const extraSpins = 360 * 5;
-    const newRotation = currentRotation + extraSpins + (targetSliceRotation - (currentRotation % 360) + 360) % 360;
+    for (let step = 0; step < totalSteps; step++) {
+      const isLast = step === totalSteps - 1;
+      const nextIndex = isLast ? targetIndex : (currentPos + 1 + Math.floor(Math.random() * 2)) % CATEGORIES.length;
+      const nextCat = CATEGORIES[nextIndex];
 
-    setCurrentRotation(newRotation);
+      paintCell(cell1, nextCat);
 
+      // Reproducir sonido mecánico en cada paso con tono variable
+      soundManager.playTick(550 + Math.random() * 120);
+
+      strip.style.transition = 'transform 85ms linear';
+      strip.style.transform = 'translateY(-50%)';
+
+      await wait(90);
+
+      paintCell(cell0, nextCat);
+      strip.style.transition = 'none';
+      strip.style.transform = 'translateY(0)';
+      currentPos = nextIndex;
+
+      // Lectura de layout para reiniciar ciclo de CSS
+      void strip.offsetHeight;
+
+      // Desaceleración progresiva al final del giro
+      const extraDelay = Math.floor((step / totalSteps) * 22);
+      await wait(14 + extraDelay);
+    }
+
+    setPosition(targetIndex);
+    setIsStopped(true);
+    frame.classList.add('stopped');
+
+    soundManager.playFanfare();
+    setResultText(targetCategory.word);
+
+    // Esperar brevemente para que los jugadores vean el resultado y lanzar la carta
     setTimeout(() => {
       setIsSpinning(false);
-      soundManager.playFanfare();
-      onSpinEnd(selectedCategory);
-    }, 4000);
+      if (onSpinEnd) {
+        onSpinEnd(targetCategory);
+      }
+    }, 650);
   };
 
   return (
-    <div className="flex flex-col items-center justify-center relative select-none w-full">
-      {/* Flecha superior dorada */}
-      <div className="relative z-20 -mb-5 flex flex-col items-center">
-        <div className="w-0 h-0 border-l-[16px] border-l-transparent border-r-[16px] border-r-transparent border-t-[28px] border-t-amber-400 drop-shadow-[0_4px_8px_rgba(0,0,0,0.8)] animate-pulse" />
-      </div>
-
-      {/* Rueda animada con marco de taberna / bronce y eje central con Logo */}
-      <div className="relative p-2 sm:p-2.5 rounded-full bg-[#161214] shadow-[0_0_50px_rgba(212,175,55,0.2)] border-4 border-[#2d2228] flex items-center justify-center">
-        <canvas
-          ref={canvasRef}
-          style={{
-            transform: `rotate(${currentRotation}deg)`,
-            transition: isSpinning ? 'transform 4s cubic-bezier(0.12, 0.8, 0.15, 1)' : 'none',
-          }}
-          className="rounded-full cursor-pointer w-[min(320px,76vw)] h-[min(320px,76vw)] sm:w-[340px] sm:h-[340px] md:w-[370px] md:h-[370px] lg:w-[390px] lg:h-[390px] aspect-square block"
-          onClick={spin}
+    <div className="w-full max-w-lg mx-auto flex flex-col items-center select-none px-2 sm:px-4">
+      {/* Header con Logo y Textos de Estilo Tragamonedas */}
+      <div className="text-center mb-4 sm:mb-6">
+        <img
+          src={logoImg}
+          alt="Dando Jugo Logo"
+          className="brand-image w-28 sm:w-36 h-auto max-h-24 object-contain mx-auto mb-2 drop-shadow-md"
         />
-
-        {/* Eje central con el Logo Oficial del Juego */}
-        <div
-          onClick={spin}
-          className="absolute z-10 w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-[#0d0a0c] border-2 sm:border-[3px] border-amber-400 p-2 shadow-2xl flex items-center justify-center cursor-pointer pointer-events-auto hover:scale-105 active:scale-95 transition-transform"
-          title="¡Tocar para Girar!"
-        >
-          <img
-            src={logoImg}
-            alt="Dando Jugo Logo"
-            className="w-full h-full object-contain drop-shadow"
-          />
-        </div>
+        <p className="eyebrow text-xs sm:text-sm font-bold tracking-widest text-[#ff8b22] uppercase mb-1">
+          LA SUERTE DECIDE
+        </p>
+        <h2 className="headline text-2xl sm:text-3xl font-black text-[#fff1df] tracking-tight">
+          Que corra la suerte.
+        </h2>
+        <p className="text-xs sm:text-sm text-[#cbb9a9] max-w-md mx-auto mt-1 leading-snug">
+          Cuatro categorías. Un solo destino. Pulsa el botón y descubre qué toca en Dando Jugo.
+        </p>
       </div>
 
-      {/* Botón táctil grande con dorado ámbar y resplandor elegante */}
-      <button
-        onClick={spin}
-        disabled={isSpinning}
-        className={`mt-3 sm:mt-4 w-full max-w-xs md:max-w-sm py-3 sm:py-3.5 px-6 sm:px-8 rounded-2xl font-display font-black text-base sm:text-lg md:text-xl tracking-wider uppercase shadow-xl transition-all duration-200 active:scale-95 ${
-          isSpinning
-            ? 'bg-stone-800 text-stone-500 cursor-not-allowed border border-stone-700'
-            : 'bg-gradient-to-r from-amber-500 via-amber-400 to-amber-500 hover:from-amber-400 hover:to-amber-400 text-stone-950 shadow-lg shadow-amber-500/25 hover:shadow-amber-500/40 border-2 border-amber-300 hover:scale-[1.02]'
-        }`}
+      {/* Panel Tragamonedas */}
+      <section
+        className="game-panel w-full bg-[#1d1a18] border border-[#514031] rounded-3xl p-4 sm:p-6 shadow-2xl relative"
+        aria-label="Máquina tragamonedas de Dando Jugo"
       >
-        {isSpinning ? '¡Girando...!' : '🎯 ¡Tocar para Girar!'}
-      </button>
+        <div className="machine-top flex items-center justify-center gap-3 mb-4" aria-hidden="true">
+          <span className="machine-tag font-mono text-xs font-bold tracking-widest text-[#ff8b22]">
+            DANDO JUGO · 777
+          </span>
+        </div>
+
+        <div className="reels flex justify-center">
+          <div
+            ref={frameRef}
+            className={`reel-frame w-full max-w-sm p-2 bg-[#493426] border border-[#765239] rounded-2xl shadow-inner ${
+              isStopped ? 'stopped' : ''
+            }`}
+          >
+            <div className="reel-window relative h-36 sm:h-44 overflow-hidden rounded-xl bg-[#27211d]">
+              <div ref={stripRef} className="reel-strip h-[200%]">
+                {/* Celda 0 (Visible actualmente) */}
+                <div ref={cell0Ref} className="reel-cell h-1/2 flex flex-col items-center justify-center gap-2 p-2">
+                  <span className="reel-icon text-4xl sm:text-5xl">🧃</span>
+                  <span className="reel-word font-extrabold text-base sm:text-xl text-[#fff1df]">
+                    Dando Jugo
+                  </span>
+                  <span className="reel-badge text-[10px] font-black uppercase tracking-wider px-2.5 py-0.5 rounded-full text-white shadow">
+                    CATEGORÍA
+                  </span>
+                </div>
+
+                {/* Celda 1 (Siguiente que entra desde abajo) */}
+                <div ref={cell1Ref} className="reel-cell h-1/2 flex flex-col items-center justify-center gap-2 p-2">
+                  <span className="reel-icon text-4xl sm:text-5xl"></span>
+                  <span className="reel-word font-extrabold text-base sm:text-xl text-[#fff1df]"></span>
+                  <span className="reel-badge text-[10px] font-black uppercase tracking-wider px-2.5 py-0.5 rounded-full text-white shadow"></span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Mensaje de Resultado de la Máquina */}
+        <p className="machine-result min-h-[36px] mt-3 sm:mt-4 text-center font-extrabold text-base sm:text-xl text-[#fff1df]">
+          {resultText ? (
+            <span>
+              <span className="result-prefix text-[#ff8b22]">¡TOCÓ: </span>
+              {resultText.toUpperCase()}!
+            </span>
+          ) : (
+            <span className="text-stone-500 text-xs sm:text-sm font-semibold">
+              Presiona el botón para tirar del carrete
+            </span>
+          )}
+        </p>
+      </section>
+
+      {/* Botón de Tirar / Girar */}
+      <div className="mt-5 sm:mt-6 flex flex-col items-center gap-3 w-full">
+        <button
+          type="button"
+          onClick={handleSpin}
+          disabled={isSpinning}
+          className="spin-button w-full max-w-xs py-3.5 sm:py-4 px-8 rounded-full font-black text-base sm:text-lg tracking-wider uppercase shadow-xl transition-all duration-200 active:scale-95 cursor-pointer disabled:opacity-75 disabled:cursor-wait"
+          style={{ background: '#ff8b22', color: '#141414' }}
+        >
+          {isSpinning ? (
+            <span className="flex items-center justify-center gap-2">
+              <span className="animate-spin inline-block">🎰</span>
+              <span>GIRANDO…</span>
+            </span>
+          ) : (
+            <span>¡GIRAR!</span>
+          )}
+        </button>
+
+        <p className="text-[11px] sm:text-xs text-[#aa9788] text-center max-w-xs leading-relaxed">
+          Juega con moderación. Siempre puedes elegir una bebida sin alcohol.
+        </p>
+      </div>
     </div>
   );
 }

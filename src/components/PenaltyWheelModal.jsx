@@ -3,47 +3,56 @@ import { soundManager } from '../utils/soundEffects';
 import { deckManager, GAME_MODES } from '../utils/deckManager';
 import confetti from 'canvas-confetti';
 
-// Paleta Opción 3 (Casino & Speakeasy) adaptada por dificultad
 export const PENALTY_CONFIGS = {
   vasito: [
-    { id: 'nada', label: 'NADA (80%)', prob: 80, angle: 288, color: '#059669', textColor: '#ffffff' },
-    { id: '1_sorbo', label: '1 SORBO (10%)', prob: 10, angle: 36, color: '#1d4ed8', textColor: '#ffffff' },
-    { id: 'reto', label: 'RETO (10%)', prob: 10, angle: 36, color: '#9333ea', textColor: '#ffffff' },
+    { id: 'nada', label: 'NADA (80%)', prob: 80, word: '¡Te Salvaste! (Nada)', icon: '🍀', color: '#059669' },
+    { id: '1_sorbo', label: '1 SORBO (10%)', prob: 10, word: 'Toma 1 Sorbo', icon: '🍺', color: '#1d4ed8' },
+    { id: 'reto', label: 'RETO (10%)', prob: 10, word: '¡Te Toca Reto!', icon: '🎭', color: '#9333ea' },
   ],
   caja: [
-    { id: 'nada', label: 'NADA (50%)', prob: 50, angle: 180, color: '#059669', textColor: '#ffffff' },
-    { id: 'reto', label: 'RETO (25%)', prob: 25, angle: 90, color: '#9333ea', textColor: '#ffffff' },
-    { id: '2_sorbos', label: '2 SORBOS (10%)', prob: 10, angle: 36, color: '#1d4ed8', textColor: '#ffffff' },
-    { id: '5_sorbos', label: '5 SORBOS (10%)', prob: 10, angle: 36, color: '#d97706', textColor: '#ffffff' },
-    { id: 'al_seco', label: 'AL SECO (5%)', prob: 5, angle: 18, color: '#b91c1c', textColor: '#ffffff' },
+    { id: 'nada', label: 'NADA (50%)', prob: 50, word: '¡Te Salvaste! (Nada)', icon: '🍀', color: '#059669' },
+    { id: 'reto', label: 'RETO (25%)', prob: 25, word: '¡Te Toca Reto!', icon: '🎭', color: '#9333ea' },
+    { id: '2_sorbos', label: '2 SORBOS (10%)', prob: 10, word: 'Toma 2 Sorbos', icon: '🍺', color: '#1d4ed8' },
+    { id: '5_sorbos', label: '5 SORBOS (10%)', prob: 10, word: 'Toma 5 Sorbos', icon: '🍻', color: '#d97706' },
+    { id: 'al_seco', label: 'AL SECO (5%)', prob: 5, word: '¡Vaso al Seco!', icon: '💀', color: '#b91c1c' },
   ],
   chimbombo: [
-    { id: 'nada', label: 'NADA (30%)', prob: 30, angle: 108, color: '#059669', textColor: '#ffffff' },
-    { id: '5_sorbos', label: '5 SORBOS (30%)', prob: 30, angle: 108, color: '#d97706', textColor: '#ffffff' },
-    { id: 'reto', label: 'RETO (10%)', prob: 10, angle: 36, color: '#9333ea', textColor: '#ffffff' },
-    { id: '10_sorbos', label: '10 SORBOS (10%)', prob: 10, angle: 36, color: '#1d4ed8', textColor: '#ffffff' },
-    { id: 'al_seco', label: 'AL SECO (20%)', prob: 20, angle: 72, color: '#b91c1c', textColor: '#ffffff' },
+    { id: 'nada', label: 'NADA (30%)', prob: 30, word: '¡Te Salvaste! (Nada)', icon: '🍀', color: '#059669' },
+    { id: '5_sorbos', label: '5 SORBOS (30%)', prob: 30, word: 'Toma 5 Sorbos', icon: '🍻', color: '#d97706' },
+    { id: 'reto', label: 'RETO (10%)', prob: 10, word: '¡Te Toca Reto!', icon: '🎭', color: '#9333ea' },
+    { id: '10_sorbos', label: '10 SORBOS (10%)', prob: 10, word: 'Toma 10 Sorbos', icon: '🔥', color: '#1d4ed8' },
+    { id: 'al_seco', label: 'AL SECO (20%)', prob: 20, word: '¡Vaso al Seco!', icon: '💀', color: '#b91c1c' },
   ],
   camion: [
-    { id: 'al_seco', label: 'AL SECO (50%)', prob: 50, angle: 180, color: '#b91c1c', textColor: '#ffffff' },
-    { id: '5_sorbos', label: '5 SORBOS (20%)', prob: 20, angle: 72, color: '#d97706', textColor: '#ffffff' },
-    { id: '10_sorbos', label: '10 SORBOS (10%)', prob: 10, angle: 36, color: '#1d4ed8', textColor: '#ffffff' },
-    { id: 'reto', label: 'RETO (10%)', prob: 10, angle: 36, color: '#9333ea', textColor: '#ffffff' },
-    { id: 'nada', label: 'NADA (10%)', prob: 10, angle: 36, color: '#059669', textColor: '#ffffff' },
+    { id: 'al_seco', label: 'AL SECO (50%)', prob: 50, word: '¡Vaso al Seco!', icon: '💀', color: '#b91c1c' },
+    { id: '5_sorbos', label: '5 SORBOS (20%)', prob: 20, word: 'Toma 5 Sorbos', icon: '🍻', color: '#d97706' },
+    { id: '10_sorbos', label: '10 SORBOS (10%)', prob: 10, word: 'Toma 10 Sorbos', icon: '🔥', color: '#1d4ed8' },
+    { id: 'reto', label: 'RETO (10%)', prob: 10, word: '¡Te Toca Reto!', icon: '🎭', color: '#9333ea' },
+    { id: 'nada', label: 'NADA (10%)', prob: 10, word: '¡Te Salvaste! (Nada)', icon: '🍀', color: '#059669' },
   ],
 };
 
 export default function PenaltyWheelModal({ isOpen, onClose, currentMode }) {
-  const canvasRef = useRef(null);
+  const frameRef = useRef(null);
+  const stripRef = useRef(null);
+  const cell0Ref = useRef(null);
+  const cell1Ref = useRef(null);
+
   const [isSpinning, setIsSpinning] = useState(false);
-  const [currentRotation, setCurrentRotation] = useState(0);
   const [result, setResult] = useState(null);
   const [retoDetalle, setRetoDetalle] = useState(null);
+  const [isStopped, setIsStopped] = useState(false);
 
   const activeModeObj = GAME_MODES.find((m) => m.id === currentMode) || GAME_MODES[1];
+  const slices = PENALTY_CONFIGS[currentMode] || PENALTY_CONFIGS.caja;
 
   useEffect(() => {
-    if (!isOpen) return;
+    if (!isOpen) {
+      setResult(null);
+      setRetoDetalle(null);
+      setIsStopped(false);
+      return;
+    }
     const handleKeyDown = (e) => {
       if (e.key === 'Escape' && !isSpinning) onClose();
     };
@@ -51,156 +60,125 @@ export default function PenaltyWheelModal({ isOpen, onClose, currentMode }) {
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [isOpen, isSpinning, onClose]);
 
-  const slices = PENALTY_CONFIGS[currentMode] || PENALTY_CONFIGS.caja;
-
   useEffect(() => {
-    if (!isOpen) {
-      setResult(null);
-      setRetoDetalle(null);
+    if (isOpen && cell0Ref.current && slices.length > 0) {
+      paintCell(cell0Ref.current, slices[0]);
+    }
+  }, [isOpen, slices]);
+
+  const paintCell = (cell, item) => {
+    if (!cell || !item) return;
+    const iconEl = cell.querySelector('.reel-icon');
+    const wordEl = cell.querySelector('.reel-word');
+    const badgeEl = cell.querySelector('.reel-badge');
+    if (iconEl) iconEl.textContent = item.icon;
+    if (wordEl) wordEl.textContent = item.word;
+    if (badgeEl) {
+      badgeEl.textContent = item.label;
+      badgeEl.style.backgroundColor = item.color;
+    }
+  };
+
+  const wait = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+
+  const spinPenalty = async () => {
+    if (isSpinning) return;
+    setIsSpinning(true);
+    setIsStopped(false);
+    setResult(null);
+    setRetoDetalle(null);
+    soundManager.init();
+
+    const frame = frameRef.current;
+    const strip = stripRef.current;
+    const cell0 = cell0Ref.current;
+    const cell1 = cell1Ref.current;
+
+    if (!frame || !strip || !cell0 || !cell1) {
+      setIsSpinning(false);
       return;
     }
 
-    const canvas = canvasRef.current;
-    if (!canvas) return;
-    const ctx = canvas.getContext('2d');
-    
-    // Soporte para pantallas Retina / HiDPI
-    const logicalSize = 280;
-    const dpr = Math.max(window.devicePixelRatio || 1, 2);
-    
-    canvas.width = logicalSize * dpr;
-    canvas.height = logicalSize * dpr;
-    
-    ctx.scale(dpr, dpr);
+    frame.classList.remove('stopped');
 
-    const center = logicalSize / 2;
-    const radius = center - 10;
+    // Selección ponderada de castigo según probabilidades del modo
+    const rand = Math.random() * 100;
+    let accumulated = 0;
+    let targetSlice = slices[0];
+    let targetIndex = 0;
 
-    ctx.clearRect(0, 0, logicalSize, logicalSize);
+    for (let i = 0; i < slices.length; i++) {
+      accumulated += slices[i].prob;
+      if (rand <= accumulated) {
+        targetSlice = slices[i];
+        targetIndex = i;
+        break;
+      }
+    }
 
-    // Borde exterior en tono bronce y burdeos
-    ctx.beginPath();
-    ctx.arc(center, center, radius + 6, 0, 2 * Math.PI);
-    ctx.fillStyle = '#0d0a0c';
-    ctx.fill();
-    ctx.lineWidth = 4;
-    ctx.strokeStyle = '#b91c1c';
-    ctx.stroke();
+    const totalSteps = 16;
+    let currentPos = 0;
 
-    let currentAngle = 0;
-    slices.forEach((slice) => {
-      const sliceRad = (slice.angle * Math.PI) / 180;
-      const startAngle = currentAngle;
-      const endAngle = currentAngle + sliceRad;
+    for (let step = 0; step < totalSteps; step++) {
+      const isLast = step === totalSteps - 1;
+      const nextIndex = isLast ? targetIndex : (currentPos + 1 + Math.floor(Math.random() * 2)) % slices.length;
+      const nextSlice = slices[nextIndex];
 
-      ctx.beginPath();
-      ctx.moveTo(center, center);
-      ctx.arc(center, center, radius, startAngle, endAngle);
-      ctx.closePath();
-      ctx.fillStyle = slice.color;
-      ctx.fill();
+      paintCell(cell1, nextSlice);
 
-      ctx.lineWidth = 2;
-      ctx.strokeStyle = '#0d0a0c';
-      ctx.stroke();
+      soundManager.playTick(500 + Math.random() * 120);
 
-      ctx.save();
-      ctx.translate(center, center);
-      ctx.rotate(startAngle + sliceRad / 2);
-      ctx.textAlign = 'right';
-      ctx.textBaseline = 'middle';
-      ctx.fillStyle = slice.textColor;
-      ctx.font = slice.prob >= 25 ? '800 13px Outfit, sans-serif' : '800 10px Outfit, sans-serif';
-      ctx.fillText(slice.label, radius - 14, 0);
-      ctx.restore();
+      strip.style.transition = 'transform 85ms linear';
+      strip.style.transform = 'translateY(-50%)';
 
-      currentAngle = endAngle;
-    });
+      await wait(90);
 
-    // Círculo central con dorado
-    ctx.beginPath();
-    ctx.arc(center, center, 24, 0, 2 * Math.PI);
-    ctx.fillStyle = '#0d0a0c';
-    ctx.fill();
-    ctx.lineWidth = 3;
-    ctx.strokeStyle = '#d4af37';
-    ctx.stroke();
+      paintCell(cell0, nextSlice);
+      strip.style.transition = 'none';
+      strip.style.transform = 'translateY(0)';
+      currentPos = nextIndex;
 
-    ctx.fillStyle = '#fef08a';
-    ctx.font = '900 9px Outfit, sans-serif';
-    ctx.textAlign = 'center';
-    ctx.textBaseline = 'middle';
-    ctx.fillText('CASTIGO', center, center);
-  }, [isOpen, currentMode]);
+      void strip.offsetHeight;
+
+      const extraDelay = Math.floor((step / totalSteps) * 20);
+      await wait(12 + extraDelay);
+    }
+
+    setIsStopped(true);
+    frame.classList.add('stopped');
+    setResult(targetSlice);
+
+    if (targetSlice.id === 'nada') {
+      soundManager.playFanfare();
+      confetti({
+        particleCount: 75,
+        spread: 60,
+        origin: { y: 0.6 },
+      });
+    } else if (targetSlice.id === 'al_seco') {
+      soundManager.playGlassBreak();
+    } else {
+      soundManager.playPenaltyTick();
+    }
+
+    if (targetSlice.id === 'reto') {
+      const reto = deckManager.getRandomReto();
+      setRetoDetalle(reto);
+    }
+
+    setIsSpinning(false);
+  };
 
   if (!isOpen) return null;
 
-  const spinPenalty = () => {
-    if (isSpinning || result) return;
-    setIsSpinning(true);
-    soundManager.init();
-
-    let delay = 60;
-    let accumulatedTime = 0;
-    const scheduleTick = () => {
-      if (accumulatedTime < 3300) {
-        setTimeout(() => {
-          soundManager.playTick(500 + Math.random() * 120);
-        }, accumulatedTime);
-        delay = delay * 1.1;
-        accumulatedTime += delay;
-        scheduleTick();
-      }
-    };
-    scheduleTick();
-
-    const rand = Math.random() * 100;
-    let selectedSlice = slices[0];
-    let cumulative = 0;
-    let sliceStartAngle = 0;
-
-    for (const slice of slices) {
-      if (rand >= cumulative && rand < cumulative + slice.prob) {
-        selectedSlice = slice;
-        break;
-      }
-      cumulative += slice.prob;
-      sliceStartAngle += slice.angle;
-    }
-
-    const sliceCenterAngle = sliceStartAngle + selectedSlice.angle / 2;
-    const arrowOffset = 270;
-    const targetSliceRotation = (arrowOffset + (360 - sliceCenterAngle)) % 360;
-
-    const extraSpins = 360 * 5;
-    const newRotation = currentRotation + extraSpins + (targetSliceRotation - (currentRotation % 360) + 360) % 360;
-
-    setCurrentRotation(newRotation);
-
-    setTimeout(() => {
-      setIsSpinning(false);
-      setResult(selectedSlice);
-
-      if (selectedSlice.id === 'nada') {
-        soundManager.playSuccess();
-        confetti({ particleCount: 50, spread: 70, origin: { y: 0.7 } });
-      } else if (selectedSlice.id === 'reto') {
-        soundManager.playFanfare();
-        const reto = deckManager.getRandomReto(currentMode);
-        setRetoDetalle(reto);
-      } else {
-        soundManager.playFanfare();
-      }
-    }, 3500);
-  };
-
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/85 backdrop-blur-md animate-in fade-in duration-200">
-      <div className="w-full max-w-sm bg-[#161214] border-2 border-red-800/80 rounded-3xl p-6 shadow-2xl flex flex-col items-center text-center">
-        <div className="flex items-center gap-1.5 mb-1">
-          <span className="text-xl">🎲</span>
-          <h3 className="text-xl font-black text-amber-400 uppercase tracking-wider">
-            Ruleta del Jugoso
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-black/85 backdrop-blur-sm animate-in fade-in duration-200">
+      <div className="relative w-full max-w-sm sm:max-w-md bg-[#161214] border-2 border-red-900/60 rounded-3xl p-4 sm:p-6 shadow-2xl flex flex-col items-center text-center max-h-[92vh] overflow-y-auto custom-scrollbar">
+        {/* Header de la Máquina de Castigos */}
+        <div className="flex items-center gap-2 mb-1">
+          <span className="text-2xl">🎰</span>
+          <h3 className="text-xl sm:text-2xl font-black text-[#ff8b22] uppercase tracking-wider">
+            Máquina de Castigos
           </h3>
         </div>
 
@@ -208,32 +186,61 @@ export default function PenaltyWheelModal({ isOpen, onClose, currentMode }) {
           Modo: {activeModeObj.name}
         </span>
 
-        <p className="text-xs text-stone-300 mb-3">
-          ¿No quieres responder o hacer la tarjeta? ¡La ruleta decide tu suerte!
+        <p className="text-xs sm:text-sm text-stone-300 mb-3 max-w-xs">
+          ¿No quieres responder o cumplir la tarjeta? ¡El carrete decide tu penitencia!
         </p>
 
-        <div className="relative z-20 -mb-4 flex flex-col items-center">
-          <div className="w-0 h-0 border-l-[12px] border-l-transparent border-r-[12px] border-r-transparent border-t-[20px] border-t-red-600 drop-shadow animate-pulse" />
-        </div>
+        {/* Panel Tragamonedas de Castigo */}
+        <section
+          className="game-panel w-full bg-[#1d1a18] border border-[#514031] rounded-2xl p-3 sm:p-4 shadow-xl relative my-1"
+          aria-label="Máquina de Castigos"
+        >
+          <div className="machine-top flex items-center justify-center gap-2 mb-3" aria-hidden="true">
+            <span className="machine-tag font-mono text-[10px] sm:text-xs font-bold tracking-widest text-[#ff8b22]">
+              CASTIGOS · 777
+            </span>
+          </div>
 
-        <div className="relative p-2 rounded-full bg-[#0d0a0c] border-4 border-[#2d2228] shadow-lg">
-          <canvas
-            ref={canvasRef}
-            style={{
-              transform: `rotate(${currentRotation}deg)`,
-              transition: isSpinning ? 'transform 3.5s cubic-bezier(0.12, 0.8, 0.15, 1)' : 'none',
-            }}
-            className="rounded-full w-[min(260px,65vw)] h-[min(260px,65vw)] aspect-square block"
-          />
-        </div>
+          <div className="reels flex justify-center">
+            <div
+              ref={frameRef}
+              className={`reel-frame w-full max-w-xs p-1.5 bg-[#493426] border border-[#765239] rounded-xl shadow-inner ${
+                isStopped ? 'stopped' : ''
+              }`}
+            >
+              <div className="reel-window relative h-28 sm:h-36 overflow-hidden rounded-lg bg-[#27211d]">
+                <div ref={stripRef} className="reel-strip h-[200%]">
+                  {/* Celda 0 */}
+                  <div ref={cell0Ref} className="reel-cell h-1/2 flex flex-col items-center justify-center gap-1.5 p-1">
+                    <span className="reel-icon text-3xl sm:text-4xl">🎲</span>
+                    <span className="reel-word font-extrabold text-sm sm:text-base text-[#fff1df]">
+                      ¿Qué te tocará?
+                    </span>
+                    <span className="reel-badge text-[9px] font-black uppercase px-2 py-0.5 rounded-full text-white shadow">
+                      CASTIGO
+                    </span>
+                  </div>
 
+                  {/* Celda 1 */}
+                  <div ref={cell1Ref} className="reel-cell h-1/2 flex flex-col items-center justify-center gap-1.5 p-1">
+                    <span className="reel-icon text-3xl sm:text-4xl"></span>
+                    <span className="reel-word font-extrabold text-sm sm:text-base text-[#fff1df]"></span>
+                    <span className="reel-badge text-[9px] font-black uppercase px-2 py-0.5 rounded-full text-white shadow"></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Detalle del Resultado */}
         {result && (
-          <div className="mt-5 w-full p-4 rounded-2xl bg-[#211a1e] border border-stone-700 animate-in zoom-in-95 duration-200">
+          <div className="mt-3 w-full p-3 sm:p-4 rounded-2xl bg-[#211a1e] border border-stone-700 animate-in zoom-in-95 duration-200">
             {result.id === 'nada' && (
               <div>
                 <span className="text-3xl">🎉</span>
-                <h4 className="text-xl font-black text-emerald-400 mt-1">¡TE SALVASTE!</h4>
-                <p className="text-sm text-stone-300 mt-1">
+                <h4 className="text-lg sm:text-xl font-black text-emerald-400 mt-1">¡TE SALVASTE!</h4>
+                <p className="text-xs sm:text-sm text-stone-300 mt-1">
                   La suerte estuvo de tu lado. No tomas nada y pasa el turno.
                 </p>
               </div>
@@ -242,8 +249,8 @@ export default function PenaltyWheelModal({ isOpen, onClose, currentMode }) {
             {result.id === '1_sorbo' && (
               <div>
                 <span className="text-3xl">🍺</span>
-                <h4 className="text-xl font-black text-blue-400 mt-1">1 SORBO</h4>
-                <p className="text-sm text-stone-300 mt-1">
+                <h4 className="text-lg sm:text-xl font-black text-blue-400 mt-1">1 SORBO</h4>
+                <p className="text-xs sm:text-sm text-stone-300 mt-1">
                   Toma 1 sorbo piola y pasa el teléfono.
                 </p>
               </div>
@@ -252,8 +259,8 @@ export default function PenaltyWheelModal({ isOpen, onClose, currentMode }) {
             {result.id === '2_sorbos' && (
               <div>
                 <span className="text-3xl">🍺</span>
-                <h4 className="text-xl font-black text-blue-400 mt-1">2 SORBOS</h4>
-                <p className="text-sm text-stone-300 mt-1">
+                <h4 className="text-lg sm:text-xl font-black text-blue-400 mt-1">2 SORBOS</h4>
+                <p className="text-xs sm:text-sm text-stone-300 mt-1">
                   Toma 2 sorbos y pasa el teléfono al siguiente jugador.
                 </p>
               </div>
@@ -262,8 +269,8 @@ export default function PenaltyWheelModal({ isOpen, onClose, currentMode }) {
             {result.id === '5_sorbos' && (
               <div>
                 <span className="text-3xl">🍻</span>
-                <h4 className="text-xl font-black text-amber-400 mt-1">5 SORBOS</h4>
-                <p className="text-sm text-stone-300 mt-1">
+                <h4 className="text-lg sm:text-xl font-black text-amber-400 mt-1">5 SORBOS</h4>
+                <p className="text-xs sm:text-sm text-stone-300 mt-1">
                   ¡Te tocó trago pesado! Bebe 5 sorbos bien servidos.
                 </p>
               </div>
@@ -272,8 +279,8 @@ export default function PenaltyWheelModal({ isOpen, onClose, currentMode }) {
             {result.id === '10_sorbos' && (
               <div>
                 <span className="text-3xl">🔥</span>
-                <h4 className="text-xl font-black text-amber-500 mt-1">10 SORBOS</h4>
-                <p className="text-sm text-amber-200 mt-1 font-semibold">
+                <h4 className="text-lg sm:text-xl font-black text-amber-500 mt-1">10 SORBOS</h4>
+                <p className="text-xs sm:text-sm text-amber-200 mt-1 font-semibold">
                   ¡Castigo de carrete bravo! Bebe 10 sorbos sin quejarse.
                 </p>
               </div>
@@ -282,11 +289,11 @@ export default function PenaltyWheelModal({ isOpen, onClose, currentMode }) {
             {result.id === 'reto' && (
               <div>
                 <span className="text-3xl">🎭</span>
-                <h4 className="text-xl font-black text-purple-400 mt-1">¡TE TOCA RETO!</h4>
+                <h4 className="text-lg sm:text-xl font-black text-purple-400 mt-1">¡TE TOCA RETO!</h4>
                 {retoDetalle && (
                   <div className="mt-2 text-left bg-[#140f12] p-3 rounded-xl border border-purple-500/40">
                     <p className="text-xs font-bold text-purple-300 mb-1">{retoDetalle.titulo}</p>
-                    <p className="text-sm text-stone-200">{retoDetalle.descripcion}</p>
+                    <p className="text-xs sm:text-sm text-stone-200">{retoDetalle.descripcion}</p>
                   </div>
                 )}
               </div>
@@ -295,32 +302,30 @@ export default function PenaltyWheelModal({ isOpen, onClose, currentMode }) {
             {result.id === 'al_seco' && (
               <div className="border border-red-700/60 p-2.5 rounded-xl bg-red-950/40">
                 <span className="text-3xl">💀</span>
-                <h4 className="text-2xl font-black text-red-500 mt-1 animate-pulse">¡VASO AL SECO!</h4>
-                <p className="text-sm text-red-200 mt-1 font-semibold">
-                  ¡Mala suerte! ¡El vaso se va de un solo fondo!
+                <h4 className="text-xl sm:text-2xl font-black text-red-500 mt-1 animate-pulse">¡VASO AL SECO!</h4>
+                <p className="text-xs sm:text-sm text-red-200 mt-1 font-semibold">
+                  ¡Mala suerte! ¡El vaso se va de un solo fondo ("fondo blanco")!
                 </p>
               </div>
             )}
           </div>
         )}
 
-        <div className="mt-5 w-full flex flex-col gap-2">
+        {/* Acciones de la Máquina */}
+        <div className="mt-4 w-full flex flex-col gap-2">
           {!result ? (
             <button
               onClick={spinPenalty}
               disabled={isSpinning}
-              className={`w-full py-3.5 px-6 rounded-2xl font-black text-base uppercase tracking-wider transition-all shadow-lg active:scale-95 ${
-                isSpinning
-                  ? 'bg-stone-800 text-stone-500 cursor-not-allowed'
-                  : 'bg-gradient-to-r from-red-700 via-rose-700 to-red-800 hover:brightness-110 text-white shadow-red-900/40 border border-red-500/30'
-              }`}
+              className="spin-button w-full py-3 sm:py-3.5 px-6 rounded-full font-black text-sm sm:text-base uppercase tracking-wider transition-all shadow-lg active:scale-95 disabled:opacity-75 disabled:cursor-wait"
+              style={{ background: '#ff8b22', color: '#141414' }}
             >
-              {isSpinning ? '¡Girando el Castigo...!' : '🎯 ¡Girar Ruleta de Castigo!'}
+              {isSpinning ? 'GIRANDO EL CARRETE…' : '¡GIRAR CASTIGO!'}
             </button>
           ) : (
             <button
               onClick={onClose}
-              className="w-full py-3.5 px-6 bg-gradient-to-r from-emerald-600 to-emerald-500 hover:brightness-110 active:scale-98 text-stone-950 rounded-2xl font-black text-base uppercase tracking-wider shadow-lg transition-all"
+              className="w-full py-3.5 px-6 bg-gradient-to-r from-emerald-600 to-emerald-500 hover:brightness-110 active:scale-98 text-stone-950 rounded-2xl font-black text-sm sm:text-base uppercase tracking-wider shadow-lg transition-all cursor-pointer"
             >
               ✅ Turno Terminado (Continuar)
             </button>
